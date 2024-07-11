@@ -14,8 +14,8 @@
     },
     {
       "__resolveType": "site/sections/Content/Text.tsx",
-      "title": "Welcome to Carol Bassi",
-      "text": "<p>A Carol Bassi foi fundada em 2014 por Anna Carolina Bassi, empresária que cresceu ao redor da moda: seus pais foram os proprietários de uma marca de roupas que marcou os anos 90. A estilista então decidiu criar sua própria label, que une seu DNA, seu espírito, sua alegria de viver e seu estilo pessoal.</p>"
+      "title": "Welcome to Aleatory",
+      "text": "<p>A Aleatory foi fundada em 2014 por Anna Carolina Bassi, empresária que cresceu ao redor da moda: seus pais foram os proprietários de uma marca de roupas que marcou os anos 90. A estilista então decidiu criar sua própria label, que une seu DNA, seu espírito, sua alegria de viver e seu estilo pessoal.</p>"
     },
     {
       "__resolveType": "site/sections/Content/ImageSection.tsx",

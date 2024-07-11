@@ -2,7 +2,7 @@
   "seo": {
     "type": "website",
     "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/384f3dd3-f885-4cc4-b9f6-5354f3237ef5",
-    "title": "Carol Bassi - Moda feminina com Estilo atemporal",
+    "title": "Aleatory - Moda feminina com Estilo atemporal",
     "jsonLDs": [],
     "noIndexing": false,
     "description": "Estilo e influência de Anna Carolina Bassi com todo o seu lifestyle, com foco em peças atemporais e versáteis que a cada estação conquistam o closet de mulheres modernas e antenadas que não abrem mão da sofisticação e da feminilidade.",
@@ -11,7 +11,7 @@
     "descriptionTemplate": "%s"
   },
   "theme": {
-    "__resolveType": "Carol Bassi"
+    "__resolveType": "Aleatory"
   },
   "global": [
     {
