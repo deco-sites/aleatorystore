@@ -1,17 +1,18 @@
 {
   "seo": {
     "type": "website",
-    "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/384f3dd3-f885-4cc4-b9f6-5354f3237ef5",
+    "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/651914e6-eb68-4784-ad04-0e139b3ad55b",
     "title": "Aleatory - Moda feminina com Estilo atemporal",
     "jsonLDs": [],
     "noIndexing": false,
-    "description": "Estilo e influência de Anna Carolina Bassi com todo o seu lifestyle, com foco em peças atemporais e versáteis que a cada estação conquistam o closet de mulheres modernas e antenadas que não abrem mão da sofisticação e da feminilidade.",
-    "favicon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/36343c99-55a9-4e18-8476-ee8754abeac9",
+    "description": "Camisa Polo Aleatory a Partir de R$125! Vários Modelos e Cores. Apenas por Este Anúncio.",
+    "favicon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/08944425-d54a-4a1d-9564-1eb67c2324ad",
     "titleTemplate": "%s",
-    "descriptionTemplate": "%s"
+    "descriptionTemplate": "%s",
+    "themeColor": "white"
   },
   "theme": {
-    "__resolveType": "Aleatory"
+    "__resolveType": "Carol Bassi"
   },
   "global": [
     {
