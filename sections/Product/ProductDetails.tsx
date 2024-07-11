@@ -1,52 +1,102 @@
+import { HTMLWidget as HTML } from "apps/admin/widgets.ts";
 import { ProductDetailsPage } from "apps/commerce/types.ts";
-import ImageGallerySlider from "../../components/product/Gallery.tsx";
+import { SectionProps } from "deco/types.ts";
+import { AppContext } from "../../apps/site.ts";
 import ProductInfo from "../../components/product/ProductInfo.tsx";
+import { MediaOptionProps } from "../../components/share/ShareProduct.tsx";
 import Breadcrumb from "../../components/ui/Breadcrumb.tsx";
-import { clx } from "../../sdk/clx.ts";
+import ProductGridImages from "../../islands/ProductImages.tsx";
+import NotFound from "../../sections/Product/NotFound.tsx";
+
+export type ProductPolicy = {
+  title: string;
+  description: HTML;
+};
 
 export interface Props {
   /** @title Integration */
   page: ProductDetailsPage | null;
+  productExchangesReturnsPolicy?: ProductPolicy;
+  shareSocialOptions?: MediaOptionProps[];
 }
 
-export default function ProductDetails({ page }: Props) {
-  /**
-   * Rendered when a not found is returned by any of the loaders run on this page
-   */
-  if (!page) {
-    return (
-      <div class="w-full flex justify-center items-center py-28">
-        <div class="flex flex-col items-center justify-center gap-6">
-          <span class="font-medium text-2xl">Page not found</span>
-          <a href="/" class="btn no-animation">
-            Go back to Home
-          </a>
-        </div>
-      </div>
-    );
+export default function ProductDetails(
+  {
+    page,
+    productExchangesReturnsPolicy,
+    device,
+    shareSocialOptions,
+    productRecommendations,
+    buttonsUrl,
+    recommendedSize,
+    showButtons,
+  }: SectionProps<typeof loader>,
+) {
+  if (!page?.seo) {
+    return <NotFound />;
   }
 
-  return (
-    <div class="container flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-5 px-5 sm:px-0">
-      <Breadcrumb itemListElement={page.breadcrumbList.itemListElement} />
+  const { breadcrumbList } = page;
+  const breadcrumb = {
+    ...breadcrumbList,
+    itemListElement: breadcrumbList?.itemListElement.slice(0, -1),
+    numberOfItems: breadcrumbList.numberOfItems - 1,
+  };
 
-      <div
-        class={clx(
-          "container grid",
-          "grid-cols-1 gap-2 py-0",
-          "sm:grid-cols-5 sm:gap-6",
-        )}
-      >
-        <div class="sm:col-span-3">
-          <ImageGallerySlider page={page} />
+  // "to have sticky ProductInfo component put this class -> sticky top-32"
+
+  const hasNotNewImages = page?.product?.image?.some((image) =>
+    image.name?.toLocaleLowerCase() !== "novas"
+  );
+
+  return (
+    <div class="w-full flex flex-col gap-6 lg:py-10 lg:pl-8 2xl:pl-20">
+      <Breadcrumb itemListElement={breadcrumb.itemListElement} />
+
+      <div className="flex flex-col gap-6 lg:flex-row">
+        <div className="w-full lg:w-auto">
+          <ProductGridImages page={page} />
         </div>
-        <div class="sm:col-span-2">
-          <ProductInfo page={page} />
+        <div
+          className={`w-full ${
+            hasNotNewImages ? "lg:w-full 2xl:w-4/6 " : "lg:w-2/4 2xl:w-2/6"
+          }`}
+        >
+          <ProductInfo
+            page={page}
+            productExchangesReturnsPolicy={productExchangesReturnsPolicy}
+            device={device}
+            socialOptions={shareSocialOptions}
+            showButtons={showButtons}
+            buttonsUrl={buttonsUrl}
+            recommendedSize={recommendedSize}
+          />
         </div>
       </div>
     </div>
   );
 }
+
+export const loader = async (props: Props, _req: Request, ctx: AppContext) => {
+  const productId = props.page?.product.inProductGroupWithID;
+
+  const data = await ctx.invoke.site.loaders
+    .productRecommendations({
+      productId,
+    });
+
+  const { buttonsUrl, recommendedSize, showButtons } = await ctx.invoke.site
+    .loaders.sizebay({ page: props.page });
+
+  return {
+    ...props,
+    device: ctx.device,
+    showButtons,
+    buttonsUrl,
+    recommendedSize,
+    productRecommendations: data?.productRecommendations ?? [],
+  };
+};
 
 export function LoadingFallback() {
   return (

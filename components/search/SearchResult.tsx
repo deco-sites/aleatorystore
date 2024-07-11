@@ -1,26 +1,35 @@
 import type { ProductListingPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import { useScript } from "deco/hooks/useScript.ts";
-import { useSection } from "deco/hooks/useSection.ts";
-import { SectionProps } from "deco/mod.ts";
-import ProductCard from "../../components/product/ProductCard.tsx";
+import { Device } from "apps/website/matchers/device.ts";
+import { AppContext } from "../../apps/site.ts";
+import { SendEventOnView } from "../../components/Analytics.tsx";
 import Filters from "../../components/search/Filters.tsx";
 import Icon from "../../components/ui/Icon.tsx";
-import { clx } from "../../sdk/clx.ts";
+import SearchControls from "../../islands/SearchControls.tsx";
 import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
-import { useSendEvent } from "../../sdk/useSendEvent.ts";
-import Breadcrumb from "../ui/Breadcrumb.tsx";
-import Drawer from "../ui/Drawer.tsx";
-import Sort from "./Sort.tsx";
-import { useDevice } from "deco/hooks/useDevice.ts";
+import NotFound from "../../sections/Product/NotFound.tsx";
+import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
+import ProductGalleryWithBanner, {
+  CategoryBannersMediaSource,
+} from "../product/ProductGalleryWithBanner.tsx";
+import SearchTitle from "./SearchTitle.tsx";
+
+export type Format = "Show More" | "Pagination";
 
 export interface Layout {
   /**
-   * @title Pagination
+   * @description Use drawer for mobile like behavior on desktop. Aside for rendering the filters alongside the products
+   */
+  variant?: "aside" | "drawer";
+  /**
+   * @description Number of products per line on grid
+   */
+  columns?: Columns;
+  /**
    * @description Format of the pagination
    */
-  pagination?: "show-more" | "pagination";
+  format?: Format;
 }
 
 export interface Props {
@@ -30,317 +39,185 @@ export interface Props {
 
   /** @description 0 for ?page=0 as your first page */
   startingPage?: 0 | 1;
-
-  /** @hidden */
-  partial?: "hideMore" | "hideLess";
+  categoryBannersMediaSources?: CategoryBannersMediaSource[];
+  titlePage?: string;
 }
 
-function NotFound() {
-  return (
-    <div class="w-full flex justify-center items-center py-10">
-      <span>Not Found!</span>
-    </div>
-  );
-}
-
-const useUrlRebased = (overrides: string | undefined, base: string) => {
-  let url: string | undefined = undefined;
-
-  if (overrides) {
-    const temp = new URL(overrides, base);
-    const final = new URL(base);
-
-    final.pathname = temp.pathname;
-    for (const [key, value] of temp.searchParams.entries()) {
-      final.searchParams.set(key, value);
-    }
-
-    url = final.href;
-  }
-
-  return url;
-};
-
-function PageResult(props: SectionProps<typeof loader>) {
-  const { layout, startingPage = 0, url, partial } = props;
-  const page = props.page!;
-  const { products, pageInfo } = page;
+function Result({
+  page,
+  layout,
+  startingPage = 0,
+  url: _url,
+  categoryBanners,
+  device,
+}: Omit<Props, "page"> & {
+  page: ProductListingPage;
+  url: string;
+  device: Device;
+  categoryBanners?: CategoryBannersMediaSource;
+  titlePage?: string;
+}) {
+  const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
   const perPage = pageInfo?.recordPerPage || products.length;
+  const url = new URL(_url);
+
+  const { format = "Show More" } = layout ?? {};
+
+  const id = useId();
+
+  const currentBreadCrumb = breadcrumb.itemListElement.at(-1)?.name ?? "";
   const zeroIndexedOffsetPage = pageInfo.currentPage - startingPage;
   const offset = zeroIndexedOffsetPage * perPage;
 
-  const nextPageUrl = useUrlRebased(pageInfo.nextPage, url);
-  const prevPageUrl = useUrlRebased(pageInfo.previousPage, url);
-  const partialPrev = useSection({
-    href: prevPageUrl,
-    props: { partial: "hideMore" },
-  });
-  const partialNext = useSection({
-    href: nextPageUrl,
-    props: { partial: "hideLess" },
-  });
+  const isCollectionPage = pageInfo?.pageTypes?.some((
+    type,
+  ) => (type === "Collection" || type === "Search"));
 
-  const infinite = layout?.pagination !== "pagination";
+  const isPartial = url.searchParams.get("partial") === "true";
+  const isFirstPage = !pageInfo.previousPage;
+  const isSearchPage = url.search.includes("?q");
+
+  const pageName = url.pathname.split("/")[1] ?? "";
 
   return (
-    <div class="grid grid-flow-row grid-cols-1 place-items-center">
+    <>
       <div
-        class={clx(
-          "pb-2 sm:pb-10",
-          (!prevPageUrl || partial === "hideLess") && "hidden",
-        )}
+        class={`max-w-[1750px] m-auto px-4 sm:px-8 ${
+          isFirstPage || !isPartial ? "sm:pt-10" : ""
+        }  `}
       >
-        <a
-          rel="prev"
-          class="btn btn-ghost"
-          hx-swap="outerHTML show:parent:top"
-          hx-get={partialPrev}
-        >
-          <span class="inline [.htmx-request_&]:hidden">
-            Show Less
-          </span>
-          <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
-        </a>
-      </div>
+        {(isFirstPage || !isPartial) && (
+          <>
+            {isSearchPage
+              ? (
+                <h2 class="max-w-[1750px] mb-6 text-dark-blue font-light sm:font-normal text-base sm:text-[24px] m-auto leading-[150%]">
+                  RESULTADO DA BUSCA POR:{" "}
+                  <strong class="uppercase font-semibold text-dark-blue text-base sm:text-[24px]">
+                    {page?.seo?.title !== "Category_Page_Title" &&
+                      page?.seo?.title}
+                  </strong>
+                </h2>
+              )
+              : !currentBreadCrumb
+              ? <SearchTitle title={pageName} />
+              : <SearchTitle title={currentBreadCrumb} />}
 
-      <div
-        data-product-list
-        class={clx(
-          "grid items-center",
-          "grid-cols-2 gap-2",
-          "sm:grid-cols-4 sm:gap-10",
-          "w-full",
+            <SearchControls
+              sortOptions={sortOptions}
+              filters={filters}
+              breadcrumb={breadcrumb}
+              isCollectionPage={isCollectionPage}
+              isSearchPage={isSearchPage}
+              collectionName={pageName}
+              displayFilter={layout?.variant === "drawer"}
+            />
+          </>
         )}
-      >
-        {products?.map((product, index) => (
-          <ProductCard
-            key={`product-card-${product.productID}`}
-            product={product}
-            preload={index === 0}
-            index={offset + index}
-            class="h-full min-w-[160px] max-w-[300px]"
-          />
-        ))}
-      </div>
+        <div class="flex flex-row">
+          {layout?.variant === "aside" && filters.length > 0 &&
+            (isFirstPage || !isPartial) && (
+            <aside class="hidden sm:block w-min min-w-[250px]">
+              <Filters filters={filters} sortOptions={sortOptions} />
+            </aside>
+          )}
+          <div class="flex-grow" id={id}>
+            {categoryBanners && !isSearchPage && (isFirstPage || !isPartial)
+              ? (
+                <ProductGalleryWithBanner
+                  products={products}
+                  offset={offset}
+                  layout={{ columns: layout?.columns, format }}
+                  pageInfo={pageInfo}
+                  url={url}
+                  categoryBanners={categoryBanners}
+                  device={device}
+                />
+              )
+              : (
+                <ProductGallery
+                  products={products}
+                  offset={offset}
+                  layout={{ columns: layout?.columns, format }}
+                  categoryBanners={categoryBanners!}
+                  pageInfo={pageInfo}
+                  url={url}
+                  device={device}
+                />
+              )}
+          </div>
+        </div>
 
-      <div class={clx("pt-2 sm:pt-10 w-full", "")}>
-        {infinite
-          ? (
-            <div class="flex justify-center [&_section]:contents">
+        {format == "Pagination" && (
+          <div class="flex justify-center my-4">
+            <div class="join">
               <a
-                rel="next"
-                class={clx(
-                  "btn btn-ghost",
-                  (!nextPageUrl || partial === "hideMore") && "hidden",
-                )}
-                hx-swap="outerHTML show:parent:top"
-                hx-get={partialNext}
-              >
-                <span class="inline [.htmx-request_&]:hidden">
-                  Show More
-                </span>
-                <span class="loading loading-spinner hidden [.htmx-request_&]:block" />
-              </a>
-            </div>
-          )
-          : (
-            <div class={clx("join", infinite && "hidden")}>
-              <a
-                rel="prev"
                 aria-label="previous page link"
-                href={prevPageUrl ?? "#"}
-                disabled={!prevPageUrl}
+                rel="prev"
+                href={pageInfo.previousPage ?? "#"}
                 class="btn btn-ghost join-item"
               >
-                <Icon id="chevron-right" class="rotate-180" />
+                <Icon id="ChevronLeft" size={24} strokeWidth={2} />
               </a>
               <span class="btn btn-ghost join-item">
                 Page {zeroIndexedOffsetPage + 1}
               </span>
               <a
-                rel="next"
                 aria-label="next page link"
-                href={nextPageUrl ?? "#"}
-                disabled={!nextPageUrl}
+                rel="next"
+                href={pageInfo.nextPage ?? "#"}
                 class="btn btn-ghost join-item"
               >
-                <Icon id="chevron-right" />
+                <Icon id="ChevronRight" size={24} strokeWidth={2} />
               </a>
             </div>
-          )}
+          </div>
+        )}
       </div>
-    </div>
-  );
-}
-
-const setPageQuerystring = (page: string, id: string) => {
-  const element = document.getElementById(id)?.querySelector(
-    "[data-product-list]",
-  );
-
-  if (!element) {
-    return;
-  }
-
-  new IntersectionObserver((entries) => {
-    const url = new URL(location.href);
-
-    const prevPage = url.searchParams.get("page");
-
-    for (let it = 0; it < entries.length; it++) {
-      if (entries[it].isIntersecting) {
-        url.searchParams.set("page", page);
-      } else if (
-        typeof history.state?.prevPage === "string" &&
-        history.state?.prevPage !== page
-      ) {
-        url.searchParams.set("page", history.state.prevPage);
-      }
-    }
-
-    history.replaceState({ prevPage }, "", url.href);
-  }).observe(element);
-};
-
-function Result(props: SectionProps<typeof loader>) {
-  const container = useId();
-  const controls = useId();
-  const device = useDevice();
-
-  const { startingPage = 0, url, partial } = props;
-  const page = props.page!;
-  const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
-  const perPage = pageInfo?.recordPerPage || products.length;
-  const zeroIndexedOffsetPage = pageInfo.currentPage - startingPage;
-  const offset = zeroIndexedOffsetPage * perPage;
-
-  const viewItemListEvent = useSendEvent({
-    on: "view",
-    event: {
-      name: "view_item_list",
-      params: {
-        // TODO: get category name from search or cms setting
-        item_list_name: breadcrumb.itemListElement?.at(-1)?.name,
-        item_list_id: breadcrumb.itemListElement?.at(-1)?.item,
-        items: page.products?.map((product, index) =>
-          mapProductToAnalyticsItem({
-            ...(useOffer(product.offers)),
-            index: offset + index,
-            product,
-            breadcrumbList: page.breadcrumb,
-          })
-        ),
-      },
-    },
-  });
-
-  const results = (
-    <span class="text-sm font-normal">
-      {page.pageInfo.recordPerPage} of {page.pageInfo.records} results
-    </span>
-  );
-
-  const sortBy = sortOptions.length > 0 && (
-    <Sort sortOptions={sortOptions} url={url} />
-  );
-
-  return (
-    <>
-      <div id={container} {...viewItemListEvent} class="w-full">
-        {partial
-          ? <PageResult {...props} />
-          : (
-            <div class="container flex flex-col gap-4 sm:gap-5 w-full py-4 sm:py-5 px-5 sm:px-0">
-              <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-
-              {device === "mobile" && (
-                <Drawer
-                  id={controls}
-                  aside={
-                    <div class="bg-base-100 flex flex-col h-full divide-y overflow-y-hidden">
-                      <div class="flex justify-between items-center">
-                        <h1 class="px-4 py-3">
-                          <span class="font-medium text-2xl">Filters</span>
-                        </h1>
-                        <label class="btn btn-ghost" for={controls}>
-                          <Icon id="close" />
-                        </label>
-                      </div>
-                      <div class="flex-grow overflow-auto">
-                        <Filters filters={filters} />
-                      </div>
-                    </div>
-                  }
-                >
-                  <div class="flex sm:hidden justify-between items-end">
-                    <div class="flex flex-col">
-                      {results}
-                      {sortBy}
-                    </div>
-
-                    <label class="btn btn-ghost" for={controls}>
-                      Filters
-                    </label>
-                  </div>
-                </Drawer>
-              )}
-
-              <div class="grid place-items-center grid-cols-1 sm:grid-cols-[250px_1fr]">
-                {device === "desktop" && (
-                  <aside class="place-self-start flex flex-col gap-9">
-                    <span class="text-base font-semibold h-12 flex items-center">
-                      Filters
-                    </span>
-
-                    <Filters filters={filters} />
-                  </aside>
-                )}
-
-                <div class="flex flex-col gap-9">
-                  {device === "desktop" && (
-                    <div class="flex justify-between items-center">
-                      {results}
-                      <div>
-                        {sortBy}
-                      </div>
-                    </div>
-                  )}
-                  <PageResult {...props} />
-                </div>
-              </div>
-            </div>
-          )}
-      </div>
-
-      <script
-        type="module"
-        dangerouslySetInnerHTML={{
-          __html: useScript(
-            setPageQuerystring,
-            `${pageInfo.currentPage}`,
-            container,
-          ),
+      <SendEventOnView
+        id={id}
+        event={{
+          name: "view_item_list",
+          params: {
+            // TODO: get category name from search or cms setting
+            item_list_name: breadcrumb.itemListElement?.at(-1)?.name,
+            item_list_id: breadcrumb.itemListElement?.at(-1)?.item,
+            items: page.products?.map((product, index) =>
+              mapProductToAnalyticsItem({
+                ...(useOffer(product.offers)),
+                index: offset + index,
+                product,
+                breadcrumbList: page.breadcrumb,
+              })
+            ),
+          },
         }}
       />
     </>
   );
 }
 
-function SearchResult({
-  page,
-  ...props
-}: SectionProps<typeof loader>) {
-  if (!page) {
-    return <NotFound />;
+function SearchResult(
+  { page, ...props }: ReturnType<typeof loader>,
+) {
+  if (!page || !page.products.length) {
+    return <NotFound page={page} />;
   }
 
   return <Result {...props} page={page} />;
 }
 
-export const loader = (props: Props, req: Request) => {
+export const loader = (props: Props, req: Request, ctx: AppContext) => {
+  const { categoryBannersMediaSources } = props;
+
+  const categoryBanners = categoryBannersMediaSources?.find((
+    { matcher },
+  ) => new URLPattern({ pathname: matcher }).test(req.url));
+
   return {
     ...props,
     url: req.url,
+    categoryBanners: categoryBanners,
+    device: ctx.device,
   };
 };
 

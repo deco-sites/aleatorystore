@@ -1,6 +1,13 @@
-import { useScript } from "deco/hooks/useScript.ts";
 import { Section } from "deco/blocks/section.ts";
 import { useId } from "../../sdk/useId.ts";
+
+const animationClasses = {
+  "fade-in": "animate-fade-in",
+  "fade-in-bottom": "animate-fade-in-bottom",
+  "slide-left": "animate-slide-left",
+  "slide-right": "animate-slide-right",
+  "zoom-in": "animate-zoom-in",
+};
 
 interface Children {
   section: Section;
@@ -20,21 +27,6 @@ interface Props {
   children: Children;
 }
 
-const snippet = (id: string) => {
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("${animationClass}");
-        entry.target.classList.remove("opacity-0");
-        observer.disconnect();
-      }
-    });
-  }, { threshold: 0.50 });
-
-  const element = document.getElementById(id);
-  element && observer.observe(element);
-};
-
 function Animation(
   { children, animationType = "fade-in", duration = "0.3" }: Props,
 ) {
@@ -42,6 +34,8 @@ function Animation(
 
   const { Component, props } = section;
   const id = useId();
+
+  const animationClass = animationClasses[animationType];
 
   return (
     <>
@@ -57,8 +51,23 @@ function Animation(
         <Component {...props} />
       </div>
       <script
-        type="module"
-        dangerouslySetInnerHTML={{ __html: useScript(snippet, id) }}
+        async={true}
+        dangerouslySetInnerHTML={{
+          __html: `
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("${animationClass}");
+                            entry.target.classList.remove("opacity-0");
+                            observer.disconnect();
+                        }
+                    });
+                }, { threshold: 0.50 });
+            
+                var element = document.getElementById('${id}');
+                observer.observe(element);
+            `,
+        }}
       />
     </>
   );
@@ -145,6 +154,7 @@ const animationByType = {
 };
 
 export function Preview() {
+  const animationClass = animationClasses["slide-left"];
   const id = useId();
 
   return (

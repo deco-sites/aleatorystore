@@ -1,50 +1,86 @@
 {
   "items": [
     {
+      "url": "/new-in",
+      "name": "New In",
       "@type": "SiteNavigationElement",
-      "url": "/deals",
-      "name": "Deals",
+      "image": [
+        {
+          "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/7733d479-0fd1-4f33-bed9-6f9e170655d6",
+          "@type": "ImageObject"
+        }
+      ],
       "children": [
         {
-          "image": [],
-          "children": [],
-          "name": "Hello"
-        },
-        {
-          "image": [],
-          "children": [],
-          "name": "World"
+          "url": "/new-in",
+          "name": "Novidades",
+          "@type": "SiteNavigationElement",
+          "children": [
+            {
+              "url": "/feminino/vestidos",
+              "name": "Mais vendidos",
+              "@type": "SiteNavigationElement"
+            },
+            {
+              "url": "/feminino/vestidos",
+              "name": "Parcerias",
+              "@type": "SiteNavigationElement"
+            }
+          ]
         }
       ]
     },
     {
+      "url": "/sale",
+      "name": "Sale",
       "@type": "SiteNavigationElement",
-      "url": "/valentines-day",
-      "name": "Valentine's Day",
-      "children": []
+      "image": [
+        {
+          "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/239/5e9310c0-c725-4643-ade3-f92a505bd1d6",
+          "@type": "ImageObject"
+        }
+      ],
+      "children": [
+        {
+          "url": "/feminino",
+          "name": "Feminino",
+          "@type": "SiteNavigationElement",
+          "children": [
+            {
+              "url": "/feminino",
+              "name": "Camisetas",
+              "@type": "SiteNavigationElement"
+            },
+            {
+              "url": "/feminino",
+              "name": "Camisas",
+              "@type": "SiteNavigationElement"
+            }
+          ]
+        },
+        {
+          "url": "/masculino",
+          "name": "Masculino",
+          "@type": "SiteNavigationElement",
+          "children": [
+            {
+              "url": "/masculino",
+              "name": "Camisetas",
+              "@type": "SiteNavigationElement"
+            },
+            {
+              "url": "/masculino",
+              "name": "Regatas",
+              "@type": "SiteNavigationElement"
+            }
+          ]
+        }
+      ]
     },
     {
+      "url": "/linktree",
+      "name": "Link Tree",
       "@type": "SiteNavigationElement",
-      "url": "/women",
-      "name": "Women",
-      "children": []
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "url": "/men",
-      "name": "Men",
-      "children": []
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "url": "/clearance",
-      "name": "Clearance",
-      "children": []
-    },
-    {
-      "@type": "SiteNavigationElement",
-      "url": "/activities",
-      "name": "Activities",
       "children": []
     }
   ],

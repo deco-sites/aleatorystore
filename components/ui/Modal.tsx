@@ -1,43 +1,55 @@
-import { useScript } from "deco/hooks/useScript.ts";
+import { useSignal } from "@preact/signals";
 import { ComponentChildren } from "preact";
+import { useEffect } from "preact/hooks";
 import { useId } from "../../sdk/useId.ts";
 
 interface Props {
+  onClose?: () => void;
   open?: boolean;
+  class?: string;
+  style?: string;
   children?: ComponentChildren;
-  id?: string;
+  loading?: "eager" | "lazy";
 }
 
-const script = (id: string) => {
-  const handler = (e: KeyboardEvent) => {
-    if (e.key !== "Escape" && e.keyCode !== 27) {
-      return;
-    }
+function Modal(props: Props) {
+  const {
+    children,
+    open,
+    onClose,
+    loading = "lazy",
+  } = props;
+  const lazy = useSignal(loading === "lazy" && !open);
+  const id = useId();
 
-    const input = document.getElementById(id) as HTMLInputElement | null;
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) =>
+      (e.key === "Escape" || e.keyCode === 27) && open && onClose?.();
 
-    if (!input) {
-      return;
-    }
+    addEventListener("keydown", handler);
 
-    input.checked = false;
-  };
+    return () => {
+      removeEventListener("keydown", handler);
+    };
+  }, [open]);
 
-  addEventListener("keydown", handler);
-};
+  useEffect(() => {
+    lazy.value = false;
+  }, []);
 
-function Modal({ children, open, id = useId() }: Props) {
   return (
     <>
-      <input id={id} checked={open} type="checkbox" class="modal-toggle" />
+      <input
+        id={id}
+        checked={open}
+        type="checkbox"
+        class="modal-toggle"
+        onChange={(e) => e.currentTarget.checked === false && onClose?.()}
+      />
       <div class="modal">
-        {children}
+        {!lazy.value && children}
         <label class="modal-backdrop" for={id}>Close</label>
       </div>
-      <script
-        type="module"
-        dangerouslySetInnerHTML={{ __html: useScript(script, id) }}
-      />
     </>
   );
 }

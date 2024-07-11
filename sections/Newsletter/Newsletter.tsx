@@ -1,136 +1,145 @@
-import { SectionProps } from "deco/mod.ts";
-import { AppContext } from "../../apps/site.ts";
-import Icon from "../../components/ui/Icon.tsx";
-import Section from "../../components/ui/Section.tsx";
-import { clx } from "../../sdk/clx.ts";
-import { usePlatform } from "../../sdk/usePlatform.tsx";
-import { useComponent } from "../Component.tsx";
+import Header from "../../components/ui/SectionHeader.tsx";
 
-interface NoticeProps {
-  title?: string;
-  description?: string;
+export interface Form {
+  placeholder?: string;
+  buttonText?: string;
+  /** @format html */
+  helpText?: string;
+}
+
+interface Content {
+  border?: boolean;
+  /**
+   * @format button-group
+   * @options site/loaders/icons.ts
+   */
+  alignment?: "Left" | "Center" | "Right";
+  bgColor?: "Normal" | "Reverse";
+}
+
+interface Header {
+  /**
+   * @format button-group
+   * @options site/loaders/icons.ts
+   */
+  fontSize?: "Small" | "Normal" | "Large";
+}
+
+interface Layout {
+  header?: Header;
+  content?: Content;
 }
 
 export interface Props {
-  empty?: NoticeProps;
-  success?: NoticeProps;
-  failed?: NoticeProps;
-
-  /** @description Signup label */
-  label?: string;
-
-  /** @description Input placeholder */
-  placeholder?: string;
-
-  /** @hide true */
-  status?: "success" | "failed";
+  title?: string;
+  /** @format textarea */
+  description?: string;
+  form?: Form;
+  layout?: Layout;
 }
 
-export async function action(props: Props, req: Request, ctx: AppContext) {
-  const platform = usePlatform();
+const DEFAULT_PROPS: Props = {
+  title: "",
+  description: "",
+  form: {
+    placeholder: "Digite seu email",
+    buttonText: "Inscrever",
+    helpText:
+      'Ao se inscrever, você concorda com nossa <a class="link" href="/politica-de-privacidade">Política de privacidade</a>.',
+  },
+  layout: {
+    header: {
+      fontSize: "Large",
+    },
+    content: {
+      border: false,
+      alignment: "Left",
+    },
+  },
+};
 
-  const form = await req.formData();
-  const email = `${form.get("email") ?? ""}`;
+export default function Newsletter(props: Props) {
+  const { title, description, form, layout } = { ...DEFAULT_PROPS, ...props };
+  const isReverse = layout?.content?.bgColor === "Reverse";
+  const bordered = Boolean(layout?.content?.border);
 
-  if (platform === "vtex") {
-    // deno-lint-ignore no-explicit-any
-    await (ctx as any).invoke("vtex/actions/newsletter/subscribe.ts", {
-      email,
-    });
+  const headerLayout = (
+    <Header
+      title={title}
+      description={description}
+      alignment={layout?.content?.alignment === "Left" ? "left" : "center"}
+      colorReverse={isReverse}
+      fontSize={layout?.header?.fontSize}
+    />
+  );
 
-    return { ...props, status: "success" };
-  }
+  const formLayout = form && (
+    <form action="/" class="flex flex-col gap-4">
+      <div class="flex flex-col lg:flex-row gap-3">
+        <input
+          class="input input-bordered lg:w-80"
+          type="text"
+          placeholder={form.placeholder}
+        />
+        <button
+          class={`btn ${isReverse ? "btn-accent" : ""}`}
+          type="submit"
+        >
+          {form.buttonText}
+        </button>
+      </div>
+      {form.helpText && (
+        <div
+          class="text-sm"
+          dangerouslySetInnerHTML={{ __html: form.helpText }}
+        />
+      )}
+    </form>
+  );
 
-  return { ...props, status: "failed" };
-}
+  const bgLayout = isReverse
+    ? "bg-secondary text-secondary-content"
+    : "bg-transparent";
 
-export function loader(props: Props) {
-  return { ...props, status: undefined };
-}
-
-function Notice(
-  { title, description }: { title?: string; description?: string },
-) {
   return (
-    <div class="flex flex-col justify-center items-center sm:items-start gap-4">
-      <span class="text-3xl font-semibold text-center sm:text-start">
-        {title}
-      </span>
-      <span class="text-sm font-normal text-base-300 text-center sm:text-start">
-        {description}
-      </span>
+    <div
+      class={`${
+        bordered
+          ? isReverse ? "bg-secondary-content" : "bg-secondary"
+          : bgLayout
+      } ${bordered ? "p-4 lg:p-16" : "p-0"}`}
+    >
+      {(!layout?.content?.alignment ||
+        layout?.content?.alignment === "Center") && (
+        <div
+          class={`container flex flex-col rounded p-4 gap-6 lg:p-16 lg:gap-12 ${bgLayout}`}
+        >
+          {headerLayout}
+          <div class="flex justify-center">
+            {formLayout}
+          </div>
+        </div>
+      )}
+      {layout?.content?.alignment === "Left" && (
+        <div
+          class={`container flex flex-col rounded p-4 gap-6 lg:p-16 lg:gap-12 ${bgLayout}`}
+        >
+          {headerLayout}
+          <div class="flex justify-start">
+            {formLayout}
+          </div>
+        </div>
+      )}
+      {layout?.content?.alignment === "Right" && (
+        <div
+          class={`container flex flex-col rounded justify-between lg:flex-row p-4 gap-6 lg:p-16 lg:gap-12 ${bgLayout}`}
+        >
+          {headerLayout}
+          <div class="flex justify-center">
+            {formLayout}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
-
-function Newsletter({
-  empty = {
-    title: "Get top deals, latest trends, and more.",
-    description:
-      "Receive our news and promotions in advance. Enjoy and get 10% off your first purchase. For more information click here.",
-  },
-  success = {
-    title: "Thank you for subscribing!",
-    description:
-      "You’re now signed up to receive the latest news, trends, and exclusive promotions directly to your inbox. Stay tuned!",
-  },
-  failed = {
-    title: "Oops. Something went wrong!",
-    description:
-      "Something went wrong. Please try again. If the problem persists, please contact us.",
-  },
-  label = "Sign up",
-  placeholder = "Enter your email address",
-  status,
-}: SectionProps<typeof loader, typeof action>) {
-  if (status === "success" || status === "failed") {
-    return (
-      <Section.Container class="bg-base-200">
-        <div class="p-14 flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-10">
-          <Icon
-            size={80}
-            class={clx(
-              status === "success" ? "text-success" : "text-error",
-            )}
-            id={status === "success" ? "check-circle" : "error"}
-          />
-          <Notice {...status === "success" ? success : failed} />
-        </div>
-      </Section.Container>
-    );
-  }
-
-  return (
-    <Section.Container class="bg-base-200">
-      <div class="p-14 grid grid-flow-row sm:grid-cols-2 gap-10 sm:gap-20 place-items-center">
-        <Notice {...empty} />
-
-        <form
-          hx-target="closest section"
-          hx-swap="outerHTML"
-          hx-post={useComponent(import.meta.url)}
-          class="flex flex-col sm:flex-row gap-4 w-full"
-        >
-          <input
-            name="email"
-            class="input input-bordered flex-grow"
-            type="text"
-            placeholder={placeholder}
-          />
-
-          <button
-            class="btn btn-primary"
-            type="submit"
-          >
-            <span class="[.htmx-request_&]:hidden inline">
-              {label}
-            </span>
-            <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
-          </button>
-        </form>
-      </div>
-    </Section.Container>
-  );
-}
-
-export default Newsletter;

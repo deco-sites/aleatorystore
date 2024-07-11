@@ -1,0 +1,10 @@
+{
+  "__resolveType": "site/sections/Images/Carousel.tsx",
+  "arrows": true,
+  "dots": false,
+  "preload": true,
+  "images": [
+    {}
+  ],
+  "elements": []
+}

@@ -7,6 +7,7 @@
  * of this approach is creating hydration mismatches
  */
 
-import { useId as usePreactId } from "preact/hooks";
+import { useId as usePreactId, useMemo } from "preact/hooks";
 
-export const useId = () => `${usePreactId()}${Math.trunc(Math.random() * 1e6)}`;
+export const useId = () =>
+  useMemo(() => `${usePreactId()}${Math.trunc(Math.random() * 1e6)}`, []);

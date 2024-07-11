@@ -1,4 +1,4 @@
-import type { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
+import type { ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
 
 export interface CTA {
@@ -9,7 +9,10 @@ export interface CTA {
 }
 
 export interface Props {
-  title: HTMLWidget;
+  /**
+   * @format html
+   */
+  title: string;
   description: string;
   image?: ImageWidget;
   placement: "left" | "right";

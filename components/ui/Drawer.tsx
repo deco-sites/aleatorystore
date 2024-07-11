@@ -1,103 +1,65 @@
-import { useScript } from "deco/hooks/useScript.ts";
-import { type ComponentChildren } from "preact";
-import { clx } from "../../sdk/clx.ts";
 import { useId } from "../../sdk/useId.ts";
-import Icon from "./Icon.tsx";
+import { useSignal } from "@preact/signals";
+import { ComponentChildren } from "preact";
+import { useEffect } from "preact/hooks";
 
-export interface Props {
+interface Props {
+  onClose?: () => void;
   open?: boolean;
   class?: string;
-  children?: ComponentChildren;
+  loading?: "eager" | "lazy";
+  children: ComponentChildren;
   aside: ComponentChildren;
-  id?: string;
 }
 
-const script = (id: string) => {
-  const handler = (e: KeyboardEvent) => {
-    if (e.key !== "Escape" && e.keyCode !== 27) {
-      return;
-    }
+function Drawer(props: Props) {
+  const {
+    children,
+    aside,
+    open,
+    onClose,
+    class: _class = "",
+    loading = "lazy",
+  } = props;
+  const lazy = useSignal(loading === "lazy" && !open);
+  const id = useId();
 
-    const input = document.getElementById(id) as HTMLInputElement | null;
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) =>
+      (e.key === "Escape" || e.keyCode === 27) && open && onClose?.();
 
-    if (!input) {
-      return;
-    }
+    addEventListener("keydown", handler);
 
-    input.checked = false;
-  };
+    return () => {
+      removeEventListener("keydown", handler);
+    };
+  }, [open]);
 
-  addEventListener("keydown", handler);
-};
+  useEffect(() => {
+    lazy.value = false;
+  }, []);
 
-function Drawer({
-  children,
-  aside,
-  open,
-  class: _class = "",
-  id = useId(),
-}: Props) {
   return (
-    <>
-      <div class={clx("drawer", _class)}>
-        <input
-          id={id}
-          name={id}
-          checked={open}
-          type="checkbox"
-          class="drawer-toggle"
-          aria-label={open ? "open drawer" : "closed drawer"}
-        />
-
-        <div class="drawer-content">
-          {children}
-        </div>
-
-        <aside
-          data-aside
-          class={clx(
-            "drawer-side h-full z-40 overflow-hidden",
-            "[[data-aside]&_section]:contents", // lazy-loading via useSection
-          )}
-        >
-          <label for={id} class="drawer-overlay" />
-          {aside}
-        </aside>
-      </div>
-      <script
-        type="module"
-        dangerouslySetInnerHTML={{ __html: useScript(script, id) }}
+    <div class={`drawer ${_class}`}>
+      <input
+        id={id}
+        checked={open}
+        type="checkbox"
+        class="drawer-toggle"
+        onChange={(e) => e.currentTarget.checked === false && onClose?.()}
+        aria-label={open ? "open drawer" : "closed drawer"}
       />
-    </>
-  );
-}
 
-function Aside(
-  { title, drawer, children }: {
-    title: string;
-    drawer: string;
-    children: ComponentChildren;
-  },
-) {
-  return (
-    <div
-      data-aside
-      class="bg-base-100 grid grid-rows-[auto_1fr] h-full divide-y"
-      style={{ maxWidth: "100vw" }}
-    >
-      <div class="flex justify-between items-center">
-        <h1 class="px-4 py-3">
-          <span class="font-medium text-2xl">{title}</span>
-        </h1>
-        <label for={drawer} aria-label="X" class="btn btn-ghost">
-          <Icon id="close" />
-        </label>
+      <div class="drawer-content">
+        {children}
       </div>
-      {children}
+
+      <aside class="drawer-side h-full z-50 overflow-hidden">
+        <label for={id} class="drawer-overlay" />
+        {!lazy.value && aside}
+      </aside>
     </div>
   );
 }
-
-Drawer.Aside = Aside;
 
 export default Drawer;

@@ -1,46 +1,80 @@
+import { useSignal } from "@preact/signals";
 import type { Product } from "apps/commerce/types.ts";
-import { AppContext } from "../../apps/site.ts";
-import { useComponent } from "../../sections/Component.tsx";
+import type { JSX } from "preact";
+import { useRef } from "preact/hooks";
+import { invoke } from "../../runtime.ts";
+import Button from "../ui/ButtonBanner.tsx";
 
 export interface Props {
   productID: Product["productID"];
 }
 
-export const action = async (props: Props, req: Request, ctx: AppContext) => {
-  const form = await req.formData();
+function Notify({ productID }: Props) {
+  const loading = useSignal(false);
+  const buttonContent = useSignal("AVISE-ME");
 
-  const name = `${form.get("name") ?? ""}`;
-  const email = `${form.get("email") ?? ""}`;
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
 
-  // deno-lint-ignore no-explicit-any
-  await (ctx as any).invoke("vtex/actions/notifyme.ts", {
-    skuId: props.productID,
-    name,
-    email,
-  });
+  const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
+    buttonContent.value = "Enviando...";
+    try {
+      loading.value = true;
 
-  return props;
-};
+      const name = nameRef?.current?.value ?? "";
+      const email = emailRef?.current?.value ?? "";
 
-export default function Notify({ productID }: Props) {
+      await invoke.vtex.actions.notifyme({ skuId: productID, name, email });
+      buttonContent.value = "Enviado com Sucesso";
+    } finally {
+      loading.value = false;
+      setTimeout(() => {
+        buttonContent.value = "AVISE-ME";
+        if (nameRef.current && emailRef.current) {
+          emailRef.current.value = "";
+          nameRef.current.value = "";
+        }
+      }, 3000);
+    }
+  };
+
   return (
-    <form
-      class="form-control justify-start gap-2"
-      hx-sync="this:replace"
-      hx-indicator="this"
-      hx-swap="none"
-      hx-post={useComponent<Props>(import.meta.url, { productID })}
-    >
-      <span class="text-base">Este produto está indisponivel no momento</span>
-      <span class="text-sm">Avise-me quando estiver disponivel</span>
+    <form class="form-control justify-start gap-2" onSubmit={handleSubmit}>
+      <h4 class="text-xl text-dark-blue">Avise-me</h4>
+      <span class="text-base text-paragraph-color font-light mb-4">
+        Digite seu e-mail no campo abaixo e te avisaremos quando esse produto
+        estiver disponível no estoque.
+      </span>
 
-      <input placeholder="Nome" class="input input-bordered" name="name" />
-      <input placeholder="Email" class="input input-bordered" name="email" />
+      <input
+        ref={nameRef}
+        placeholder="Seu nome"
+        class="border-b text-sm border-[#9AA4B2] focus:outline-none p-2"
+        name="name"
+      />
 
-      <button class="btn btn-primary no-animation">
-        <span class="[.htmx-request_&]:hidden inline">Enviar</span>
-        <span class="[.htmx-request_&]:inline hidden loading loading-spinner loading-xs" />
-      </button>
+      <input
+        ref={emailRef}
+        placeholder="Seu e-mail"
+        class="border-b text-sm border-[#9AA4B2] focus:outline-none p-2"
+        name="email"
+      />
+
+      <Button
+        negative={buttonContent.value === "AVISE-ME"}
+        class={`btn w-full mt-6  ${
+          buttonContent.value === "AVISE-ME"
+            ? "text-secondary-neutral-100 hover:border-primary-700"
+            : ""
+        } `}
+        disabled={loading}
+        type="submit"
+      >
+        {buttonContent.value}
+      </Button>
     </form>
   );
 }
+
+export default Notify;

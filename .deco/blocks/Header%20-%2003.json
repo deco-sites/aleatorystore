@@ -1,0 +1,189 @@
+{
+  "__resolveType": "site/sections/Header/Header.tsx",
+  "cart": {
+    "freeShippingObjectiveQuantity": 600
+  },
+  "logo": {
+    "alt": "Aleatory",
+    "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/b9335ec0-bfc3-423b-b2dd-83bc205d61e5",
+    "height": 40,
+    "width": 180
+  },
+  "alerts": [
+    {
+      "0": "E",
+      "1": "n",
+      "2": "j",
+      "3": "o",
+      "4": "y",
+      "5": " ",
+      "6": "C",
+      "7": "o",
+      "8": "m",
+      "9": "p",
+      "10": "l",
+      "11": "i",
+      "12": "m",
+      "13": "e",
+      "14": "n",
+      "15": "t",
+      "16": "a",
+      "17": "r",
+      "18": "y",
+      "19": " ",
+      "20": "S",
+      "21": "h",
+      "22": "i",
+      "23": "p",
+      "24": "p",
+      "25": "i",
+      "26": "n",
+      "27": "g",
+      "icon": "Desconto",
+      "label": "Frete Grátis"
+    }
+  ],
+  "navItems": {
+    "__resolveType": "commerce/loaders/navbar.ts",
+    "items": [
+      {
+        "url": "/lancamentos",
+        "name": "NEW IN",
+        "@type": "SiteNavigationElement",
+        "image": [],
+        "children": []
+      },
+      {
+        "url": "/masculino/roupas/polos",
+        "name": "CAMISA POLO",
+        "@type": "SiteNavigationElement",
+        "image": [],
+        "children": [
+          {
+            "url": "/roupas/blusa",
+            "name": "Blusas",
+            "@type": "SiteNavigationElement",
+            "children": []
+          },
+          {
+            "image": [],
+            "children": [],
+            "name": "Calças",
+            "url": "/roupas/calca"
+          },
+          {
+            "image": [],
+            "children": [],
+            "name": "Casacos",
+            "url": "/roupas/casaco"
+          },
+          {
+            "image": [],
+            "children": [],
+            "name": "Vestidos",
+            "url": "/roupas/vestido"
+          },
+          {
+            "image": [],
+            "children": [],
+            "name": "Saias",
+            "url": "/roupas/saia"
+          },
+          {
+            "image": [],
+            "children": [],
+            "name": "Shorts",
+            "url": "/roupas/shorts"
+          },
+          {
+            "image": [],
+            "children": [],
+            "name": "Tops",
+            "url": "/roupas/top"
+          },
+          {
+            "image": [],
+            "children": [],
+            "url": "/roupas/blazer",
+            "name": "Blazers"
+          },
+          {
+            "image": [],
+            "children": [],
+            "name": "Jeans",
+            "url": "/jeans"
+          },
+          {
+            "image": [],
+            "children": [],
+            "name": "Tricot",
+            "url": "/tricot"
+          },
+          {
+            "image": [],
+            "children": [],
+            "name": "Alfaiataria",
+            "url": "/alfaiataria"
+          },
+          {
+            "image": [],
+            "children": [],
+            "name": "Veludo",
+            "url": "/veludo"
+          }
+        ]
+      },
+      {
+        "url": "/infantil",
+        "name": "KIDS",
+        "@type": "SiteNavigationElement",
+        "image": [],
+        "children": [
+          {
+            "url": "/sapatos/bota",
+            "name": "Botas",
+            "@type": "SiteNavigationElement",
+            "children": []
+          },
+          {
+            "url": "/sapatos/mule",
+            "name": "Mules",
+            "children": [],
+            "image": []
+          },
+          {
+            "image": [],
+            "children": [],
+            "name": "Sandálias",
+            "url": "/sapatos/sandalia"
+          }
+        ]
+      },
+      {
+        "url": "/sale",
+        "name": "SALE",
+        "@type": "SiteNavigationElement"
+      }
+    ]
+  },
+  "products": [],
+  "searchbar": {
+    "name": "q",
+    "action": "/s",
+    "loader": {
+      "data": {
+        "count": 4,
+        "__resolveType": "vtex/loaders/intelligentSearch/suggestions.ts"
+      },
+      "__resolveType": "resolved"
+    },
+    "placeholder": "O que você procura?"
+  },
+  "suggestions": {
+    "products": [],
+    "searches": []
+  },
+  "logoPosition": "left",
+  "lightThemeBar": false,
+  "itemsPerColumn": 6
+}

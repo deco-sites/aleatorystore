@@ -1,21 +1,49 @@
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import { clx } from "../../sdk/clx.ts";
+import { Device } from "apps/website/matchers/device.ts";
+import { SendEventOnView } from "../../components/Analytics.tsx";
+import ProductAccordionInfo from "../../islands/ProductAccordionInfo.tsx";
+import ProductSelector from "../../islands/ProductVariantSelector.tsx";
+import ShareProduct from "../../islands/Share/ShareProduct.tsx";
+import WishlistButtonVtex from "../../islands/WishlistButton/vtex.tsx";
 import { formatPrice } from "../../sdk/format.ts";
 import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
-import { useSendEvent } from "../../sdk/useSendEvent.ts";
-import ShippingSimulationForm from "../shipping/Form.tsx";
-import WishlistButton from "../wishlist/WishlistButton.tsx";
-import AddToCartButton from "./AddToCartButton.tsx";
-import OutOfStock from "./OutOfStock.tsx";
-import ProductSelector from "./ProductVariantSelector.tsx";
+import { usePercentualDiscount } from "../../sdk/usePercentualPrice.ts";
+import { useProductVariantDiscount } from "../../sdk/useProductVariantDiscount.ts";
+import { ProductPolicy } from "../../sections/Product/ProductDetails.tsx";
+import { MediaOptionProps } from "../share/ShareProduct.tsx";
 
-interface Props {
+export interface Props {
   page: ProductDetailsPage | null;
+  /** @title Politica de Privacidade */
+  productExchangesReturnsPolicy?: ProductPolicy;
+  device: Device;
+  socialOptions?: MediaOptionProps[];
+  showButtons: string | null;
+  buttonsUrl: (mode: string) => string;
+  recommendedSize: string | null;
+  layout?: {
+    /**
+     * @title Product Name
+     * @description How product title will be displayed. Concat to concatenate product and sku names.
+     * @default product
+     */
+    name?: "concat" | "productGroup" | "product";
+  };
 }
 
-function ProductInfo({ page }: Props) {
+function ProductInfo(
+  {
+    page,
+    productExchangesReturnsPolicy,
+    device,
+    socialOptions,
+    showButtons,
+    buttonsUrl,
+    recommendedSize,
+  }: Props,
+) {
   const id = useId();
 
   if (page === null) {
@@ -23,118 +51,138 @@ function ProductInfo({ page }: Props) {
   }
 
   const { breadcrumbList, product } = page;
-  const { productID, offers, isVariantOf } = product;
+
+  const {
+    productID,
+    isVariantOf,
+    url,
+  } = product;
+
+  const { productVariantDiscount } = useProductVariantDiscount(product);
+  const { offers } = productVariantDiscount;
+
+  const productName = product.isVariantOf?.name;
   const description = product.description || isVariantOf?.description;
-  const title = isVariantOf?.name ?? product.name;
+
+  const productSpecification = product.isVariantOf?.additionalProperty.find((
+    spec,
+  ) => spec.name === "Especificação")?.value?.split("\r\n");
 
   const {
     price = 0,
     listPrice,
-    seller = "1",
-    availability,
   } = useOffer(offers);
 
-  const percent = listPrice && price
-    ? Math.round(((listPrice - price) / listPrice) * 100)
-    : 0;
-
+  const productGroupID = isVariantOf?.productGroupID ?? "";
   const breadcrumb = {
     ...breadcrumbList,
     itemListElement: breadcrumbList?.itemListElement.slice(0, -1),
     numberOfItems: breadcrumbList.numberOfItems - 1,
   };
 
-  const item = mapProductToAnalyticsItem({
+  const eventItem = mapProductToAnalyticsItem({
     product,
     breadcrumbList: breadcrumb,
     price,
     listPrice,
   });
 
-  const viewItemEvent = useSendEvent({
-    on: "view",
-    event: {
-      name: "view_item",
-      params: {
-        item_list_id: "product",
-        item_list_name: "Product",
-        items: [item],
-      },
-    },
-  });
+  const hasDiscount = (listPrice ?? 0) > (price ?? 0);
+
+  const productPercentualOff = hasDiscount &&
+    usePercentualDiscount(listPrice!, price!);
+
+  const sizebayProps = {
+    showButtons,
+    urlChart: buttonsUrl("chart"),
+    urlVfr: buttonsUrl("vfr"),
+    recommendedSize: recommendedSize,
+  };
 
   return (
-    <div {...viewItemEvent} class="flex flex-col" id={id}>
-      {/* Price tag */}
-      <span
-        class={clx(
-          "text-sm/4 font-normal text-black bg-primary bg-opacity-15 text-center rounded-badge px-2 py-1",
-          percent < 1 && "opacity-0",
-          "w-fit",
-        )}
-      >
-        {percent} % off
-      </span>
+    <div class="flex flex-col px-4 max-w-[420px] w-full" id={id}>
+      {/* Code and name */}
+      <div>
+        <div class="flex flex-row-reverse items-baseline">
+          <div class="flex justify-end items-center">
+            <ShareProduct
+              product={product}
+              device={device}
+              options={socialOptions ?? []}
+            />
+            <WishlistButtonVtex
+              variant="icon"
+              productID={productID}
+              productUrl={url}
+              productGroupID={productGroupID}
+              class="btn btn-circle"
+            />
+          </div>
 
-      {/* Product Name */}
-      <span class={clx("text-3xl font-semibold", "pt-4")}>
-        {title}
-      </span>
-
-      {/* Prices */}
-      <div class="flex gap-3 pt-1">
-        <span class="text-3xl font-semibold text-base-300">
-          {formatPrice(price, offers?.priceCurrency)}
-        </span>
-        <span class="line-through text-sm font-medium text-gray-400">
-          {formatPrice(listPrice, offers?.priceCurrency)}
-        </span>
+          <div class="w-full border-secondary-neutral-300 border-solid border-b">
+            <h1>
+              <span class="font-medium text-xl capitalize">
+                {productName}
+              </span>
+            </h1>
+            <div class="mt-2">
+              <div class="flex flex-row gap-2 items-center lg:pb-2">
+                <>
+                  {hasDiscount && (
+                    <span class="line-through text-sm text-[#9AA4B2]">
+                      {formatPrice(listPrice, offers?.priceCurrency)}
+                    </span>
+                  )}
+                  <span class="font-light text-dark-blue">
+                    {formatPrice(price, offers?.priceCurrency)}
+                  </span>
+                  {hasDiscount && (
+                    <span class="text-sm text-[#9AA4B2] font-bold">
+                      {!!productPercentualOff && productPercentualOff}
+                    </span>
+                  )}
+                </>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Sku Selector */}
-      <div class="mt-4 sm:mt-8">
-        <ProductSelector product={product} />
-      </div>
-
-      {/* Add to Cart and Favorites button */}
-      <div class="mt-4 sm:mt-10 flex flex-col gap-2">
-        {availability === "https://schema.org/InStock"
-          ? (
-            <>
-              <AddToCartButton
-                item={item}
-                seller={seller}
-                product={product}
-                class="btn btn-primary no-animation"
-                disabled={false}
-              />
-              <WishlistButton item={item} />
-            </>
-          )
-          : <OutOfStock productID={productID} />}
-      </div>
-
-      {/* Shipping Simulation */}
-      <div class="mt-8">
-        <ShippingSimulationForm
-          items={[{ id: Number(product.sku), quantity: 1, seller: seller }]}
+      <div class="mt-4 sm:mt-6">
+        <ProductSelector
+          product={product}
+          breadcrumb={breadcrumb}
+          sizebay={sizebayProps}
         />
       </div>
-
       {/* Description card */}
-      <div class="mt-4 sm:mt-6">
-        <span class="text-sm">
-          {description && (
-            <details>
-              <summary class="cursor-pointer">Description</summary>
-              <div
-                class="ml-2 mt-2"
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
-            </details>
-          )}
-        </span>
+      <div class="mt-4 sm:mt-6 max-w-[373px]">
+        <ProductAccordionInfo
+          title="descrição do produto"
+          description={description}
+        />
+        <ProductAccordionInfo
+          title="características"
+          description={productSpecification ?? ""}
+        />
+        <ProductAccordionInfo
+          title={productExchangesReturnsPolicy?.title ?? "trocas e devoluções"}
+          description={productExchangesReturnsPolicy?.description ?? ""}
+        />
       </div>
+      {/* Analytics Event */}
+      <SendEventOnView
+        id={id}
+        event={{
+          name: "view_item",
+          params: {
+            item_list_id: "product",
+            item_list_name: "Product",
+            items: [eventItem],
+          },
+        }}
+      />
     </div>
   );
 }
