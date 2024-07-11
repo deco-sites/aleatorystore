@@ -18,9 +18,7 @@
     {
       "__resolveType": "website/sections/Analytics/Analytics.tsx",
       "dangerouslyRunOnMainThread": true,
-      "trackingIds": [
-        "GTM-PNLHPKB"
-      ]
+      "trackingIds": []
     },
     {
       "__resolveType": "analytics/sections/Analytics/DecoAnalytics.tsx"
