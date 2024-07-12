@@ -11,6 +11,7 @@ import OutOfStock from "../../islands/OutOfStock.tsx";
 import ProductSizebayButtons from "../../islands/ProductSizebayButtons.tsx";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { useSizeVariantOfferAvailability } from "../../sdk/useOfferAvailability.ts";
+import { useAdditionalProperty } from "../../sdk/useProductField.ts";
 import Button from "../ui/ButtonBanner.tsx";
 
 interface Props {
@@ -27,8 +28,12 @@ interface Props {
 function SizeSelector({ product, breadcrumb, sizebay }: Props) {
   const signalProduct = useSignal<ProductLeaf | null>(null);
   const errorMessage = useSignal<boolean>(false);
+  const productColor = useAdditionalProperty(product, "Cor");
 
   const selectedProduct = signalProduct.value ? signalProduct.value : product;
+  const productSize = signalProduct.value
+    ? useAdditionalProperty(selectedProduct, "Tamanho")
+    : null;
 
   const hasProductSelected = !!signalProduct.value;
   const { isVariantOf } = product;
@@ -42,6 +47,10 @@ function SizeSelector({ product, breadcrumb, sizebay }: Props) {
   } = useOffer(offers);
 
   const variants = isVariantOf?.hasVariant;
+  const filteredVariants = variants?.filter((variant) => {
+    const variantColor = useAdditionalProperty(variant, "Cor") === productColor;
+    return variantColor;
+  });
 
   const handleClick = (variant: ProductLeaf) => {
     signalProduct.value = variant;
@@ -57,7 +66,7 @@ function SizeSelector({ product, breadcrumb, sizebay }: Props) {
   return (
     <>
       <span className="text-base text-dark-blue uppercase font-light">
-        Tamanho: {signalProduct?.value?.name}
+        Tamanho: {productSize}
       </span>
 
       <ProductSizebayButtons
@@ -65,11 +74,13 @@ function SizeSelector({ product, breadcrumb, sizebay }: Props) {
       />
 
       <ul class="flex flex-row gap-3">
-        {variants?.map((variant, index) => {
+        {filteredVariants?.map((variant, index) => {
           const { sizeOfferIsAvailable } = useSizeVariantOfferAvailability(
             index,
             isVariantOf,
           );
+
+          const variantSize = useAdditionalProperty(variant, "Tamanho");
 
           return (
             <li>
@@ -78,15 +89,15 @@ function SizeSelector({ product, breadcrumb, sizebay }: Props) {
               >
                 <div>
                   <Avatar
-                    content={variant.name!}
-                    class={variant.name === signalProduct?.value?.name &&
+                    content={variantSize!}
+                    class={variantSize === productSize &&
                         !sizeOfferIsAvailable
                       ? "border-solid border-primary-600 border"
                       : ""}
                     variant={!sizeOfferIsAvailable
                       ? "disabled"
                       : sizeOfferIsAvailable &&
-                          variant.name === signalProduct?.value?.name
+                          variantSize === productSize
                       ? "active"
                       : "default"}
                   />

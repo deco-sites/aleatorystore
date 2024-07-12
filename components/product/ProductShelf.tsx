@@ -67,11 +67,11 @@ function ProductShelf({
   };
   return (
     <div
-      class={`w-full py-8 flex flex-col gap-6 lg:py-10  ${
+      class={`container w-full py-8 flex flex-col gap-6 lg:py-10  ${
         isProductPage ? "lg:px-10 2xl:pl-20" : ""
       }`}
     >
-      <div class={isProductPage ? "ml-4 sm:ml-0" : "ml-4 md:ml-8"}>
+      <div class={"ml-4 md:ml-0"}>
         <Header
           title={title || ""}
           description={description || ""}
@@ -85,8 +85,7 @@ function ProductShelf({
         class={clx(
           "relative grid",
           layout?.showArrows &&
-            "grid-cols-[0px_1fr_0px] lg:grid-cols-[0px_1fr_0px]",
-          isProductPage ? "ml-4 sm:ml-0" : "px-0 ml-4 md:ml-8",
+            "grid-cols-[0px_1fr_0px] lg:grid-cols-[0px_1fr_0px] ml-4 sm:ml-0",
         )}
       >
         <Slider class="relative carousel carousel-center col-start-2 col-end-2 row-start-1 row-end-4 gap-1">

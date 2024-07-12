@@ -54,6 +54,24 @@
         "children": []
       },
       {
+        "name": "MASCULINO",
+        "image": [],
+        "children": [],
+        "url": "/masculino"
+      },
+      {
+        "url": "/feminino",
+        "name": "FEMININO",
+        "image": [],
+        "children": []
+      },
+      {
+        "url": "/signature",
+        "name": "SIGNATURE",
+        "image": [],
+        "children": []
+      },
+      {
         "url": "/masculino/roupas/polos",
         "name": "CAMISA POLO",
         "@type": "SiteNavigationElement",
@@ -66,10 +84,10 @@
             "children": []
           },
           {
-            "image": [],
-            "children": [],
+            "url": "/roupas/calca",
             "name": "Calças",
-            "url": "/roupas/calca"
+            "children": [],
+            "image": []
           },
           {
             "image": [],

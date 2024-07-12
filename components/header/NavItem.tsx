@@ -14,18 +14,31 @@ function NavItem(
 
   const numChildren = children ? children.length : 0;
   const numColumns = Math.ceil(numChildren / itemsPerColumn);
-
+  console.log({ name });
   return (
     <li className="group flex items-center relative">
       <a href={url} className="py-6">
-        <span
-          className={"group-hover:underline text-sm font-thin flex items-center gap-2 text-paragraph-color"}
-        >
-          {name}
-          {children && children.length > 0 && (
-            <Icon id={"ArrowDown"} size={26} />
+        {name === "SIGNATURE"
+          ? (
+            <span
+              className={"font-[Damion] whitespace-nowrap group-hover:underline text-sm font-thin flex items-center gap-2 text-paragraph-color"}
+            >
+              {name}
+              {children && children.length > 0 && (
+                <Icon id={"ArrowDown"} size={26} />
+              )}
+            </span>
+          )
+          : (
+            <span
+              className={"group-hover:underline whitespace-nowrap text-sm font-thin flex items-center gap-2 text-paragraph-color"}
+            >
+              {name}
+              {children && children.length > 0 && (
+                <Icon id={"ArrowDown"} size={26} />
+              )}
+            </span>
           )}
-        </span>
       </a>
 
       {children && children.length > 0 && (

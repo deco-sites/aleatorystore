@@ -110,14 +110,12 @@ function CategoryGrid(props: SectionProps<typeof loader>) {
   return (
     <div
       id={id}
-      class={`mb-0 ${
-        isBannerRowList ? "lg:px-8 pb-8 mt-12 lg:mt-20" : "mt-36 lg:mt-28"
+      class={`mb-0 container ${
+        isBannerRowList ? "pb-8 mt-12 lg:mt-20" : "mt-36 lg:mt-28"
       } `}
     >
       <div
         class={`${device == "mobile" && "ml-4"}
-          ${isBannerRowList && device !== "mobile" && "ml-0"}
-          ${!isBannerRowList && "ml-8"}
         `}
       >
         <Header

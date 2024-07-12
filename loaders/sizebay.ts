@@ -18,14 +18,14 @@ export default async function SizebayLoader({ page }: Props, req: Request, ctx: 
     // to work in local
     permaLink = page?.product.url?.replace(
       "https://0.0.0.0:10503",
-      "https://www.carolbassi.com.br",
+      "https://www.aleatorystore.com.br",
     ).split("?")[0];
   } else if (
-    page?.product.url?.includes("https://decocarolbassi.deco.site/")
+    page?.product.url?.includes("https://aleatorystore.deco.site/")
   ) {
     permaLink = page?.product.url?.replace(
       "https://decocarolbassi.deco.site",
-      "https://www.carolbassi.com.br",
+      "https://www.aleatorystore.com.br",
     ).split("?")[0];
   } else {
     permaLink = page?.product.url!;

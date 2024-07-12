@@ -47,7 +47,7 @@ function VariantSelector({ product, breadcrumb, sizebay }: Props) {
         const activeValue = getActiveValue(name);
         const variants = Object.entries(possibilities[name]);
 
-        if (name.startsWith("Cores")) {
+        if (name.startsWith("Cor")) {
           return (
             <li
               key={name}
@@ -111,15 +111,12 @@ function VariantSelector({ product, breadcrumb, sizebay }: Props) {
             </li>
           );
         }
-
-        return (
-          <SizeSelector
-            product={selectedProduct!}
-            breadcrumb={breadcrumb}
-            sizebay={sizebay}
-          />
-        );
       })}
+      <SizeSelector
+        product={selectedProduct!}
+        breadcrumb={breadcrumb}
+        sizebay={sizebay}
+      />
     </ul>
   );
 }

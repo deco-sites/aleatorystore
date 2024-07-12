@@ -28,6 +28,23 @@
           }
         ],
         "family": "Red Hat Display"
+      },
+      {
+        "variations": [
+          {
+            "weight": "300"
+          },
+          {
+            "weight": "400"
+          },
+          {
+            "weight": "500"
+          },
+          {
+            "weight": "700"
+          }
+        ],
+        "family": "Damion"
       }
     ]
   },

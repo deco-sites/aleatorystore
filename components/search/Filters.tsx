@@ -81,7 +81,6 @@ function FilterValues(
   return (
     <ul class={`flex flex-wrap gap-8 flex-col my-4`}>
       {values.map((item) => {
-        console.log({ key });
         if (key === "cor") {
           return <CategoryColorFilter {...item} />;
         }

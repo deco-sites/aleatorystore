@@ -7,6 +7,7 @@ const colors: Record<string, string> = {
   "Amarelo": "bg-[#f2cb15]",
   "Areia": "bg-[#e3dacd]",
   "Azul": "bg-[#6495ed]",
+  "Azul marinho": "bg-[#2b4f70]",
   "Bege": "bg-[#f5f5dc]",
   "Blush": "bg-[#db5079]",
   "Bordô": "bg-[#800000]",
@@ -104,7 +105,7 @@ function Avatar(
     );
   }
 
-  return label === "Cores"
+  return label === "Cor"
     ? (
       <div
         class={`avatar placeholder text-base font-light border border-solid border-[#9AA4B2] rounded-full ${
