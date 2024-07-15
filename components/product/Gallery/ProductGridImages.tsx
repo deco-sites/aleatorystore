@@ -90,7 +90,7 @@ export default function ProductGridImages(props: Props) {
           ))}
         </Slider>
 
-        <div class="absolute top-2 right-2 bg-base-100 rounded-full">
+        <div class="absolute top-2 right-2 bg-secondary-neutral-100 rounded-full">
           <ProductImageZoom
             images={images}
           />
@@ -196,7 +196,7 @@ export default function ProductGridImages(props: Props) {
           );
         })}
 
-        <div class="absolute top-2 right-2 bg-base-100 rounded-full">
+        <div class="absolute top-2 right-2 bg-secondary-neutral-100 rounded-full">
           <ProductImageZoom
             images={images}
           />

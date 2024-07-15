@@ -68,7 +68,7 @@ const colorVariantsClasses = {
     "text-base-content rounded-full border-solid border-[1px] border-[#e9e9e9]",
   disabled: "line-through text-neutral-content",
   default:
-    "text-base-content bg-base-100 rounded-full border-solid border-[1px] border-[#e9e9e9]",
+    "text-base-content bg-secondary-neutral-100 rounded-full border-solid border-[1px] border-[#e9e9e9]",
 };
 
 function ColorAvatarFilter({ content, variant = "default" }: Props) {

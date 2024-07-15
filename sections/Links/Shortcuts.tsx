@@ -1,5 +1,4 @@
-import Icon from "../../components/ui/Icon.tsx";
-import { AvailableIcons } from "../../components/ui/Icon.tsx";
+import Icon, { AvailableIcons } from "../../components/ui/Icon.tsx";
 
 export interface Shortcut {
   label?: string;
@@ -49,7 +48,7 @@ export default function Shortcuts({
           <a
             href={shortcut.link}
             target="_blank"
-            class={`flex items-center h-10 bg-base-100 text-base-content hover:bg-base-content hover:text-base-100 border-2 border-neutral mt-[-2px] ${
+            class={`flex items-center h-10 bg-secondary-neutral-100 text-base-content hover:bg-base-content hover:text-base-100 border-2 border-neutral mt-[-2px] ${
               onHover === "Show tooltip" && "tooltip tooltip-left"
             }`}
             data-tip={shortcut.label}

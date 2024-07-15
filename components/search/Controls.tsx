@@ -44,7 +44,7 @@ function SearchControls(
       onClose={() => open.value = false}
       aside={
         <>
-          <div class="bg-base-100 flex flex-col h-full divide-y overflow-y-hidden w-3/4 md:w-[480px] md:p-4">
+          <div class="bg-secondary-neutral-100 flex flex-col h-full divide-y overflow-y-hidden w-3/4 md:w-[480px] md:p-4">
             <div class="flex justify-between items-center">
               <h1 class="px-4 py-3">
                 <span class="font-normal text-xl text-dark-blue">Filtros</span>
@@ -60,7 +60,7 @@ function SearchControls(
         </>
       }
     >
-      <div class="flex flex-col justify-between px-4 mb-2 sm:p-0 sm:gap-4 sm:flex-row sm:h-[53px] sm:border-b sm:border-base-200">
+      <div class="flex flex-col justify-between px-4 mb-2 sm:p-0 sm:gap-4 sm:flex-row sm:h-[53px] sm:border-b sm:border-secondary-neutral-200">
         <div class="flex flex-row items-center sm:p-0 mb-2">
           {isSearchPage ? null : isCollectionPage
             ? (
@@ -72,7 +72,7 @@ function SearchControls(
             : <Breadcrumb itemListElement={breadcrumb?.itemListElement} />}
         </div>
 
-        <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
+        <div class="flex flex-row items-center justify-between border-b border-secondary-neutral-200 sm:gap-4 sm:border-none">
           <div class="md:hidden flex items-center gap-2">
             <span>Ver:</span>
             <button

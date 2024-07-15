@@ -417,7 +417,7 @@ export const colorClasses = {
   "Primary": "bg-primary text-primary-content",
   "Secondary": "bg-secondary text-secondary-content",
   "Tertiary": "bg-accent text-accent-content",
-  "Base": "bg-base-100 text-base-content",
+  "Base": "bg-secondary-neutral-100 text-base-content",
   "Base inverted": "bg-base-content text-base-100",
 };
 

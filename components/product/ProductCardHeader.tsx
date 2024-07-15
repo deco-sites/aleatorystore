@@ -84,7 +84,7 @@ function ProductCardHeader({
                 height={HEIGHT}
                 style={{ aspectRatio }}
                 class={clx(
-                  "bg-base-100",
+                  "bg-secondary-neutral-100",
                   "object-contain",
                   "col-span-full row-span-full",
                 )}
@@ -99,7 +99,7 @@ function ProductCardHeader({
                 height={HEIGHT}
                 style={{ aspectRatio }}
                 class={clx(
-                  "bg-base-100",
+                  "bg-secondary-neutral-100",
                   "object-contain",
                   "col-span-full row-span-full",
                   "transition-opacity opacity-0 lg:group-hover:opacity-100",

@@ -44,7 +44,7 @@ const colors: Record<string, string> = {
   // Color variants - only applied when no color as content is passed
   "active": "text-base-content ring-1 ring-black rounded-full",
   "disabled": "line-through text-neutral-content",
-  "default": "text-base-content bg-base-100",
+  "default": "text-base-content bg-secondary-neutral-100",
 };
 
 const imageColors: Record<string, string> = {
@@ -75,13 +75,13 @@ const colorVariantsClasses = {
     "text-base-content rounded-full border-solid border-[1px] border-primary-500 p-[3px] h-8",
   disabled: "line-through text-neutral-content h-7",
   default:
-    "text-base-content bg-base-100 border border-solid border-[#3B3B3B] rounded-full h-7",
+    "text-base-content bg-secondary-neutral-100 border border-solid border-[#3B3B3B] rounded-full h-7",
 };
 
 const sizeVariantsClasses: Record<string, string> = {
   active: "text-base-content border-solid border-primary-600 border",
   disabled: "text-[#C9CACB] line-through",
-  default: "text-base-content bg-base-100",
+  default: "text-base-content bg-secondary-neutral-100",
 };
 
 function Avatar(

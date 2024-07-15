@@ -27,7 +27,7 @@ export default function Card(props: Props) {
     <div
       className={`card ${
         imageOnSide ? "card-side" : "w-96"
-      } bg-base-100 shadow-xl`}
+      } bg-secondary-neutral-100 shadow-xl`}
     >
       {(!imageOnBottom || imageOnSide) && <CardImage image={image} />}
       <div className="card-body">

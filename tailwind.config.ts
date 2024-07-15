@@ -27,6 +27,10 @@ export default {
         },
       },
     },
+    fontFamily: {
+      "northwell": ["Northwell", "Montserrat"],
+      "redhatdisplay": ["Red Hat Display", "Montserrat"],
+    },
     colors: {
       "primary-100": "#EDEDED",
       "primary-200": "#BABABA",

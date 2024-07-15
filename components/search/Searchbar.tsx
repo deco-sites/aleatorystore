@@ -117,12 +117,12 @@ function Searchbar({
       <form
         id={id}
         action={action}
-        class="join py-6 px-[1rem] lg:px-[3.5rem] bg-secondary-neutral-200"
+        class="join py-6 px-[1rem] lg:px-[3.5rem] border-secondary-neutral-200"
       >
         <input
           ref={searchInputRef}
           id="search-input"
-          class="input border-0 border-b border-dark-blue join-item flex-grow focus:outline-none focus:border-primary-900 bg-secondary-neutral-200 placeholder:text-paragraph-color placeholder:font-light"
+          class="input border-0 border-b border-dark-blue join-item flex-grow focus:outline-none focus:border-primary-900 border-secondary-neutral-200 placeholder:text-paragraph-color placeholder:font-light"
           name={name}
           onInput={(e) => {
             const value = e.currentTarget.value;
@@ -145,7 +145,7 @@ function Searchbar({
         />
         <Button
           type="submit"
-          class="join-item btn-square shadow-none border-0 border-b border-dark-blue bg-secondary-neutral-200 mr-4"
+          class="join-item btn-square shadow-none border-0 border-b border-dark-blue border-secondary-neutral-200 mr-4"
           aria-label="Search"
           for={id}
           tabIndex={-1}

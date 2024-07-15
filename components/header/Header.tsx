@@ -102,7 +102,7 @@ function Header({
           searchbar={searchbar}
           platform={platform}
         >
-          <div class="bg-base-100 fixed w-full z-40">
+          <div class="bg-secondary-neutral-100 fixed w-full z-40">
             {alerts && alerts.length > 0 && (
               <Alert alerts={alerts} lightTheme={lightThemeBar} />
             )}

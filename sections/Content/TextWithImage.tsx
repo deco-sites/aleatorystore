@@ -1,5 +1,4 @@
-import type { ImageWidget } from "apps/admin/widgets.ts";
-import type { HTMLWidget } from "apps/admin/widgets.ts";
+import type { HTMLWidget, ImageWidget } from "apps/admin/widgets.ts";
 
 export interface ServiceProps {
   type?: string;
@@ -32,7 +31,7 @@ export default function Services({
   ],
 }: Props) {
   return (
-    <div class="bg-base-100 flex flex-col py-28">
+    <div class="bg-secondary-neutral-100 flex flex-col py-28">
       {services?.map((service, index) => (
         <div
           key={index}

@@ -429,7 +429,7 @@ const ButtonSizesPreview = () => {
   );
 
   return (
-    <div class="bg-base-100 overflow-x-auto rounded-lg flex flex-col p-2 gap-2">
+    <div class="bg-secondary-neutral-100 overflow-x-auto rounded-lg flex flex-col p-2 gap-2">
       {buttonStyles.map((style) => renderButtonRow(style))}
     </div>
   );
@@ -455,7 +455,7 @@ const ButtonColorsPreview = () => {
   );
 
   return (
-    <div class="bg-base-100 overflow-x-auto rounded-lg flex flex-col p-2 gap-2">
+    <div class="bg-secondary-neutral-100 overflow-x-auto rounded-lg flex flex-col p-2 gap-2">
       {buttonTypesClasses.map((type) => renderButtonRow(type))}
     </div>
   );
@@ -465,7 +465,7 @@ const ButtonStylesPreview = () => {
   const buttonStylesClasses = ["", "btn-outline", "btn-ghost", "btn-link"];
 
   return (
-    <div class="bg-base-100 overflow-x-auto rounded-lg flex flex-row p-2 gap-2">
+    <div class="bg-secondary-neutral-100 overflow-x-auto rounded-lg flex flex-row p-2 gap-2">
       {buttonStylesClasses.map((style) => (
         <button class={`btn btn-xs md:btn-sm capitalize ${style}`}>
           {style ? style.split("-")[1] : "Button"}
@@ -484,7 +484,7 @@ const TextColorsPreview = () => {
   ];
 
   return (
-    <div class="bg-base-100 overflow-x-auto rounded-lg flex flex-row p-2 gap-2 text-sm md:text-base">
+    <div class="bg-secondary-neutral-100 overflow-x-auto rounded-lg flex flex-row p-2 gap-2 text-sm md:text-base">
       {textColorsClasses.map((color) => (
         <div class={`${color} capitalize`}>
           {color ? color.split("-")[1] : "Content"}

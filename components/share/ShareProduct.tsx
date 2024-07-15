@@ -91,12 +91,12 @@ function ShareProduct({ product, device, options }: Props) {
 
   return (
     <>
-      <div
-        className="btn btn-circle"
+      <button
+        className="btn no-animation btn-circle btn-ghost gap-2"
         onClick={productSharingControl}
       >
         <ShareIcon />
-      </div>
+      </button>
 
       {device === "desktop" && (
         <Modal

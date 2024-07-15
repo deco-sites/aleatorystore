@@ -17,10 +17,10 @@ function NavItem(
   return (
     <li className="group flex items-center relative">
       <a href={url} className="py-6">
-        {name === "SIGNATURE"
+        {name?.includes("Signature")
           ? (
             <span
-              className={"font-[Damion] whitespace-nowrap group-hover:underline text-sm font-thin flex items-center gap-2 text-paragraph-color"}
+              className={"font-northwell capitalize whitespace-nowrap group-hover:underline text-2xl font-thin flex items-center gap-2 text-paragraph-color"}
             >
               {name}
               {children && children.length > 0 && (
@@ -30,7 +30,7 @@ function NavItem(
           )
           : (
             <span
-              className={"group-hover:underline whitespace-nowrap text-sm font-thin flex items-center gap-2 text-paragraph-color"}
+              className={"font-redhatdisplay group-hover:underline whitespace-nowrap text-sm font-thin flex items-center gap-2 text-paragraph-color"}
             >
               {name}
               {children && children.length > 0 && (
@@ -42,7 +42,7 @@ function NavItem(
 
       {children && children.length > 0 && (
         <div
-          className={`fixed hidden hover:flex group-hover:flex bg-base-100 z-50 items-start justify-around gap-6 border-t border-b-2 border-base-200 w-screen shadow-header`}
+          className={`fixed hidden hover:flex group-hover:flex bg-secondary-neutral-100 z-50 items-start justify-around gap-6 border-t border-b-2 border-secondary-neutral-200 w-screen shadow-header`}
           style={{ top: "0px", left: "0px", marginTop: headerHeight }}
         >
           <div class="flex items-start">

@@ -1,6 +1,6 @@
+import type { ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
 import Slider from "../../components/ui/Slider.tsx";
-import type { ImageWidget } from "apps/admin/widgets.ts";
 
 export interface Highlight {
   src: ImageWidget;
@@ -27,7 +27,7 @@ function Highlights({ highlights = [], title }: Props) {
             index={index}
             class="carousel-item first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0 min-w-[190px]"
           >
-            <a href={href} class="card card-compact bg-base-100">
+            <a href={href} class="card card-compact bg-secondary-neutral-100">
               <figure>
                 <Image
                   class="rounded-[40px]"

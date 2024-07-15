@@ -1,9 +1,9 @@
 import { Signal, useSignal } from "@preact/signals";
+import { useCart } from "apps/vtex/hooks/useCart.ts";
+import type { SimulationOrderForm, SKU, Sla } from "apps/vtex/utils/types.ts";
 import { useCallback } from "preact/hooks";
 import Button from "../../components/ui/Button.tsx";
 import { formatPrice } from "../../sdk/format.ts";
-import { useCart } from "apps/vtex/hooks/useCart.ts";
-import type { SimulationOrderForm, SKU, Sla } from "apps/vtex/utils/types.ts";
 
 export interface Props {
   items: Array<SKU>;
@@ -45,7 +45,7 @@ function ShippingContent({ simulation }: {
   return (
     <ul class="flex flex-col gap-4 p-4 bg-base-200 rounded-[4px]">
       {methods.map((method) => (
-        <li class="flex justify-between items-center border-base-200 not-first-child:border-t">
+        <li class="flex justify-between items-center border-secondary-neutral-200 not-first-child:border-t">
           <span class="text-button text-center">
             Entrega {method.name}
           </span>

@@ -25,7 +25,7 @@ export default function Tabs(props: Props) {
             />
             <div
               role="tabpanel"
-              className="tab-content bg-base-100 border-base-300 rounded-box p-6"
+              className="tab-content bg-secondary-neutral-100 border-base-300 rounded-box p-6"
             >
               {tab.content}
             </div>

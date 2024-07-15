@@ -4,6 +4,10 @@
 
 @layer base {
 
+  * {
+    font-family: "Red Hat Display";
+  }
+
   :root {
     color-scheme: light only !important;
   }

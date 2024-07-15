@@ -26,7 +26,6 @@ export default function ProductDetails(
     productExchangesReturnsPolicy,
     device,
     shareSocialOptions,
-    productRecommendations,
     buttonsUrl,
     recommendedSize,
     showButtons,
@@ -78,13 +77,6 @@ export default function ProductDetails(
 }
 
 export const loader = async (props: Props, _req: Request, ctx: AppContext) => {
-  const productId = props.page?.product.inProductGroupWithID;
-
-  const data = await ctx.invoke.site.loaders
-    .productRecommendations({
-      productId,
-    });
-
   const { buttonsUrl, recommendedSize, showButtons } = await ctx.invoke.site
     .loaders.sizebay({ page: props.page });
 
@@ -94,7 +86,6 @@ export const loader = async (props: Props, _req: Request, ctx: AppContext) => {
     showButtons,
     buttonsUrl,
     recommendedSize,
-    productRecommendations: data?.productRecommendations ?? [],
   };
 };
 

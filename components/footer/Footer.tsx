@@ -146,7 +146,7 @@ const LAYOUT = {
   "Primary": "bg-primary text-primary-content",
   "Secondary": "bg-secondary text-secondary-content",
   "Accent": "bg-accent text-accent-content",
-  "Base 100": "bg-base-100 text-base-content",
+  "Base 100": "bg-secondary-neutral-100 text-base-content",
   "Base 100 inverted": "bg-base-content text-base-100",
 };
 

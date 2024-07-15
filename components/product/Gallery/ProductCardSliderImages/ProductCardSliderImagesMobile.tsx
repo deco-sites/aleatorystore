@@ -140,7 +140,7 @@ function ProductCardSliderImagesMobile({
                         height={HEIGHT}
                         style={{ aspectRatio }}
                         className={clx(
-                          "bg-base-100",
+                          "bg-secondary-neutral-100",
                           "object-cover",
                           "w-full",
                           "col-span-full row-span-full",
@@ -166,7 +166,7 @@ function ProductCardSliderImagesMobile({
                         style={{ aspectRatio }}
                         className={clx(
                           "relative",
-                          "bg-base-100",
+                          "bg-secondary-neutral-100",
                           "object-cover",
                           "w-full",
                           "col-span-full row-span-full",
