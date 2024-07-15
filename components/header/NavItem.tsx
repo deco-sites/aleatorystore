@@ -14,7 +14,6 @@ function NavItem(
 
   const numChildren = children ? children.length : 0;
   const numColumns = Math.ceil(numChildren / itemsPerColumn);
-  console.log({ name });
   return (
     <li className="group flex items-center relative">
       <a href={url} className="py-6">
