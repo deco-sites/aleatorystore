@@ -44,10 +44,6 @@ export default function ProductDetails(
 
   // "to have sticky ProductInfo component put this class -> sticky top-32"
 
-  const hasNotNewImages = page?.product?.image?.some((image) =>
-    image.name?.toLocaleLowerCase() !== "novas"
-  );
-
   return (
     <div class="w-full flex flex-col gap-6 lg:py-10 lg:pl-8 2xl:pl-20">
       <Breadcrumb itemListElement={breadcrumb.itemListElement} />
@@ -57,9 +53,7 @@ export default function ProductDetails(
           <ProductGridImages page={page} />
         </div>
         <div
-          className={`w-full ${
-            hasNotNewImages ? "lg:w-full 2xl:w-4/6 " : "lg:w-2/4 2xl:w-2/6"
-          }`}
+          className={`w-full "lg:w-full 2xl:w-4/6 `}
         >
           <ProductInfo
             page={page}

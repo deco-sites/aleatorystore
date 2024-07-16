@@ -10,7 +10,7 @@
       "newsletter": false,
       "socialLinks": false,
       "regionOptions": true,
-      "paymentMethods": true,
+      "paymentMethods": false,
       "backToTheTop": true
     },
     "variation": "Variation 4",
@@ -46,6 +46,9 @@
       },
       {
         "label": "Visa"
+      },
+      {
+        "label": "Diners"
       }
     ],
     "title": "Formas de pagamento"
@@ -54,17 +57,73 @@
     {
       "items": [
         {
-          "href": "https://atendimento.carolbassi.com.br",
-          "label": "Fale conosco",
-          "openNewTab": true
+          "href": "/quem-somos",
+          "label": "CONHEÇA A ALEATORY"
         },
         {
-          "href": "https://api.whatsapp.com/send/?phone=5511976664900&text&app_absent=0",
-          "label": "Fale com nossas consultoras",
+          "href": "/nossas-lojas",
+          "label": "INDICAÇÃO E DESCONTO"
+        },
+        {
+          "label": "BLOG ALEATORY",
+          "href": "http://blog.aleatorystore.com.br/",
           "openNewTab": true
         }
       ],
-      "label": "Atendimento",
+      "children": [
+        {
+          "href": "/quemsomos",
+          "label": "Quem somos"
+        },
+        {
+          "href": "/privacidadeeseguranca",
+          "label": "Privacidade e segurança"
+        },
+        {
+          "href": "/termosdeuso",
+          "label": "Termos de uso"
+        },
+        {
+          "href": "/trabalheconosco",
+          "label": "Trabalhe conosco"
+        }
+      ],
+      "label": "INSTITUCIONAL"
+    },
+    {
+      "items": [
+        {
+          "label": "COMO COMPRAR",
+          "openNewTab": true,
+          "href": "https://www.aleatorystore.com.br/ajuda/como-comprar"
+        },
+        {
+          "href": "https://www.aleatorystore.com.br/institucional/prazo-de-entrega",
+          "label": "PRAZOS DE ENTREGA",
+          "openNewTab": true
+        },
+        {
+          "label": "FORMAS DE PAGAMENTO",
+          "href": "https://www.aleatorystore.com.br/institucional/formas-de-pagamento",
+          "openNewTab": true
+        },
+        {
+          "label": "POLÍTICA DE PRIVACIDADE",
+          "openNewTab": true,
+          "href": "https://www.aleatorystore.com.br/institucional/politica-de-privacidade"
+        },
+        {
+          "label": "TROCAS E DEVOLUÇÕES",
+          "href": "https://www.aleatorystore.com.br/institucional/trocas-e-devolucoes",
+          "openNewTab": true
+        },
+        {
+          "label": "CASHBACK",
+          "openNewTab": true,
+          "href": "https://www.aleatorystore.com.br/programa-de-fidelidade"
+        }
+      ],
+      "label": "INFORMAÇÕES ÚTEIS",
       "children": [
         {
           "href": "/centraldeatendimento",
@@ -83,46 +142,25 @@
     {
       "items": [
         {
-          "href": "/quem-somos",
-          "label": "Quem somos"
+          "href": "https://www.aleatorystore.com.br/suporte/fale-conosco",
+          "label": "FALE CONOSCO",
+          "openNewTab": true
         },
         {
-          "href": "/nossas-lojas",
-          "label": "Nossas lojas"
+          "href": "https://www.aleatorystore.com.br/institucional/duvidas",
+          "label": "DÚVIDAS"
+        },
+        {
+          "label": "MINHA CONTA",
+          "href": "/user-myaccount"
+        },
+        {
+          "label": "E-MAIL US ON atendimento@aleatorystore.com.br",
+          "href": "mailto:atendimento@aleatorystore.com.br",
+          "openNewTab": true
         }
       ],
-      "label": "Sobre Nós",
-      "children": [
-        {
-          "href": "/quemsomos",
-          "label": "Quem somos"
-        },
-        {
-          "href": "/privacidadeeseguranca",
-          "label": "Privacidade e segurança"
-        },
-        {
-          "href": "/termosdeuso",
-          "label": "Termos de uso"
-        },
-        {
-          "href": "/trabalheconosco",
-          "label": "Trabalhe conosco"
-        }
-      ]
-    },
-    {
-      "items": [
-        {
-          "href": "/termos-e-condicoes",
-          "label": "Termos e Condições"
-        },
-        {
-          "label": "Política de Privacidade",
-          "href": "/politica-de-privacidade"
-        }
-      ],
-      "label": "Termos legais e Cookies",
+      "label": "ATENDIMENTOS & FAQ",
       "children": [
         {
           "href": "/loginecadastro",

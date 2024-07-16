@@ -346,17 +346,20 @@ function Footer({
         {layout?.variation == "Variation 4" && (
           <div class="flex flex-col gap-10">
             {_newsletter}
-            <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 lg:px-20  mx-8">
-              <div class="lg:w-3/5">
+            <div class="mx-8 pt-9">
+              {
+                /* <div class="lg:w-3/5">
                 <h3 class="text-center sm:text-left text-xl uppercase text-black">
                   {seoTexts.title}
                 </h3>
                 <p class="text-center text-sm sm:text-left lg:text-base font-light text-paragraph-color">
                   {seoTexts.description}
                 </p>
-              </div>
-              <div class="flex flex-col md:flex-row lg:flex-col gap-10 lg:gap-10 lg:w-full">
+              </div> */
+              }
+              <div class="flex flex-col justify-center md:flex-row gap-10 lg:gap-16 lg:w-full">
                 {_sectionLinks}
+                {_payments}
               </div>
             </div>
             <div class="lg:flex-auto">
@@ -390,10 +393,11 @@ function Footer({
       </div>
       <div class="flex flex-1 items-center justify-center bg-secondary-neutral-300">
         <p class="text-[12px] py-4 px-4">
-          {new Date().getFullYear()}{" "}
-          Aleatory. Todos os direitos reservado. Guaraná Brasil Difusão de moda
-          LTDA | Rua Major Paladino, 128. Vila Ribeiro de Barros - Galpão Modulo
-          10. CEP: 05307-000 - São Paulo/SP | CNPJ: 54.877.063/0001-50
+          Aleatory @ {new Date().getFullYear()}{" "}
+          TODOS OS DIREITOS RESERVADOS. Zetop Comércio Eletrônico Ltda, com sede
+          na Rua General Olimpio da Silveira, 655 Santa Cecilia, São Paulo - SP,
+          inscrita no CNPJ sob o nº 17.027.448/0001-00. PMG Plus Artigos de
+          vestuário e acessórios - CNPJ 38.304.932/0001-09
         </p>
       </div>
       {layout?.hide?.backToTheTop
