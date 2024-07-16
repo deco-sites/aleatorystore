@@ -24,7 +24,7 @@ export default async function SizebayLoader({ page }: Props, req: Request, ctx: 
     page?.product.url?.includes("https://aleatorystore.deco.site/")
   ) {
     permaLink = page?.product.url?.replace(
-      "https://decocarolbassi.deco.site",
+      "https://aleatorystore.deco.site",
       "https://www.aleatorystore.com.br",
     ).split("?")[0];
   } else {

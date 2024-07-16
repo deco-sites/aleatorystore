@@ -105,26 +105,15 @@ export default function ProductGridImages(props: Props) {
               class="hover:cursor-zoom-in"
               onClick={handleClick}
             >
-              {image.name?.toLowerCase() === "novas"
-                ? (
-                  <Image
-                    src={image.url!}
-                    alt={image.alternateName}
-                    width={WIDTH}
-                    height={HEIGHT}
-                    style={{ aspectRatio: ASPECT_RATIO }}
-                    preload={index <= 4}
-                    loading={index <= 4 ? "eager" : "lazy"}
-                  />
-                )
-                : (
-                  <img
-                    src={image.url!}
-                    alt={image.alternateName}
-                    loading={index <= 4 ? "eager" : "lazy"}
-                    class="object-fill"
-                  />
-                )}
+              <Image
+                src={image.url!}
+                alt={image.alternateName}
+                width={WIDTH}
+                height={HEIGHT}
+                style={{ aspectRatio: ASPECT_RATIO }}
+                preload={index <= 4}
+                loading={index <= 4 ? "eager" : "lazy"}
+              />
             </figure>
           );
         })}
@@ -138,30 +127,18 @@ export default function ProductGridImages(props: Props) {
             class="relative hover:cursor-zoom-in"
             onClick={handleClick}
           >
-            {hasNotNewImages
-              ? (
-                <video
-                  src={productVideo.contentUrl!}
-                  muted
-                  autoPlay
-                  loop
-                  class="object-cover w-full h-full"
-                />
-              )
-              : (
-                <Video
-                  src={productVideo.contentUrl!}
-                  width={hasNotNewImages ? 500 : WIDTH}
-                  height={hasNotNewImages ? 749 : HEIGHT}
-                  muted
-                  autoPlay
-                  loop
-                  class="object-cover w-full h-full"
-                  style={{
-                    aspectRatio: ASPECT_RATIO,
-                  }}
-                />
-              )}
+            <Video
+              src={productVideo.contentUrl!}
+              width={hasNotNewImages ? 500 : WIDTH}
+              height={hasNotNewImages ? 749 : HEIGHT}
+              muted
+              autoPlay
+              loop
+              class="object-cover w-full h-full"
+              style={{
+                aspectRatio: ASPECT_RATIO,
+              }}
+            />
           </figure>
         )}
 
@@ -172,26 +149,15 @@ export default function ProductGridImages(props: Props) {
               class="hover:cursor-zoom-in"
               onClick={handleClick}
             >
-              {image.name?.toLowerCase() === "novas"
-                ? (
-                  <Image
-                    src={image.url!}
-                    alt={image.alternateName}
-                    width={WIDTH}
-                    height={HEIGHT}
-                    style={{ aspectRatio: ASPECT_RATIO }}
-                    preload={index <= 4}
-                    loading={index <= 4 ? "eager" : "lazy"}
-                  />
-                )
-                : (
-                  <img
-                    src={image.url!}
-                    alt={image.alternateName}
-                    loading={index <= 4 ? "eager" : "lazy"}
-                    class="object-fill"
-                  />
-                )}
+              <Image
+                src={image.url!}
+                alt={image.alternateName}
+                width={WIDTH}
+                height={HEIGHT}
+                style={{ aspectRatio: ASPECT_RATIO }}
+                preload={index <= 4}
+                loading={index <= 4 ? "eager" : "lazy"}
+              />
             </figure>
           );
         })}

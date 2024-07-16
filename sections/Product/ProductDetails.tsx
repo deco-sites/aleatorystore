@@ -53,7 +53,7 @@ export default function ProductDetails(
           <ProductGridImages page={page} />
         </div>
         <div
-          className={`w-full "lg:w-full 2xl:w-4/6 `}
+          className={`w-full lg:w-full 2xl:w-2/6 `}
         >
           <ProductInfo
             page={page}

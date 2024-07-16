@@ -13,6 +13,7 @@ import RegionSelector from "../../components/footer/RegionSelector.tsx";
 import Social from "../../components/footer/Social.tsx";
 import Newsletter from "../../islands/Newsletter.tsx";
 import { clx } from "../../sdk/clx.ts";
+import Image from "apps/website/components/Image.tsx";
 
 export type Item = {
   label: string;
@@ -391,7 +392,7 @@ function Footer({
           </div>
         )}
       </div>
-      <div class="flex flex-1 items-center justify-center bg-secondary-neutral-300">
+      <div class="container flex flex-1 items-center justify-between bg-secondary-neutral-300">
         <p class="text-[12px] py-4 px-4">
           Aleatory @ {new Date().getFullYear()}{" "}
           TODOS OS DIREITOS RESERVADOS. Zetop Comércio Eletrônico Ltda, com sede
@@ -399,6 +400,20 @@ function Footer({
           inscrita no CNPJ sob o nº 17.027.448/0001-00. PMG Plus Artigos de
           vestuário e acessórios - CNPJ 38.304.932/0001-09
         </p>
+        <div>
+          <Image
+            src={"https://aleatory.vtexassets.com/assets/vtex/assets-builder/aleatory.store/0.0.943/svg/logo-econverse___a81e9c16fdf9bdf5bc6f85eea10b8531.svg"}
+            width={80}
+            height={40}
+            alt="Econverse logo"
+          />
+          <Image
+            src={"https://aleatory.vtexassets.com/assets/vtex/assets-builder/aleatory.store/0.0.943/svg/logo-vtex___87bcbfa985a64389de5ded7624b56348.svg"}
+            width={80}
+            height={40}
+            alt="Vtex logo"
+          />
+        </div>
       </div>
       {layout?.hide?.backToTheTop
         ? <></>
