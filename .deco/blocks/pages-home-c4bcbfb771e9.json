@@ -52,7 +52,7 @@
         "props": {
           "sort": "",
           "count": 6,
-          "collection": "262"
+          "collection": "209"
         },
         "crossSelling": "similars",
         "__resolveType": "vtex/loaders/intelligentSearch/productList.ts"
@@ -84,8 +84,8 @@
         },
         "__resolveType": "site/loaders/Layouts/ProductCard.tsx"
       },
-      "title": "ícones 10 anos",
-      "description": "Confira a nova coleção"
+      "title": "MAIS VENDIDOS",
+      "description": "PEÇAS INCRÍVEIS PARA APROVEITAR MOMENTOS INESQUECÍVEIS."
     },
     {
       "__resolveType": "site/sections/Category/CategoryGrid.tsx",
