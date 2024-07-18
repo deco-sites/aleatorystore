@@ -3,6 +3,7 @@ import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalytic
 import { Device } from "apps/website/matchers/device.ts";
 import { SendEventOnView } from "../../components/Analytics.tsx";
 import ProductAccordionInfo from "../../islands/ProductAccordionInfo.tsx";
+import ProductGiftLink from "../../islands/ProductGiftLink.tsx";
 import ProductSelector from "../../islands/ProductVariantSelector.tsx";
 import ShareProduct from "../../islands/Share/ShareProduct.tsx";
 import WishlistButtonVtex from "../../islands/WishlistButton/vtex.tsx";
@@ -155,6 +156,10 @@ function ProductInfo(
           breadcrumb={breadcrumb}
           sizebay={sizebayProps}
         />
+      </div>
+      {/* Product Gift */}
+      <div class="mt-4 sm:mt-6">
+        <ProductGiftLink />
       </div>
       {/* Description card */}
       <div class="mt-4 sm:mt-6 max-w-[373px]">

@@ -12,7 +12,7 @@ import ProductSizebayButtons from "../../islands/ProductSizebayButtons.tsx";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { useSizeVariantOfferAvailability } from "../../sdk/useOfferAvailability.ts";
 import { useAdditionalProperty } from "../../sdk/useProductField.ts";
-import Button from "../ui/ButtonBanner.tsx";
+import Button from "../ui/ButtonBuy.tsx";
 
 interface Props {
   product: Product;
@@ -27,6 +27,7 @@ interface Props {
 
 function SizeSelector({ product, breadcrumb, sizebay }: Props) {
   const signalProduct = useSignal<ProductLeaf | null>(null);
+  const productQuantity = useSignal<number>(1);
   const errorMessage = useSignal<boolean>(false);
   const productColor = useAdditionalProperty(product, "Cor");
 
@@ -51,6 +52,16 @@ function SizeSelector({ product, breadcrumb, sizebay }: Props) {
     const variantColor = useAdditionalProperty(variant, "Cor") === productColor;
     return variantColor;
   });
+
+  const handleChangeQuantity = (value: string) => {
+    if (value !== "plus" && productQuantity.value === 1) return;
+
+    if (value === "plus") {
+      return productQuantity.value = productQuantity.value + 1;
+    }
+
+    return productQuantity.value = productQuantity.value - 1;
+  };
 
   const handleClick = (variant: ProductLeaf) => {
     signalProduct.value = variant;
@@ -119,17 +130,11 @@ function SizeSelector({ product, breadcrumb, sizebay }: Props) {
               Selecione um Tamanho para continuar!
             </span>
             <Button
-              class="w-full hover:bg-primary-700 hover:text-secondary-neutral-100"
+              class="w-full"
               negative
               onClick={() => errorMessage.value = true}
             >
               COMPRAR
-            </Button>
-            <Button
-              class="w-full hover:bg-primary-700"
-              onClick={() => errorMessage.value = true}
-            >
-              ADICIONAR A SACOLA
             </Button>
           </div>
         )
@@ -141,17 +146,35 @@ function SizeSelector({ product, breadcrumb, sizebay }: Props) {
             {availability === "https://schema.org/InStock"
               ? (
                 <>
-                  <AddToCartButtonVTEX
-                    eventParams={{ items: [eventItem] }}
-                    productID={signalProduct.value?.productID!}
-                    seller={seller}
-                    gotoCheckout
-                  />
-                  <AddToCartButtonVTEX
-                    eventParams={{ items: [eventItem] }}
-                    productID={signalProduct.value?.productID!}
-                    seller={seller}
-                  />
+                  <div class="flex gap-4 max-w-[190px] sm:max-w-[245px]">
+                    <div class="flex items-center">
+                      <button
+                        class={`p-2 flex items-center justify-center border border-[#c3c3c3] ${
+                          productQuantity.value === 1
+                            ? "bg-[#f2f4f5]"
+                            : "bg-transparent"
+                        }`}
+                        onClick={() => handleChangeQuantity("minus")}
+                      >
+                        <MinusIcon />
+                      </button>
+                      <span class="h-[42px] w-[42px] flex items-center justify-center border border-[#c3c3c3]">
+                        {productQuantity.value}
+                      </span>
+                      <button
+                        class="p-2 flex items-center justify-center border border-[#c3c3c3]"
+                        onClick={() => handleChangeQuantity("plus")}
+                      >
+                        <PlusIcon />
+                      </button>
+                    </div>
+                    <AddToCartButtonVTEX
+                      eventParams={{ items: [eventItem] }}
+                      productID={signalProduct.value?.productID!}
+                      seller={seller}
+                      quantity={productQuantity.value}
+                    />
+                  </div>
                 </>
               )
               : <OutOfStock productID={signalProduct.value?.productID!} />}
@@ -163,3 +186,49 @@ function SizeSelector({ product, breadcrumb, sizebay }: Props) {
 }
 
 export default SizeSelector;
+
+const PlusIcon = () => (
+  <svg
+    fill="#000000"
+    width="24px"
+    height="24px"
+    viewBox="0 0 24 24"
+    id="plus"
+    data-name="Flat Line"
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon flat-line"
+  >
+    <path
+      id="primary"
+      d="M5,12H19M12,5V19"
+      style={{
+        fill: "none",
+        stroke: "rgb(0, 0, 0)",
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        strokeWidth: 2,
+      }}
+    />
+  </svg>
+);
+
+const MinusIcon = () => (
+  <svg
+    fill="#000000"
+    width="24px"
+    height="24px"
+    viewBox="0 0 24 24"
+    id="minus"
+    data-name="Flat Color"
+    xmlns="http://www.w3.org/2000/svg"
+    className="icon flat-color"
+  >
+    <path
+      id="primary"
+      d="M19,13H5a1,1,0,0,1,0-2H19a1,1,0,0,1,0,2Z"
+      style={{
+        fill: "rgb(0, 0, 0)",
+      }}
+    />
+  </svg>
+);

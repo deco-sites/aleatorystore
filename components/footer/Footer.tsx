@@ -1,4 +1,5 @@
 import type { ImageWidget } from "apps/admin/widgets.ts";
+import Image from "apps/website/components/Image.tsx";
 import PoweredByDeco from "apps/website/components/PoweredByDeco.tsx";
 import { SectionProps } from "deco/types.ts";
 import { AppContext } from "../../apps/site.ts";
@@ -13,7 +14,6 @@ import RegionSelector from "../../components/footer/RegionSelector.tsx";
 import Social from "../../components/footer/Social.tsx";
 import Newsletter from "../../islands/Newsletter.tsx";
 import { clx } from "../../sdk/clx.ts";
-import Image from "apps/website/components/Image.tsx";
 
 export type Item = {
   label: string;
@@ -392,27 +392,39 @@ function Footer({
           </div>
         )}
       </div>
-      <div class="container flex flex-1 items-center justify-between bg-secondary-neutral-300">
-        <p class="text-[12px] py-4 px-4">
+      <div class="container flex flex-wrap md:flex-nowrap gap-4 items-center justify-between border-t border-[#d8d8d8] py-4 px-4 mb-8">
+        <p class="text-[12px] w-fit">
           Aleatory @ {new Date().getFullYear()}{" "}
           TODOS OS DIREITOS RESERVADOS. Zetop Comércio Eletrônico Ltda, com sede
           na Rua General Olimpio da Silveira, 655 Santa Cecilia, São Paulo - SP,
           inscrita no CNPJ sob o nº 17.027.448/0001-00. PMG Plus Artigos de
           vestuário e acessórios - CNPJ 38.304.932/0001-09
         </p>
-        <div>
-          <Image
-            src={"https://aleatory.vtexassets.com/assets/vtex/assets-builder/aleatory.store/0.0.943/svg/logo-econverse___a81e9c16fdf9bdf5bc6f85eea10b8531.svg"}
-            width={80}
-            height={40}
-            alt="Econverse logo"
-          />
-          <Image
-            src={"https://aleatory.vtexassets.com/assets/vtex/assets-builder/aleatory.store/0.0.943/svg/logo-vtex___87bcbfa985a64389de5ded7624b56348.svg"}
-            width={80}
-            height={40}
-            alt="Vtex logo"
-          />
+        <div class="flex flex-wrap justify-center md:flex-nowrap gap-4 w-full md:w-fit">
+          <a
+            href="https://www.econverse.com.br/en/"
+            target="_blank"
+            rel="nofollow"
+          >
+            <Image
+              src={"https://aleatory.vtexassets.com/assets/vtex/assets-builder/aleatory.store/0.0.943/svg/logo-econverse___a81e9c16fdf9bdf5bc6f85eea10b8531.svg"}
+              width={80}
+              height={40}
+              alt="Econverse logo"
+            />
+          </a>
+          <a
+            href="https://vtex.com/pt-br/"
+            target="_blank"
+            rel="nofollow"
+          >
+            <Image
+              src={"https://aleatory.vtexassets.com/assets/vtex/assets-builder/aleatory.store/0.0.943/svg/logo-vtex___87bcbfa985a64389de5ded7624b56348.svg"}
+              width={80}
+              height={40}
+              alt="Vtex logo"
+            />
+          </a>
         </div>
       </div>
       {layout?.hide?.backToTheTop

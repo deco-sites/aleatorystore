@@ -153,6 +153,8 @@ function CategoryGrid(props: SectionProps<typeof loader>) {
                             height={480}
                             muted
                             autoPlay
+                            playsInline
+                            playsinline
                             loop
                             class="h-4/5 object-cover w-full"
                           />
@@ -266,6 +268,8 @@ function CategoryGrid(props: SectionProps<typeof loader>) {
                         height={480}
                         muted
                         autoPlay
+                        playsInline
+                        playsinline
                         loop
                         class={`h-full object-cover w-full`}
                       />

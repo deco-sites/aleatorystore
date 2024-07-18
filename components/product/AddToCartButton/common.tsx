@@ -2,7 +2,7 @@ import { AddToCartParams } from "apps/commerce/types.ts";
 import { useState } from "preact/hooks";
 import { sendEvent } from "../../../sdk/analytics.tsx";
 import { useUI } from "../../../sdk/useUI.ts";
-import Button from "../../ui/ButtonBanner.tsx";
+import Button from "../../ui/ButtonBuy.tsx";
 
 export interface Props {
   /** @description: sku name */
@@ -61,9 +61,10 @@ export default function AddToCartButton(props: Props) {
       <Button
         {...btnProps}
         class="w-full hover:bg-primary-700"
+        negative
         disabled={props.disabled}
       >
-        Adicionar à Sacola
+        comprar
       </Button>
     );
 }

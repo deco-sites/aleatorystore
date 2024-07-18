@@ -217,6 +217,8 @@ function ProductCardSliderImages({
                         decoding="async"
                         muted
                         autoPlay
+                        playsInline
+                        playsinline
                         loop
                       />
                     </Slider.Item>

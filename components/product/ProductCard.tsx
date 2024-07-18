@@ -1,6 +1,7 @@
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import Image from "apps/website/components/Image.tsx";
+import Video from "apps/website/components/Video.tsx";
 import type { Platform } from "../../apps/site.ts";
 import { SendEventOnClick } from "../../components/Analytics.tsx";
 import { clx } from "../../sdk/clx.ts";
@@ -32,13 +33,15 @@ function ProductCard({
   itemListName,
   index,
 }: Props) {
-  const { url, productID, image: images, offers, isVariantOf } = product;
+  const { url, productID, image: images, video: videos, offers, isVariantOf } =
+    product;
 
   const id = `product-card-${productID}`;
   const [front, back] = images ?? [];
   const { listPrice, price } = useOffer(offers);
   const relativeUrl = relative(url);
   const aspectRatio = `${WIDTH} / ${HEIGHT}`;
+  const productVideo = videos && videos.length && videos[0];
 
   const hasDiscount = (listPrice ?? 0) > (price ?? 0);
   const productPercentualOff = hasDiscount &&
@@ -84,40 +87,69 @@ function ProductCard({
               "w-full",
             )}
           >
-            <Image
-              src={front.url!}
-              alt={front.alternateName}
-              width={WIDTH}
-              height={HEIGHT}
-              style={{ aspectRatio }}
-              class={clx(
-                "bg-secondary-neutral-100",
-                "object-cover",
-                "w-full",
-                "col-span-full row-span-full",
+            {productVideo
+              ? (
+                <Video
+                  src={productVideo.contentUrl!}
+                  alt={productVideo.alternateName}
+                  width={WIDTH}
+                  height={HEIGHT}
+                  style={{ aspectRatio }}
+                  className={clx(
+                    "relative",
+                    "bg-secondary-neutral-100",
+                    "object-cover",
+                    "w-full",
+                    "col-span-full row-span-full",
+                  )}
+                  sizes="(max-width: 640px) 50vw, 20vw"
+                  loading={preload ? "eager" : "lazy"}
+                  decoding="async"
+                  muted
+                  autoPlay
+                  loop
+                  playsinline
+                  playsInline
+                />
+              )
+              : (
+                <Image
+                  src={front.url!}
+                  alt={front.alternateName}
+                  width={WIDTH}
+                  height={HEIGHT}
+                  style={{ aspectRatio }}
+                  class={clx(
+                    "bg-secondary-neutral-100",
+                    "object-cover",
+                    "w-full",
+                    "col-span-full row-span-full",
+                  )}
+                  sizes="(max-width: 640px) 50vw, 20vw"
+                  preload={preload}
+                  loading={preload ? "eager" : "lazy"}
+                  decoding="async"
+                />
               )}
-              sizes="(max-width: 640px) 50vw, 20vw"
-              preload={preload}
-              loading={preload ? "eager" : "lazy"}
-              decoding="async"
-            />
-            <Image
-              src={back?.url ?? front.url!}
-              alt={back?.alternateName ?? front.alternateName}
-              width={WIDTH}
-              height={HEIGHT}
-              style={{ aspectRatio }}
-              class={clx(
-                "bg-secondary-neutral-100",
-                "object-cover",
-                "w-full",
-                "col-span-full row-span-full",
-                "transition-opacity opacity-0 lg:group-hover:opacity-100",
-              )}
-              sizes="(max-width: 640px) 50vw, 20vw"
-              loading="lazy"
-              decoding="async"
-            />
+            {!productVideo && (
+              <Image
+                src={back?.url ?? front.url!}
+                alt={back?.alternateName ?? front.alternateName}
+                width={WIDTH}
+                height={HEIGHT}
+                style={{ aspectRatio }}
+                class={clx(
+                  "bg-secondary-neutral-100",
+                  "object-cover",
+                  "w-full",
+                  "col-span-full row-span-full",
+                  "transition-opacity opacity-0 lg:group-hover:opacity-100",
+                )}
+                sizes="(max-width: 640px) 50vw, 20vw"
+                loading="lazy"
+                decoding="async"
+              />
+            )}
           </a>
         </figure>
 

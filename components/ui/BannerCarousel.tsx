@@ -176,6 +176,8 @@ function BannerItem(
             height={907}
             controls={false}
             autoPlay
+            playsInline
+            playsinline
             loop
             muted
             class="w-full h-full object-cover"

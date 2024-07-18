@@ -71,6 +71,8 @@ export default function ProductCardWithBannerDesktop(
                 height={HEIGHT}
                 controls={false}
                 autoPlay
+                playsInline
+                playsinline
                 loop
                 muted
                 class="w-full h-full object-cover"
@@ -134,6 +136,8 @@ export default function ProductCardWithBannerDesktop(
                 height={HEIGHT}
                 controls={false}
                 autoPlay
+                playsInline
+                playsinline
                 loop
                 muted
                 class="w-full h-full object-cover"
@@ -191,6 +195,8 @@ export default function ProductCardWithBannerDesktop(
                 height={HEIGHT}
                 controls={false}
                 autoPlay
+                playsInline
+                playsinline
                 loop
                 muted
                 class="w-full h-full object-cover"

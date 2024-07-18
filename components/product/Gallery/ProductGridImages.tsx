@@ -120,19 +120,21 @@ export default function ProductGridImages(props: Props) {
         {productVideo && (
           <figure
             style={{
-              aspectRatio: hasNotNewImages ? "" : ASPECT_RATIO,
-              maxWidth: hasNotNewImages ? "" : WIDTH,
-              maxHeightheight: hasNotNewImages ? "" : HEIGHT,
+              aspectRatio: ASPECT_RATIO,
+              maxWidth: WIDTH,
+              maxHeightheight: HEIGHT,
             }}
             class="relative hover:cursor-zoom-in"
             onClick={handleClick}
           >
             <Video
               src={productVideo.contentUrl!}
-              width={hasNotNewImages ? 500 : WIDTH}
-              height={hasNotNewImages ? 749 : HEIGHT}
+              width={WIDTH}
+              height={HEIGHT}
               muted
               autoPlay
+              playsInline
+              playsinline
               loop
               class="object-cover w-full h-full"
               style={{
