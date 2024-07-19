@@ -9,10 +9,14 @@ export interface Props {
 function MenuItem(
   { item, childNode }: { item: SiteNavigationElement; childNode?: boolean },
 ) {
-  const notHasChildren = childNode || !item.children;
+  const notHasChildren = childNode || !item?.children?.length;
 
   return (
-    <div class="collapse collapse-plus">
+    <div
+      class={`collapse collapse-plus ${
+        item.name === "Signature" && "font-northwell"
+      }`}
+    >
       <input type="checkbox" class={`${notHasChildren ? "hidden" : ""}`} />
       {notHasChildren
         ? (
@@ -20,7 +24,13 @@ function MenuItem(
             <div
               class={`${
                 !item.children ? "m-4 text-base" : ""
-              } text-sm font-light m-2 text-primary-900`}
+              }  font-light m-2 text-primary-900 ${
+                item.name === "Signature" && "text-[26px]"
+              }
+              ${
+                item.name === "NEW IN" &&
+                "bg-primary-900 font-medium text-secondary-neutral-100 p-2"
+              }`}
             >
               {item.name}
             </div>
@@ -33,14 +43,16 @@ function MenuItem(
         )}
       <div class="collapse-content">
         <ul>
-          <li class="my-[5px]">
-            <a
-              class="underline text-sm font-light m-2 text-primary-900 h-5"
-              href={item.url}
-            >
-              Ver todos
-            </a>
-          </li>
+          {item.children && (
+            <li class="my-[5px]">
+              <a
+                class="underline text-sm font-light m-2 text-primary-900 h-5"
+                href={item.url}
+              >
+                Ver todos
+              </a>
+            </li>
+          )}
           {item.children?.map((node) => (
             <li>
               <a href={node.url}>

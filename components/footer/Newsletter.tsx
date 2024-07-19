@@ -1,10 +1,10 @@
 import { useSignal } from "@preact/signals";
 import { ImageWidget } from "apps/admin/widgets.ts";
-import { Picture, Source } from "apps/website/components/Picture.tsx";
 import type { JSX } from "preact";
 import { useRef } from "preact/hooks";
 import { invoke } from "../../runtime.ts";
 import { clx } from "../../sdk/clx.ts";
+import Button from "../ui/ButtonBuy.tsx";
 
 export interface Banner {
   /** @description desktop otimized image */
@@ -47,40 +47,77 @@ export interface Props {
   };
 }
 
-function Newsletter(
-  { content, layout = {} }: Props,
-) {
-  const { images } = content;
-
+function Newsletter({ content, layout = {} }: Props) {
   const { tiled = false } = layout;
   const loading = useSignal(false);
   const successEmailMessage = useSignal("");
-  const emailRef = useRef<HTMLInputElement>(null);
 
-  const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault();
+  const emailRef = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const birthRef = useRef<HTMLInputElement>(null);
+  const genderRef = useSignal<string>("Masculino");
+
+  const handleInput = (e: JSX.TargetedEvent<HTMLInputElement>) => {
+    const input = e.currentTarget.value.replace(/\D/g, ""); // Remove non-numeric characters
+    let formattedInput = "";
+
+    if (input.length <= 2) {
+      formattedInput = input;
+    } else if (input.length <= 4) {
+      formattedInput = `${input.slice(0, 2)}/${input.slice(2, 4)}`;
+    } else {
+      formattedInput = `${input.slice(0, 2)}/${input.slice(2, 4)}/${
+        input.slice(4, 8)
+      }`;
+    }
+
+    e.currentTarget.value = formattedInput;
+  };
+
+  const handleGenderChange = (
+    event: JSX.TargetedMouseEvent<HTMLInputElement>,
+  ) => {
+    const eventTarget = event?.currentTarget?.value;
+    if (eventTarget) {
+      genderRef.value = eventTarget;
+    }
+  };
+
+  const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = async (
+    event,
+  ) => {
+    event.preventDefault();
 
     try {
       loading.value = true;
 
       const email =
-        (e.currentTarget.elements.namedItem("email") as RadioNodeList)?.value;
+        (event.currentTarget.elements.namedItem("email") as HTMLInputElement)
+          ?.value;
+      const name =
+        (event.currentTarget.elements.namedItem("name") as HTMLInputElement)
+          ?.value;
 
       await invoke.vtex.actions.masterdata.createDocument({
-        data: { email },
+        data: {
+          nl_aniversario: birthRef?.current?.value,
+          nl_dt_cadastro: new Date().toLocaleDateString("pt-br"),
+          nl_email: email,
+          nl_nome: name,
+          nl_sexo: genderRef?.value,
+        },
         acronym: "NL",
       });
 
       successEmailMessage.value = "E-mail cadastrado com sucesso!";
     } finally {
       loading.value = false;
-      setTimeout(
-        () => {
-          successEmailMessage.value = "";
-          if (emailRef.current) emailRef.current.value = "";
-        },
-        5000,
-      );
+      setTimeout(() => {
+        successEmailMessage.value = "";
+        if (emailRef.current) emailRef.current.value = "";
+        if (nameRef.current) nameRef.current.value = "";
+        if (birthRef.current) birthRef.current.value = "";
+      }, 5000);
     }
   };
 
@@ -97,7 +134,7 @@ function Newsletter(
           "lg:flex-row lg:w-full lg:justify-between lg:flex-1 lg:items-center",
       )}
     >
-      <div class="flex lg:flex-1.5 flex-col w-full py-5 px-5 lg:px-[26px] 2xl:px-[80px]">
+      <div class="flex justify-center text-center lg:flex-1.5 flex-col w-full py-14 px-2">
         {content?.title && (
           <h3
             style={{
@@ -118,77 +155,95 @@ function Newsletter(
                 ? content?.form?.color
                 : undefined,
             }}
-            class="text-[14px] text-neutral-200 font-light max-w-[390px] mt-1 mb-4"
+            class="text-[14px] text-neutral-200 font-light mt-1 mb-4 w-full"
           >
             {content.description}
           </p>
         )}
         <form
-          class="form-control"
+          class="form-control max-w-[550px] m-auto w-full gap-4"
           onSubmit={handleSubmit}
         >
-          <div class="flex flex-wrap gap-3 relative w-full">
+          <input
+            type="text"
+            ref={nameRef}
+            name="name"
+            required
+            class="flex-auto h-10 border border-secondary-neutral-700 outline-none w-full pl-2 pr-0 text-sm text-paragraph-color"
+            placeholder="Digite seu nome"
+          />
+          <input
+            type="text"
+            ref={emailRef}
+            required
+            name="email"
+            class="flex-auto h-10 border border-secondary-neutral-700 outline-none w-full pl-2 pr-0 text-sm text-paragraph-color"
+            placeholder="Digite seu e-mail"
+          />
+          <div class="flex flex-col sm:flex-row items-center">
             <input
-              ref={emailRef}
-              name="email"
-              class="flex-auto h-10 border-0 outline-none w-full pl-2 pr-0 text-sm text-paragraph-color"
-              placeholder={content?.form?.placeholder || "Digite seu email"}
+              type="text"
+              ref={birthRef}
+              name="birthdate"
+              required
+              class="flex-auto h-10 border border-secondary-neutral-700 outline-none w-full pl-2 pr-0 text-sm text-paragraph-color"
+              placeholder="Aniversário - __/__/____"
+              onInput={handleInput}
+              maxLength={10}
             />
-            <button
-              type="submit"
-              class="h-10 min-h-10 btn absolute right-0 disabled:loading"
-              disabled={loading}
-            >
-              <ArrowNewsIcon />
-            </button>
-            <span
-              style={{
-                color: content?.form?.color !== "#000000"
-                  ? content?.form?.color
-                  : undefined,
-              }}
-              class={`absolute -bottom-8 ${
-                successEmailMessage.value ? "block text-neutral-200" : "hidden"
-              }`}
-            >
-              {successEmailMessage.value}
-            </span>
+            <div class="flex gap-4 ml-4 mt-4 sm:mt-0">
+              <div class="flex items-center">
+                <label for="masculino__check" id="masculino__check">
+                  Masculino
+                </label>
+                <input
+                  type="checkbox"
+                  name="masculino__check"
+                  value="Masculino"
+                  checked={genderRef?.value === "Masculino"}
+                  onClick={handleGenderChange}
+                  class="flex-auto accent-primary-900 h-10 border border-secondary-neutral-700 outline-none w-14 pl-2 pr-0 text-sm text-paragraph-color"
+                />
+              </div>
+              <div class="flex items-center">
+                <label for="feminino__check" id="feminino__check">
+                  Feminino
+                </label>
+                <input
+                  type="checkbox"
+                  name="feminino__check"
+                  value="Feminino"
+                  onClick={handleGenderChange}
+                  checked={genderRef?.value === "Feminino"}
+                  class="flex-auto accent-primary-900 h-10 border border-secondary-neutral-400 outline-none w-14 pl-2 pr-0 text-sm text-paragraph-color"
+                />
+              </div>
+            </div>
           </div>
+          <Button
+            negative
+            type="submit"
+            class="btn w-full disabled:loading"
+            disabled={loading.value}
+          >
+            CADASTRAR
+          </Button>
+          <span
+            style={{
+              color: content?.form?.color !== "#000000"
+                ? content?.form?.color
+                : undefined,
+            }}
+            class={`absolute -bottom-8 ${
+              successEmailMessage.value ? "block text-neutral-200" : "hidden"
+            }`}
+          >
+            {successEmailMessage.value}
+          </span>
         </form>
       </div>
-
-      <Picture class="lg:flex-4">
-        <Source
-          media="(min-width: 768px)"
-          fetchPriority={"low"}
-          src={images?.desktop ?? ""}
-          width={888}
-          height={322}
-        />
-        <img
-          class="hidden lg:block object-cover w-full h-full"
-          loading={"lazy"}
-          src={images?.desktop}
-          alt={images?.alt ?? "footer banner"}
-        />
-      </Picture>
     </div>
   );
 }
 
 export default Newsletter;
-
-const ArrowNewsIcon = () => (
-  <svg
-    width={14}
-    height={12}
-    viewBox="0 0 14 12"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M12.0731 6.50003H0.5C0.357683 6.50003 0.238775 6.45227 0.143275 6.35675C0.0477584 6.26125 0 6.14235 0 6.00003C0 5.85771 0.0477584 5.7388 0.143275 5.6433C0.238775 5.54779 0.357683 5.50003 0.5 5.50003H12.0731L8.33845 1.7654C8.24102 1.66797 8.19006 1.55323 8.18557 1.42118C8.18109 1.28913 8.23205 1.16798 8.33845 1.05773C8.44872 0.947462 8.56763 0.891371 8.6952 0.889454C8.82277 0.887521 8.94168 0.941688 9.05193 1.05195L13.4346 5.43465C13.5218 5.52182 13.583 5.61092 13.6183 5.70195C13.6535 5.79297 13.6712 5.89233 13.6712 6.00003C13.6712 6.10773 13.6535 6.20709 13.6183 6.2981C13.583 6.38914 13.5218 6.47824 13.4346 6.5654L9.05193 10.9481C8.95449 11.0455 8.83878 11.0965 8.7048 11.101C8.57083 11.1055 8.44872 11.0526 8.33845 10.9423C8.23205 10.8321 8.17788 10.7141 8.17595 10.5885C8.17403 10.4628 8.2282 10.3449 8.33845 10.2347L12.0731 6.50003Z"
-      fill="#121926"
-    />
-  </svg>
-);

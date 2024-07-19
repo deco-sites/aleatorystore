@@ -41,7 +41,7 @@ function Header(props: Props) {
               (
                 <p
                   class={clx(
-                    "leading-6 lg:leading-8 font-light text-[18px]",
+                    "leading-6 lg:leading-8 font-light text-sm lg:text-[18px]",
                     props.colorReverse
                       ? "text-primary-content"
                       : "text-paragraph-color",

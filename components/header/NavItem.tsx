@@ -17,7 +17,18 @@ function NavItem(
   return (
     <li className="group flex items-center relative">
       <a href={url} className="py-6">
-        {name?.includes("Signature")
+        {name?.includes("NEW IN")
+          ? (
+            <span
+              className={"font-redhatdisplay bg-primary-900 text-secondary-neutral-100 group-hover:underline whitespace-nowrap text-sm flex items-center gap-2 p-3 font-medium"}
+            >
+              {name}
+              {children && children.length > 0 && (
+                <Icon id={"ArrowDown"} size={26} />
+              )}
+            </span>
+          )
+          : name?.includes("Signature")
           ? (
             <span
               className={"font-northwell capitalize whitespace-nowrap group-hover:underline text-2xl font-thin flex items-center gap-2 text-paragraph-color"}

@@ -272,7 +272,7 @@ function Footer({
         LAYOUT[layout?.backgroundColor ?? "Primary"],
       )}
     >
-      <div class="lg:mx-auto">
+      <div>
         {(!layout?.variation || layout?.variation == "Variation 1") && (
           <div class="flex flex-col gap-10">
             <div class="flex flex-col md:flex-row md:justify-between md:flex-wrap lg:flex-nowrap gap-8 lg:gap-12">

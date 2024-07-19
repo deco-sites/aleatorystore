@@ -14,15 +14,17 @@ import { useSizeVariantOfferAvailability } from "../../sdk/useOfferAvailability.
 import { useAdditionalProperty } from "../../sdk/useProductField.ts";
 import Button from "../ui/ButtonBuy.tsx";
 
+type SizebayProps = {
+  showButtons: string | null;
+  urlChart: string;
+  urlVfr: string;
+  recommendedSize: string | null;
+};
+
 interface Props {
   product: Product;
   breadcrumb?: BreadcrumbList;
-  sizebay: {
-    showButtons: string | null;
-    urlChart: string;
-    urlVfr: string;
-    recommendedSize: string | null;
-  };
+  sizebay: SizebayProps;
 }
 
 function SizeSelector({ product, breadcrumb, sizebay }: Props) {
@@ -54,7 +56,7 @@ function SizeSelector({ product, breadcrumb, sizebay }: Props) {
   });
 
   const handleChangeQuantity = (value: string) => {
-    if (value !== "plus" && productQuantity.value === 1) return;
+    if (value === "minus" && productQuantity.value === 1) return;
 
     if (value === "plus") {
       return productQuantity.value = productQuantity.value + 1;
