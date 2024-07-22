@@ -51,12 +51,169 @@
         "name": "NEW IN",
         "@type": "SiteNavigationElement",
         "image": [],
-        "children": []
+        "children": [
+          {
+            "image": [],
+            "children": [
+              {
+                "image": [],
+                "children": [],
+                "name": "Acessórios"
+              }
+            ],
+            "name": "Masculino",
+            "url": "/masculino"
+          }
+        ]
       },
       {
         "name": "MASCULINO",
-        "image": [],
-        "children": [],
+        "image": [
+          {
+            "contentUrl": "AQUI VOCÊ ENCONTRA O SEU LOOK DO DIA A DIA.",
+            "thumbnailUrl": "/masculino/roupas/polos",
+            "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/39487eff-3518-40b8-ac5f-851bfcf3c7b6",
+            "embedUrl": "/masculino/roupas/polos"
+          }
+        ],
+        "children": [
+          {
+            "image": [],
+            "children": [
+              {
+                "image": [],
+                "children": [],
+                "name": "POLOS",
+                "url": "/masculino/roupas/polos"
+              },
+              {
+                "image": [],
+                "children": [],
+                "name": "CAMISETAS",
+                "url": "/masculino/roupas/camisetas"
+              },
+              {
+                "image": [],
+                "children": [],
+                "name": "CAMISAS",
+                "url": "/masculino/roupas/camisas"
+              },
+              {
+                "image": [],
+                "children": [],
+                "name": "BERMUDAS",
+                "url": "/masculino/roupas/bermudas"
+              },
+              {
+                "image": [],
+                "children": [],
+                "name": "CALÇAS",
+                "url": "/masculino/roupas/calcas"
+              },
+              {
+                "image": [],
+                "children": [],
+                "name": "CASACOS E JAQUETAS",
+                "url": "/masculino/roupas/casacos-e-jaquetas"
+              },
+              {
+                "image": [],
+                "children": [],
+                "name": "MOLETONS",
+                "url": "/masculino/roupas/moletons"
+              },
+              {
+                "image": [],
+                "children": [],
+                "url": "/masculino/roupas/plus-size",
+                "name": "PLUS SIZE"
+              },
+              {
+                "image": [],
+                "children": [],
+                "name": "SUÉTERS E MALHAS",
+                "url": "/masculino/roupas/sueters-e-malhas"
+              },
+              {
+                "image": [],
+                "children": [],
+                "name": "UNDERWEAR",
+                "url": "/masculino/roupas/underwear"
+              }
+            ],
+            "name": "Roupas",
+            "url": "/masculino/roupas"
+          },
+          {
+            "image": [],
+            "children": [
+              {
+                "image": [],
+                "children": [],
+                "url": "/masculino/acessorios/bolsas-e-mochilas",
+                "name": "BOLSAS E MOCHILAS"
+              },
+              {
+                "image": [],
+                "children": [],
+                "name": "Bonés",
+                "url": "/masculino/acessorios/bones"
+              },
+              {
+                "image": [],
+                "children": [],
+                "name": "CINTOS",
+                "url": "/masculino/acessorios/cintos"
+              },
+              {
+                "image": [],
+                "children": [],
+                "name": "CARTEIRAS",
+                "url": "/masculino/acessorios/carteiras"
+              }
+            ],
+            "name": "ACESSÓRIOS",
+            "url": "/masculino/acessorios"
+          },
+          {
+            "image": [
+              {
+                "contentUrl": "AQUI VOCÊ ENCONTRA O SEU LOOK DO DIA A DIA.",
+                "thumbnailUrl": "/masculino/roupas/polos",
+                "embedUrl": "/masculino/roupas/polos",
+                "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/257ff047-60db-444a-b377-72f0da696cd7"
+              }
+            ],
+            "children": [
+              {
+                "image": [],
+                "children": [],
+                "name": "Chinelos",
+                "url": "/masculino/calcados/chinelos"
+              },
+              {
+                "image": [],
+                "children": [],
+                "name": "Tênis",
+                "url": "/masculino/calcados/sapatenis"
+              },
+              {
+                "image": [],
+                "children": [],
+                "name": "CINTOS",
+                "url": "/masculino/acessorios/cintos"
+              },
+              {
+                "image": [],
+                "children": [],
+                "name": "CARTEIRAS",
+                "url": "/masculino/acessorios/carteiras"
+              }
+            ],
+            "name": "CALÇADOS",
+            "url": "/masculino/calcados"
+          }
+        ],
         "url": "/masculino"
       },
       {
