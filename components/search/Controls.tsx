@@ -60,8 +60,8 @@ function SearchControls(
         </>
       }
     >
-      <div class="flex flex-col justify-between px-4 mb-2 sm:p-0 sm:gap-4 sm:flex-row sm:h-[53px] sm:border-b sm:border-secondary-neutral-200">
-        <div class="flex flex-row items-center sm:p-0 mb-2">
+      <div class="flex flex-col justify-between px-4 mb-2 sm:p-0 sm:gap-4 sm:flex-row">
+        <div class="flex flex-row items-center sm:p-0">
           {isSearchPage ? null : isCollectionPage
             ? (
               <BreadcrumbCollection

@@ -16,7 +16,7 @@ function NavItem(
   const numColumns = Math.ceil(numChildren / itemsPerColumn);
   return (
     <li className="group flex items-center relative">
-      <a href={url} className="py-6">
+      <a href={url} className="py-4">
         {name?.includes("NEW IN")
           ? (
             <span

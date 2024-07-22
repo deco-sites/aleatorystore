@@ -29,6 +29,12 @@ export default defineApp(async (_req, ctx) => {
         />
 
         <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+        />
+
+        <link
           rel="preconnect"
           href={asset("/fonts/Northwell.ttf")}
           as="font"

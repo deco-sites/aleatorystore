@@ -2,6 +2,7 @@ import { useSignal } from "@preact/signals";
 import { ImageWidget } from "apps/admin/widgets.ts";
 import type { JSX } from "preact";
 import { useRef } from "preact/hooks";
+import Toastify from "toastify-js";
 import { invoke } from "../../runtime.ts";
 import { clx } from "../../sdk/clx.ts";
 import Button from "../ui/ButtonBuy.tsx";
@@ -50,7 +51,6 @@ export interface Props {
 function Newsletter({ content, layout = {} }: Props) {
   const { tiled = false } = layout;
   const loading = useSignal(false);
-  const successEmailMessage = useSignal("");
 
   const emailRef = useRef<HTMLInputElement>(null);
   const nameRef = useRef<HTMLInputElement>(null);
@@ -58,7 +58,7 @@ function Newsletter({ content, layout = {} }: Props) {
   const genderRef = useSignal<string>("Masculino");
 
   const handleInput = (e: JSX.TargetedEvent<HTMLInputElement>) => {
-    const input = e.currentTarget.value.replace(/\D/g, ""); // Remove non-numeric characters
+    const input = e.currentTarget.value.replace(/\D/g, "");
     let formattedInput = "";
 
     if (input.length <= 2) {
@@ -109,11 +109,30 @@ function Newsletter({ content, layout = {} }: Props) {
         acronym: "NL",
       });
 
-      successEmailMessage.value = "E-mail cadastrado com sucesso!";
+      Toastify({
+        text: "Obrigado! Em breve entraremos em contato ",
+        className: "info",
+        duration: 5000,
+        close: true,
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+      }).showToast();
+    } catch (err) {
+      console.error(err);
+      Toastify({
+        text:
+          "Algo aconteceu! Por favor, envie novamente ou tente mais tarde. ",
+        className: "info",
+        duration: 5000,
+        close: true,
+        style: {
+          background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+        },
+      }).showToast();
     } finally {
       loading.value = false;
       setTimeout(() => {
-        successEmailMessage.value = "";
         if (emailRef.current) emailRef.current.value = "";
         if (nameRef.current) nameRef.current.value = "";
         if (birthRef.current) birthRef.current.value = "";
@@ -220,26 +239,16 @@ function Newsletter({ content, layout = {} }: Props) {
               </div>
             </div>
           </div>
-          <Button
-            negative
-            type="submit"
-            class="btn w-full disabled:loading"
-            disabled={loading.value}
-          >
-            CADASTRAR
-          </Button>
-          <span
-            style={{
-              color: content?.form?.color !== "#000000"
-                ? content?.form?.color
-                : undefined,
-            }}
-            class={`absolute -bottom-8 ${
-              successEmailMessage.value ? "block text-neutral-200" : "hidden"
-            }`}
-          >
-            {successEmailMessage.value}
-          </span>
+          <div class="w-full">
+            <Button
+              negative
+              type="submit"
+              class="btn w-full disabled:loading"
+              disabled={loading.value}
+            >
+              CADASTRAR
+            </Button>
+          </div>
         </form>
       </div>
     </div>

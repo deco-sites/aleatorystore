@@ -5,6 +5,7 @@ import { useUI } from "../../../sdk/useUI.ts";
 import Button from "../../ui/ButtonBanner.tsx";
 import CartItem, { Item, Props as ItemProps } from "./CartItem.tsx";
 import { Props as CouponProps } from "./Coupon.tsx";
+import FreeShippingProgressBar from "./FreeShippingProgressBar.tsx";
 
 interface Props {
   items: Item[];
@@ -31,6 +32,7 @@ function Cart({
   currency,
   checkoutHref,
   itemToAnalyticsItem,
+  freeShippingTarget,
   onUpdateQuantity,
 }: Props) {
   const { displayCart } = useUI();
@@ -76,10 +78,19 @@ function Cart({
               ))}
             </ul>
 
-            {/* Cart Footer */}
-            <footer class="w-full">
+            <footer class="w-full [box-shadow:0_0_12px_rgba(0,_0,_0,_.15)]">
+              {/* Free Shipping Bar */}
+              <div class="px-2 py-4 w-full">
+                <FreeShippingProgressBar
+                  total={total}
+                  locale={locale}
+                  currency={currency}
+                  target={freeShippingTarget}
+                />
+              </div>
+
               {/* Total */}
-              <div class="border-t border-[#E3E8EF] pt-4 flex flex-col justify-end items-end gap-2 mx-4">
+              <div class="pt-4 flex flex-col justify-end items-end gap-2 mx-4">
                 <div class="flex justify-between items-center w-full">
                   <span class="text-paragraph-color text-2xl font-light">
                     Subtotal

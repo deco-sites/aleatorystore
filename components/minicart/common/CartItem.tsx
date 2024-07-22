@@ -46,6 +46,12 @@ function CartItem(
   const isGift = sale < 0.01;
   const [loading, setLoading] = useState(false);
 
+  const productName = name.split(" ");
+  productName.pop();
+  const filteredProductName = productName.join(" ") ?? name;
+
+  const productSize = skuName.split("-").at(-1) ?? skuName;
+
   const hasDiscount = (list ?? 0) > (sale ?? 0);
   const productPercentualOff = hasDiscount &&
     usePercentualDiscount(list!, sale!);
@@ -81,7 +87,9 @@ function CartItem(
       <div class="flex flex-col gap-2">
         <div class="flex justify-between items-center">
           <div class="flex flex-col gap-2">
-            <span class="font-bold text-paragraph-color">{name}</span>
+            <span class="font-bold text-paragraph-color">
+              {filteredProductName}
+            </span>
           </div>
         </div>
         <div class="flex items-center gap-2">
@@ -101,7 +109,7 @@ function CartItem(
         </div>
 
         <div class="flex items-center justify-between">
-          <span class="font-light text-dark-blue">Tamanho: {skuName}</span>
+          <span class="font-light text-dark-blue">Tamanho: {productSize}</span>
           <Button
             disabled={loading || isGift}
             loading={loading}
