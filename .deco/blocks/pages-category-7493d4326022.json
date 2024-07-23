@@ -14,6 +14,19 @@
       "__resolveType": "Header - 03"
     },
     {
+      "__resolveType": "site/sections/Category/CategoryBanner.tsx",
+      "banners": [
+        {
+          "image": {
+            "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/5a9e9fbe-0d8e-40ce-9590-9faf00d49f7c",
+            "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/f9cc5bed-8279-49dd-a1d1-1e30f9e5c2f9",
+            "alt": "banner principal"
+          },
+          "matcher": "/masculino"
+        }
+      ]
+    },
+    {
       "__resolveType": "site/sections/Product/SearchResult.tsx",
       "page": {
         "__resolveType": "commerce/loaders/product/extensions/listingPage.ts",
