@@ -3,19 +3,12 @@ import Image from "apps/website/components/Image.tsx";
 import Icon from "../ui/Icon.tsx";
 import { headerHeight } from "./constants.ts";
 
-function NavItem(
-  { item, itemsPerColumn }: {
-    item: SiteNavigationElement;
-    itemsPerColumn: number;
-  },
-) {
+function NavItem({ item }: { item: SiteNavigationElement }) {
   const { url, name, children } = item;
-  const images = item?.image;
+  const image = item?.image?.[0];
 
-  const numChildren = children ? children.length : 0;
-  const numColumns = Math.ceil(numChildren / itemsPerColumn);
   return (
-    <li className="group flex items-center relative">
+    <li class="group flex items-center">
       <a href={url} className="py-4">
         {name?.includes("NEW IN")
           ? (
@@ -23,9 +16,6 @@ function NavItem(
               className={"font-redhatdisplay bg-primary-900 text-secondary-neutral-100 group-hover:underline whitespace-nowrap text-sm flex items-center gap-2 p-3 font-medium"}
             >
               {name}
-              {children && children.length > 0 && (
-                <Icon id={"ArrowDown"} size={26} />
-              )}
             </span>
           )
           : name?.includes("Signature")
@@ -51,66 +41,73 @@ function NavItem(
           )}
       </a>
 
-      {children && children.length > 0 && (
-        <div
-          className={`fixed hidden hover:flex group-hover:flex bg-secondary-neutral-100 z-50 items-start justify-around gap-6 border-t border-b-2 border-secondary-neutral-200 w-screen shadow-header`}
-          style={{ top: "0px", left: "0px", marginTop: headerHeight }}
-        >
-          <div class="flex items-start">
-            {[...Array(numColumns)].map((_, columnIndex) => (
-              <ul
-                key={columnIndex}
-                className="flex items-start justify-center gap-6 flex-col mt-6 mr-8 mb-8"
-              >
-                {children.slice(
-                  columnIndex * itemsPerColumn,
-                  (columnIndex + 1) * itemsPerColumn,
-                ).map((node) => (
-                  <li key={node.name}>
-                    <a className="hover:underline" href={node.url}>
-                      <span class="text-paragraph-color text-[14px] font-light">
-                        {node.name}
-                      </span>
-                    </a>
-                    {node.children && node.children.length > 0 && (
-                      <ul className="flex flex-col gap-1 mt-8">
-                        {node.children.map((leaf) => (
-                          <li key={leaf.name}>
-                            <a className="hover:underline" href={leaf.url}>
-                              <span className="text-xs">{leaf.name}</span>
+      {children && children.length > 0 &&
+        (
+          <div
+            class="fixed hidden hover:flex group-hover:flex bg-base-100 z-50 items-start  border-t border-b-2 border-base-200 w-screen"
+            style={{ top: "0px", left: "0px", marginTop: headerHeight }}
+          >
+            <div class="w-full container m-auto flex justify-between py-4">
+              <div>
+                <div class="border-b">
+                  <h3 class="p-4 italic">{name}</h3>
+                </div>
+                <ul class="flex items-start justify-center gap-6">
+                  {children.map((node) => (
+                    <li class="p-6">
+                      <a
+                        class="hover:underline text-sm font-bold"
+                        href={node.url}
+                      >
+                        <span>{node.name}</span>
+                      </a>
+
+                      <ul class="flex flex-col gap-1 mt-4">
+                        {node.children?.map((leaf) => (
+                          <li>
+                            <a
+                              class="hover:underline uppercase"
+                              href={leaf.url}
+                            >
+                              <span class="text-xs">{leaf.name}</span>
                             </a>
                           </li>
                         ))}
                       </ul>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            ))}
-          </div>
-          <div class="flex gap-2 ml-3">
-            {images?.map((image) =>
-              image?.url && (
-                <a href={image.thumbnailUrl}>
-                  <Image
-                    key={image.url}
-                    className="px-6 pt-6"
-                    src={image.url}
-                    alt={image.alternateName}
-                    width={300}
-                    height={332}
-                    loading="lazy"
-                  />
-
-                  <h3 class="px-6 text-sm text-[#121926] my-2">
-                    {image.contentUrl}
-                  </h3>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                {image?.url && (
+                  <figure
+                    style={{
+                      aspectRatio: "440/230",
+                      height: "230px",
+                      width: "440px",
+                    }}
+                  >
+                    <Image
+                      class="py-4"
+                      src={image.url}
+                      alt={image.alternateName}
+                      width={440}
+                      height={230}
+                      style={{ aspectRatio: "440/230" }}
+                      loading="lazy"
+                    />
+                  </figure>
+                )}
+                <h3 class="text-sm text-[#121926] font-bold uppercase">
+                  {image?.contentUrl}
+                </h3>
+                <a href={image?.thumbnailUrl} class="underline text-sm">
+                  Shop now
                 </a>
-              )
-            )}
+              </div>
+            </div>
           </div>
-        </div>
-      )}
+        )}
     </li>
   );
 }

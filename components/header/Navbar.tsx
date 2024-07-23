@@ -24,7 +24,6 @@ function Navbar(
     buttons,
     logoPosition = "left",
     device,
-    itemsPerColumn = 7,
   }: {
     items: SiteNavigationElement[];
     searchbar?: SearchbarProps;
@@ -84,9 +83,7 @@ function Navbar(
             logoPosition === "left" ? "justify-center" : "justify-start"
           }`}
         >
-          {items.map((item) => (
-            <NavItem item={item} itemsPerColumn={itemsPerColumn} />
-          ))}
+          {items.map((item) => <NavItem item={item} />)}
         </ul>
         <div
           class={`flex ${
