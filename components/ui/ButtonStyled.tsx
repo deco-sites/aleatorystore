@@ -9,7 +9,7 @@ export type Props =
     negative?: boolean;
   };
 
-const ButtonBuy = forwardRef<HTMLButtonElement, Props>(({
+const ButtonStyled = forwardRef<HTMLButtonElement, Props>(({
   type = "button",
   class: _class = "",
   negative = false,
@@ -36,4 +36,4 @@ const ButtonBuy = forwardRef<HTMLButtonElement, Props>(({
   </button>
 ));
 
-export default ButtonBuy;
+export default ButtonStyled;

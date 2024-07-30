@@ -4,11 +4,11 @@ import { Device } from "apps/website/matchers/device.ts";
 import { usePartialSection } from "deco/hooks/usePartialSection.ts";
 import { Format } from "../../components/search/SearchResult.tsx";
 import Spinner from "../../components/ui/Spinner.tsx";
-import ProductCardSliderImages from "../../islands/ProductCardSliderImages.tsx";
 import ProductGalleryMobile from "../../islands/ProductGalleryMobile.tsx";
 import ShowMore from "../../islands/ShowMore.tsx";
 import { usePlatform } from "../../sdk/usePlatform.tsx";
 import { CategoryBannersMediaSource } from "./ProductGalleryWithBanner.tsx";
+import ProductCard from "./ProductCard.tsx";
 
 export interface Columns {
   mobile?: 1 | 2;
@@ -74,24 +74,15 @@ function ProductGallery(
         </Head>
       )}
 
-      {device === "desktop"
-        ? products?.map((product, index) => (
-          <ProductCardSliderImages
-            key={`product-card-${product.productID}`}
-            product={product}
-            preload={index === 0}
-            index={offset + index}
-            platform={platform}
-          />
-        ))
-        : products &&
-          (
-            <ProductGalleryMobile
-              products={products}
-              offset={offset}
-              platform={platform}
-            />
-          )}
+      {products?.map((product, index) => (
+        <ProductCard
+          key={`product-card-${product.productID}`}
+          product={product}
+          preload={index === 0}
+          index={offset + index}
+          platform={platform}
+        />
+      ))}
 
       {(layout && layout?.format === "Show More") && (
         <>

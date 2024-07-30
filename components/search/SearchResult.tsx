@@ -121,29 +121,15 @@ function Result({
             </aside>
           )}
           <div class="flex-grow" id={id}>
-            {categoryBanners && !isSearchPage && (isFirstPage || !isPartial)
-              ? (
-                <ProductGalleryWithBanner
-                  products={products}
-                  offset={offset}
-                  layout={{ columns: layout?.columns, format }}
-                  pageInfo={pageInfo}
-                  url={url}
-                  categoryBanners={categoryBanners}
-                  device={device}
-                />
-              )
-              : (
-                <ProductGallery
-                  products={products}
-                  offset={offset}
-                  layout={{ columns: layout?.columns, format }}
-                  categoryBanners={categoryBanners!}
-                  pageInfo={pageInfo}
-                  url={url}
-                  device={device}
-                />
-              )}
+            <ProductGallery
+              products={products}
+              offset={offset}
+              layout={{ columns: layout?.columns, format }}
+              categoryBanners={categoryBanners!}
+              pageInfo={pageInfo}
+              url={url}
+              device={device}
+            />
           </div>
         </div>
 

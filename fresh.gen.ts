@@ -23,6 +23,7 @@ import * as $Map_Map from "./islands/Map/Map.tsx";
 import * as $Map_MapMobile from "./islands/Map/MapMobile.tsx";
 import * as $Newsletter from "./islands/Newsletter.tsx";
 import * as $OutOfStock from "./islands/OutOfStock.tsx";
+import * as $PopupNewsletter from "./islands/PopupNewsletter.tsx";
 import * as $ProductAccordionInfo from "./islands/ProductAccordionInfo.tsx";
 import * as $ProductCardSliderImages from "./islands/ProductCardSliderImages.tsx";
 import * as $ProductCardWithBannerMobile from "./islands/ProductCardWithBannerMobile.tsx";
@@ -69,6 +70,7 @@ const manifest = {
     "./islands/Map/MapMobile.tsx": $Map_MapMobile,
     "./islands/Newsletter.tsx": $Newsletter,
     "./islands/OutOfStock.tsx": $OutOfStock,
+    "./islands/PopupNewsletter.tsx": $PopupNewsletter,
     "./islands/ProductAccordionInfo.tsx": $ProductAccordionInfo,
     "./islands/ProductCardSliderImages.tsx": $ProductCardSliderImages,
     "./islands/ProductCardWithBannerMobile.tsx": $ProductCardWithBannerMobile,

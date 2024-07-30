@@ -9,6 +9,8 @@ import { formatPrice } from "../../sdk/format.ts";
 import { relative } from "../../sdk/url.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { usePercentualDiscount } from "../../sdk/usePercentualPrice.ts";
+import { useProductVariantDiscount } from "../../sdk/useProductVariantDiscount.ts";
+import { useVariantOfferAvailability } from "../../sdk/useOfferAvailability.ts";
 
 interface Props {
   product: Product;
@@ -33,15 +35,18 @@ function ProductCard({
   itemListName,
   index,
 }: Props) {
-  const { url, productID, image: images, video: videos, offers, isVariantOf } =
-    product;
+  const { url, productID, image: images, video: videos, isVariantOf } = product;
 
   const id = `product-card-${productID}`;
   const [front, back] = images ?? [];
+  const { productVariantDiscount } = useProductVariantDiscount(product);
+  const { offers } = productVariantDiscount;
   const { listPrice, price } = useOffer(offers);
   const relativeUrl = relative(url);
   const aspectRatio = `${WIDTH} / ${HEIGHT}`;
   const productVideo = videos && videos.length && videos[0];
+
+  const { hasOfferAvailable } = useVariantOfferAvailability(isVariantOf);
 
   const hasDiscount = (listPrice ?? 0) > (price ?? 0);
   const productPercentualOff = hasDiscount &&
@@ -87,97 +92,72 @@ function ProductCard({
               "w-full",
             )}
           >
-            {productVideo
-              ? (
-                <Video
-                  src={productVideo.contentUrl!}
-                  alt={productVideo.alternateName}
-                  width={WIDTH}
-                  height={HEIGHT}
-                  style={{ aspectRatio }}
-                  className={clx(
-                    "relative",
-                    "bg-secondary-neutral-100",
-                    "object-cover",
-                    "w-full",
-                    "col-span-full row-span-full",
-                  )}
-                  sizes="(max-width: 640px) 50vw, 20vw"
-                  loading={preload ? "eager" : "lazy"}
-                  decoding="async"
-                  muted
-                  autoPlay
-                  loop
-                  playsinline
-                  playsInline
-                />
-              )
-              : (
-                <Image
-                  src={front.url!}
-                  alt={front.alternateName}
-                  width={WIDTH}
-                  height={HEIGHT}
-                  style={{ aspectRatio }}
-                  class={clx(
-                    "bg-secondary-neutral-100",
-                    "object-cover",
-                    "w-full",
-                    "col-span-full row-span-full",
-                  )}
-                  sizes="(max-width: 640px) 50vw, 20vw"
-                  preload={preload}
-                  loading={preload ? "eager" : "lazy"}
-                  decoding="async"
-                />
+            <Image
+              src={front.url!}
+              alt={front.alternateName}
+              width={WIDTH}
+              height={HEIGHT}
+              style={{ aspectRatio }}
+              class={clx(
+                "bg-secondary-neutral-100",
+                "object-cover",
+                "w-full",
+                "col-span-full row-span-full",
               )}
-            {!productVideo && (
-              <Image
-                src={back?.url ?? front.url!}
-                alt={back?.alternateName ?? front.alternateName}
-                width={WIDTH}
-                height={HEIGHT}
-                style={{ aspectRatio }}
-                class={clx(
-                  "bg-secondary-neutral-100",
-                  "object-cover",
-                  "w-full",
-                  "col-span-full row-span-full",
-                  "transition-opacity opacity-0 lg:group-hover:opacity-100",
-                )}
-                sizes="(max-width: 640px) 50vw, 20vw"
-                loading="lazy"
-                decoding="async"
-              />
-            )}
+              sizes="(max-width: 640px) 50vw, 20vw"
+              preload={preload}
+              loading={preload ? "eager" : "lazy"}
+              decoding="async"
+            />
+            <Image
+              src={back?.url ?? front.url!}
+              alt={back?.alternateName ?? front.alternateName}
+              width={WIDTH}
+              height={HEIGHT}
+              style={{ aspectRatio }}
+              class={clx(
+                "bg-secondary-neutral-100",
+                "object-cover",
+                "w-full",
+                "col-span-full row-span-full",
+                "transition-opacity opacity-0 ",
+                "lg:group-hover:opacity-100",
+              )}
+              sizes="(max-width: 640px) 50vw, 20vw"
+              loading="lazy"
+              decoding="async"
+            />
           </a>
         </figure>
 
-        {/* Name/Description */}
         <div class="flex flex-col">
           <h2
-            class="truncate text-base lg:text-base font-light text-paragraph-color mt-[13px]"
+            class="truncate text-base lg:text-base font-light text-paragraph-color ml-2 mt-3"
             dangerouslySetInnerHTML={{ __html: isVariantOf?.name ?? "" }}
           />
         </div>
 
         {/* Price from/to */}
-        <div class="flex gap-2 items-center justify-start text-dark-blue font-light mt-[4px]">
-          <>
-            {hasDiscount && (
-              <span class="line-through text-sm text-[#9AA4B2]">
-                {formatPrice(listPrice, offers?.priceCurrency)}
-              </span>
-            )}
-            <span class="font-light text-dark-blue">
-              {formatPrice(price, offers?.priceCurrency)}
-            </span>
-            {hasDiscount && (
-              <span class="text-sm text-[#9AA4B2] font-bold">
-                {!!productPercentualOff && productPercentualOff}
-              </span>
-            )}
-          </>
+        <div class="flex gap-2 items-center justify-start text-dark-blue ml-2 font-light">
+          {hasOfferAvailable
+            ? (
+              <>
+                {hasDiscount && (
+                  <span class="line-through text-sm text-[#9AA4B2]">
+                    {formatPrice(listPrice, offers?.priceCurrency)}
+                  </span>
+                )}
+                <span>
+                  {formatPrice(price, offers?.priceCurrency)}
+                </span>
+                {hasDiscount && (
+                  <span class="text-sm text-[#9AA4B2] font-bold">
+                    {!!productPercentualOff && productPercentualOff}
+                  </span>
+                )}
+              </>
+            )
+            : <span>Indisponível</span>}
         </div>
       </div>
     </div>

@@ -9,6 +9,13 @@
       "__resolveType": "Header - 03"
     },
     {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/PopupNewsletter.tsx",
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/f6c9e9e6-9609-4b48-ab21-15601e2ab570"
+      }
+    },
+    {
       "__resolveType": "site/sections/Images/Carousel.tsx",
       "elements": [
         {

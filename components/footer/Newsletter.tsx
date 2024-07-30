@@ -5,7 +5,7 @@ import { useRef } from "preact/hooks";
 import Toastify from "toastify-js";
 import { invoke } from "../../runtime.ts";
 import { clx } from "../../sdk/clx.ts";
-import Button from "../ui/ButtonBuy.tsx";
+import Button from "../ui/ButtonStyled.tsx";
 
 export interface Banner {
   /** @description desktop otimized image */
@@ -206,7 +206,7 @@ function Newsletter({ content, layout = {} }: Props) {
               name="birthdate"
               required
               class="flex-auto h-10 border border-secondary-neutral-700 outline-none w-full pl-2 pr-0 text-sm text-paragraph-color"
-              placeholder="Aniversário - __/__/____"
+              placeholder="Aniversário - dia/mês/ano"
               onInput={handleInput}
               maxLength={10}
             />

@@ -12,7 +12,7 @@ import ProductSizebayButtons from "../../islands/ProductSizebayButtons.tsx";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { useSizeVariantOfferAvailability } from "../../sdk/useOfferAvailability.ts";
 import { useAdditionalProperty } from "../../sdk/useProductField.ts";
-import Button from "../ui/ButtonBuy.tsx";
+import Button from "../ui/ButtonStyled.tsx";
 
 type SizebayProps = {
   showButtons: string | null;

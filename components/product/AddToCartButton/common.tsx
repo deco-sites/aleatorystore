@@ -2,7 +2,7 @@ import { AddToCartParams } from "apps/commerce/types.ts";
 import { useState } from "preact/hooks";
 import { sendEvent } from "../../../sdk/analytics.tsx";
 import { useUI } from "../../../sdk/useUI.ts";
-import Button from "../../ui/ButtonBuy.tsx";
+import Button from "../../ui/ButtonStyled.tsx";
 
 export interface Props {
   /** @description: sku name */
