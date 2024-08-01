@@ -78,7 +78,7 @@
   }
 
   .transition-header {
-    @apply transition-transform duration-500 fixed ease-in-out w-full z-20;
+    @apply duration-500 fixed ease-in-out w-full z-20;
   }
 
   .header-hidden {
@@ -86,7 +86,7 @@
   }
 
   .header-visible {
-    @apply opacity-100 translate-y-0;
+    @apply opacity-100;
   }
 }
 
