@@ -53,17 +53,19 @@ export default function ProductDetails(
           <ProductGridImages page={page} />
         </div>
         <div
-          className={`w-full lg:w-2/5 2xl:w-2/6 `}
+          className={`w-full lg:w-4/5 2xl:w-3/5 relative`}
         >
-          <ProductInfo
-            page={page}
-            productExchangesReturnsPolicy={productExchangesReturnsPolicy}
-            device={device}
-            socialOptions={shareSocialOptions}
-            showButtons={showButtons}
-            buttonsUrl={buttonsUrl}
-            recommendedSize={recommendedSize}
-          />
+          <div class="sticky top-32">
+            <ProductInfo
+              page={page}
+              productExchangesReturnsPolicy={productExchangesReturnsPolicy}
+              device={device}
+              socialOptions={shareSocialOptions}
+              showButtons={showButtons}
+              buttonsUrl={buttonsUrl}
+              recommendedSize={recommendedSize}
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -71,8 +73,23 @@ export default function ProductDetails(
 }
 
 export const loader = async (props: Props, _req: Request, ctx: AppContext) => {
+  const product = props?.page?.product;
+
+  if (!product) {
+    return {
+      ...props,
+      device: ctx.device,
+      buttonsUrl: () => "",
+      recommendedSize: "",
+      showButtons: "",
+    };
+  }
   const { buttonsUrl, recommendedSize, showButtons } = await ctx.invoke.site
-    .loaders.sizebay({ page: props.page });
+    .loaders.sizebay({ product });
+
+  // const suggestions = await ctx.invoke.site.loaders.productSuggestions({
+  //   product,
+  // });
 
   return {
     ...props,

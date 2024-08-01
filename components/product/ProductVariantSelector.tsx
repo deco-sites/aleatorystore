@@ -1,12 +1,9 @@
-import { useSignal } from "@preact/signals";
 import type { BreadcrumbList, Product } from "apps/commerce/types.ts";
-import Avatar from "../../components/ui/Avatar.tsx";
+import Image from "apps/website/components/Image.tsx";
 import SizeSelector from "../../islands/ProductSizeVariantSelector.tsx";
 import { relative } from "../../sdk/url.ts";
-import { useSizeVariantOfferAvailability } from "../../sdk/useOfferAvailability.ts";
-import { useProductField } from "../../sdk/useProductField.ts";
+import { useColorVariantPossibilities } from "../../sdk/useColorVariantPossibilities.ts";
 import { useSimilarColors } from "../../sdk/useSimilarsColors.ts";
-import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
 
 export interface Props {
   product: Product;
@@ -21,31 +18,33 @@ export interface Props {
 
 function VariantSelector({ product, breadcrumb, sizebay }: Props) {
   const { url, isVariantOf, isSimilarTo } = product;
-  const productVariant = useSignal<Product | undefined>(product);
-  const selectedProduct = productVariant.value;
   const similarsColors = useSimilarColors(isSimilarTo);
-
-  const getProductExactColor = useProductField(product, "Cor exata");
+  const isFirstRender = true;
 
   const hasVariant = isVariantOf?.hasVariant ?? [];
-  const possibilities = useVariantPossibilities(hasVariant, product);
+  const colorPossibilities = useColorVariantPossibilities(hasVariant, product);
 
   const getActiveValue = (variantName: string) => {
-    const variants = possibilities[variantName];
+    const variants = colorPossibilities[variantName];
     const relativeUrl = relative(url);
-    for (const [value, link] of Object.entries(variants)) {
-      if (relative(link) === relativeUrl) {
+    const variantEntries = Object.entries(variants);
+    for (const [value, link] of variantEntries) {
+      if (relative(link.url) === relativeUrl) {
         return value;
       }
+    }
+    if (isFirstRender) {
+      const [value, _] = variantEntries[0];
+      return value;
     }
     return null;
   };
 
   return (
     <ul className="flex flex-col gap-4">
-      {Object.keys(possibilities).map((name) => {
+      {Object.keys(colorPossibilities).map((name) => {
         const activeValue = getActiveValue(name);
-        const variants = Object.entries(possibilities[name]);
+        const variants = Object.entries(colorPossibilities[name]);
 
         if (name.startsWith("Cor")) {
           return (
@@ -55,53 +54,46 @@ function VariantSelector({ product, breadcrumb, sizebay }: Props) {
               data-name={activeValue}
             >
               <span className="text-base text-dark-blue uppercase font-light">
-                Cor :{" "}
-                <span class="text-paragraph-color capitalize">
+                Cor:{" "}
+                <span className="text-paragraph-color capitalize">
                   {activeValue}
                 </span>
               </span>
               <ul className="flex flex-row gap-3">
-                {variants.map(([value, link], index) => {
-                  const { sizeOfferIsAvailable } =
-                    useSizeVariantOfferAvailability(index, isVariantOf);
+                {variants.map(([value, link]) => {
+                  const relativeLink = relative(link.url);
 
-                  const relativeUrl = relative(url);
-                  const relativeLink = relative(link);
                   return (
                     <li key={value}>
                       <button f-partial={relativeLink} f-client-nav>
-                        <Avatar
-                          label={name}
-                          content={value}
-                          variant={!sizeOfferIsAvailable && "disabled" ||
-                              sizeOfferIsAvailable &&
-                                relativeLink === relativeUrl
-                            ? "active"
-                            : "default"}
-                          productExactColor={getProductExactColor!}
+                        <Image
+                          src={link?.image!}
+                          alt="product image"
+                          width={64}
+                          height={86}
+                          class={activeValue === value
+                            ? "border border-primary-900 border-solid"
+                            : ""}
                         />
                       </button>
                     </li>
                   );
                 })}
 
-                {similarsColors?.map((item, index) => {
-                  const { sizeOfferIsAvailable } =
-                    useSizeVariantOfferAvailability(index, isVariantOf);
-
-                  const relativeUrl = relative(url);
+                {similarsColors?.map((item) => {
                   const relativeLink = relative(item.url);
 
                   return (
                     <li key={item.color}>
                       <button f-partial={relativeLink} f-client-nav>
-                        <Avatar
-                          label={name}
-                          content={item.color}
-                          variant={!sizeOfferIsAvailable
-                            ? "disabled" || relativeLink !== relativeUrl
-                            : "default"}
-                          productExactColor={item.specificColor!}
+                        <Image
+                          src={item.image!}
+                          alt="product image"
+                          width={64}
+                          height={86}
+                          class={activeValue === item.color
+                            ? "border border-primary-900 border-solid"
+                            : ""}
                         />
                       </button>
                     </li>
@@ -113,7 +105,7 @@ function VariantSelector({ product, breadcrumb, sizebay }: Props) {
         }
       })}
       <SizeSelector
-        product={selectedProduct!}
+        product={product}
         breadcrumb={breadcrumb}
         sizebay={sizebay}
       />

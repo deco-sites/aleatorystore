@@ -23,8 +23,8 @@ export interface Props {
  * we rearrange each cell with col-start- directives
  */
 
-const WIDTH = 624;
-const HEIGHT = 731;
+const WIDTH = 1000;
+const HEIGHT = 1370;
 const ASPECT_RATIO = `${WIDTH}/${HEIGHT}`;
 
 export default function ProductGridImages(props: Props) {

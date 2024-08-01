@@ -4,7 +4,6 @@ import { Device } from "apps/website/matchers/device.ts";
 import { SendEventOnView } from "../../components/Analytics.tsx";
 import ProductAccordionInfo from "../../islands/ProductAccordionInfo.tsx";
 import ProductGiftLink from "../../islands/ProductGiftLink.tsx";
-import ProductSelector from "../../islands/ProductVariantSelector.tsx";
 import ShareProduct from "../../islands/Share/ShareProduct.tsx";
 import WishlistButtonVtex from "../../islands/WishlistButton/vtex.tsx";
 import { formatPrice } from "../../sdk/format.ts";
@@ -14,6 +13,7 @@ import { usePercentualDiscount } from "../../sdk/usePercentualPrice.ts";
 import { useProductVariantDiscount } from "../../sdk/useProductVariantDiscount.ts";
 import { ProductPolicy } from "../../sections/Product/ProductDetails.tsx";
 import { MediaOptionProps } from "../share/ShareProduct.tsx";
+import ProductSelector from "./ProductVariantSelector.tsx";
 
 export interface Props {
   page: ProductDetailsPage | null;
@@ -72,6 +72,7 @@ function ProductInfo(
   const {
     price = 0,
     listPrice,
+    installments,
   } = useOffer(offers);
 
   const productGroupID = isVariantOf?.productGroupID ?? "";
@@ -129,19 +130,21 @@ function ProductInfo(
             <div class="mt-2">
               <div class="flex flex-row gap-2 items-center lg:pb-2">
                 <>
-                  {hasDiscount && (
-                    <span class="line-through text-sm text-[#9AA4B2]">
-                      {formatPrice(listPrice, offers?.priceCurrency)}
+                  <div class="flex justify-between w-full">
+                    <div class="flex gap-1 items-center">
+                      {hasDiscount && (
+                        <span class="line-through text-sm text-[#9AA4B2] font-bold">
+                          {formatPrice(listPrice, offers?.priceCurrency)}
+                        </span>
+                      )}
+                      <span class="font-bold">
+                        {formatPrice(price, offers?.priceCurrency)}
+                      </span>
+                    </div>
+                    <span class="flex justify-end gap-2 text-sm truncate font-bold uppercase">
+                      {installments}
                     </span>
-                  )}
-                  <span class="font-light text-dark-blue">
-                    {formatPrice(price, offers?.priceCurrency)}
-                  </span>
-                  {hasDiscount && (
-                    <span class="text-sm text-[#9AA4B2] font-bold">
-                      {!!productPercentualOff && productPercentualOff}
-                    </span>
-                  )}
+                  </div>
                 </>
               </div>
             </div>

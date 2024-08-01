@@ -4,6 +4,7 @@ import type { SectionProps } from "deco/types.ts";
 import { AppContext } from "../../apps/site.ts";
 import type { Props as SearchbarProps } from "../../components/search/Searchbar.tsx";
 import Drawers from "../../islands/Header/Drawers.tsx";
+import HeaderScroll from "../../islands/HeaderScroll.tsx";
 import { usePlatform } from "../../sdk/usePlatform.tsx";
 import { AvailableIcons } from "../ui/Icon.tsx";
 import Alert from "./Alert.tsx";
@@ -94,8 +95,34 @@ function Header({
   const platform = usePlatform();
   const items = navItems ?? [];
 
-  return (
-    <>
+  return device === "desktop"
+    ? (
+      <HeaderScroll>
+        <header style={{ height: headerHeight }}>
+          <Drawers
+            menu={{ items }}
+            searchbar={searchbar}
+            platform={platform}
+          >
+            <div class="bg-secondary-neutral-100 fixed w-full z-40">
+              {alerts && alerts.length > 0 && (
+                <Alert alerts={alerts} lightTheme={lightThemeBar} />
+              )}
+              <Navbar
+                device={device}
+                items={items}
+                searchbar={searchbar && { ...searchbar, platform }}
+                logo={logo}
+                logoPosition={logoPosition}
+                buttons={buttons}
+                itemsPerColumn={itemsPerColumn}
+              />
+            </div>
+          </Drawers>
+        </header>
+      </HeaderScroll>
+    )
+    : (
       <header style={{ height: headerHeight }}>
         <Drawers
           menu={{ items }}
@@ -118,8 +145,7 @@ function Header({
           </div>
         </Drawers>
       </header>
-    </>
-  );
+    );
 }
 
 export const loader = (props: Props, _req: Request, ctx: AppContext) => {

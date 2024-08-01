@@ -2,6 +2,7 @@ import type {
   AggregateOffer,
   UnitPriceSpecification,
 } from "apps/commerce/types.ts";
+import { formatPrice } from "./format.ts";
 
 const bestInstallment = (
   acc: UnitPriceSpecification | null,
@@ -37,16 +38,13 @@ const installmentToString = (
   installment: UnitPriceSpecification,
   sellingPrice: number,
 ) => {
-  const { billingDuration, billingIncrement, price } = installment;
+  const { billingDuration, billingIncrement } = installment;
 
   if (!billingDuration || !billingIncrement) {
     return "";
   }
 
-  const withTaxes = sellingPrice < price;
-
-  return `${billingDuration}x de R$ ${billingIncrement} ${withTaxes ? "com juros" : "sem juros"
-    }`;
+  return `${billingDuration}x ${formatPrice(billingIncrement)}`;
 };
 
 export const useOffer = (aggregateOffer?: AggregateOffer) => {

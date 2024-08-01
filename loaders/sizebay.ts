@@ -1,12 +1,12 @@
-import { ProductDetailsPage } from "apps/commerce/types.ts";
+import { Product } from "apps/commerce/types.ts";
 import { getCookies, setCookie } from "std/http/mod.ts";
 import { AppContext } from "../apps/site.ts";
 
 export interface Props {
-  page: ProductDetailsPage | null;
+  product: Product;
 }
 
-export default async function SizebayLoader({ page }: Props, req: Request, ctx: AppContext) {
+export default async function SizebayLoader({ product }: Props, req: Request, ctx: AppContext) {
   const cookies = getCookies(req.headers);
   let SID: string | null = cookies.SIZEBAY_SESSION_ID_V4;
   let showButtons: string | null = null;
@@ -14,21 +14,21 @@ export default async function SizebayLoader({ page }: Props, req: Request, ctx: 
   let permaLink = "";
   let recommendedSize: string | null = null;
 
-  if (page?.product.url?.includes("https://0.0.0.0:10503/")) {
+  if (product.url?.includes("https://0.0.0.0:10503/")) {
     // to work in local
-    permaLink = page?.product.url?.replace(
+    permaLink = product.url?.replace(
       "https://0.0.0.0:10503",
       "https://www.aleatorystore.com.br",
     ).split("?")[0];
   } else if (
-    page?.product.url?.includes("https://aleatorystore.deco.site/")
+    product.url?.includes("https://aleatorystore.deco.site/")
   ) {
-    permaLink = page?.product.url?.replace(
+    permaLink = product.url?.replace(
       "https://aleatorystore.deco.site",
       "https://www.aleatorystore.com.br",
     ).split("?")[0];
   } else {
-    permaLink = page?.product.url!;
+    permaLink = product.url!;
   }
 
   try {

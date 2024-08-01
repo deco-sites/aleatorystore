@@ -10,7 +10,8 @@ export const useSimilarColors = (isSimilarTo: Product[] | undefined) => {
       url: similar.url ?? "",
       sku: similar.sku ?? "",
       color: similar.additionalProperty?.find((property) => property.name === "Cor")?.value ?? "",
-      specificColor: useProductField(similar, "Cor exata")
+      specificColor: useProductField(similar, "Cor exata"),
+      image: similar?.image?.[0]?.url
     };
   });
 

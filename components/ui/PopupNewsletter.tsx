@@ -1,23 +1,30 @@
-import Button from "./ButtonStyled.tsx";
-import ButtonDefault from "./Button.tsx";
 import { useSignal } from "@preact/signals";
-import { Suspense } from "preact/compat";
 import { ImageWidget } from "apps/admin/widgets.ts";
+import Image from "apps/website/components/Image.tsx";
 import type { JSX } from "preact";
+import { Suspense } from "preact/compat";
 import { useRef } from "preact/hooks";
 import Toastify from "toastify-js";
 import { invoke } from "../../runtime.ts";
-import Modal from "./Modal.tsx";
 import Loading from "../daisy/Loading.tsx";
-import Image from "apps/website/components/Image.tsx";
+import ButtonDefault from "./Button.tsx";
+import Button from "./ButtonStyled.tsx";
 import Icon from "./Icon.tsx";
+import Modal from "./Modal.tsx";
 
 export interface Props {
   image?: ImageWidget;
 }
 
 export default function PopupNewsletter({ image }: Props) {
-  const popup = globalThis.localStorage.getItem("popupNewsletter");
+  const popup = JSON.parse(
+    globalThis.localStorage.getItem("signPopupNewsletter") || "null",
+  ) ??
+    JSON.parse(
+      globalThis.sessionStorage.getItem("signPopupNewsletter") || "null",
+    );
+
+  const hasSignPopup = useSignal<boolean>(popup !== null);
   const loading = useSignal(false);
 
   const emailRef = useRef<HTMLInputElement>(null);
@@ -77,6 +84,12 @@ export default function PopupNewsletter({ image }: Props) {
         acronym: "NL",
       });
 
+      JSON.stringify(
+        globalThis.localStorage.setItem("signPopupNewsletter", "true"),
+      );
+
+      hasSignPopup.value = true;
+
       Toastify({
         text: "Obrigado! Em breve entraremos em contato ",
         className: "info",
@@ -110,23 +123,35 @@ export default function PopupNewsletter({ image }: Props) {
 
   return (
     <Modal
-      open={!popup}
+      open={!hasSignPopup.value}
       loading="lazy"
       onClose={() => {
-        globalThis.localStorage.setItem("popupNewsletter", "true");
+        JSON.stringify(
+          globalThis.sessionStorage.setItem("signPopupNewsletter", "false"),
+        );
+        hasSignPopup.value = true;
       }}
     >
       <Suspense
         fallback={<Loading size="loading-md" style={"loading-spinner"} />}
       >
-        <div class="flex justify-center bg-[#fff] relative">
+        <div class="w-full h-full sm:w-fit sm:h-fit flex justify-center bg-[#fff] relative">
           <ButtonDefault
             type="button"
             class="btn no-animation absolute right-4 top-4"
+            onClick={() => {
+              JSON.stringify(
+                globalThis.sessionStorage.setItem(
+                  "signPopupNewsletter",
+                  "false",
+                ),
+              );
+              hasSignPopup.value = true;
+            }}
           >
             <Icon id="XMark" size={28} strokeWidth={1} />
           </ButtonDefault>
-          <figure style={{ aspectRatio: "530/590" }}>
+          <figure style={{ aspectRatio: "530/590" }} class="hidden sm:block">
             <Image
               src={image!}
               alt="image newsletter banner"
@@ -138,9 +163,9 @@ export default function PopupNewsletter({ image }: Props) {
             class="form-control max-w-[550px] m-auto w-full gap-4 p-8"
             onSubmit={handleSubmit}
           >
-            <h3 class="text-center text-[24px] font-light uppercase leading-[16px]">
+            <h3 class="text-center text-xl sm:text-[24px] font-light uppercase leading-[16px]">
               CADASTRE-SE E{" "}
-              <strong class="text-[36px] font-semibold leading-[55px] text-center block">
+              <strong class="text-3xl sm:text-[36px] font-semibold leading-[55px] text-center block">
                 GANHE 10% OFF
               </strong>
             </h3>

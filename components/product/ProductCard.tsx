@@ -1,16 +1,14 @@
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import Image from "apps/website/components/Image.tsx";
-import Video from "apps/website/components/Video.tsx";
 import type { Platform } from "../../apps/site.ts";
 import { SendEventOnClick } from "../../components/Analytics.tsx";
 import { clx } from "../../sdk/clx.ts";
 import { formatPrice } from "../../sdk/format.ts";
 import { relative } from "../../sdk/url.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
-import { usePercentualDiscount } from "../../sdk/usePercentualPrice.ts";
-import { useProductVariantDiscount } from "../../sdk/useProductVariantDiscount.ts";
 import { useVariantOfferAvailability } from "../../sdk/useOfferAvailability.ts";
+import { useProductVariantDiscount } from "../../sdk/useProductVariantDiscount.ts";
 
 interface Props {
   product: Product;
@@ -35,28 +33,25 @@ function ProductCard({
   itemListName,
   index,
 }: Props) {
-  const { url, productID, image: images, video: videos, isVariantOf } = product;
+  const { url, productID, image: images, isVariantOf } = product;
 
   const id = `product-card-${productID}`;
   const [front, back] = images ?? [];
   const { productVariantDiscount } = useProductVariantDiscount(product);
   const { offers } = productVariantDiscount;
-  const { listPrice, price } = useOffer(offers);
+  const { listPrice, price, installments } = useOffer(offers);
   const relativeUrl = relative(url);
   const aspectRatio = `${WIDTH} / ${HEIGHT}`;
-  const productVideo = videos && videos.length && videos[0];
 
   const { hasOfferAvailable } = useVariantOfferAvailability(isVariantOf);
 
   const hasDiscount = (listPrice ?? 0) > (price ?? 0);
-  const productPercentualOff = hasDiscount &&
-    usePercentualDiscount(listPrice!, price!);
 
   return (
     <div
       id={id}
       data-deco="view-product"
-      class="card card-compact group w-full lg:border lg:border-transparent lg:hover:border-inherit"
+      class="card card-compact group w-full lg:border lg:border-transparent lg:hover:border-inherit mb-4"
     >
       {/* Add click event to dataLayer */}
       <SendEventOnClick
@@ -77,7 +72,7 @@ function ProductCard({
         }}
       />
 
-      <div class="flex flex-col">
+      <div class="flex flex-col gap-2">
         <figure
           class="relative overflow-hidden"
           style={{ aspectRatio }}
@@ -132,7 +127,7 @@ function ProductCard({
 
         <div class="flex flex-col">
           <h2
-            class="truncate text-base lg:text-base font-light text-paragraph-color ml-2 mt-3"
+            class="truncate text-base lg:text-base font-normal text-dark-blue ml-2 mt-3 uppercase"
             dangerouslySetInnerHTML={{ __html: isVariantOf?.name ?? "" }}
           />
         </div>
@@ -141,21 +136,21 @@ function ProductCard({
         <div class="flex gap-2 items-center justify-start text-dark-blue ml-2 font-light">
           {hasOfferAvailable
             ? (
-              <>
-                {hasDiscount && (
-                  <span class="line-through text-sm text-[#9AA4B2]">
-                    {formatPrice(listPrice, offers?.priceCurrency)}
+              <div class="flex justify-between w-full">
+                <div class="flex gap-1 items-center">
+                  {hasDiscount && (
+                    <span class="line-through text-sm text-[#9AA4B2] font-bold">
+                      {formatPrice(listPrice, offers?.priceCurrency)}
+                    </span>
+                  )}
+                  <span class="font-bold">
+                    {formatPrice(price, offers?.priceCurrency)}
                   </span>
-                )}
-                <span>
-                  {formatPrice(price, offers?.priceCurrency)}
+                </div>
+                <span class="flex justify-end gap-2 text-sm truncate font-bold uppercase">
+                  {installments}
                 </span>
-                {hasDiscount && (
-                  <span class="text-sm text-[#9AA4B2] font-bold">
-                    {!!productPercentualOff && productPercentualOff}
-                  </span>
-                )}
-              </>
+              </div>
             )
             : <span>Indisponível</span>}
         </div>

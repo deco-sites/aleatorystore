@@ -11,8 +11,8 @@ export interface Props {
   images: ImageObject[];
 }
 
-const WIDTH = 624;
-const HEIGHT = 731;
+const WIDTH = 1000;
+const HEIGHT = 1370;
 const ASPECT_RATIO = `${WIDTH}/${HEIGHT}`;
 
 function ProductImageZoom({ images }: Props) {
