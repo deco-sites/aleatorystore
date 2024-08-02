@@ -16,26 +16,29 @@
       }
     },
     {
-      "__resolveType": "site/sections/Images/Carousel.tsx",
-      "elements": [
-        {
-          "action": {
-            "buttonPositionDesktop": "Right",
-            "buttonPositionMobile": "Center",
-            "href": "/new-in",
-            "label": "VER NOVA COLEÇÃO",
-            "buttonNegative": true
-          },
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/8d264d15-df44-4615-8317-9dcd0db7dc9c",
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/ede4879d-802a-40a9-8cd3-d01562d81d50"
-        }
-      ],
-      "arrows": false,
-      "dots": false,
-      "preload": true,
-      "images": [
-        {}
-      ]
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Images/Carousel.tsx",
+        "elements": [
+          {
+            "action": {
+              "buttonPositionDesktop": "Right",
+              "buttonPositionMobile": "Center",
+              "href": "/new-in",
+              "label": "VER NOVA COLEÇÃO",
+              "buttonNegative": true
+            },
+            "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/8d264d15-df44-4615-8317-9dcd0db7dc9c",
+            "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/ede4879d-802a-40a9-8cd3-d01562d81d50"
+          }
+        ],
+        "arrows": false,
+        "dots": false,
+        "preload": true,
+        "images": [
+          {}
+        ]
+      }
     },
     {
       "__resolveType": "site/sections/Product/ProductShelf.tsx",
