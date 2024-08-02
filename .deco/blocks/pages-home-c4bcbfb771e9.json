@@ -12,7 +12,7 @@
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "site/sections/PopupNewsletter.tsx",
-        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/f6c9e9e6-9609-4b48-ab21-15601e2ab570"
+        "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/693b829e-e682-48b4-9e93-acffd8490172"
       }
     },
     {
@@ -41,263 +41,278 @@
       }
     },
     {
-      "__resolveType": "site/sections/Product/ProductShelf.tsx",
-      "layout": {
-        "headerAlignment": "left",
-        "showArrows": true,
-        "headerfontSize": "Small",
-        "numberOfSliders": {
-          "desktop": 3
-        },
-        "showDots": true,
-        "collectionButton": {
-          "show": true,
-          "action": {
-            "text": "Ver Nova Coleção",
-            "href": "/new-in"
-          }
-        }
-      },
-      "products": {
-        "props": {
-          "sort": "",
-          "count": 6,
-          "collection": "209"
-        },
-        "crossSelling": "similars",
-        "__resolveType": "vtex/loaders/intelligentSearch/productList.ts"
-      },
-      "cardLayout": {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/ProductShelf.tsx",
         "layout": {
-          "hide": {
-            "allPrices": false,
-            "favoriteIcon": true,
-            "installments": false,
-            "productDescription": true
+          "headerAlignment": "left",
+          "showArrows": true,
+          "headerfontSize": "Small",
+          "numberOfSliders": {
+            "desktop": 3
           },
-          "basics": {
-            "oldPriceSize": "Normal",
-            "contentAlignment": "Left"
-          },
-          "onMouseOver": {
-            "card": "None",
-            "image": "Change image",
-            "showCta": true,
-            "showCardShadow": false,
-            "showSkuSelector": false,
-            "showFavoriteIcon": false
-          },
-          "elementsPositions": {
-            "skuSelector": "Bottom",
-            "favoriteIcon": "Top right"
+          "showDots": true,
+          "collectionButton": {
+            "show": true,
+            "action": {
+              "text": "Ver Nova Coleção",
+              "href": "/new-in"
+            }
           }
         },
-        "__resolveType": "site/loaders/Layouts/ProductCard.tsx"
-      },
-      "title": "MAIS VENDIDOS",
-      "description": "PEÇAS INCRÍVEIS PARA APROVEITAR MOMENTOS INESQUECÍVEIS."
+        "products": {
+          "props": {
+            "sort": "",
+            "count": 6,
+            "collection": "209"
+          },
+          "crossSelling": "similars",
+          "__resolveType": "vtex/loaders/intelligentSearch/productList.ts"
+        },
+        "cardLayout": {
+          "layout": {
+            "hide": {
+              "allPrices": false,
+              "favoriteIcon": true,
+              "installments": false,
+              "productDescription": true
+            },
+            "basics": {
+              "oldPriceSize": "Normal",
+              "contentAlignment": "Left"
+            },
+            "onMouseOver": {
+              "card": "None",
+              "image": "Change image",
+              "showCta": true,
+              "showCardShadow": false,
+              "showSkuSelector": false,
+              "showFavoriteIcon": false
+            },
+            "elementsPositions": {
+              "skuSelector": "Bottom",
+              "favoriteIcon": "Top right"
+            }
+          },
+          "__resolveType": "site/loaders/Layouts/ProductCard.tsx"
+        },
+        "title": "MAIS VENDIDOS",
+        "description": "PEÇAS INCRÍVEIS PARA APROVEITAR MOMENTOS INESQUECÍVEIS."
+      }
     },
     {
-      "__resolveType": "site/sections/Category/CategoryGrid.tsx",
-      "header": {
-        "title": "New Arrivals"
-      },
-      "layout": {
-        "headerAlignment": "left",
-        "categoryCard": {
-          "textPosition": "bottom",
-          "textAlignment": "center"
-        }
-      },
-      "list": [
-        {
-          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/e4d9d083-5611-4d39-9b6c-ca61b906712c",
-          "href": "/new-in",
-          "buttonText": "Ver todos os itens",
-          "label": "New In",
-          "media": {
-            "0": "h",
-            "1": "t",
-            "2": "t",
-            "3": "p",
-            "4": "s",
-            "5": ":",
-            "6": "/",
-            "7": "/",
-            "8": "o",
-            "9": "z",
-            "10": "k",
-            "11": "s",
-            "12": "g",
-            "13": "d",
-            "14": "m",
-            "15": "y",
-            "16": "r",
-            "17": "q",
-            "18": "c",
-            "19": "x",
-            "20": "c",
-            "21": "w",
-            "22": "h",
-            "23": "n",
-            "24": "b",
-            "25": "e",
-            "26": "p",
-            "27": "g",
-            "28": ".",
-            "29": "s",
-            "30": "u",
-            "31": "p",
-            "32": "a",
-            "33": "b",
-            "34": "a",
-            "35": "s",
-            "36": "e",
-            "37": ".",
-            "38": "c",
-            "39": "o",
-            "40": "/",
-            "41": "s",
-            "42": "t",
-            "43": "o",
-            "44": "r",
-            "45": "a",
-            "46": "g",
-            "47": "e",
-            "48": "/",
-            "49": "v",
-            "50": "1",
-            "51": "/",
-            "52": "o",
-            "53": "b",
-            "54": "j",
-            "55": "e",
-            "56": "c",
-            "57": "t",
-            "58": "/",
-            "59": "p",
-            "60": "u",
-            "61": "b",
-            "62": "l",
-            "63": "i",
-            "64": "c",
-            "65": "/",
-            "66": "a",
-            "67": "s",
-            "68": "s",
-            "69": "e",
-            "70": "t",
-            "71": "s",
-            "72": "/",
-            "73": "9",
-            "74": "1",
-            "75": "6",
-            "76": "6",
-            "77": "/",
-            "78": "4",
-            "79": "3",
-            "80": "3",
-            "81": "3",
-            "82": "3",
-            "83": "2",
-            "84": "0",
-            "85": "7",
-            "86": "-",
-            "87": "5",
-            "88": "c",
-            "89": "2",
-            "90": "a",
-            "91": "-",
-            "92": "4",
-            "93": "2",
-            "94": "4",
-            "95": "3",
-            "96": "-",
-            "97": "8",
-            "98": "7",
-            "99": "b",
-            "100": "6",
-            "101": "-",
-            "102": "6",
-            "103": "1",
-            "104": "0",
-            "105": "8",
-            "106": "c",
-            "107": "d",
-            "108": "7",
-            "109": "c",
-            "110": "c",
-            "111": "4",
-            "112": "9",
-            "113": "a",
-            "type": "video",
-            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/08ba0515-ac11-4de6-a0aa-06221d14779c"
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryGrid.tsx",
+        "header": {
+          "title": "New Arrivals"
+        },
+        "layout": {
+          "headerAlignment": "left",
+          "categoryCard": {
+            "textPosition": "bottom",
+            "textAlignment": "center"
           }
         },
-        {
-          "href": "/winter24",
-          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/974f2551-e3b5-46ad-a5b0-69ef1c72c05f",
-          "buttonText": "Ver todos os itens",
-          "label": "Winter 24",
-          "media": {
-            "type": "image",
-            "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/ba96ff48-8d14-445e-8fe3-2ccf7bfdbbdc"
+        "list": [
+          {
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/e4d9d083-5611-4d39-9b6c-ca61b906712c",
+            "href": "/new-in",
+            "buttonText": "Ver todos os itens",
+            "label": "New In",
+            "media": {
+              "0": "h",
+              "1": "t",
+              "2": "t",
+              "3": "p",
+              "4": "s",
+              "5": ":",
+              "6": "/",
+              "7": "/",
+              "8": "o",
+              "9": "z",
+              "10": "k",
+              "11": "s",
+              "12": "g",
+              "13": "d",
+              "14": "m",
+              "15": "y",
+              "16": "r",
+              "17": "q",
+              "18": "c",
+              "19": "x",
+              "20": "c",
+              "21": "w",
+              "22": "h",
+              "23": "n",
+              "24": "b",
+              "25": "e",
+              "26": "p",
+              "27": "g",
+              "28": ".",
+              "29": "s",
+              "30": "u",
+              "31": "p",
+              "32": "a",
+              "33": "b",
+              "34": "a",
+              "35": "s",
+              "36": "e",
+              "37": ".",
+              "38": "c",
+              "39": "o",
+              "40": "/",
+              "41": "s",
+              "42": "t",
+              "43": "o",
+              "44": "r",
+              "45": "a",
+              "46": "g",
+              "47": "e",
+              "48": "/",
+              "49": "v",
+              "50": "1",
+              "51": "/",
+              "52": "o",
+              "53": "b",
+              "54": "j",
+              "55": "e",
+              "56": "c",
+              "57": "t",
+              "58": "/",
+              "59": "p",
+              "60": "u",
+              "61": "b",
+              "62": "l",
+              "63": "i",
+              "64": "c",
+              "65": "/",
+              "66": "a",
+              "67": "s",
+              "68": "s",
+              "69": "e",
+              "70": "t",
+              "71": "s",
+              "72": "/",
+              "73": "9",
+              "74": "1",
+              "75": "6",
+              "76": "6",
+              "77": "/",
+              "78": "4",
+              "79": "3",
+              "80": "3",
+              "81": "3",
+              "82": "3",
+              "83": "2",
+              "84": "0",
+              "85": "7",
+              "86": "-",
+              "87": "5",
+              "88": "c",
+              "89": "2",
+              "90": "a",
+              "91": "-",
+              "92": "4",
+              "93": "2",
+              "94": "4",
+              "95": "3",
+              "96": "-",
+              "97": "8",
+              "98": "7",
+              "99": "b",
+              "100": "6",
+              "101": "-",
+              "102": "6",
+              "103": "1",
+              "104": "0",
+              "105": "8",
+              "106": "c",
+              "107": "d",
+              "108": "7",
+              "109": "c",
+              "110": "c",
+              "111": "4",
+              "112": "9",
+              "113": "a",
+              "type": "video",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/08ba0515-ac11-4de6-a0aa-06221d14779c"
+            }
+          },
+          {
+            "href": "/winter24",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/974f2551-e3b5-46ad-a5b0-69ef1c72c05f",
+            "buttonText": "Ver todos os itens",
+            "label": "Winter 24",
+            "media": {
+              "type": "image",
+              "src": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/ba96ff48-8d14-445e-8fe3-2ccf7bfdbbdc"
+            }
+          },
+          {
+            "href": "/icones10anos",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/dc82eff0-495e-4bca-b729-ccb0807577c8",
+            "buttonText": "Ver todos os itens",
+            "label": "Ícones 10 Anos"
+          },
+          {
+            "href": "/collab-maria-rudge",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/61a8a4a5-b3cf-4af0-93f9-c30b92e82f04",
+            "label": "Collab Maria Rudge",
+            "buttonText": "Ver todos os itens"
+          }
+        ],
+        "isThreeImages": false,
+        "isBannerRowList": false
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Category/CategoryGrid.tsx",
+        "header": {
+          "title": "shop by category"
+        },
+        "layout": {
+          "headerAlignment": "left",
+          "categoryCard": {
+            "textPosition": "bottom",
+            "textAlignment": "center"
           }
         },
-        {
-          "href": "/icones10anos",
-          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/dc82eff0-495e-4bca-b729-ccb0807577c8",
-          "buttonText": "Ver todos os itens",
-          "label": "Ícones 10 Anos"
-        },
-        {
-          "href": "/collab-maria-rudge",
-          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/61a8a4a5-b3cf-4af0-93f9-c30b92e82f04",
-          "label": "Collab Maria Rudge",
-          "buttonText": "Ver todos os itens"
-        }
-      ],
-      "isThreeImages": false,
-      "isBannerRowList": false
+        "list": [
+          {
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/231a69e1-8af7-4ef5-bfbe-b1934d7167ce",
+            "href": "/roupas/vestido",
+            "buttonText": "Vestidos"
+          },
+          {
+            "href": "/roupas/blusa",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/2936d56c-38ec-4f78-8eff-eb0b5f2218c4",
+            "buttonText": "Blusas"
+          },
+          {
+            "href": "/roupas/shorts",
+            "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/9176876e-1835-4361-8c10-e4bb487b520c",
+            "buttonText": "shorts",
+            "negative": false
+          }
+        ],
+        "isThreeImages": true,
+        "isBannerRowList": true
+      }
     },
     {
-      "__resolveType": "site/sections/Category/CategoryGrid.tsx",
-      "header": {
-        "title": "shop by category"
-      },
-      "layout": {
-        "headerAlignment": "left",
-        "categoryCard": {
-          "textPosition": "bottom",
-          "textAlignment": "center"
-        }
-      },
-      "list": [
-        {
-          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/231a69e1-8af7-4ef5-bfbe-b1934d7167ce",
-          "href": "/roupas/vestido",
-          "buttonText": "Vestidos"
-        },
-        {
-          "href": "/roupas/blusa",
-          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/2936d56c-38ec-4f78-8eff-eb0b5f2218c4",
-          "buttonText": "Blusas"
-        },
-        {
-          "href": "/roupas/shorts",
-          "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/9176876e-1835-4361-8c10-e4bb487b520c",
-          "buttonText": "shorts",
-          "negative": false
-        }
-      ],
-      "isThreeImages": true,
-      "isBannerRowList": true
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Benefits - 01"
+      }
     },
     {
-      "__resolveType": "Benefits - 01"
-    },
-    {
-      "__resolveType": "Footer - 02"
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer - 02"
+      }
     }
   ],
   "__resolveType": "website/pages/Page.tsx",
