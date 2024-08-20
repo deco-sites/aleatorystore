@@ -78,6 +78,7 @@ function SearchControls(
             <button
               onClick={() => {
                 displayGridLayout.value = 2;
+                console.log("clicoi", displayGridLayout.value);
               }}
             >
               <LayoutGrid2Icon />
@@ -85,6 +86,7 @@ function SearchControls(
             <button
               onClick={() => {
                 displayGridLayout.value = 1;
+                console.log("clicoi", displayGridLayout.value);
               }}
             >
               <LayoutGrid1Icon />

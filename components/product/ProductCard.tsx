@@ -8,6 +8,7 @@ import { formatPrice } from "../../sdk/format.ts";
 import { relative } from "../../sdk/url.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { useVariantOfferAvailability } from "../../sdk/useOfferAvailability.ts";
+import { usePercentualDiscount } from "../../sdk/usePercentualPrice.ts";
 import { useProductVariantDiscount } from "../../sdk/useProductVariantDiscount.ts";
 
 interface Props {
@@ -47,6 +48,9 @@ function ProductCard({
 
   const hasDiscount = (listPrice ?? 0) > (price ?? 0);
 
+  const productPercentualOff = hasDiscount &&
+    usePercentualDiscount(listPrice!, price!);
+
   return (
     <div
       id={id}
@@ -77,6 +81,12 @@ function ProductCard({
           class="relative overflow-hidden"
           style={{ aspectRatio }}
         >
+          {productPercentualOff && (
+            <div class="bg-[#f6f4f3] absolute flex flex-col items-center justify-center w-[55px] h-[55px] text-[13px] leading-[1.45] font-bold text-black border z-[3] border-solid border-black left-auto right-0 top-0">
+              <span>{productPercentualOff}%</span>
+              OFF
+            </div>
+          )}
           {/* Product Images */}
           <a
             href={relativeUrl}
@@ -139,15 +149,15 @@ function ProductCard({
               <div class="flex justify-between w-full">
                 <div class="flex gap-1 items-center">
                   {hasDiscount && (
-                    <span class="line-through text-sm text-[#9AA4B2] font-bold">
+                    <span class="line-through text-[10px] sm:text-sm text-[#9AA4B2] font-bold">
                       {formatPrice(listPrice, offers?.priceCurrency)}
                     </span>
                   )}
-                  <span class="font-bold">
+                  <span class="font-bold text-xs sm:text-base">
                     {formatPrice(price, offers?.priceCurrency)}
                   </span>
                 </div>
-                <span class="flex justify-end gap-2 text-sm truncate font-bold uppercase">
+                <span class="flex justify-end gap-2 text-[10px] sm:text-sm truncate font-bold uppercase">
                   {installments}
                 </span>
               </div>

@@ -4,6 +4,9 @@ import Video from "apps/website/components/Video.tsx";
 import Slider from "../../../components/ui/Slider.tsx";
 import ProductImageZoom from "../../../islands/ProductImageZoom.tsx";
 import { useId } from "../../../sdk/useId.ts";
+import { useOffer } from "../../../sdk/useOffer.ts";
+import { usePercentualDiscount } from "../../../sdk/usePercentualPrice.ts";
+import { useProductVariantDiscount } from "../../../sdk/useProductVariantDiscount.ts";
 import { useUI } from "../../../sdk/useUI.ts";
 
 export interface Props {
@@ -35,14 +38,29 @@ export default function ProductGridImages(props: Props) {
   }
 
   const {
-    page: { product: { image: images = [], video: videos = [] } },
+    page: { product },
     layout,
   } = props;
+
+  const { image: images = [], video: videos = [] } = product;
 
   const { width, height } = layout || { width: 1200, height: 1480 };
 
   const aspectRatio = `${width} / ${height}`;
   const productVideo = videos[0];
+
+  const { productVariantDiscount } = useProductVariantDiscount(product);
+  const { offers } = productVariantDiscount;
+
+  const {
+    price = 0,
+    listPrice,
+  } = useOffer(offers);
+
+  const hasDiscount = (listPrice ?? 0) > (price ?? 0);
+
+  const productPercentualOff = hasDiscount &&
+    usePercentualDiscount(listPrice!, price!);
 
   const { displayProductZoomModal } = useUI();
 
@@ -50,14 +68,16 @@ export default function ProductGridImages(props: Props) {
     displayProductZoomModal.value = true;
   };
 
-  const hasNotNewImages = images?.some((image) =>
-    image.name?.toLocaleLowerCase() !== "novas"
-  );
-
   return (
     <div id={id} class="">
       {/* Image Slider */}
       <div class="sm:hidden relative order-1 sm:order-2">
+        {productPercentualOff && (
+          <div class="bg-[#f6f4f3] absolute flex flex-col items-center justify-center w-[55px] h-[55px] text-[13px] leading-[1.45] font-bold text-black border z-[3] border-solid border-black left-auto right-10 top-6">
+            <span>{productPercentualOff}%</span>
+            OFF
+          </div>
+        )}
         <Slider class="carousel carousel-center gap-[14px] w-screen sm:w-[40vw] mt-4 sm:mt-0">
           {images.map((img, index) => (
             <Slider.Item
@@ -65,27 +85,16 @@ export default function ProductGridImages(props: Props) {
               class="carousel-item w-11/12"
               onClick={handleClick}
             >
-              {img.name?.toLocaleLowerCase() === "novas"
-                ? (
-                  <Image
-                    class="w-full"
-                    style={{ aspectRatio }}
-                    src={img.url!}
-                    alt={img.alternateName}
-                    width={width}
-                    height={height}
-                    preload={index === 0}
-                    loading={index === 0 ? "eager" : "lazy"}
-                  />
-                )
-                : (
-                  <img
-                    class="w-full"
-                    src={img.url!}
-                    alt={img.alternateName}
-                    loading={index === 0 ? "eager" : "lazy"}
-                  />
-                )}
+              <Image
+                class="w-full"
+                style={{ aspectRatio }}
+                src={img.url!}
+                alt={img.alternateName}
+                width={width}
+                height={height}
+                preload={index === 0}
+                loading={index === 0 ? "eager" : "lazy"}
+              />
             </Slider.Item>
           ))}
         </Slider>
@@ -98,6 +107,13 @@ export default function ProductGridImages(props: Props) {
       </div>
 
       <div class="hidden relative order-1 sm:order-2 sm:grid grid-cols-2 gap-[10px]">
+        {productPercentualOff && (
+          <div class="bg-[#f6f4f3] absolute flex flex-col items-center justify-center w-[55px] h-[55px] text-[13px] leading-[1.45] font-bold text-black border z-[3] border-solid border-black left-auto right-0">
+            <span>{productPercentualOff}%</span>
+            OFF
+          </div>
+        )}
+
         {images.slice(0, 1).map((image, index) => {
           return (
             <figure

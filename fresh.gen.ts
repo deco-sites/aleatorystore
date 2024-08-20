@@ -35,6 +35,7 @@ import * as $ProductImages from "./islands/ProductImages.tsx";
 import * as $ProductSizeVariantSelector from "./islands/ProductSizeVariantSelector.tsx";
 import * as $ProductSizebayButtons from "./islands/ProductSizebayButtons.tsx";
 import * as $ProductVariantSelector from "./islands/ProductVariantSelector.tsx";
+import * as $ProductsCard from "./islands/ProductsCard.tsx";
 import * as $ProxyIframe from "./islands/ProxyIframe.tsx";
 import * as $SIzebayIframe from "./islands/SIzebayIframe.tsx";
 import * as $SearchControls from "./islands/SearchControls.tsx";
@@ -83,6 +84,7 @@ const manifest = {
     "./islands/ProductSizeVariantSelector.tsx": $ProductSizeVariantSelector,
     "./islands/ProductSizebayButtons.tsx": $ProductSizebayButtons,
     "./islands/ProductVariantSelector.tsx": $ProductVariantSelector,
+    "./islands/ProductsCard.tsx": $ProductsCard,
     "./islands/ProxyIframe.tsx": $ProxyIframe,
     "./islands/SIzebayIframe.tsx": $SIzebayIframe,
     "./islands/SearchControls.tsx": $SearchControls,

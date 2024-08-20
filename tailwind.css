@@ -77,6 +77,10 @@
     box-shadow: none;
   }
 
+  .skeleton {
+    background-color: var(--fallback-b3, oklch(0.69 0 0));
+  }
+
   .transition-header {
     @apply duration-500 fixed ease-in-out w-full z-20;
   }

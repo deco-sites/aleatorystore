@@ -10,7 +10,7 @@ import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import NotFound from "../../sections/Product/NotFound.tsx";
 import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
-import ProductGalleryWithBanner, {
+import {
   CategoryBannersMediaSource,
 } from "../product/ProductGalleryWithBanner.tsx";
 import SearchTitle from "./SearchTitle.tsx";

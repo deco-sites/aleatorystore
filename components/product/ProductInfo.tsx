@@ -9,7 +9,6 @@ import WishlistButtonVtex from "../../islands/WishlistButton/vtex.tsx";
 import { formatPrice } from "../../sdk/format.ts";
 import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
-import { usePercentualDiscount } from "../../sdk/usePercentualPrice.ts";
 import { useProductVariantDiscount } from "../../sdk/useProductVariantDiscount.ts";
 import { ProductPolicy } from "../../sections/Product/ProductDetails.tsx";
 import { MediaOptionProps } from "../share/ShareProduct.tsx";
@@ -90,9 +89,6 @@ function ProductInfo(
   });
 
   const hasDiscount = (listPrice ?? 0) > (price ?? 0);
-
-  const productPercentualOff = hasDiscount &&
-    usePercentualDiscount(listPrice!, price!);
 
   const sizebayProps = {
     showButtons,
