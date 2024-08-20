@@ -76,7 +76,7 @@ function Navbar(
 
   // Desktop header
   return (
-    <div class="hidden sm:flex sm:justify-between items-center border-b border-secondary-neutral-200 w-full px-6 xl:px-[3.5rem]  shadow-header">
+    <div class="hidden sm:flex sm:justify-between items-center border-b border-secondary-neutral-200 w-full px-6 2xl:px-[3.5rem] shadow-header">
       <div class="flex items-center gap-10">
         <ul
           class={`flex gap-6 col-span-1 ${

@@ -117,6 +117,7 @@ export default function ProductGridImages(props: Props) {
         {images.slice(0, 1).map((image, index) => {
           return (
             <figure
+              key={index}
               style={{ aspectRatio: ASPECT_RATIO }}
               class="hover:cursor-zoom-in"
               onClick={handleClick}
@@ -127,8 +128,9 @@ export default function ProductGridImages(props: Props) {
                 width={WIDTH}
                 height={HEIGHT}
                 style={{ aspectRatio: ASPECT_RATIO }}
-                preload={index <= 4}
-                loading={index <= 4 ? "eager" : "lazy"}
+                preload={true}
+                loading={"eager"}
+                decoding={"async"}
               />
             </figure>
           );
@@ -148,6 +150,8 @@ export default function ProductGridImages(props: Props) {
               width={WIDTH}
               height={HEIGHT}
               muted
+              loading={"lazy"}
+              decoding={"async"}
               autoPlay
               playsInline
               playsinline
@@ -163,6 +167,7 @@ export default function ProductGridImages(props: Props) {
         {images.slice(1).map((image, index) => {
           return (
             <figure
+              key={index}
               style={{ aspectRatio: ASPECT_RATIO }}
               class="hover:cursor-zoom-in"
               onClick={handleClick}
@@ -173,8 +178,9 @@ export default function ProductGridImages(props: Props) {
                 width={WIDTH}
                 height={HEIGHT}
                 style={{ aspectRatio: ASPECT_RATIO }}
-                preload={index <= 4}
-                loading={index <= 4 ? "eager" : "lazy"}
+                preload={false}
+                loading={"lazy"}
+                decoding={"async"}
               />
             </figure>
           );

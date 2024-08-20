@@ -31,7 +31,7 @@ function NavItem({ item }: { item: SiteNavigationElement }) {
           )
           : (
             <span
-              className={"font-redhatdisplay group-hover:underline whitespace-nowrap text-sm font-thin flex items-center gap-2 text-paragraph-color"}
+              className={"font-redhatdisplay group-hover:underline whitespace-nowrap text-sm lg:text-xs xl:text-sm font-thin flex items-center gap-2 text-paragraph-color"}
             >
               {name}
               {children && children.length > 0 && (
@@ -80,20 +80,12 @@ function NavItem({ item }: { item: SiteNavigationElement }) {
               </div>
               <div>
                 {image?.url && (
-                  <figure
-                    style={{
-                      aspectRatio: "440/230",
-                      height: "230px",
-                      width: "440px",
-                    }}
-                  >
-                    <Image
+                  <figure>
+                    <img
                       class="py-4"
                       src={image.url}
                       alt={image.alternateName}
                       width={440}
-                      height={230}
-                      style={{ aspectRatio: "440/230" }}
                       loading="lazy"
                     />
                   </figure>

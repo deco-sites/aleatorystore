@@ -82,6 +82,12 @@
     background-color: var(--fallback-b3, oklch(0.93 0 0));
   }
 
+  .sticky-section {
+    position: sticky;
+    top: 0;
+    z-index: 10; /* Ensure it is above other content */
+  }
+
   .transition-header {
     @apply duration-500 fixed ease-in-out w-full z-20;
   }
