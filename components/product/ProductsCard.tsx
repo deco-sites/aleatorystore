@@ -14,7 +14,7 @@ export default function ProductsCard(
     <div
       class={device === "mobile"
         ? `grid grid-cols-${displayGridLayout} gap-4`
-        : ""}
+        : "grid grid-cols-4 gap-4"}
     >
       {products?.map((product, index) => (
         <ProductCard

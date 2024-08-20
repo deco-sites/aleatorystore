@@ -57,7 +57,7 @@ function ProductGallery(
 
   return (
     <div
-      class={`grid ${mobile} gap-2 items-center ${desktop} sm:gap-y-4 sm:gap-x-2
+      class={`grid gap-2 items-center sm:gap-y-4 sm:gap-x-2
       ${!categoryBanners && !isFirstPage ? "mt-2 sm:mt-4" : ""} ${
         hasNextPage ? "" : "mb-24"
       }`}
