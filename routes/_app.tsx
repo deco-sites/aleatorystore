@@ -41,34 +41,6 @@ export default defineApp(async (_req, ctx) => {
           type="font/woff2"
         />
 
-        <link
-          rel="preconnect"
-          href={asset("/fonts/RedHatDisplayRegular.ttf")}
-          as="font"
-          type="font/woff2"
-        />
-
-        <link
-          rel="preconnect"
-          href={asset("/fonts/RedHatDisplayMedium.ttf")}
-          as="font"
-          type="font/woff2"
-        />
-
-        <link
-          rel="preconnect"
-          href={asset("/fonts/RedHatDisplaySemiBold.ttf")}
-          as="font"
-          type="font/woff2"
-        />
-
-        <link
-          rel="preconnect"
-          href={asset("/fonts/RedHatDisplayBold.ttf")}
-          as="font"
-          type="font/woff2"
-        />
-
         {/* Web Manifest */}
         <link rel="manifest" href={asset("/site.webmanifest")} />
       </Head>
@@ -84,47 +56,9 @@ export default defineApp(async (_req, ctx) => {
       <style
         dangerouslySetInnerHTML={{
           __html: `
-
-          @font-face{
-              font-family: 'Red Hat Display Regular';
-              src: url(${
-            asset("/fonts/RedHatDiplayRegular.ttf")
-          }) format('woff2');
-              font-weight: normal;
-              font-style: normal;                          
-            } 
-
             @font-face{
               font-family: 'Northwell';
               src: url(${asset("/fonts/Northwell.ttf")}) format('woff2');
-              font-weight: normal;
-              font-style: normal;                          
-            }
-
-            
-            @font-face{
-              font-family: 'Red Hat Display';
-              src: url(${
-            asset("/fonts/RedHatDiplayMedium.ttf")
-          }) format('woff2');
-              font-weight: normal;
-              font-style: normal;                          
-            }
-
-            @font-face{
-              font-family: 'Red Hat Display';
-              src: url(${
-            asset("/fonts/RedHatDiplaySemiBold.ttf")
-          }) format('woff2');
-              font-weight: normal;
-              font-style: normal;                          
-            }
-
-            @font-face{
-              font-family: 'Red Hat Display';
-              src: url(${
-            asset("/fonts/RedHatDiplaySemiBold.ttf")
-          }) format('woff2');
               font-weight: normal;
               font-style: normal;                          
             }

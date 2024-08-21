@@ -1,5 +1,6 @@
-import { useSignal } from "@preact/signals";
+import { useComputed, useSignal } from "@preact/signals";
 import type { ProductListingPage } from "apps/commerce/types.ts";
+import { useEffect } from "preact/hooks";
 import Filters from "../../components/search/Filters.tsx";
 import Breadcrumb from "../../components/ui/Breadcrumb.tsx";
 import Button from "../../components/ui/Button.tsx";
@@ -30,6 +31,26 @@ function SearchControls(
 ) {
   const open = useSignal(false);
   const { displayGridLayout } = useUI();
+  const isSticky = useSignal(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      isSticky.value = offset > 200;
+    };
+
+    addEventListener("scroll", handleScroll);
+
+    return () => {
+      removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const stickyClass = useComputed(() =>
+    isSticky.value
+      ? "sm:relative fixed top-[115px] sm:top-auto z-10 bg-[#fff] w-full shadow-md"
+      : ""
+  );
 
   const collectionData = {
     name: collectionName ?? "",
@@ -60,7 +81,9 @@ function SearchControls(
         </>
       }
     >
-      <div class="sticky-section flex flex-col justify-between px-4 mb-2 sm:p-0 sm:gap-4 sm:flex-row">
+      <div
+        class={`flex flex-col justify-between px-4 mb-2 sm:p-0 sm:gap-4 sm:flex-row ${stickyClass.value}`}
+      >
         <div class="flex flex-row items-center sm:p-0">
           {isSearchPage ? null : isCollectionPage
             ? (
@@ -72,7 +95,11 @@ function SearchControls(
             : <Breadcrumb itemListElement={breadcrumb?.itemListElement} />}
         </div>
 
-        <div class="flex flex-row items-center justify-between border-b border-secondary-neutral-200 sm:gap-4 sm:border-none">
+        <div
+          class={`flex flex-row items-center ${
+            isSticky.value ? "justify-around" : "justify-between"
+          } border-b border-secondary-neutral-200 sm:gap-4 sm:border-none `}
+        >
           <div class="md:hidden flex items-center gap-2">
             <span>Ver:</span>
             <button
