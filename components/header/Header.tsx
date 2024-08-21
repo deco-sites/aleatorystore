@@ -97,8 +97,8 @@ function Header({
 
   return device === "desktop"
     ? (
-      <HeaderScroll>
-        <header style={{ height: headerHeight }}>
+      <header style={{ height: headerHeight }}>
+        <HeaderScroll>
           <Drawers
             menu={{ items }}
             searchbar={searchbar}
@@ -119,8 +119,8 @@ function Header({
               />
             </div>
           </Drawers>
-        </header>
-      </HeaderScroll>
+        </HeaderScroll>
+      </header>
     )
     : (
       <header style={{ height: headerHeight }}>
