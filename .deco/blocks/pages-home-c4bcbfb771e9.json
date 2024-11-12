@@ -149,6 +149,35 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
+        "__resolveType": "site/sections/Cards/ProductShowcase.tsx",
+        "title": "Lançamentos",
+        "description": "Diversos looks e peças para compor um visual dentro das últimas tendências para a Primavera e Verão. Nossa coleção conta com tecidos macios, estampas casuais e muito conforto para que seu estilo combine com a sua satisfação.",
+        "subtitle": "ALEATORY Primavera - Verão",
+        "images": [
+          {
+            "label": "Camisa Polo Aleatory Listrada",
+            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b276a2d0-ea13-4edb-af15-c6b2a0803ddc/a9969974-d923-40a6-9d26-9e5db2e25e79___bf96b3b0b4665be7823b0c46b9a0d6f0.webp",
+            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b276a2d0-ea13-4edb-af15-c6b2a0803ddc/a9969974-d923-40a6-9d26-9e5db2e25e79___bf96b3b0b4665be7823b0c46b9a0d6f0.webp",
+            "alt": "Um homem branco com uma camiseta vermelha e calça bege",
+            "productUrl": "/camisa-polo-aleatory-listrada-prestige-vermelha5000-1e-2-vm/p?skuId=62836"
+          },
+          {
+            "label": "Camisas",
+            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/0d9102d6-ef96-49d0-8d17-5b787ad4abc0/d4f4bfeb-b1ca-4fb0-ab6f-1e8b3f7f7696___881440c7d1d45609daec5f92d1b4e7f7.webp",
+            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/0d9102d6-ef96-49d0-8d17-5b787ad4abc0/d4f4bfeb-b1ca-4fb0-ab6f-1e8b3f7f7696___881440c7d1d45609daec5f92d1b4e7f7.webp",
+            "alt": "Um homem branco com uma camisa listrada e calça branca",
+            "productUrl": "https://www.aleatorystore.com.br/masculino/roupas/camisas"
+          }
+        ],
+        "cta": {
+          "href": "/lancamentos",
+          "label": "Confira"
+        }
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
         "__resolveType": "site/sections/Product/ProductShelfTabbed.tsx",
         "layout": {
           "headerAlignment": "center",
