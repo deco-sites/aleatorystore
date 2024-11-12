@@ -4589,9 +4589,6 @@ details.collapse summary::-webkit-details-marker {
 .right-1 {
   right: 0.25rem;
 }
-.right-1\/2 {
-  right: 50%;
-}
 .right-10 {
   right: 2.5rem;
 }
@@ -5007,6 +5004,9 @@ details.collapse summary::-webkit-details-marker {
 .mt-\[5px\] {
   margin-top: 5px;
 }
+.mt-\[60px\] {
+  margin-top: 60px;
+}
 .mt-auto {
   margin-top: auto;
 }
@@ -5181,6 +5181,9 @@ details.collapse summary::-webkit-details-marker {
 .max-h-\[300px\] {
   max-height: 300px;
 }
+.max-h-\[500px\] {
+  max-height: 500px;
+}
 .max-h-\[55px\] {
   max-height: 55px;
 }
@@ -5288,9 +5291,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-\[10px\] {
   width: 10px;
-}
-.w-\[270px\] {
-  width: 270px;
 }
 .w-\[316px\] {
   width: 316px;
@@ -5453,6 +5453,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-w-\[310px\] {
   max-width: 310px;
+}
+.max-w-\[334px\] {
+  max-width: 334px;
 }
 .max-w-\[350px\] {
   max-width: 350px;
@@ -6863,6 +6866,10 @@ details.collapse summary::-webkit-details-marker {
 .text-\[\#00000066\] {
   color: #00000066;
 }
+.text-\[\#000\] {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
 .text-\[\#057EB5\] {
   --tw-text-opacity: 1;
   color: rgb(5 126 181 / var(--tw-text-opacity));
@@ -7053,6 +7060,11 @@ details.collapse summary::-webkit-details-marker {
 }
 .transition-opacity {
   transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.transition-transform {
+  transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -7508,6 +7520,12 @@ details.collapse summary::-webkit-details-marker {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.group:hover .group-hover\:scale-\[1\.12\] {
+  --tw-scale-x: 1.12;
+  --tw-scale-y: 1.12;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .group:hover .group-hover\:text-primary-900 {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
@@ -7709,10 +7727,6 @@ details.collapse summary::-webkit-details-marker {
     width: 24vw;
   }
 
-  .sm\:w-\[292px\] {
-    width: 292px;
-  }
-
   .sm\:w-\[40vw\] {
     width: 40vw;
   }
@@ -7909,11 +7923,6 @@ details.collapse summary::-webkit-details-marker {
     padding-right: 2.5rem;
   }
 
-  .sm\:px-5 {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-
   .sm\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -7927,6 +7936,10 @@ details.collapse summary::-webkit-details-marker {
   .sm\:py-10 {
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
+  }
+
+  .sm\:pr-0 {
+    padding-right: 0px;
   }
 
   .sm\:pt-10 {
@@ -8022,6 +8035,10 @@ details.collapse summary::-webkit-details-marker {
 
   .md\:ml-auto {
     margin-left: auto;
+  }
+
+  .md\:mr-0 {
+    margin-right: 0px;
   }
 
   .md\:mt-0 {
@@ -8458,6 +8475,10 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:mb-0 {
     margin-bottom: 0px;
+  }
+
+  .lg\:mb-10 {
+    margin-bottom: 2.5rem;
   }
 
   .lg\:mb-20 {
@@ -8984,12 +9005,20 @@ details.collapse summary::-webkit-details-marker {
     padding-bottom: 0px;
   }
 
+  .lg\:pb-10 {
+    padding-bottom: 2.5rem;
+  }
+
   .lg\:pb-2 {
     padding-bottom: 0.5rem;
   }
 
   .lg\:pb-28 {
     padding-bottom: 7rem;
+  }
+
+  .lg\:pb-\[69px\] {
+    padding-bottom: 69px;
   }
 
   .lg\:pl-10 {
@@ -9006,6 +9035,10 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:pr-8 {
     padding-right: 2rem;
+  }
+
+  .lg\:pt-10 {
+    padding-top: 2.5rem;
   }
 
   .lg\:pt-28 {
@@ -9098,6 +9131,14 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:leading-8 {
     line-height: 2rem;
+  }
+
+  .lg\:first\:top-10:first-child {
+    top: 2.5rem;
+  }
+
+  .lg\:last\:top-10:last-child {
+    top: 2.5rem;
   }
 
   .group:hover .lg\:group-hover\:w-auto {

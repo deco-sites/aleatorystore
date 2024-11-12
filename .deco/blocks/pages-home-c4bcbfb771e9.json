@@ -24,12 +24,11 @@
             "action": {
               "buttonPositionDesktop": "Right",
               "buttonPositionMobile": "Center",
-              "href": "/new-in",
-              "label": "VER NOVA COLEÇÃO",
+              "href": "/black-friday",
               "buttonNegative": true
             },
-            "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/8d264d15-df44-4615-8317-9dcd0db7dc9c",
-            "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/ede4879d-802a-40a9-8cd3-d01562d81d50"
+            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/07648ea6-0fc4-47ac-8efd-50171af794d6/banner_desktop_home.webp",
+            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/87c4c00b-2510-4037-bded-32c23f180071/banner_mobile_home.webp"
           }
         ],
         "arrows": false,
@@ -43,9 +42,56 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
+        "__resolveType": "site/sections/Cards/CardShowcase.tsx",
+        "cards": [
+          {
+            "cta": {
+              "text": "Confira",
+              "href": "/masculino/roupas/camisetas"
+            },
+            "image": {
+              "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/1abd2875-3f67-4446-8231-8f3c5e8ebce7/fdb4d04c-dc08-4198-8ff6-4a66e8a475a8___b1868231cf278138f7ff8fc5a4f856bb.webp",
+              "alt": "Um homem com uma camiseta verde e short bege.",
+              "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/1abd2875-3f67-4446-8231-8f3c5e8ebce7/fdb4d04c-dc08-4198-8ff6-4a66e8a475a8___b1868231cf278138f7ff8fc5a4f856bb.webp"
+            },
+            "title": "Camisas",
+            "description": "Listras, Listradas E Estampadas"
+          },
+          {
+            "cta": {
+              "text": "Confira",
+              "href": "/221?map=productClusterIds"
+            },
+            "image": {
+              "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/a7a69c99-88ef-4843-8b6f-69e52b8375ea/3a0daea7-1cae-42f9-a273-cc7de5acc93d___37416cc64871071317194775c255d077.webp",
+              "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/8238bff8-c47f-4055-a736-915a8ab63194/3a0daea7-1cae-42f9-a273-cc7de5acc93d___37416cc64871071317194775c255d077.webp",
+              "alt": "Texto: Duas camisetas por 158 reais, escolha já as suas! Imagem: Um homem branco dentro de uma gruta com uma camista amaerela"
+            },
+            "title": "Imperdível!",
+            "description": "Aproveite A Promoção"
+          },
+          {
+            "cta": {
+              "text": "Confira",
+              "href": "/masculino/roupas/polos"
+            },
+            "image": {
+              "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b9899bfc-3a8a-438e-88a5-3d910df4fdd9/dc136d96-fa5b-48b0-aaff-5ab91f4e7221___d632697c807af933310f1581580c37bd.webp",
+              "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/e428ab27-656a-447f-91fb-e85188801d66/dc136d96-fa5b-48b0-aaff-5ab91f4e7221___d632697c807af933310f1581580c37bd.webp",
+              "alt": "Um homem branco com uma camisata vermelha com uma cachoeira no fundo embaçado"
+            },
+            "title": "Polos",
+            "description": "Em até 10X"
+          }
+        ]
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
         "__resolveType": "site/sections/Product/ProductShelf.tsx",
         "layout": {
-          "headerAlignment": "left",
+          "headerAlignment": "center",
           "showArrows": true,
           "headerfontSize": "Small",
           "numberOfSliders": {
@@ -53,7 +99,7 @@
           },
           "showDots": true,
           "collectionButton": {
-            "show": true,
+            "show": false,
             "action": {
               "text": "Ver Nova Coleção",
               "href": "/new-in"
@@ -98,6 +144,45 @@
         },
         "title": "MAIS VENDIDOS",
         "description": "PEÇAS INCRÍVEIS PARA APROVEITAR MOMENTOS INESQUECÍVEIS."
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/ProductShelfTabbed.tsx",
+        "layout": {
+          "headerAlignment": "center",
+          "headerfontSize": "Small",
+          "showDots": true,
+          "showArrows": true
+        },
+        "tabs": [
+          {
+            "products": {
+              "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+              "props": {
+                "sort": "price:desc",
+                "collection": "374",
+                "count": 6
+              }
+            },
+            "title": "Masculino"
+          },
+          {
+            "products": {
+              "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+              "props": {
+                "sort": "price:desc",
+                "collection": "376",
+                "count": 6
+              }
+            },
+            "title": "Feminino"
+          }
+        ],
+        "title": "Lançamentos",
+        "description": "CONFIRA AS NOVIDADES QUE CHEGARAM",
+        "tabIndex": 0
       }
     },
     {

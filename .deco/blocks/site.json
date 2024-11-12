@@ -76,6 +76,9 @@
     "replaces": [],
     "includeScriptsToHead": {
       "includes": []
+    },
+    "includeScriptsToBody": {
+      "includes": []
     }
   },
   "flavor": {
