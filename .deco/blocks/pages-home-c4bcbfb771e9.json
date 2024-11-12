@@ -427,6 +427,15 @@
       "section": {
         "__resolveType": "Footer - 02"
       }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Images/BannerWithLink.tsx",
+        "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/c54546df-5127-48e6-88cd-3c90f0c2fd65/573abb78-12aa-4dea-8262-70587245304c___084d54ae244953006ce3d63ea662b229.webp",
+        "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/94598952-3142-4410-9a33-d841e50861ea/573abb78-12aa-4dea-8262-70587245304c___084d54ae244953006ce3d63ea662b229.webp",
+        "alt": "Bones, camisetas da Aleatory em uma quadra de t"
+      }
     }
   ],
   "__resolveType": "website/pages/Page.tsx",

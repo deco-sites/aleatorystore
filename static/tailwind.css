@@ -5177,6 +5177,10 @@ details.collapse summary::-webkit-details-marker {
 .h-\[calc\(100\%-120px\)\] {
   height: calc(100% - 120px);
 }
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
 .h-full {
   height: 100%;
 }
@@ -5545,6 +5549,10 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-w-\[948px\] {
   max-width: 948px;
+}
+.max-w-fit {
+  max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 .max-w-full {
   max-width: 100%;

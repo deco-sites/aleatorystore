@@ -47,10 +47,10 @@ function ProductShowcase(props: Props) {
             </div>
             <div class="flex">
                 <a
-                    class="w-[60%] relative right-[-50px]"
+                    class="w-[60%] overflow-hidden group relative right-[-50px] h-fit max-w-fit"
                     href={imageOne.productUrl}
                 >
-                    <div class="bg-[#fff] rounded-full w-6 h-6 flex justify-center items-center absolute top-[131px] lg:top-[264px] left-[10%]">
+                    <div class="bg-[#fff] rounded-full w-6 h-6 flex justify-center items-center absolute top-[131px] lg:top-[264px] left-[10%] z-20">
                         <Icon id="ShoppingCart" size={24} />
                     </div>
                     <Picture>
@@ -79,8 +79,11 @@ function ProductShowcase(props: Props) {
                     </Picture>
                 </a>
 
-                <a href={imageTwo.productUrl} class="mt-[150px] z-10 relative">
-                    <div class="bg-[#fff] rounded-full w-6 h-6 flex justify-center items-center absolute top-[131px] lg:top-[264px] left-[10%]">
+                <a
+                    href={imageTwo.productUrl}
+                    class="mt-[150px] z-10 relative overflow-hidden group h-fit max-w-fit"
+                >
+                    <div class="bg-[#fff] rounded-full w-6 h-6 flex justify-center items-center absolute top-[131px] lg:top-[264px] left-[10%] z-20">
                         <Icon id="ShoppingCart" size={24} />
                     </div>
                     <Picture>
