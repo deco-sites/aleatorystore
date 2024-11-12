@@ -11,13 +11,13 @@ export default function ThreeDispositon(props: Props) {
         cta,
     } = props;
     return (
-        <article class="flex gap-4 mx-auto w-fit mt-10">
-            <div class="flex flex-col gap-4 ">
+        <article class="flex flex-col lg:flex-row gap-4 mx-auto w-fit mt-32 lg:mt-10">
+            <div class="flex lg:flex-col lg:gap-4 w-fit lg:w-auto mx-auto lg:mx-0">
                 <a
-                    class="overflow-hidden group relative h-fit max-w-fit block ml-auto"
+                    class="overflow-hidden group relative lg:h-fit max-w-full lg:max-w-fit block lg:ml-auto"
                     href={imageOne.productUrl}
                 >
-                    <div class="bg-[#fff] rounded-full w-6 h-6 flex justify-center items-center absolute top-[131px] lg:top-1/2 lg:-translate-y-1/2 left-[10%] z-20">
+                    <div class="bg-[#fff] rounded-full w-6 h-6 flex justify-center items-center absolute  top-1/2 -translate-y-1/2  left-[10%] z-20">
                         <Icon id="ShoppingCart" size={24} />
                     </div>
                     <Picture>
@@ -25,8 +25,8 @@ export default function ThreeDispositon(props: Props) {
                             media="(max-width: 767px)"
                             fetchPriority="auto"
                             src={imageOne.mobile}
-                            width={187}
-                            height={280}
+                            width={383}
+                            height={403}
                         />
                         <Source
                             media="{min-width: 768px}"
@@ -36,7 +36,7 @@ export default function ThreeDispositon(props: Props) {
                             height={403}
                         />
                         <img
-                            class="object-fill w-[383px] group-hover:scale-[1.12] transition-transform duration-300"
+                            class="object-cover h-full  lg:h-auto  lg:w-[383px] group-hover:scale-[1.12] transition-transform duration-300"
                             loading="lazy"
                             width={344}
                             height={500}
@@ -46,10 +46,10 @@ export default function ThreeDispositon(props: Props) {
                     </Picture>
                 </a>
                 <a
-                    class="overflow-hidden group relative h-fit max-w-fit block"
+                    class="overflow-hidden group relative lg:h-fit max-w-fit block"
                     href={imageTwo.productUrl}
                 >
-                    <div class="bg-[#fff] rounded-full w-6 h-6 flex justify-center items-center absolute top-[131px] lg:top-1/2 lg:-translate-y-1/2 left-[10%] z-20">
+                    <div class="bg-[#fff] rounded-full w-6 h-6 flex justify-center items-center absolute top-1/2 -translate-y-1/2 left-[10%] z-20">
                         <Icon id="ShoppingCart" size={24} />
                     </div>
                     <Picture>
@@ -57,8 +57,8 @@ export default function ThreeDispositon(props: Props) {
                             media="(max-width: 767px)"
                             fetchPriority="auto"
                             src={imageTwo.mobile}
-                            width={187}
-                            height={280}
+                            width={535}
+                            height={411}
                         />
                         <Source
                             media="{min-width: 768px}"
@@ -68,7 +68,7 @@ export default function ThreeDispositon(props: Props) {
                             height={411}
                         />
                         <img
-                            class="object-fill w-[535px] group-hover:scale-[1.12] transition-transform duration-300"
+                            class="object-cover h-full lg:h-auto lg:w-[535px] group-hover:scale-[1.12] transition-transform duration-300"
                             loading="lazy"
                             width={344}
                             height={500}
@@ -78,12 +78,12 @@ export default function ThreeDispositon(props: Props) {
                     </Picture>
                 </a>
             </div>
-            <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-4 px-4 lg:px-0">
                 <a
-                    class="overflow-hidden group relative h-fit max-w-fit block"
+                    class="overflow-hidden group relative h-fit max-w-fit block mx-auto lg:mx-0"
                     href={imageThree.productUrl}
                 >
-                    <div class="bg-[#fff] rounded-full w-6 h-6 flex justify-center items-center absolute top-[131px] lg:top-1/2 lg:-translate-y-1/2 left-[10%] z-20">
+                    <div class="bg-[#fff] rounded-full w-6 h-6 flex justify-center items-center absolute top-1/2 -translate-y-1/2 left-[10%] z-20">
                         <Icon id="ShoppingCart" size={24} />
                     </div>
                     <Picture>
@@ -111,7 +111,7 @@ export default function ThreeDispositon(props: Props) {
                         />
                     </Picture>
                 </a>
-                <div className="max-w-[35vw]">
+                <div className="lg:max-w-[35vw]">
                     <h3 class="text-[32px] uppercase tracking-[1px] mt-[26px]">
                         {title}
                     </h3>
