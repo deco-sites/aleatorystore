@@ -4832,6 +4832,10 @@ details.collapse summary::-webkit-details-marker {
 .m-auto {
   margin: auto;
 }
+.\!my-5 {
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.25rem !important;
+}
 .mx-0 {
   margin-left: 0px;
   margin-right: 0px;
@@ -4918,6 +4922,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .mb-2\.5 {
   margin-bottom: 0.625rem;
+}
+.mb-20 {
+  margin-bottom: 5rem;
 }
 .mb-24 {
   margin-bottom: 6rem;
@@ -6580,6 +6587,10 @@ details.collapse summary::-webkit-details-marker {
   padding-left: 2.25rem;
   padding-right: 2.25rem;
 }
+.px-\[10px\] {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .px-\[12px\] {
   padding-left: 12px;
   padding-right: 12px;
@@ -6587,6 +6598,10 @@ details.collapse summary::-webkit-details-marker {
 .px-\[1rem\] {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .py-1 {
   padding-top: 0.25rem;
@@ -6915,6 +6930,9 @@ details.collapse summary::-webkit-details-marker {
 .leading-\[22px\] {
   line-height: 22px;
 }
+.leading-\[23px\] {
+  line-height: 23px;
+}
 .leading-\[25px\] {
   line-height: 25px;
 }
@@ -6970,6 +6988,10 @@ details.collapse summary::-webkit-details-marker {
 .text-\[\#C9CACB\] {
   --tw-text-opacity: 1;
   color: rgb(201 202 203 / var(--tw-text-opacity));
+}
+.text-\[rgb\(59\2c 59\2c 59\)\] {
+  --tw-text-opacity: 1;
+  color: rgb(59 59 59 / var(--tw-text-opacity));
 }
 .text-accent {
   --tw-text-opacity: 1;
@@ -9063,6 +9085,11 @@ details.collapse summary::-webkit-details-marker {
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .lg\:px-\[10\%\] {
+    padding-left: 10%;
+    padding-right: 10%;
   }
 
   .lg\:px-\[3\.5rem\] {
