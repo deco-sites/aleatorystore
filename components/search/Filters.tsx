@@ -29,6 +29,15 @@ export type OrderByProps = {
 const SORT_QUERY_PARAM = "sort";
 const PAGE_QUERY_PARAM = "page";
 
+const labelRename = (label: string) => {
+  const renames = {
+    "subcategoria": "Categoria",
+    "category 4": "Subcategoria",
+  };
+
+  return renames[label.toLowerCase() as keyof typeof renames] ?? label;
+};
+
 const useSort = () =>
   useMemo(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -149,7 +158,7 @@ function FilterItem(item: FilterToggle) {
           aria-label="toggle filter item"
         >
           <span class="flex items-center uppercase text-dark-blue text-base font-light w-full justify-between mr-[2px]">
-            {item.label}{" "}
+            {labelRename(item.label)}{" "}
             {!isOpen.value ? <Icon id="Plus" size={18} /> : <MinusIcon />}
           </span>
         </button>
@@ -185,7 +194,7 @@ function FilterItem(item: FilterToggle) {
         aria-label="toggle filter item"
       >
         <span class="flex items-center uppercase text-dark-blue text-base font-light w-full justify-between mr-[2px]">
-          {item.label}{" "}
+          {labelRename(item.label)}{" "}
           {!isOpen.value ? <Icon id="Plus" size={18} /> : <MinusIcon />}
         </span>
       </button>
