@@ -7,7 +7,6 @@ import Button from "../../components/ui/Button.tsx";
 import Drawer from "../../components/ui/Drawer.tsx";
 import Icon from "../../components/ui/Icon.tsx";
 import { useUI } from "../../sdk/useUI.ts";
-import BreadcrumbCollection from "../ui/BreadcrumbCollection.tsx";
 
 export type Props =
   & Pick<ProductListingPage, "filters" | "breadcrumb" | "sortOptions">
@@ -16,6 +15,7 @@ export type Props =
     isCollectionPage?: boolean;
     collectionName: string;
     isSearchPage: boolean;
+    forceHideBreadcrumb?: boolean;
   };
 
 function SearchControls(
@@ -25,6 +25,7 @@ function SearchControls(
     displayFilter,
     sortOptions,
     isCollectionPage,
+    forceHideBreadcrumb,
     collectionName,
     isSearchPage,
   }: Props,
@@ -85,14 +86,14 @@ function SearchControls(
         class={`flex flex-col justify-between px-4 mb-2 sm:p-0 sm:gap-4 sm:flex-row ${stickyClass.value}`}
       >
         <div class="flex flex-row items-center sm:p-0">
-          {isSearchPage ? null : isCollectionPage
-            ? (
-              <BreadcrumbCollection
-                itemListElement={breadcrumb?.itemListElement}
-                collectionBreadcrumb={collectionData}
-              />
-            )
-            : <Breadcrumb itemListElement={breadcrumb?.itemListElement} />}
+          {isSearchPage || forceHideBreadcrumb ? null : (
+            <Breadcrumb
+              itemListElement={breadcrumb?.itemListElement}
+              collectionBreadcrumb={isCollectionPage
+                ? collectionData
+                : undefined}
+            />
+          )}
         </div>
 
         <div

@@ -31,9 +31,10 @@ export const SendEventOnClick = <E extends AnalyticsEvent>({ event, id }: {
 );
 
 export const SendEventOnView = <E extends AnalyticsEvent>(
-  { event, id }: { event: E; id: string },
+  { event, id, scriptId }: { event: E; id: string; scriptId?: string },
 ) => (
   <script
+    id={scriptId}
     defer
     src={scriptAsDataURI(
       (id: string, event: E) => {
