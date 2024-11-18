@@ -11,6 +11,7 @@ import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import NotFound from "../../sections/Product/NotFound.tsx";
 import CategoryBanner from "../category/CategoryBanner.tsx";
+import CategoryBullets from "../category/CategoryBullets.tsx";
 import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
 import SearchTitle from "./SearchTitle.tsx";
 
@@ -31,7 +32,7 @@ export interface Layout {
   format?: Format;
 }
 
-/** @title {{url}} */
+/** @title {{title}} */
 interface SeoBanner {
   /**
    * @title Url Matcher
@@ -62,9 +63,28 @@ interface SeoBanner {
    */
   alt?: string;
 }
+/** @title {{title}} */
+interface BulletItem {
+  title: string;
+  image: ImageWidget;
+  url: string;
+}
+
+/** @title {{title}} */
+interface Bullet {
+  /**
+   * @title Url Matcher
+   * @description Desired URL pattern to show this banner use /feminino/* to all feminino categories page
+   */
+  url: string;
+  title: string;
+  description: string;
+  bullets: BulletItem[];
+}
 
 interface SeoContent {
   banners: SeoBanner[];
+  bullets: Bullet[];
 }
 
 export interface Props {
@@ -84,11 +104,15 @@ export const loader = (props: Props, req: Request, ctx: AppContext) => {
     new URLPattern({ pathname: url }).test(req.url) &&
     (imageDesktop || imageMobile)
   );
+  const bullets = seoContent.bullets.find(({ url }) =>
+    new URLPattern({ pathname: url }).test(req.url)
+  );
 
   return {
     ...props,
     seoContent: {
       banner,
+      bullets,
     },
     url: req.url,
     device: ctx.device,
@@ -135,7 +159,9 @@ function Result({
 
   const showBreadcrumb = seoContent.banner === undefined;
   const showBanner = seoContent.banner !== undefined;
-  console.log(layout?.columns);
+  const showBullets = seoContent.bullets &&
+    seoContent.bullets.bullets.length > 0;
+
   return (
     <>
       <div
@@ -172,6 +198,7 @@ function Result({
             isCollectionPage={isCollectionPage}
           />
         )}
+        {showBullets && <CategoryBullets {...seoContent.bullets as Bullet} />}
 
         {(isFirstPage || !isPartial) && (
           <SearchControls

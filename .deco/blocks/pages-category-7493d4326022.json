@@ -51,6 +51,50 @@
             "alt": "Um homem branco de cabelo escuro segurando uma caneca perta em um resort. Ele está vendindo uma camiseta da Aleatory, essa camiseta é branca e possuí a logo de aleatory em branco sobre uma faixa azul.",
             "imageMobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/88375c0f-18a9-42fb-9c59-2a39e2db36fa/549e0204-e07b-4f22-ae0a-3244db557266___bda1546426fbc63d09c807eb07c38b2b.webp"
           }
+        ],
+        "bullets": [
+          {
+            "bullets": [
+              {
+                "title": "Polos",
+                "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/3951f5d5-17f0-4a6e-a07b-5222ed595e82/343e1809-f847-405b-9494-757d9eb45333___7d7fa6a8d10bc8c83e642c8e2a59b69e.webp",
+                "url": "/masculino/roupas/polos"
+              },
+              {
+                "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/16773a8f-b5dd-436d-8d6d-b60031ff7554/a296b078-777c-4cf9-99dc-4e40820aa14b___772c54a6ccb29680e06db7d3f5f10c1d.webp",
+                "title": "Camisetas",
+                "url": "/masculino/roupas/camisetas"
+              },
+              {
+                "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/7089550e-4e5d-4357-ad1b-4bc1b1ce5c01/1565a327-b4df-4451-8585-513726944711___4e5cb299950f51a0cdc6bcb17c195168.webp",
+                "title": "Camisas",
+                "url": "/masculino/roupas/camisas"
+              },
+              {
+                "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/48cd1c15-1d68-48a8-8090-df3777501e9c/6f0defa8-c1e1-4e96-b32b-30a038dac825___f59cff13ae2c2d3f067ba8ad864d4f26.webp",
+                "title": "Casacos e Jaquetas",
+                "url": "/masculino/roupas/casacos-e-jaquetas"
+              },
+              {
+                "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/197ac39f-eb50-4e35-9f67-4d70878a7143/d1e84a25-baee-47ee-b5bf-9ea2eb7025ce___04f2d88d13f39eecfcac3cf232203992.webp",
+                "title": "Moletons",
+                "url": "/masculino/roupas/moletons"
+              },
+              {
+                "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/1863f074-0dd1-4766-9c40-55744ea1d63d/f8b97bea-972e-42fe-937e-1ecba128a9b3___a14ba6ae476d96b6661e7790b70d54e6.webp",
+                "title": "Bermudas",
+                "url": "/masculino/roupas/bermudas-e-shorts"
+              },
+              {
+                "url": "/masculino/roupas/sueters-e-malhas",
+                "title": "Sueters",
+                "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/c722a6f1-2830-4499-9051-6ca580e1d4d1/ccd20b68-3a35-4f28-87a9-f93a7b5df0c2___595b5b7f21b88777ded43c7253534ba8.webp"
+              }
+            ],
+            "url": "/masculino",
+            "title": "Masculino",
+            "description": "Navegue por Departamento"
+          }
         ]
       }
     },
