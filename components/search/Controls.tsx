@@ -60,7 +60,7 @@ function SearchControls(
 
   return (
     <Drawer
-      class="drawer-end"
+      class="drawer-end sm:mb-2"
       loading="lazy"
       open={open.value}
       onClose={() => open.value = false}

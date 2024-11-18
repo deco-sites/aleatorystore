@@ -1,4 +1,3 @@
-import { ImageWidget, RichText } from "apps/admin/widgets.ts";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { AppContext } from "../../apps/site.ts";
@@ -12,90 +11,10 @@ import { useOffer } from "../../sdk/useOffer.ts";
 import NotFound from "../../sections/Product/NotFound.tsx";
 import CategoryBanner from "../category/CategoryBanner.tsx";
 import CategoryBullets from "../category/CategoryBullets.tsx";
-import ProductGallery, { Columns } from "../product/ProductGallery.tsx";
+import CategorySeoText from "../category/CategorySeoText.tsx";
+import ProductGallery from "../product/ProductGallery.tsx";
 import SearchTitle from "./SearchTitle.tsx";
-
-export type Format = "Show More" | "Pagination";
-
-export interface Layout {
-  /**
-   * @description Use drawer for mobile like behavior on desktop. Aside for rendering the filters alongside the products
-   */
-  variant?: "aside" | "drawer";
-  /**
-   * @description Number of products per line on grid
-   */
-  columns?: Columns;
-  /**
-   * @description Format of the pagination
-   */
-  format?: Format;
-}
-
-/** @title {{title}} */
-interface SeoBanner {
-  /**
-   * @title Url Matcher
-   * @description Desired URL pattern to show this banner use /feminino/* to all feminino categories page
-   */
-  url: string;
-  /**
-   * @title Title of Banner
-   */
-  title?: string;
-  /**
-   * @title Description of Banner
-   */
-  description?: RichText;
-  /**
-   * @title Desktop Image
-   * @description Image of banner in desktop devices, empty imagem not render the banner
-   */
-  imageDesktop?: ImageWidget;
-  /**
-   * @title Mobile Image
-   * @description Image of banner in mobile devices, empty not render the banner
-   */
-  imageMobile?: ImageWidget;
-  /**
-   * @title Alternative Text
-   * @description Text to people with visual disabilities
-   */
-  alt?: string;
-}
-/** @title {{title}} */
-interface BulletItem {
-  title: string;
-  image: ImageWidget;
-  url: string;
-}
-
-/** @title {{title}} */
-interface Bullet {
-  /**
-   * @title Url Matcher
-   * @description Desired URL pattern to show this banner use /feminino/* to all feminino categories page
-   */
-  url: string;
-  title: string;
-  description: string;
-  bullets: BulletItem[];
-}
-
-interface SeoContent {
-  banners: SeoBanner[];
-  bullets: Bullet[];
-}
-
-export interface Props {
-  layout?: Layout;
-  seoContent: SeoContent;
-
-  /** @title Integration with Ecommerce Platform */
-  page: ProductListingPage | null;
-  /** @description 0 for ?page=0 as your first page */
-  startingPage?: 0 | 1;
-}
+import { BottomSEO, Bullet, Props } from "./types.ts";
 
 export const loader = (props: Props, req: Request, ctx: AppContext) => {
   const { seoContent } = props;
@@ -107,12 +26,16 @@ export const loader = (props: Props, req: Request, ctx: AppContext) => {
   const bullets = seoContent.bullets.find(({ url }) =>
     new URLPattern({ pathname: url }).test(req.url)
   );
+  const bottomSEO = seoContent.bottom.find(({ url }) =>
+    new URLPattern({ pathname: url }).test(req.url)
+  );
 
   return {
     ...props,
     seoContent: {
       banner,
       bullets,
+      bottomSEO,
     },
     url: req.url,
     device: ctx.device,
@@ -161,6 +84,8 @@ function Result({
   const showBanner = seoContent.banner !== undefined;
   const showBullets = seoContent.bullets &&
     seoContent.bullets.bullets.length > 0;
+  const showSeoText = seoContent.bottomSEO !== undefined &&
+    seoContent.bottomSEO.contents.length > 0;
 
   return (
     <>
@@ -214,14 +139,18 @@ function Result({
         )}
         <div
           class={clx(
-            "flex flex-row",
+            "flex flex-row relative",
             showBanner ? "max-w-[1750px] m-auto px-4 sm:px-8" : "",
           )}
         >
           {layout?.variant === "aside" && filters.length > 0 &&
             (isFirstPage || !isPartial) && (
-            <aside class="hidden sm:block w-min min-w-[250px]">
-              <Filters filters={filters} sortOptions={sortOptions} />
+            <aside class="hidden sm:block w-min min-w-[250px] pr-5 sticky top-[20%] h-fit mb-[15%]">
+              <Filters
+                filters={filters}
+                sortOptions={sortOptions}
+                disablePadding
+              />
             </aside>
           )}
 
@@ -264,6 +193,9 @@ function Result({
               </a>
             </div>
           </div>
+        )}
+        {showSeoText && (
+          <CategorySeoText {...seoContent.bottomSEO as BottomSEO} />
         )}
       </div>
       <div id="results-on-view-area">

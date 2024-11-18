@@ -21,9 +21,13 @@
           "mobile": 2,
           "desktop": 4
         },
-        "variant": "drawer"
+        "variant": "aside"
       },
-      "categoryBannersMediaSources": []
+      "seoContent":{
+        "banners": [],
+        "bullets": [],
+        "bottom": []
+      }
     },
     {
       "__resolveType": "Footer - 02"

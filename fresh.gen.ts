@@ -28,7 +28,6 @@ import * as $OutOfStock from "./islands/OutOfStock.tsx";
 import * as $PopupNewsletter from "./islands/PopupNewsletter.tsx";
 import * as $ProductAccordionInfo from "./islands/ProductAccordionInfo.tsx";
 import * as $ProductCardSliderImages from "./islands/ProductCardSliderImages.tsx";
-import * as $ProductCardWithBannerMobile from "./islands/ProductCardWithBannerMobile.tsx";
 import * as $ProductGalleryMobile from "./islands/ProductGalleryMobile.tsx";
 import * as $ProductGiftLink from "./islands/ProductGiftLink.tsx";
 import * as $ProductImageZoom from "./islands/ProductImageZoom.tsx";
@@ -42,7 +41,6 @@ import * as $SIzebayIframe from "./islands/SIzebayIframe.tsx";
 import * as $SearchControls from "./islands/SearchControls.tsx";
 import * as $Share_ShareProduct from "./islands/Share/ShareProduct.tsx";
 import * as $ShippingSimulation from "./islands/ShippingSimulation.tsx";
-import * as $ShowMore from "./islands/ShowMore.tsx";
 import * as $WishlistButton_vtex from "./islands/WishlistButton/vtex.tsx";
 import * as $WishlistButton_wake from "./islands/WishlistButton/wake.tsx";
 import * as $WishlistMessageLogin from "./islands/WishlistMessageLogin.tsx";
@@ -78,7 +76,6 @@ const manifest = {
     "./islands/PopupNewsletter.tsx": $PopupNewsletter,
     "./islands/ProductAccordionInfo.tsx": $ProductAccordionInfo,
     "./islands/ProductCardSliderImages.tsx": $ProductCardSliderImages,
-    "./islands/ProductCardWithBannerMobile.tsx": $ProductCardWithBannerMobile,
     "./islands/ProductGalleryMobile.tsx": $ProductGalleryMobile,
     "./islands/ProductGiftLink.tsx": $ProductGiftLink,
     "./islands/ProductImageZoom.tsx": $ProductImageZoom,
@@ -92,7 +89,6 @@ const manifest = {
     "./islands/SearchControls.tsx": $SearchControls,
     "./islands/Share/ShareProduct.tsx": $Share_ShareProduct,
     "./islands/ShippingSimulation.tsx": $ShippingSimulation,
-    "./islands/ShowMore.tsx": $ShowMore,
     "./islands/WishlistButton/vtex.tsx": $WishlistButton_vtex,
     "./islands/WishlistButton/wake.tsx": $WishlistButton_wake,
     "./islands/WishlistMessageLogin.tsx": $WishlistMessageLogin,

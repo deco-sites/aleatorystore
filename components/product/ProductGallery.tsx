@@ -1,9 +1,9 @@
 import { Head } from "$fresh/runtime.ts";
 import { PageInfo, Product } from "apps/commerce/types.ts";
 import { Device } from "apps/website/matchers/device.ts";
-import { Format } from "../../components/search/SearchResult.tsx";
-import ShowMore from "../../islands/ShowMore.tsx";
+import { Format } from "../../components/search/types.ts";
 import { clx } from "../../sdk/clx.ts";
+import ShowMore from "../search/ShowMore.tsx";
 import ProductsCard from "./ProductsCard.tsx";
 export interface Columns {
     mobile?: 1 | 2;

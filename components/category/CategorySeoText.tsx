@@ -1,49 +1,54 @@
-import Icon from "../ui/Icon.tsx";
-import { usePartialSection } from "@deco/deco/hooks";
-import { type SectionProps } from "@deco/deco";
-/** @title {{{matcher}}} */
-export interface SeoTextProps {
-    /**
-     * @title Url da Página
-     * @description Coloque a url da página, por exemplo /sapatos
-     */
-    matcher: string;
-    title?: string;
-    /** @format html */
-    description: string;
-}
-/** @title Textos SEO */
-export interface Props {
-    seoTexts: SeoTextProps[];
-    /** @readonly */
-    showMore?: boolean;
-}
-function CategorySeoText({ categorySeoText, showMore = false }: SectionProps<typeof loader>) {
-    if (!categorySeoText)
-        return null;
-    const { title, description } = categorySeoText;
-    const shortDescription = description.substring(0, 600);
-    return (<div className="container flex flex-col items-center justify-center text-center pb-20 px-4">
-      <h2 className="text-xl text-dark-blue">{title}</h2>
-      <div className="text-paragraph-color text-sm font-light mt-2 mb-6">
-        <p dangerouslySetInnerHTML={{
-            __html: showMore ? description : shortDescription,
-        }}/>
-      </div>
+import Image from "apps/website/components/Image.tsx";
+import { ContentBottomSEO } from "../search/types.ts";
 
-      <button class="flex font-light hover:underline justify-center items-center text-paragraph-color text-base w-auto" {...usePartialSection({
-        props: { showMore: !showMore },
-    })}>
-        {!showMore ? "Ver mais" : "Mostrar Menos"}
-        {!showMore
-            ? <Icon id="ArrowDown" size={26}/>
-            : <Icon id="ArrowDown" size={26} class={"rotate-180"}/>}
-      </button>
-    </div>);
+export interface Props {
+    title?: string;
+    contents: ContentBottomSEO[];
 }
-export const loader = (props: Props, req: Request) => {
-    const { seoTexts } = props;
-    const categorySeoText = seoTexts.find(({ matcher }) => new URLPattern({ pathname: matcher }).test(req.url));
-    return { categorySeoText, ...props };
-};
-export default CategorySeoText;
+export default function CategorySeoText(
+    { title, contents }: Props,
+) {
+    return (
+        <section className="py-8 max-w-[795px] mx-auto px-6">
+            {title && (
+                <h2 className="text-2xl font-bold lg:text-center mb-6 flex lg:justify-center items-center gap-6 lg:gap-12">
+                    <img src="/image/logo_cat_seo.png" alt="Aleatory Logo" />
+                    {title}
+                </h2>
+            )}
+            <div className="md:divide-y divide-primary-200/50">
+                {contents.map((content, index) => (
+                    <div
+                        key={index}
+                        className={`flex ${
+                            content.position === "right"
+                                ? "flex-col-reverse md:flex-row-reverse "
+                                : "flex-col md:flex-row"
+                        } gap-6 py-3 lg:py-14`}
+                    >
+                        {/* Imagem */}
+                        <div className="w-full md:w-1/3">
+                            <Image
+                                width={content.image.width}
+                                height={content.image.height}
+                                src={content.image.url}
+                                alt={content.image.alt}
+                                className="w-full"
+                            />
+                        </div>
+
+                        {/* Texto */}
+                        <div className="w-full md:w-2/3">
+                            <div
+                                className="text-gray-700 [&>p]:mb-5"
+                                dangerouslySetInnerHTML={{
+                                    __html: content.content,
+                                }}
+                            />
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+}

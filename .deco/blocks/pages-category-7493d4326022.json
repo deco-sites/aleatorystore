@@ -5,6 +5,9 @@
   },
   "sections": [
     {
+      "__resolveType": "website/sections/Seo/SeoV2.tsx"
+    },
+    {
       "__resolveType": "commerce/sections/Seo/SeoPLP.tsx",
       "jsonLD": {
         "__resolveType": "PLP Loader"
@@ -36,9 +39,7 @@
           "mobile": 2,
           "desktop": 4
         },
-        "pagination": "show-more",
-        "variant": "aside",
-        "format": "Show More"
+        "variant": "aside"
       },
       "startingPage": 1,
       "seoContent": {
@@ -95,6 +96,70 @@
             "title": "Masculino",
             "description": "Navegue por Departamento"
           }
+        ],
+        "bottom": [
+          {
+            "contents": [
+              {
+                "image": {
+                  "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/e987e9ed-e128-4379-8f11-df46310bab01/d9c848bd-965f-4711-8b08-2fcb7e5374be___0542a1064ba66b52e328d03dfbae16bd.webp",
+                  "alt": "Um homem com uma jaqueta no ombro",
+                  "width": 357,
+                  "height": 357
+                },
+                "content": "<p>Além dos tamanhos tradicionais (P,M e G), na Aleatory Store você encontra também tamanhos especiais que vão até o XGGGG. Para você poder criar looks masculinos diferenciados e confortáveis que podem acompanhar você nas mais variadas ocasiões.</p><p>Em nosso site, é possível encontrar roupas masculinas para homens que amam se vestir bem em todos os momentos. Confira nossas principais peças exclusivas:</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/roupas/camisas?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Camisas</strong></a></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/roupas/polos?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Camisas Polo</strong></a></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/roupas/camisetas?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Camisetas</strong></a></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/roupas/calcas?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Calças masculinas</strong></a></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/roupas/bermudas-e-shorts?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Shorts e bermudas</strong></a></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/roupas/plus-size?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Roupas masculinas plus size</strong></a></p>",
+                "label": "P1",
+                "position": "right"
+              },
+              {
+                "label": "P2",
+                "image": {
+                  "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/911c32c9-565a-44ef-94ff-2385be509e47/31d7e937-f0a5-4ca2-93ec-27d985e3df43___b023b3c6331ec2f442a9a4d602219e00.webp",
+                  "alt": "Um homem usando um moletom preto",
+                  "width": 373,
+                  "height": 167
+                },
+                "content": "<p>Moletom masculino e outras roupas de frio sofisticadas<br>Tudo que você precisa para encarar as baixas temperaturas em alto estilo está reunido em nossa loja virtual. Casacos exclusivos e versáteis que podem ser usados tanto no trabalho quanto em momentos casuais ou eventos sociais.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/roupas/moletons?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Moletons</strong></a><strong>:</strong> na Aleatory Store você pode criar seus próprios conjuntos de moletom masculino combinando nossas calças e casacos no material confortável que é perfeito para compor looks casuais, urbanos e esportivos.</p><p>Jaqueta masculina e coletes: perfeitos para serem usados com camisas de manga longa no inverno e camisetas básicas ou camisa polo na meia estação.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/roupas/sueters-e-malhas?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Suéteres masculinos</strong></a><strong>:</strong> sofisticadas, essas peças de roupa masculina podem acompanhar você no trabalho em visual com camisa polo por baixo ou em momentos casuais com camiseta.</p>",
+                "position": "left"
+              },
+              {
+                "label": "P3",
+                "image": {
+                  "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/9b2f689d-5145-4abb-905e-6186beea222b/21c61d71-666c-42c5-9666-138497c2cb26___9f63f2037303e753bd3a7f55623d4f04.webp",
+                  "alt": "Uma pessoa usando uma camiseta laranja e uma jaqueta cinza.",
+                  "width": 341,
+                  "height": 341
+                },
+                "content": "<p>Roupas íntimas masculinas estilosas<br>Nossa marca está presente na vida dos homens contemporâneos deixando até os mínimos detalhes da produção repleta de elegância. Confira a coleção exclusiva da Aleatory só de<strong> </strong><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/roupas/underwear?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>underwear masculino</strong></a><strong>:</strong></p><p>Kit Cuecas</p><p>Kit Meias</p><p>Sungas</p>",
+                "position": "right"
+              },
+              {
+                "label": "P4",
+                "content": "<p><strong><span>Acessórios masculinos versáteis</span></strong></p><p>Procurando complementos estilosos para seus looks diários? Confere essa seleção especial de acessórios Aleatory produzida especialmente para deixar você mais elegante da cabeça aos pés e que ainda agrega no seu marketing pessoal:</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/acessorios/bones?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Bonés</strong></a></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/acessorios/bolsas-e-mochilas?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Bolsas e mochilas</strong></a></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/acessorios/cintos?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Cintos masculinos</strong></a></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/acessorios/carteiras?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Carteiras</strong></a></p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/acessorios/mascaras?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Máscaras</strong></a></p>",
+                "image": {
+                  "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/5da1dfbc-d109-4a95-9e95-355bd17e1694/6db7e7ef-2f85-4838-ac7c-e2f04ebef6f8___8a09c0b26b948d05ca003952fc20ae44.webp",
+                  "alt": "Um homem com uma jaqueta cinza.",
+                  "width": 356,
+                  "height": 231
+                },
+                "position": "right"
+              },
+              {
+                "content": "<p><span>Tênis masculino e outros calçados elegantes</span></p><p>Confortáveis e duradouros, nossos<strong> </strong><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/calcados?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>calçados masculinos sofisticados</strong></a><strong> </strong>deixam você sempre impecável. Seja no trabalho, nos eventos sociais ou em momentos relax em casa sozinho, com a família ou com os amigos.</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/calcados/sapatenis?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Sapatênis</strong></a></p><p>Tênis Aleatory</p><p><a target=\"_blank\" rel=\"noopener noreferrer nofollow\" class=\"vtex-rich-text-0-x-link vtex-rich-text-0-x-link--e-section-text-category\" href=\"https://www.aleatorystore.com.br/masculino/calcados/chinelos?PageNumber=1&amp;O=OrderByReleaseDateDESC\"><strong>Chinelos</strong></a></p><p>Aqui na Aleatory Store, você encontra o melhor da moda masculina em um só lugar!</p>",
+                "image": {
+                  "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/bce408d3-16bf-4b82-9202-7affa59c8490/21457f27-19ef-48f5-9fff-0f55de0f6aa0___703d78146aab74ecb7e53dc69ecc2cfb.webp",
+                  "alt": "Um homem com uma camiseta listrada",
+                  "width": 300,
+                  "height": 356
+                },
+                "label": "P5",
+                "position": "left"
+              }
+            ],
+            "url": "/masculino",
+            "title": "Looks masculinos cheios de versatilidade e elegância",
+            "label": "Masculino"
+          }
         ]
       }
     },
@@ -103,9 +168,6 @@
       "section": {
         "__resolveType": "Footer - 02"
       }
-    },
-    {
-      "__resolveType": "website/sections/Seo/SeoV2.tsx"
     }
   ],
   "__resolveType": "website/pages/Page.tsx",

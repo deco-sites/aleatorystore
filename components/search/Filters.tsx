@@ -8,6 +8,7 @@ import type {
 } from "apps/commerce/types.ts";
 import type { JSX } from "preact";
 import { useMemo } from "preact/hooks";
+import { clx } from "../../sdk/clx.ts";
 import CategoryColorFilter from "../category/CategoryColorFilter.tsx/CategoryColorFilter.tsx";
 import Icon from "../ui/Icon.tsx";
 
@@ -17,7 +18,9 @@ export type FilterValuesProps = {
   filterSizesByClothes: FilterToggleValue[];
 };
 
-export type Props = Pick<ProductListingPage, "filters" | "sortOptions">;
+export type Props = Pick<ProductListingPage, "filters" | "sortOptions"> & {
+  disablePadding?: boolean;
+};
 export type OrderByProps = {
   item: SortOption;
   sort: string;
@@ -193,13 +196,13 @@ function FilterItem(item: FilterToggle) {
   );
 }
 
-function Filters({ filters, sortOptions }: Props) {
+function Filters({ filters, sortOptions, disablePadding }: Props) {
   const isOpenOrderBy = useSignal<boolean>(false);
   const handleClick = () => isOpenOrderBy.value = !isOpenOrderBy.value;
   const sort = useSort();
 
   return (
-    <ul class="flex flex-col gap-6 p-4">
+    <ul class={clx("flex flex-col gap-6", disablePadding ? "" : "p-4")}>
       <div>
         <button
           onClick={handleClick}

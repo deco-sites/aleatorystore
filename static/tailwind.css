@@ -4659,6 +4659,9 @@ details.collapse summary::-webkit-details-marker {
 .top-\[131px\] {
   top: 131px;
 }
+.top-\[20\%\] {
+  top: 20%;
+}
 .top-\[31px\] {
   top: 31px;
 }
@@ -4949,6 +4952,9 @@ details.collapse summary::-webkit-details-marker {
 .mb-8 {
   margin-bottom: 2rem;
 }
+.mb-\[15\%\] {
+  margin-bottom: 15%;
+}
 .ml-1 {
   margin-left: 0.25rem;
 }
@@ -5074,6 +5080,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .grid {
   display: grid;
+}
+.contents {
+  display: contents;
 }
 .hidden {
   display: none;
@@ -5273,9 +5282,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .\!w-\[200px\] {
   width: 200px !important;
-}
-.w-0 {
-  width: 0px;
 }
 .w-1\/2 {
   width: 50%;
@@ -5567,6 +5573,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-w-\[640px\] {
   max-width: 640px;
+}
+.max-w-\[795px\] {
+  max-width: 795px;
 }
 .max-w-\[80px\] {
   max-width: 80px;
@@ -5950,6 +5959,9 @@ details.collapse summary::-webkit-details-marker {
 .divide-base-200 > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-opacity: 1;
   border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-divide-opacity)));
+}
+.divide-primary-200\/50 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgb(186 186 186 / 0.5);
 }
 .overflow-auto {
   overflow: auto;
@@ -6681,9 +6693,6 @@ details.collapse summary::-webkit-details-marker {
 .pb-2 {
   padding-bottom: 0.5rem;
 }
-.pb-20 {
-  padding-bottom: 5rem;
-}
 .pb-4 {
   padding-bottom: 1rem;
 }
@@ -6713,6 +6722,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .pr-4 {
   padding-right: 1rem;
+}
+.pr-5 {
+  padding-right: 1.25rem;
 }
 .pt-12 {
   padding-top: 3rem;
@@ -7799,6 +7811,10 @@ details.collapse summary::-webkit-details-marker {
     margin-bottom: 2.5rem;
   }
 
+  .sm\:mb-2 {
+    margin-bottom: 0.5rem;
+  }
+
   .sm\:ml-0 {
     margin-left: 0px;
   }
@@ -7946,16 +7962,8 @@ details.collapse summary::-webkit-details-marker {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .sm\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .sm\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .sm\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .sm\:grid-cols-6 {
@@ -8247,6 +8255,10 @@ details.collapse summary::-webkit-details-marker {
     width: 20%;
   }
 
+  .md\:w-2\/3 {
+    width: 66.666667%;
+  }
+
   .md\:w-2\/5 {
     width: 40%;
   }
@@ -8288,6 +8300,10 @@ details.collapse summary::-webkit-details-marker {
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:flex-row-reverse {
+    flex-direction: row-reverse;
   }
 
   .md\:flex-wrap {
@@ -8332,6 +8348,12 @@ details.collapse summary::-webkit-details-marker {
 
   .md\:gap-6 {
     gap: 1.5rem;
+  }
+
+  .md\:divide-y > :not([hidden]) ~ :not([hidden]) {
+    --tw-divide-y-reverse: 0;
+    border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+    border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
   }
 
   .md\:p-4 {
@@ -9198,6 +9220,11 @@ details.collapse summary::-webkit-details-marker {
     padding-bottom: 2.5rem;
   }
 
+  .lg\:py-14 {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
   .lg\:py-28 {
     padding-top: 7rem;
     padding-bottom: 7rem;
@@ -9269,6 +9296,10 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:text-left {
     text-align: left;
+  }
+
+  .lg\:text-center {
+    text-align: center;
   }
 
   .lg\:text-2xl {
@@ -9443,6 +9474,10 @@ details.collapse summary::-webkit-details-marker {
   .\32xl\:pl-20 {
     padding-left: 5rem;
   }
+}
+
+.\[\&\>p\]\:mb-5>p {
+  margin-bottom: 1.25rem;
 }
 
 .htmx-request .\[\.htmx-request_\&\]\:inline {
