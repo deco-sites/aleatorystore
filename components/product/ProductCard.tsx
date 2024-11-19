@@ -1,10 +1,9 @@
-import { useScriptAsDataURI } from "@deco/deco/hooks";
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import { useCart } from "apps/vtex/hooks/useCart.ts";
 import Image from "apps/website/components/Image.tsx";
 import type { Platform } from "../../apps/site.ts";
 import { SendEventOnClick } from "../../components/Analytics.tsx";
+import QuickBuy from "../../islands/ShelfQuickBuy/index.tsx";
 import { clx } from "../../sdk/clx.ts";
 import { formatPrice } from "../../sdk/format.ts";
 import { relative } from "../../sdk/url.ts";
@@ -13,7 +12,6 @@ import { useOffer } from "../../sdk/useOffer.ts";
 import { useVariantOfferAvailability } from "../../sdk/useOfferAvailability.ts";
 import { usePercentualDiscount } from "../../sdk/usePercentualPrice.ts";
 import { useProductVariantDiscount } from "../../sdk/useProductVariantDiscount.ts";
-import ShefAddToCartButtonVtex from "./ShelfAddToCart/vtex.tsx";
 interface Props {
   product: Product;
   /** Preload card image */
@@ -30,20 +28,11 @@ interface Props {
 
 const WIDTH = 200;
 const HEIGHT = 279;
-
-type QuickBuy = {
-  image: string;
-  size: string;
-  color: string;
-  productId: string;
-  skuId: string;
-  isAvailable: boolean;
-};
-
+/*
 function loadCurrentQuickBuy(
   cardId: string,
   quikbuyData: QuickBuy[],
-  addToCart: () => void,
+  //addToCart: () => void,
 ) {
   const card = document.getElementById(cardId);
   if (!card) return;
@@ -142,13 +131,14 @@ function loadCurrentQuickBuy(
       event.stopPropagation();
       console.log("Add to cart clicked", data);
     });
-    */
+
   }
 
   console.log("quikbuyData", addToCart);
 
   loadQuickBuy();
 }
+*/
 
 function ProductCard({
   product,
@@ -165,7 +155,6 @@ function ProductCard({
   const { listPrice, price, installments } = useOffer(offers);
   const relativeUrl = relative(url);
   const aspectRatio = `${WIDTH} / ${HEIGHT}`;
-  const cart = useCart();
 
   const { hasOfferAvailable } = useVariantOfferAvailability(isVariantOf);
 
@@ -173,67 +162,6 @@ function ProductCard({
 
   const productPercentualOff = hasDiscount &&
     usePercentualDiscount(listPrice!, price!);
-  const allAnalyticsItems = product.isVariantOf?.hasVariant.map((variant) =>
-    mapProductToAnalyticsItem({
-      product: variant,
-      price,
-      listPrice,
-    })
-  ).filter(Boolean) as ReturnType<typeof mapProductToAnalyticsItem>[];
-  const informationForQuikBuy = product.isVariantOf?.hasVariant.map(
-    (variant) => {
-      const size = variant.additionalProperty?.find((attribute) =>
-        attribute.name === "Tamanho"
-      );
-      const color = variant.additionalProperty?.find((attribute) =>
-        attribute.name === "Cor"
-      );
-      const productId = variant.productID;
-      const skuId = variant.sku;
-
-      const isAvailable = variant.offers?.offers.some(
-        (offer) => offer.availability.includes("InStock"),
-      );
-      return {
-        image: variant.image?.[0].url,
-        size: size?.value,
-        color: color?.value,
-        productId,
-        skuId,
-        isAvailable,
-      };
-    },
-  ).filter((info) =>
-    info.size && info.color && info.image && info.isAvailable !== undefined
-  ) as QuickBuy[];
-
-  const quikBuyColors = informationForQuikBuy?.reduce(
-    (acc, curr) => {
-      if (!curr) return acc;
-      const hasColor = acc.find(({ name }) => name === curr.color);
-      if (hasColor) return acc;
-      acc.push({
-        name: curr.color,
-        image: curr.image,
-      });
-      return acc;
-    },
-    [] as {
-      name: string;
-      image: string;
-    }[],
-  );
-  const quikBuySizes = informationForQuikBuy?.map((info) => info.size).reduce(
-    (acc, curr) => {
-      if (!curr) return acc;
-      if (!acc.includes(curr)) {
-        acc.push(curr);
-      }
-      return acc;
-    },
-    [] as string[],
-  );
-  console.log("informationForQuikBuy", informationForQuikBuy);
 
   return (
     <div
@@ -321,44 +249,7 @@ function ProductCard({
             </a>
           </figure>
           {/* Quick Buy */}
-          <div class="absolute bottom-[-50%] group-hover:bottom-0 w-full transition-all">
-            <div class="flex justify-center items-center flex-col bg-[rgba(255,255,255,0.3)]">
-              <div>
-                {quikBuyColors?.map((color) => (
-                  <button
-                    id="color-btn"
-                    class="border border-solid "
-                    data-color-name={color.name}
-                  >
-                    <Image
-                      src={color.image}
-                      alt="placeholder"
-                      class="w-8 h-8"
-                      width={200}
-                      height={200}
-                    />
-                  </button>
-                ))}
-              </div>
-              <div>
-                {quikBuySizes?.map((size) => (
-                  <button
-                    id="size-btn"
-                    class="btn rounded-full w-8 h-8 min-h-[unset] p-0"
-                    data-size={size}
-                  >
-                    {size}
-                  </button>
-                ))}
-              </div>
-              <ShefAddToCartButtonVtex
-                quantity={1}
-                seller="1"
-                label="Adicionar a Sacola"
-                analyticsItem={allAnalyticsItems}
-              />
-            </div>
-          </div>
+          <QuickBuy product={product} />
         </div>
         <div class="flex flex-col">
           <h2
@@ -390,15 +281,6 @@ function ProductCard({
             : <span>Indisponível</span>}
         </div>
       </div>
-      <script
-        defer
-        src={useScriptAsDataURI(
-          loadCurrentQuickBuy,
-          id,
-          informationForQuikBuy,
-          cart.addItems,
-        )}
-      />
     </div>
   );
 }

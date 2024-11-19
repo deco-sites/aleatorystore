@@ -1,6 +1,5 @@
-import { useScript } from "@deco/deco/hooks";
 import { PageInfo } from "apps/commerce/types.ts";
-import ButtonBanner from "../ui/ButtonBanner.tsx";
+import { LinkButtonBanner } from "../ui/ButtonBanner.tsx";
 
 export interface Props {
   pageInfo: PageInfo;
@@ -21,7 +20,7 @@ declare global {
   }
 }
 declare const event: CustomEventHTMX;
-
+/*
 function handleShowMore() {
   const newDocument = event.detail.xhr.response;
   const newPage = new DOMParser().parseFromString(
@@ -44,7 +43,17 @@ function handleShowMore() {
   if (newGTMEvent) {
     document.getElementById("results-on-view-area")?.appendChild(newGTMEvent);
   }
+  /*
+  const scriptTags = newPage.querySelectorAll("script");
+  const [state, code] = Array.from(scriptTags).slice(-2);
+  document.body.appendChild(state);
+  code.innerHTML = "console.log('AAA');" + code.innerHTML +
+    "console.log('Script added from ShowMore');";
+  document.body.appendChild(code);
+
 }
+
+*/
 
 export default function ShowMore(
   { pageInfo, url }: Props,
@@ -61,22 +70,14 @@ export default function ShowMore(
   }
   return (
     <div class="flex justify-center col-span-full mt-16 mb-28 relative">
-      <ButtonBanner
+      <LinkButtonBanner
         id="show-more-btn"
         class={`btn cursor-pointer absolute`}
-        hx-get={url}
-        hx-swap="beforeend"
-        hx-select="#result-grid .card"
-        hx-target="#result-grid"
-        hx-indicator="this"
-        hx-disable-elt="this"
-        {...{
-          "hx-on::after-on-load": useScript(handleShowMore),
-        }}
+        href={url}
       >
         <span class="[.htmx-request_&]:hidden">VER MAIS PRODUTOS</span>
         <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
-      </ButtonBanner>
+      </LinkButtonBanner>
       <p class="font-light text-xs mt-[-1.5rem]">
         Total de {pageInfo.records} Produtos
       </p>

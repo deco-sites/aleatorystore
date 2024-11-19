@@ -91,11 +91,12 @@
     @apply duration-500 fixed ease-in-out w-full z-20;
   }
 
-  .header-hidden {
+  .header-hidden  #header-bar{
     @apply opacity-0 -translate-y-full;
   }
+  
 
-  .header-visible {
+  .header-visible #header-bar{
     @apply opacity-100;
   }
 }

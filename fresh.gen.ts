@@ -40,6 +40,8 @@ import * as $ProxyIframe from "./islands/ProxyIframe.tsx";
 import * as $SIzebayIframe from "./islands/SIzebayIframe.tsx";
 import * as $SearchControls from "./islands/SearchControls.tsx";
 import * as $Share_ShareProduct from "./islands/Share/ShareProduct.tsx";
+import * as $ShelfAddToCart_vtex from "./islands/ShelfAddToCart/vtex.tsx";
+import * as $ShelfQuickBuy_index from "./islands/ShelfQuickBuy/index.tsx";
 import * as $ShippingSimulation from "./islands/ShippingSimulation.tsx";
 import * as $WishlistButton_vtex from "./islands/WishlistButton/vtex.tsx";
 import * as $WishlistButton_wake from "./islands/WishlistButton/wake.tsx";
@@ -88,6 +90,8 @@ const manifest = {
     "./islands/SIzebayIframe.tsx": $SIzebayIframe,
     "./islands/SearchControls.tsx": $SearchControls,
     "./islands/Share/ShareProduct.tsx": $Share_ShareProduct,
+    "./islands/ShelfAddToCart/vtex.tsx": $ShelfAddToCart_vtex,
+    "./islands/ShelfQuickBuy/index.tsx": $ShelfQuickBuy_index,
     "./islands/ShippingSimulation.tsx": $ShippingSimulation,
     "./islands/WishlistButton/vtex.tsx": $WishlistButton_vtex,
     "./islands/WishlistButton/wake.tsx": $WishlistButton_wake,

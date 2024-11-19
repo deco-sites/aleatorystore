@@ -1,6 +1,7 @@
 import { AddToCartParams } from "apps/commerce/types.ts";
 import { useState } from "preact/hooks";
 import { sendEvent } from "../../../sdk/analytics.tsx";
+import { clx } from "../../../sdk/clx.ts";
 import { useUI } from "../../../sdk/useUI.ts";
 import Button from "../../ui/ButtonStyled.tsx";
 
@@ -10,6 +11,8 @@ export interface Props {
   onAddItem: () => Promise<void>;
   gotoCheckout?: boolean;
   disabled?: boolean;
+  label?: string;
+  className?: string;
 }
 
 const useAddToCart = ({ eventParams, onAddItem, gotoCheckout }: Props) => {
@@ -49,22 +52,24 @@ export default function AddToCartButton(props: Props) {
     ? (
       <Button
         {...btnProps}
-        class="w-full hover:bg-primary-700 hover:text-secondary-neutral-100 \
-        disabled:bg-text-secondary-neutral-100 disabled:border disabled:border-bg-primary-700"
+        class={clx(
+          "w-full hover:bg-primary-700 hover:text-secondary-neutral-100 disabled:bg-text-secondary-neutral-100 disabled:border disabled:border-bg-primary-700",
+          props.className,
+        )}
         negative
         disabled={props.disabled}
       >
-        comprar
+        {props.label || "comprar"}
       </Button>
     )
     : (
       <Button
         {...btnProps}
-        class="w-full hover:bg-primary-700"
+        class={clx("w-full hover:bg-primary-700", props.className)}
         negative
         disabled={props.disabled}
       >
-        comprar
+        {props.label || "comprar"}
       </Button>
     );
 }

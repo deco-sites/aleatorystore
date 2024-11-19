@@ -39,7 +39,7 @@ function ProductGallery(
         : null;
     const partialUrl = nextPage ? protocolFixer(new URL(nextPage.href)) : null;
     if (pageInfo.nextPage && nextPage) {
-        partialUrl?.searchParams.set("partial", "true");
+        partialUrl?.searchParams.set("partial", "false");
     }
     const hasNextPage = pageInfo.nextPage;
 

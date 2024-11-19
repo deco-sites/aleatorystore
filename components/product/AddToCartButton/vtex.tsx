@@ -10,7 +10,16 @@ export interface Props extends Omit<BtnProps, "onAddItem"> {
 }
 
 function AddToCartButton(
-  { seller, productID, eventParams, gotoCheckout, disabled, quantity }: Props,
+  {
+    seller,
+    productID,
+    eventParams,
+    gotoCheckout,
+    disabled,
+    quantity,
+    className,
+    label,
+  }: Props,
 ) {
   const { addItems } = useCart();
 
@@ -29,6 +38,8 @@ function AddToCartButton(
       eventParams={eventParams}
       gotoCheckout={gotoCheckout}
       disabled={disabled}
+      className={className}
+      label={label}
     />
   );
 }
