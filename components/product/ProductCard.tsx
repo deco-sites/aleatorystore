@@ -1,17 +1,19 @@
+import { useScriptAsDataURI } from "@deco/deco/hooks";
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import { useCart } from "apps/vtex/hooks/useCart.ts";
 import Image from "apps/website/components/Image.tsx";
 import type { Platform } from "../../apps/site.ts";
 import { SendEventOnClick } from "../../components/Analytics.tsx";
 import { clx } from "../../sdk/clx.ts";
 import { formatPrice } from "../../sdk/format.ts";
 import { relative } from "../../sdk/url.ts";
+import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { useVariantOfferAvailability } from "../../sdk/useOfferAvailability.ts";
 import { usePercentualDiscount } from "../../sdk/usePercentualPrice.ts";
 import { useProductVariantDiscount } from "../../sdk/useProductVariantDiscount.ts";
-import Button from "../ui/Button.tsx";
-
+import ShefAddToCartButtonVtex from "./ShelfAddToCart/vtex.tsx";
 interface Props {
   product: Product;
   /** Preload card image */
@@ -29,6 +31,125 @@ interface Props {
 const WIDTH = 200;
 const HEIGHT = 279;
 
+type QuickBuy = {
+  image: string;
+  size: string;
+  color: string;
+  productId: string;
+  skuId: string;
+  isAvailable: boolean;
+};
+
+function loadCurrentQuickBuy(
+  cardId: string,
+  quikbuyData: QuickBuy[],
+  addToCart: () => void,
+) {
+  const card = document.getElementById(cardId);
+  if (!card) return;
+  function loadQuickBuy() {
+    const id = card?.getAttribute("data-product-id");
+    console.log("id", id);
+    if (!id) return;
+    const data = quikbuyData.find((item) => item.skuId === id);
+    if (!data) return;
+    const availableSizesForCurrentColor = quikbuyData.filter(
+      (item) => (item.color === data.color && item.isAvailable),
+    );
+    const availableColorsForCurrentSize = quikbuyData.filter(
+      (item) => (item.size === data.size && item.isAvailable),
+    );
+
+    const sizeButtons = card?.querySelectorAll("button#size-btn");
+    const colorButtons = card?.querySelectorAll("button#color-btn");
+
+    sizeButtons?.forEach((button) => {
+      const size = button.getAttribute("data-size");
+      const isAvailable = availableSizesForCurrentColor.find(
+        (item) => item.size === size,
+      );
+      if (isAvailable) {
+        button.classList.remove("hidden");
+        button.classList.add("flex");
+      } else {
+        button.classList.add("hidden");
+        button.classList.remove("flex");
+      }
+
+      const isCurrentSku = data.size === size;
+      if (isCurrentSku) {
+        button.classList.add("border-primary-900");
+        button.classList.remove("border-transparent");
+      } else {
+        button.classList.remove("border-primary-900");
+        button.classList.add("border-transparent");
+      }
+      const newButton = button.cloneNode(true);
+      button.replaceWith(newButton);
+      newButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        card?.setAttribute("data-product-id", isAvailable?.skuId ?? "");
+        loadQuickBuy();
+      });
+    });
+
+    colorButtons?.forEach((button) => {
+      const color = button.getAttribute("data-color-name");
+      const isAvailable = availableColorsForCurrentSize.find(
+        (item) => item.color === color,
+      );
+      if (isAvailable) {
+        button.classList.remove("hidden");
+        button.classList.add("flex");
+      } else {
+        button.classList.add("hidden");
+        button.classList.remove("flex");
+      }
+
+      const isCurrentSku = data.color === color;
+      if (isCurrentSku) {
+        button.classList.add("border-primary-900");
+        button.classList.remove("border-transparent");
+      } else {
+        button.classList.remove("border-primary-900");
+        button.classList.add("border-transparent");
+      }
+
+      const newButton = button.cloneNode(true);
+      button.replaceWith(newButton);
+      newButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        card?.setAttribute("data-product-id", isAvailable?.skuId ?? "");
+        loadQuickBuy();
+      });
+    });
+    /*
+    const addToCartButton = card?.querySelector("button#addToCart");
+    if (!addToCartButton) return;
+    if (data.isAvailable) {
+      addToCartButton?.classList.remove("hidden");
+      addToCartButton?.classList.add("flex");
+    } else {
+      addToCartButton?.classList.add("hidden");
+      addToCartButton?.classList.remove("flex");
+    }
+    const newButton = addToCartButton.cloneNode(true);
+    addToCartButton?.replaceWith(newButton);
+    addToCartButton?.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      console.log("Add to cart clicked", data);
+    });
+    */
+  }
+
+  console.log("quikbuyData", addToCart);
+
+  loadQuickBuy();
+}
+
 function ProductCard({
   product,
   preload,
@@ -36,14 +157,15 @@ function ProductCard({
   index,
 }: Props) {
   const { url, productID, image: images, isVariantOf } = product;
-
-  const id = `product-card-${productID}`;
+  const randomId = useId();
+  const id = `product-card-${productID}-${randomId}`;
   const [front, back] = images ?? [];
   const { productVariantDiscount } = useProductVariantDiscount(product);
   const { offers } = productVariantDiscount;
   const { listPrice, price, installments } = useOffer(offers);
   const relativeUrl = relative(url);
   const aspectRatio = `${WIDTH} / ${HEIGHT}`;
+  const cart = useCart();
 
   const { hasOfferAvailable } = useVariantOfferAvailability(isVariantOf);
 
@@ -51,13 +173,19 @@ function ProductCard({
 
   const productPercentualOff = hasDiscount &&
     usePercentualDiscount(listPrice!, price!);
-
+  const allAnalyticsItems = product.isVariantOf?.hasVariant.map((variant) =>
+    mapProductToAnalyticsItem({
+      product: variant,
+      price,
+      listPrice,
+    })
+  ).filter(Boolean) as ReturnType<typeof mapProductToAnalyticsItem>[];
   const informationForQuikBuy = product.isVariantOf?.hasVariant.map(
     (variant) => {
       const size = variant.additionalProperty?.find((attribute) =>
         attribute.name === "Tamanho"
       );
-      const cor = variant.additionalProperty?.find((attribute) =>
+      const color = variant.additionalProperty?.find((attribute) =>
         attribute.name === "Cor"
       );
       const productId = variant.productID;
@@ -69,22 +197,31 @@ function ProductCard({
       return {
         image: variant.image?.[0].url,
         size: size?.value,
-        cor: cor?.value,
+        color: color?.value,
         productId,
         skuId,
         isAvailable,
       };
     },
-  );
-  const quikBuyColors = informationForQuikBuy?.map((info) => info.image).reduce(
+  ).filter((info) =>
+    info.size && info.color && info.image && info.isAvailable !== undefined
+  ) as QuickBuy[];
+
+  const quikBuyColors = informationForQuikBuy?.reduce(
     (acc, curr) => {
       if (!curr) return acc;
-      if (!acc.includes(curr)) {
-        acc.push(curr);
-      }
+      const hasColor = acc.find(({ name }) => name === curr.color);
+      if (hasColor) return acc;
+      acc.push({
+        name: curr.color,
+        image: curr.image,
+      });
       return acc;
     },
-    [] as string[],
+    [] as {
+      name: string;
+      image: string;
+    }[],
   );
   const quikBuySizes = informationForQuikBuy?.map((info) => info.size).reduce(
     (acc, curr) => {
@@ -101,6 +238,7 @@ function ProductCard({
   return (
     <div
       id={id}
+      data-product-id={productID}
       data-deco="view-product"
       class="card card-compact group w-full lg:border lg:border-transparent lg:hover:border-inherit mb-4"
     >
@@ -187,9 +325,13 @@ function ProductCard({
             <div class="flex justify-center items-center flex-col bg-[rgba(255,255,255,0.3)]">
               <div>
                 {quikBuyColors?.map((color) => (
-                  <button>
+                  <button
+                    id="color-btn"
+                    class="border border-solid "
+                    data-color-name={color.name}
+                  >
                     <Image
-                      src={color}
+                      src={color.image}
                       alt="placeholder"
                       class="w-8 h-8"
                       width={200}
@@ -200,14 +342,21 @@ function ProductCard({
               </div>
               <div>
                 {quikBuySizes?.map((size) => (
-                  <button class="btn rounded-full w-8 h-8 min-h-[unset] p-0">
+                  <button
+                    id="size-btn"
+                    class="btn rounded-full w-8 h-8 min-h-[unset] p-0"
+                    data-size={size}
+                  >
                     {size}
                   </button>
                 ))}
               </div>
-              <Button class="btn btn-primary uppercase w-full bg-primary-900">
-                Adicionar a Sacola
-              </Button>
+              <ShefAddToCartButtonVtex
+                quantity={1}
+                seller="1"
+                label="Adicionar a Sacola"
+                analyticsItem={allAnalyticsItems}
+              />
             </div>
           </div>
         </div>
@@ -241,6 +390,15 @@ function ProductCard({
             : <span>Indisponível</span>}
         </div>
       </div>
+      <script
+        defer
+        src={useScriptAsDataURI(
+          loadCurrentQuickBuy,
+          id,
+          informationForQuikBuy,
+          cart.addItems,
+        )}
+      />
     </div>
   );
 }
