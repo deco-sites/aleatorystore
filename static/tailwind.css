@@ -4539,6 +4539,9 @@ details.collapse summary::-webkit-details-marker {
 .bottom-\[-20px\] {
   bottom: -20px;
 }
+.bottom-\[-50\%\] {
+  bottom: -50%;
+}
 .bottom-\[50px\] {
   bottom: 50px;
 }
@@ -5276,6 +5279,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .min-h-\[450px\] {
   min-height: 450px;
+}
+.min-h-\[unset\] {
+  min-height: unset;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -6413,6 +6419,9 @@ details.collapse summary::-webkit-details-marker {
 .bg-\[\#ffffff\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-\[rgba\(255\2c 255\2c 255\2c 0\.3\)\] {
+  background-color: rgba(255,255,255,0.3);
 }
 .bg-\[var\(--bg-color\)\] {
   background-color: var(--bg-color);
@@ -7665,6 +7674,10 @@ details.collapse summary::-webkit-details-marker {
 
 .group[open] .group-open\:font-semibold {
   font-weight: 600;
+}
+
+.group:hover .group-hover\:bottom-0 {
+  bottom: 0px;
 }
 
 .group:hover .group-hover\:flex {

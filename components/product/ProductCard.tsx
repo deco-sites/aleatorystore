@@ -10,6 +10,7 @@ import { useOffer } from "../../sdk/useOffer.ts";
 import { useVariantOfferAvailability } from "../../sdk/useOfferAvailability.ts";
 import { usePercentualDiscount } from "../../sdk/usePercentualPrice.ts";
 import { useProductVariantDiscount } from "../../sdk/useProductVariantDiscount.ts";
+import Button from "../ui/Button.tsx";
 
 interface Props {
   product: Product;
@@ -51,6 +52,52 @@ function ProductCard({
   const productPercentualOff = hasDiscount &&
     usePercentualDiscount(listPrice!, price!);
 
+  const informationForQuikBuy = product.isVariantOf?.hasVariant.map(
+    (variant) => {
+      const size = variant.additionalProperty?.find((attribute) =>
+        attribute.name === "Tamanho"
+      );
+      const cor = variant.additionalProperty?.find((attribute) =>
+        attribute.name === "Cor"
+      );
+      const productId = variant.productID;
+      const skuId = variant.sku;
+
+      const isAvailable = variant.offers?.offers.some(
+        (offer) => offer.availability.includes("InStock"),
+      );
+      return {
+        image: variant.image?.[0].url,
+        size: size?.value,
+        cor: cor?.value,
+        productId,
+        skuId,
+        isAvailable,
+      };
+    },
+  );
+  const quikBuyColors = informationForQuikBuy?.map((info) => info.image).reduce(
+    (acc, curr) => {
+      if (!curr) return acc;
+      if (!acc.includes(curr)) {
+        acc.push(curr);
+      }
+      return acc;
+    },
+    [] as string[],
+  );
+  const quikBuySizes = informationForQuikBuy?.map((info) => info.size).reduce(
+    (acc, curr) => {
+      if (!curr) return acc;
+      if (!acc.includes(curr)) {
+        acc.push(curr);
+      }
+      return acc;
+    },
+    [] as string[],
+  );
+  console.log("informationForQuikBuy", informationForQuikBuy);
+
   return (
     <div
       id={id}
@@ -76,65 +123,94 @@ function ProductCard({
         }}
       />
 
-      <div class="flex flex-col gap-2">
-        <figure
-          class="relative overflow-hidden"
-          style={{ aspectRatio }}
-        >
-          {productPercentualOff && (
-            <div class="bg-[#f6f4f3] absolute flex flex-col items-center justify-center w-[55px] h-[55px] text-[13px] leading-[1.45] font-bold text-black border z-[3] border-solid border-black left-auto right-0 top-0">
-              <span>{productPercentualOff}%</span>
-              OFF
-            </div>
-          )}
-          {/* Product Images */}
-          <a
-            href={relativeUrl}
-            aria-label="view product"
-            class={clx(
-              "absolute top-0 left-0",
-              "grid grid-cols-1 grid-rows-1",
-              "w-full",
-            )}
+      <div class="flex flex-col gap-2 group">
+        <div class="relative overflow-hidden">
+          <figure
+            class="relative overflow-hidden"
+            style={{ aspectRatio }}
           >
-            <Image
-              src={front.url!}
-              alt={front.alternateName}
-              width={WIDTH}
-              height={HEIGHT}
-              style={{ aspectRatio }}
+            {productPercentualOff && (
+              <div class="bg-[#f6f4f3] absolute flex flex-col items-center justify-center w-[55px] h-[55px] text-[13px] leading-[1.45] font-bold text-black border z-[3] border-solid border-black left-auto right-0 top-0">
+                <span>{productPercentualOff}%</span>
+                OFF
+              </div>
+            )}
+            {/* Product Images */}
+            <a
+              href={relativeUrl}
+              aria-label="view product"
               class={clx(
-                "bg-secondary-neutral-100",
-                "object-cover",
+                "absolute top-0 left-0",
+                "grid grid-cols-1 grid-rows-1",
                 "w-full",
-                "col-span-full row-span-full",
               )}
-              sizes="(max-width: 640px) 50vw, 20vw"
-              preload={preload}
-              loading={preload ? "eager" : "lazy"}
-              decoding="async"
-            />
-            <Image
-              src={back?.url ?? front.url!}
-              alt={back?.alternateName ?? front.alternateName}
-              width={WIDTH}
-              height={HEIGHT}
-              style={{ aspectRatio }}
-              class={clx(
-                "bg-secondary-neutral-100",
-                "object-cover",
-                "w-full",
-                "col-span-full row-span-full",
-                "transition-opacity opacity-0 ",
-                "lg:group-hover:opacity-100",
-              )}
-              sizes="(max-width: 640px) 50vw, 20vw"
-              loading="lazy"
-              decoding="async"
-            />
-          </a>
-        </figure>
-
+            >
+              <Image
+                src={front.url!}
+                alt={front.alternateName}
+                width={WIDTH}
+                height={HEIGHT}
+                style={{ aspectRatio }}
+                class={clx(
+                  "bg-secondary-neutral-100",
+                  "object-cover",
+                  "w-full",
+                  "col-span-full row-span-full",
+                )}
+                sizes="(max-width: 640px) 50vw, 20vw"
+                preload={preload}
+                loading={preload ? "eager" : "lazy"}
+                decoding="async"
+              />
+              <Image
+                src={back?.url ?? front.url!}
+                alt={back?.alternateName ?? front.alternateName}
+                width={WIDTH}
+                height={HEIGHT}
+                style={{ aspectRatio }}
+                class={clx(
+                  "bg-secondary-neutral-100",
+                  "object-cover",
+                  "w-full",
+                  "col-span-full row-span-full",
+                  "transition-opacity opacity-0 ",
+                  "lg:group-hover:opacity-100",
+                )}
+                sizes="(max-width: 640px) 50vw, 20vw"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          </figure>
+          {/* Quick Buy */}
+          <div class="absolute bottom-[-50%] group-hover:bottom-0 w-full transition-all">
+            <div class="flex justify-center items-center flex-col bg-[rgba(255,255,255,0.3)]">
+              <div>
+                {quikBuyColors?.map((color) => (
+                  <button>
+                    <Image
+                      src={color}
+                      alt="placeholder"
+                      class="w-8 h-8"
+                      width={200}
+                      height={200}
+                    />
+                  </button>
+                ))}
+              </div>
+              <div>
+                {quikBuySizes?.map((size) => (
+                  <button class="btn rounded-full w-8 h-8 min-h-[unset] p-0">
+                    {size}
+                  </button>
+                ))}
+              </div>
+              <Button class="btn btn-primary uppercase w-full bg-primary-900">
+                Adicionar a Sacola
+              </Button>
+            </div>
+          </div>
+        </div>
         <div class="flex flex-col">
           <h2
             class="truncate text-base lg:text-base font-normal text-dark-blue ml-2 mt-3 uppercase"
