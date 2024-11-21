@@ -4571,6 +4571,9 @@ details.collapse summary::-webkit-details-marker {
   white-space: nowrap;
   border-width: 0;
 }
+.pointer-events-none {
+  pointer-events: none;
+}
 .collapse {
   visibility: collapse;
 }
@@ -5790,6 +5793,9 @@ details.collapse summary::-webkit-details-marker {
 .animate-spin {
   animation: spin 1s linear infinite;
 }
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
 .cursor-pointer {
   cursor: pointer;
 }
@@ -6575,6 +6581,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .bg-transparent {
   background-color: transparent;
+}
+.bg-opacity-50 {
+  --tw-bg-opacity: 0.5;
 }
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
@@ -7682,6 +7691,11 @@ details.collapse summary::-webkit-details-marker {
 .hover\:bg-base-content:hover {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-bg-opacity)));
+}
+
+.hover\:bg-primary-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 237 237 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-primary-600:hover {
@@ -9246,11 +9260,6 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:border-transparent {
     border-color: transparent;
-  }
-
-  .lg\:object-none {
-    -o-object-fit: none;
-       object-fit: none;
   }
 
   .lg\:p-1 {

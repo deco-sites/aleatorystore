@@ -101,9 +101,19 @@ export default function Insland(props: Props) {
             product: currentAnalysis,
         })
         : null;
+    const getColorAvaialability = (color: string) =>
+        informationForQuikBuy?.filter((info) =>
+            info.color === color && info.size === selectedSize.value &&
+            info.isAvailable
+        ).length > 0;
+    const getSizeAvaialability = (size: string) =>
+        informationForQuikBuy?.filter((info) =>
+            info.size === size && info.color === selectedColor.value &&
+            info.isAvailable
+        ).length > 0;
 
     return (
-        <div class="absolute bottom-[-50%] group-hover:bottom-0 w-full transition-all">
+        <div class="absolute bottom-[-50%] group-hover:bottom-0 w-full transition-all hidden lg:block">
             <div class="flex justify-center items-center flex-col gap-3 pt-3 bg-[rgba(255,255,255,0.3)]">
                 <div class="flex gap-2">
                     {quikBuyColors?.map((color) => (
@@ -114,8 +124,15 @@ export default function Insland(props: Props) {
                                 color.name === selectedColor.value
                                     ? "border-primary-500"
                                     : "border-transparent",
+                                getColorAvaialability(color.name)
+                                    ? "cursor-pointer"
+                                    : "cursor-not-allowed bg-opacity-50 pointer-events-none tooltip tooltip-top",
                             )}
+                            disabled={!getColorAvaialability(color.name)}
                             data-color-name={color.name}
+                            data-tip={!getColorAvaialability(color.name)
+                                ? "Cor Indisponível"
+                                : ""}
                             onClick={() => selectedColor.value = color.name}
                         >
                             <Image
@@ -133,12 +150,19 @@ export default function Insland(props: Props) {
                         <button
                             id="size-btn"
                             class={clx(
-                                "btn rounded-md min-w-8 w-fit h-8 min-h-[unset] p-0 border-2 border-solid",
+                                "bg-base-100 rounded-md min-w-8 w-fit h-8 min-h-[unset] p-0 border-2 border-solid",
                                 size === selectedSize.value
                                     ? "border-primary-500"
                                     : "border-transparent",
+                                getSizeAvaialability(size)
+                                    ? "cursor-pointer hover:bg-primary-100"
+                                    : "cursor-not-allowed bg-opacity-50 tooltip tooltip-top",
                             )}
                             data-size={size}
+                            data-tip={!getSizeAvaialability(size)
+                                ? "Tamanho Indisponível"
+                                : ""}
+                            disabled={!getSizeAvaialability(size)}
                             onClick={() => selectedSize.value = size}
                         >
                             {size}

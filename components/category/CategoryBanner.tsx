@@ -53,7 +53,7 @@ export default function CategoryBanner(props: CategoryBannerProps) {
     return (
         <article class="relative text-[#fff] before:absolute before:content-[''] before:w-full before:h-full before:bg-[rgba(0,0,0,0.3)] before:left-0 before:top-0 before:z-[2] mb-10">
             <Image
-                class="w-full z-[1] block min-h-[450px] lg:min-h-[unset] object-cover lg:object-none"
+                class="w-full z-[1] block min-h-[450px] lg:min-h-[unset] object-cover"
                 src={image}
                 alt={alt}
                 width={sizes.width}
