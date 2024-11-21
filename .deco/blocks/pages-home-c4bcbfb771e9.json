@@ -16,8 +16,7 @@
       }
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
+      
         "__resolveType": "site/sections/Images/Carousel.tsx",
         "elements": [
           {
@@ -37,7 +36,7 @@
         "images": [
           {}
         ]
-      }
+
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
@@ -107,13 +106,21 @@
           }
         },
         "products": {
-          "props": {
-            "sort": "",
-            "count": 6,
-            "collection": "209"
-          },
           "crossSelling": "similars",
-          "__resolveType": "vtex/loaders/intelligentSearch/productList.ts"
+          "__resolveType": "commerce/loaders/product/extensions/list.ts",
+          "data": {
+            "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+            "props": {
+              "sort": "",
+              "count": 6,
+              "collection": "209"
+            }
+          },
+          "extensions": [
+            {
+              "__resolveType": "site/loaders/extensions/ProductShelfCollectionsFlags.ts"
+            }
+          ]
         },
         "cardLayout": {
           "layout": {
@@ -206,23 +213,39 @@
         "tabs": [
           {
             "products": {
-              "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-              "props": {
-                "sort": "price:desc",
-                "collection": "374",
-                "count": 6
-              }
+              "__resolveType": "commerce/loaders/product/extensions/list.ts",
+              "data":{
+                "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+                "props": {
+                  "sort": "price:desc",
+                  "collection": "374",
+                  "count": 6
+                }
+              },
+              "extensions": [
+                {
+                  "__resolveType": "site/loaders/extensions/ProductShelfCollectionsFlags.ts"
+                }
+              ]
             },
             "title": "Masculino"
           },
           {
             "products": {
-              "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-              "props": {
-                "sort": "price:desc",
-                "collection": "376",
-                "count": 6
-              }
+              "__resolveType": "commerce/loaders/product/extensions/list.ts",
+              "data":{
+                "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+                "props": {
+                  "sort": "price:desc",
+                  "collection": "376",
+                  "count": 6
+                }
+              },
+              "extensions": [
+                {
+                  "__resolveType": "site/loaders/extensions/ProductShelfCollectionsFlags.ts"
+                }
+              ]
             },
             "title": "Feminino"
           }
@@ -270,12 +293,12 @@
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section":{
+      "section": {
         "__resolveType": "site/sections/Institutional/AboutUs.tsx",
         "title": "Sobre Nós",
         "subtitle": "Aleatory Store",
         "content": "A marca Aleatory nasceu em 1988, em São Paulo. Nossa linha de produtos é irresistível! São roupas, acessórios e calçados num estilo casual, esportivo, dinâmico e jovem. É a moda perfeita para quem quer estar impecável em qualquer ocasião. A qualidade de nossos produtos e o bom atendimento aos clientes vem em primeiro lugar sempre e por esse motivo ganhamos espaço em todo o Brasil. Nos tornamos uma marca sólida sem perder a identidade. A Aleatory está presente em mais de 800 multimarcas e temos 40 franquias espalhadas por todo o país. Juntamos agora toda essa tradição e expertise para estar presente também aqui na internet. Veja mais sobre a aleatory.",
-        "cta":{
+        "cta": {
           "label": "Ver Mais +",
           "url": "/institucional/quem-somos"
         }

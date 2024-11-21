@@ -51,14 +51,22 @@
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "site/sections/Product/ProductShelf.tsx",
-        "title": "COMPLETE SEU LOOK",
+        "title": "QUEM VIU TAMBÉM VIU",
         "products": {
-          "slug": {
-            "param": "slug",
-            "__resolveType": "website/functions/requestToParam.ts"
+          "__resolveType": "commerce/loaders/product/extensions/list.ts",
+          "data": {
+            "__resolveType": "vtex/loaders/legacy/relatedProductsLoader.ts",
+            "crossSelling": "whosawalsobought",
+            "slug": {
+              "param": "slug",
+              "__resolveType": "website/functions/requestToParam.ts"
+            }
           },
-          "crossSelling": "suggestions",
-          "__resolveType": "vtex/loaders/legacy/relatedProductsLoader.ts"
+          "extensions": [
+            {
+              "__resolveType": "site/loaders/extensions/ProductShelfCollectionsFlags.ts"
+            }
+          ]
         },
         "layout": {
           "showDots": true,

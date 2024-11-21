@@ -7,14 +7,17 @@ import * as $$$$$$$$$$$1 from "./apps/deco/htmx.ts";
 import * as $$$$$$$$$$$2 from "./apps/deco/vtex.ts";
 import * as $$$$$$$$$$$3 from "./apps/site.ts";
 import * as $$$2 from "./loaders/availableIcons.ts";
-import * as $$$3 from "./loaders/extensions/ProductColorSimilars.ts";
-import * as $$$4 from "./loaders/icons.ts";
+import * as $$$3 from "./loaders/extensions/PDPColorsNew.ts";
+import * as $$$4 from "./loaders/extensions/PLPCollectionFlags.ts";
+import * as $$$5 from "./loaders/extensions/ProductColorSimilars.ts";
+import * as $$$6 from "./loaders/extensions/ProductShelfCollectionsFlags.ts";
+import * as $$$7 from "./loaders/icons.ts";
 import * as $$$0 from "./loaders/Layouts/ProductCard.tsx";
 import * as $$$1 from "./loaders/List/Sections.tsx";
-import * as $$$5 from "./loaders/ourStores.ts";
-import * as $$$6 from "./loaders/productRecommendations.ts";
-import * as $$$7 from "./loaders/productSuggestions.ts";
-import * as $$$8 from "./loaders/sizebay.ts";
+import * as $$$8 from "./loaders/ourStores.ts";
+import * as $$$9 from "./loaders/productRecommendations.ts";
+import * as $$$10 from "./loaders/productSuggestions.ts";
+import * as $$$11 from "./loaders/sizebay.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/Benefits.tsx";
 import * as $$$$$$2 from "./sections/Cards/CardShowcase.tsx";
@@ -79,14 +82,17 @@ import * as $$$$$$59 from "./sections/Theme/Theme.tsx";
 const manifest = {
   "loaders": {
     "site/loaders/availableIcons.ts": $$$2,
-    "site/loaders/extensions/ProductColorSimilars.ts": $$$3,
-    "site/loaders/icons.ts": $$$4,
+    "site/loaders/extensions/PDPColorsNew.ts": $$$3,
+    "site/loaders/extensions/PLPCollectionFlags.ts": $$$4,
+    "site/loaders/extensions/ProductColorSimilars.ts": $$$5,
+    "site/loaders/extensions/ProductShelfCollectionsFlags.ts": $$$6,
+    "site/loaders/icons.ts": $$$7,
     "site/loaders/Layouts/ProductCard.tsx": $$$0,
     "site/loaders/List/Sections.tsx": $$$1,
-    "site/loaders/ourStores.ts": $$$5,
-    "site/loaders/productRecommendations.ts": $$$6,
-    "site/loaders/productSuggestions.ts": $$$7,
-    "site/loaders/sizebay.ts": $$$8,
+    "site/loaders/ourStores.ts": $$$8,
+    "site/loaders/productRecommendations.ts": $$$9,
+    "site/loaders/productSuggestions.ts": $$$10,
+    "site/loaders/sizebay.ts": $$$11,
   },
   "sections": {
     "site/sections/Animation/Animation.tsx": $$$$$$0,

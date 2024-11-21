@@ -1,5 +1,5 @@
 import { useSignal, useSignalEffect } from "@preact/signals";
-import { Product, ProductLeaf } from "apps/commerce/types.ts";
+import { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import Image from "apps/website/components/Image.tsx";
 import ShefAddToCartButtonVtex from "../../components/product/AddToCartButton/vtex.tsx";
@@ -15,7 +15,7 @@ type QuickBuy = {
     productId: string;
     skuId: string;
     isAvailable: boolean;
-    variant: ProductLeaf;
+    //variant: ProductLeaf;
 };
 
 export default function Insland(props: Props) {
@@ -36,6 +36,7 @@ export default function Insland(props: Props) {
             const isAvailable = variant.offers?.offers.some(
                 (offer) => offer.availability.includes("InStock"),
             );
+            //console.log("variant", isAvailable);
             return {
                 image: variant.image?.[0].url,
                 size: size?.value,
@@ -43,7 +44,6 @@ export default function Insland(props: Props) {
                 productId,
                 skuId,
                 isAvailable,
-                variant,
             };
         },
     ).filter((info) =>
@@ -92,9 +92,10 @@ export default function Insland(props: Props) {
             info.size === selectedSize.value &&
             info.color === selectedColor.value,
     )?.skuId;
-    const currentAnalysis = informationForQuikBuy?.find(
-        (info) => info.productId === currentProductId,
-    )?.variant;
+
+    const currentAnalysis = product.isVariantOf?.hasVariant.find(
+        (info) => info.productID === currentProductId,
+    );
 
     const eventParam = currentAnalysis
         ? mapProductToAnalyticsItem({
@@ -138,7 +139,7 @@ export default function Insland(props: Props) {
                             <Image
                                 src={color.image}
                                 alt="placeholder"
-                                class="w-8 h-8 rounded-md"
+                                class="w-8 h-8 rounded-md object-cover"
                                 width={200}
                                 height={200}
                             />

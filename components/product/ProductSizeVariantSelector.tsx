@@ -66,6 +66,7 @@ function SizeSelector({ product, breadcrumb, sizebay }: Props) {
   };
 
   const handleClick = (variant: ProductLeaf) => {
+    window.history.pushState({}, "", variant.url);
     signalProduct.value = variant;
   };
 

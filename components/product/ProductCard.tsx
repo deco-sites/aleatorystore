@@ -1,9 +1,11 @@
+import { useDevice } from "@deco/deco/hooks";
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import Image from "apps/website/components/Image.tsx";
 import type { Platform } from "../../apps/site.ts";
 import { SendEventOnClick } from "../../components/Analytics.tsx";
 import QuickBuy from "../../islands/ShelfQuickBuy/index.tsx";
+import { ReturnedFlagValue } from "../../loaders/extensions/ProductShelfCollectionsFlags.ts";
 import { clx } from "../../sdk/clx.ts";
 import { formatPrice } from "../../sdk/format.ts";
 import { relative } from "../../sdk/url.ts";
@@ -28,117 +30,6 @@ interface Props {
 
 const WIDTH = 200;
 const HEIGHT = 279;
-/*
-function loadCurrentQuickBuy(
-  cardId: string,
-  quikbuyData: QuickBuy[],
-  //addToCart: () => void,
-) {
-  const card = document.getElementById(cardId);
-  if (!card) return;
-  function loadQuickBuy() {
-    const id = card?.getAttribute("data-product-id");
-    console.log("id", id);
-    if (!id) return;
-    const data = quikbuyData.find((item) => item.skuId === id);
-    if (!data) return;
-    const availableSizesForCurrentColor = quikbuyData.filter(
-      (item) => (item.color === data.color && item.isAvailable),
-    );
-    const availableColorsForCurrentSize = quikbuyData.filter(
-      (item) => (item.size === data.size && item.isAvailable),
-    );
-
-    const sizeButtons = card?.querySelectorAll("button#size-btn");
-    const colorButtons = card?.querySelectorAll("button#color-btn");
-
-    sizeButtons?.forEach((button) => {
-      const size = button.getAttribute("data-size");
-      const isAvailable = availableSizesForCurrentColor.find(
-        (item) => item.size === size,
-      );
-      if (isAvailable) {
-        button.classList.remove("hidden");
-        button.classList.add("flex");
-      } else {
-        button.classList.add("hidden");
-        button.classList.remove("flex");
-      }
-
-      const isCurrentSku = data.size === size;
-      if (isCurrentSku) {
-        button.classList.add("border-primary-900");
-        button.classList.remove("border-transparent");
-      } else {
-        button.classList.remove("border-primary-900");
-        button.classList.add("border-transparent");
-      }
-      const newButton = button.cloneNode(true);
-      button.replaceWith(newButton);
-      newButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        card?.setAttribute("data-product-id", isAvailable?.skuId ?? "");
-        loadQuickBuy();
-      });
-    });
-
-    colorButtons?.forEach((button) => {
-      const color = button.getAttribute("data-color-name");
-      const isAvailable = availableColorsForCurrentSize.find(
-        (item) => item.color === color,
-      );
-      if (isAvailable) {
-        button.classList.remove("hidden");
-        button.classList.add("flex");
-      } else {
-        button.classList.add("hidden");
-        button.classList.remove("flex");
-      }
-
-      const isCurrentSku = data.color === color;
-      if (isCurrentSku) {
-        button.classList.add("border-primary-900");
-        button.classList.remove("border-transparent");
-      } else {
-        button.classList.remove("border-primary-900");
-        button.classList.add("border-transparent");
-      }
-
-      const newButton = button.cloneNode(true);
-      button.replaceWith(newButton);
-      newButton.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        card?.setAttribute("data-product-id", isAvailable?.skuId ?? "");
-        loadQuickBuy();
-      });
-    });
-    /*
-    const addToCartButton = card?.querySelector("button#addToCart");
-    if (!addToCartButton) return;
-    if (data.isAvailable) {
-      addToCartButton?.classList.remove("hidden");
-      addToCartButton?.classList.add("flex");
-    } else {
-      addToCartButton?.classList.add("hidden");
-      addToCartButton?.classList.remove("flex");
-    }
-    const newButton = addToCartButton.cloneNode(true);
-    addToCartButton?.replaceWith(newButton);
-    addToCartButton?.addEventListener("click", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      console.log("Add to cart clicked", data);
-    });
-
-  }
-
-  console.log("quikbuyData", addToCart);
-
-  loadQuickBuy();
-}
-*/
 
 function ProductCard({
   product,
@@ -147,6 +38,7 @@ function ProductCard({
   index,
 }: Props) {
   const { url, productID, image: images, isVariantOf } = product;
+  const device = useDevice();
   const randomId = useId();
   const id = `product-card-${productID}-${randomId}`;
   const [front, back] = images ?? [];
@@ -162,6 +54,12 @@ function ProductCard({
 
   const productPercentualOff = hasDiscount &&
     usePercentualDiscount(listPrice!, price!);
+
+  const flags = product.additionalProperty?.filter(
+    (property) => property.name === "collectionFlag",
+  )
+    .filter((property) => property.value)
+    .map((property) => JSON.parse(property.value!)) as ReturnedFlagValue[];
 
   return (
     <div
@@ -201,6 +99,19 @@ function ProductCard({
                 OFF
               </div>
             )}
+            <div class="absolute flex flex-col z-[3] right-auto left-0 top-0">
+              {flags.map((flag) => (
+                <img
+                  src={flag.flagImg}
+                  style={{
+                    width: device === "desktop"
+                      ? flag.shelfFlagWidth
+                      : flag.mobileShelfFlagWidth,
+                    height: "auto",
+                  }}
+                />
+              ))}
+            </div>
             {/* Product Images */}
             <a
               href={relativeUrl}

@@ -54,14 +54,7 @@
   "commerce": {
     "platform": "vtex",
     "authToken": {},
-    "appKey": {
-      "__resolveType": "website/loaders/secret.ts",
-      "encrypted": "862ba381e8607b3599e22d81b7e93994ae1f4ed91746d2aa860f4b9528d4c92a"
-    },
-    "appToken": {
-      "__resolveType": "website/loaders/secret.ts",
-      "encrypted": "15db94254f69e518bb005d197e05dd12002270877ab35592ae9a5ed082ffebf93755c97de12a6f943f23d552a60199acbc77d675b95ae3151853a09b6b18df86251b67101c8fb20eca48a1e32c640b8208333ad8fd6588448a87421c7c154b4402f5e7370c53270a6e13fc50b0907b368e238351d8c26e6dee7d7ca8fdfb97686fa1158e5740ea597819bda2a011f7d8"
-    },
+   
     "salesChannel": "1",
     "defaultSegment": {
       "channelPrivacy": "public"

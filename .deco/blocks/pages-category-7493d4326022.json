@@ -31,6 +31,9 @@
         "extensions": [
           {
             "__resolveType": "vtex/loaders/product/extensions/listingPage.ts"
+          },
+          {
+            "__resolveType": "site/loaders/extensions/PLPCollectionFlags.ts"
           }
         ]
       },

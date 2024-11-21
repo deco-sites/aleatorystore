@@ -14,33 +14,24 @@ export default async function SizebayLoader({ product }: Props, req: Request, ct
   let permaLink = "";
   let recommendedSize: string | null = null;
 
-  if (product.url?.includes("https://0.0.0.0:10503/")) {
-    // to work in local
-    permaLink = product.url?.replace(
-      "https://0.0.0.0:10503",
-      "https://www.aleatorystore.com.br",
-    ).split("?")[0];
-  } else if (
-    product.url?.includes("https://aleatorystore.deco.site/")
-  ) {
-    permaLink = product.url?.replace(
-      "https://aleatorystore.deco.site",
-      "https://www.aleatorystore.com.br",
-    ).split("?")[0];
-  } else {
-    permaLink = product.url!;
+  const urlObject = new URL(product.url!);
+  if (urlObject.hostname !== "www.aleatorystore.com.br") {
+    urlObject.hostname = "www.aleatorystore.com.br";
+    urlObject.port = "";
+    urlObject.protocol = "https:";
+    console.log("URL changed to", urlObject.href);
   }
+  permaLink = urlObject.href;
 
   try {
     if (!SID) {
-      const response = await fetch(
-        `https://vfr-v3-production.sizebay.technology/api/me/session-id`,
-      ).then((r) => r.json())
+      const response = await fetch(`https://vfr-v3-production.sizebay.technology/api/me/session-id`)
+        .then((r) => r.json())
         .catch((e) => {
           console.error(e);
         });
 
-      SID = response as string ?? null;
+      SID = (response as string) ?? null;
 
       setCookie(ctx.response.headers, {
         value: SID,
@@ -51,12 +42,10 @@ export default async function SizebayLoader({ product }: Props, req: Request, ct
       });
     }
 
-    const sizebayProductURL =
-      `https://vfr-v3-production.sizebay.technology/plugin/my-product-id?sid=${SID}&permalink=${permaLink}`;
+    const sizebayProductURL = `https://vfr-v3-production.sizebay.technology/plugin/my-product-id?sid=${SID}&permalink=${permaLink}`;
 
-    const sizebayProduct: any = await fetch(
-      sizebayProductURL,
-    ).then((r) => r.json())
+    const sizebayProduct: any = await fetch(sizebayProductURL)
+      .then((r) => r.json())
       .catch((e) => {
         console.error(e);
       });
@@ -64,9 +53,8 @@ export default async function SizebayLoader({ product }: Props, req: Request, ct
     if (sizebayProduct && typeof sizebayProduct !== "string") {
       showButtons = sizebayProduct.accessory ? "accessory" : "noAccessory";
 
-      const response: any = await fetch(
-        `https://vfr-v3-production.sizebay.technology/api/me/analysis/${sizebayProduct.id}?sid=${SID}&tenant=664`,
-      ).then((r) => r.json())
+      const response: any = await fetch(`https://vfr-v3-production.sizebay.technology/api/me/analysis/${sizebayProduct.id}?sid=${SID}&tenant=664`)
+        .then((r) => r.json())
         .catch((e) => {
           console.error(e);
         });
@@ -76,8 +64,7 @@ export default async function SizebayLoader({ product }: Props, req: Request, ct
       }
     }
 
-    buttonsUrl = (mode: string) =>
-      `https://vfr-v3-production.sizebay.technology/V4/?mode=${mode}&id=${sizebayProduct.id}&sid=${SID}&tenantId=664&watchOpeningEvents=true&lang=pt`;
+    buttonsUrl = (mode: string) => `https://vfr-v3-production.sizebay.technology/V4/?mode=${mode}&id=${sizebayProduct.id}&sid=${SID}&tenantId=664&watchOpeningEvents=true&lang=pt`;
   } catch (e) {
     console.error(e);
   }
@@ -86,5 +73,5 @@ export default async function SizebayLoader({ product }: Props, req: Request, ct
     showButtons,
     buttonsUrl,
     recommendedSize,
-  }
+  };
 }

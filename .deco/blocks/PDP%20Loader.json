@@ -15,6 +15,9 @@
     },
     {
       "__resolveType": "site/loaders/extensions/ProductColorSimilars.ts"
+    },
+    {
+      "__resolveType": "site/loaders/extensions/PDPColorsNew.ts"
     }
   ],
   "__resolveType": "commerce/loaders/product/extensions/detailsPage.ts"
