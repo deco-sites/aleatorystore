@@ -34,6 +34,11 @@ function SizeSelector({ product, breadcrumb, sizebay }: Props) {
   const productColor = useAdditionalProperty(product, "Cor");
 
   const selectedProduct = signalProduct.value ? signalProduct.value : product;
+
+  const stockQtd = selectedProduct.offers?.offers.find((offer) =>
+    offer.identifier === "default"
+  )?.inventoryLevel.value;
+
   const productSize = signalProduct.value
     ? useAdditionalProperty(selectedProduct, "Tamanho")
     : null;
@@ -122,26 +127,35 @@ function SizeSelector({ product, breadcrumb, sizebay }: Props) {
         })}
       </ul>
 
-      {!hasProductSelected
-        ? (
-          <div class="mt-6 sm:mt-10 flex flex-col gap-2 relative">
-            <span
-              class={errorMessage.value
-                ? "text-sm sm:text-base block text-error-medium absolute -top-7"
-                : "hidden"}
-            >
-              Selecione um Tamanho para continuar!
-            </span>
-            <Button
-              class="w-full"
-              negative
-              onClick={() => errorMessage.value = true}
-            >
-              COMPRAR
-            </Button>
-          </div>
-        )
-        : null}
+      <div class="relative">
+        {(stockQtd && stockQtd === 1)
+          ? (
+            <div class="bg-primary-900 py-1.5 px-2.5 min-w-[130px] absolute top-0 right-0 text-center text-xs leading-3 uppercase text-primary-100 w-fit">
+              Ultima Peça
+            </div>
+          )
+          : null}
+        {!hasProductSelected
+          ? (
+            <div class="mt-6 sm:mt-10 flex flex-col gap-2 relative">
+              <span
+                class={errorMessage.value
+                  ? "text-sm sm:text-base block text-error-medium absolute -top-7"
+                  : "hidden"}
+              >
+                Selecione um Tamanho para continuar!
+              </span>
+              <Button
+                class="w-full"
+                negative
+                onClick={() => errorMessage.value = true}
+              >
+                COMPRAR
+              </Button>
+            </div>
+          )
+          : null}
+      </div>
 
       {signalProduct.value
         ? (

@@ -11,7 +11,7 @@ export interface Props {
 
 function AccordionProductInfo({ title, description }: Props) {
   const isOpen = useSignal<boolean>(false);
-
+  if (!description) return null;
   return (
     <div class="w-full mb-6 first:mt-14">
       <button

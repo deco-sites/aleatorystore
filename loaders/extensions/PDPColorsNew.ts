@@ -8,7 +8,7 @@ type ColorsResult = Record<string, { url: string; image: string }>;
  * @title VTEX Integration - Product Details Page Colors from Cross Selling Similar
  * @description Add extra data to your loader. This may harm performance
  */
-export default function loader(_props: unknown, req: Request, ctx: AppContext): ExtensionOf<ProductDetailsPage | null> {
+export default function loader(_props: unknown, _req: Request, ctx: AppContext): ExtensionOf<ProductDetailsPage | null> {
   return async (productDetailsPage: ProductDetailsPage | null) => {
     const productId = productDetailsPage?.product.isVariantOf?.productGroupID;
     if (!productId) return productDetailsPage;

@@ -4667,6 +4667,9 @@ details.collapse summary::-webkit-details-marker {
 .left-\[80px\] {
   left: 80px;
 }
+.left-\[91\.666667\%\] {
+  left: 91.666667%;
+}
 .left-auto {
   left: auto;
 }
@@ -4675,9 +4678,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .right-1 {
   right: 0.25rem;
-}
-.right-10 {
-  right: 2.5rem;
 }
 .right-16 {
   right: 4rem;
@@ -5064,6 +5064,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .mr-4 {
   margin-right: 1rem;
+}
+.mr-\[14px\] {
+  margin-right: 14px;
 }
 .mr-\[2px\] {
   margin-right: 2px;
@@ -5548,6 +5551,9 @@ details.collapse summary::-webkit-details-marker {
 .min-w-\[100px\] {
   min-width: 100px;
 }
+.min-w-\[130px\] {
+  min-width: 130px;
+}
 .min-w-\[150px\] {
   min-width: 150px;
 }
@@ -5666,6 +5672,9 @@ details.collapse summary::-webkit-details-marker {
 .max-w-\[420px\] {
   max-width: 420px;
 }
+.max-w-\[436px\] {
+  max-width: 436px;
+}
 .max-w-\[480px\] {
   max-width: 480px;
 }
@@ -5725,6 +5734,10 @@ details.collapse summary::-webkit-details-marker {
 }
 .-translate-x-3 {
   --tw-translate-x: -0.75rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.-translate-x-full {
+  --tw-translate-x: -100%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .-translate-y-1\/2 {
@@ -6020,9 +6033,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .gap-\[10px\] {
   gap: 10px;
-}
-.gap-\[14px\] {
-  gap: 14px;
 }
 .gap-\[16px\] {
   gap: 16px;
@@ -6702,6 +6712,10 @@ details.collapse summary::-webkit-details-marker {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+.px-2\.5 {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -6745,6 +6759,10 @@ details.collapse summary::-webkit-details-marker {
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+}
+.py-1\.5 {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
 }
 .py-10 {
   padding-top: 2.5rem;
@@ -7018,6 +7036,9 @@ details.collapse summary::-webkit-details-marker {
 .leading-10 {
   line-height: 2.5rem;
 }
+.leading-3 {
+  line-height: .75rem;
+}
 .leading-4 {
   line-height: 1rem;
 }
@@ -7186,6 +7207,10 @@ details.collapse summary::-webkit-details-marker {
 .text-primary {
   --tw-text-opacity: 1;
   color: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+}
+.text-primary-100 {
+  --tw-text-opacity: 1;
+  color: rgb(237 237 237 / var(--tw-text-opacity));
 }
 .text-primary-600 {
   --tw-text-opacity: 1;
@@ -9400,6 +9425,10 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:pr-10 {
     padding-right: 2.5rem;
+  }
+
+  .lg\:pr-4 {
+    padding-right: 1rem;
   }
 
   .lg\:pr-8 {
