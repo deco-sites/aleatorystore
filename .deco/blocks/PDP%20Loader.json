@@ -18,6 +18,9 @@
     },
     {
       "__resolveType": "site/loaders/extensions/PDPColorsNew.ts"
+    },
+    {
+      "__resolveType": "site/loaders/extensions/PDPCollectionFlags.ts"
     }
   ],
   "__resolveType": "commerce/loaders/product/extensions/detailsPage.ts"

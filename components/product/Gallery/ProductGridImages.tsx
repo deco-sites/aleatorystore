@@ -3,6 +3,7 @@ import Image from "apps/website/components/Image.tsx";
 import Video from "apps/website/components/Video.tsx";
 import Slider from "../../../components/ui/Slider.tsx";
 import ProductImageZoom from "../../../islands/ProductImageZoom.tsx";
+import { ReturnedFlagValue } from "../../../loaders/extensions/PLPCollectionFlags.ts";
 import { useId } from "../../../sdk/useId.ts";
 import { useOffer } from "../../../sdk/useOffer.ts";
 import { usePercentualDiscount } from "../../../sdk/usePercentualPrice.ts";
@@ -42,12 +43,13 @@ export default function ProductGridImages(props: Props) {
     layout,
   } = props;
 
-  const { image: images = [], video: videos = [] } = product;
+  const { image: images = [], video: videos } = product;
 
   const { width, height } = layout || { width: 1200, height: 1480 };
 
   const aspectRatio = `${width} / ${height}`;
-  const productVideo = videos[0];
+  const remapedVideos = videos ? videos : [];
+  const productVideo = remapedVideos[0];
 
   const { productVariantDiscount } = useProductVariantDiscount(product);
   const { offers } = productVariantDiscount;
@@ -68,21 +70,37 @@ export default function ProductGridImages(props: Props) {
     displayProductZoomModal.value = true;
   };
 
+  const flags = product.additionalProperty?.filter(
+    (property) => property.name === "collectionFlag",
+  )
+    .filter((property) => property.value)
+    .map((property) => JSON.parse(property.value!)) as ReturnedFlagValue[];
   return (
     <div id={id} class="">
       {/* Image Slider */}
       <div class="sm:hidden relative order-1 sm:order-2">
         {productPercentualOff && (
-          <div class="bg-[#f6f4f3] absolute flex flex-col items-center justify-center w-[55px] h-[55px] text-[13px] leading-[1.45] font-bold text-black border z-[3] border-solid border-black left-auto right-10 top-6">
+          <div class="bg-[#f6f4f3] absolute flex flex-col items-center justify-center w-[55px] h-[55px] text-[13px] leading-[1.45] font-bold text-black border z-[3] border-solid border-black left-[91.666667%] transform -translate-x-full top-4">
             <span>{productPercentualOff}%</span>
             OFF
           </div>
         )}
-        <Slider class="carousel carousel-center gap-[14px] w-screen sm:w-[40vw] mt-4 sm:mt-0">
-          {images.map((img, index) => (
+        <div class="absolute flex flex-col z-[3] right-auto left-0 top-4">
+          {flags.map((flag) => (
+            <img
+              src={flag.flagImg}
+              style={{
+                width: flag.shelfFlagWidth,
+                height: "auto",
+              }}
+            />
+          ))}
+        </div>
+        <Slider class="carousel w-screen sm:w-[40vw] mt-4 sm:mt-0">
+          {images?.map((img, index) => (
             <Slider.Item
               index={index}
-              class="carousel-item w-11/12"
+              class="carousel-item w-11/12 mr-[14px]"
               onClick={handleClick}
             >
               <Image
@@ -101,7 +119,7 @@ export default function ProductGridImages(props: Props) {
 
         <div class="absolute top-2 right-2 bg-secondary-neutral-100 rounded-full">
           <ProductImageZoom
-            images={images}
+            images={images ?? []}
           />
         </div>
       </div>
@@ -114,7 +132,19 @@ export default function ProductGridImages(props: Props) {
           </div>
         )}
 
-        {images.slice(0, 1).map((image, index) => {
+        <div class="absolute flex flex-col z-[3] right-auto left-0 top-0">
+          {flags.map((flag) => (
+            <img
+              src={flag.flagImg}
+              style={{
+                width: flag.shelfFlagWidth,
+                height: "auto",
+              }}
+            />
+          ))}
+        </div>
+
+        {images?.slice(0, 1).map((image, index) => {
           return (
             <figure
               key={index}
@@ -164,7 +194,7 @@ export default function ProductGridImages(props: Props) {
           </figure>
         )}
 
-        {images.slice(1).map((image, index) => {
+        {images?.slice(1).map((image, index) => {
           return (
             <figure
               key={index}
@@ -188,7 +218,7 @@ export default function ProductGridImages(props: Props) {
 
         <div class="absolute top-2 right-2 bg-secondary-neutral-100 rounded-full">
           <ProductImageZoom
-            images={images}
+            images={images ?? []}
           />
         </div>
       </div>
