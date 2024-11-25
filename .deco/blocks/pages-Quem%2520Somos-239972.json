@@ -1,6 +1,8 @@
 {
-  "name": "Quem Somos",
-  "path": "/quem-somos",
+  "__resolveType": "website/pages/Page.tsx",
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
   "sections": [
     {
       "__resolveType": "Header - 03"
@@ -8,28 +10,58 @@
     {
       "__resolveType": "site/sections/Content/Banner.tsx",
       "image": {
-        "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/413c1319-4283-4ea9-aeb2-18ff2155367f",
+        "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/06b01175-8e47-48ee-8916-3aa9939e5a6a/download.webp",
         "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/fff74617-da33-4e44-86d3-5f939e63b0a2"
       }
     },
     {
-      "__resolveType": "site/sections/Content/Text.tsx",
-      "title": "Welcome to Aleatory",
-      "text": "<p>A Aleatory foi fundada em 2014 por Anna Carolina Bassi, empresária que cresceu ao redor da moda: seus pais foram os proprietários de uma marca de roupas que marcou os anos 90. A estilista então decidiu criar sua própria label, que une seu DNA, seu espírito, sua alegria de viver e seu estilo pessoal.</p>"
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Institutional/ImageCard.tsx",
+        "title": "SOBRE NÓS",
+        "description": "<p>A Aleatory nasceu em 1988, em São Paulo, com objetivo de trazer moda casual esportiva em um conceito mais dinâmico.</p><p>A marca foi ganhando mercado e adeptos ao estilo que a Aleatory traz com ela. As grandes referências da marca são as camisas polo masculinas e femininas, em diversos modelos e cores. Além das polos, acessórios, calças, bermudas e calçados são outros produtos com forte demanda e acompanham o estilo casual e esportivo que atendem diversas ocasiões.</p>",
+        "cta": {},
+        "image": {
+          "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/6dcb2163-c1b3-4982-9894-13545abedc36/0f3375c2-ea67-44b7-9c2f-7700321b08e5___151dfbd9deec586d5ef790b01e2a1c27.webp",
+          "width": 482,
+          "height": 511,
+          "alt": "Dois homens com uma camiseta."
+        },
+        "desktopCardPos": "right",
+        "mobileCardPos": "top"
+      }
     },
     {
-      "__resolveType": "site/sections/Content/ImageSection.tsx",
-      "title": "A marca",
-      "description": "A marca é referência em criar uma moda cool, com peças atemporais e de qualidade premium. A marca homônima de Carol conquistou um espaço desejável no mercado nacional e é queridinha entre fashionistas e personalidades influentes no universo da moda. Sua expertise é transformar suas inspirações e criatividade em peças exclusivas, que transbordam referências adquiridas no universo da arte, cultura e moda, além de suas viagens pelo mundo.",
-      "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/a1841116-ed39-4235-8217-bc7cda014dae",
-      "placement": "right"
+      "__resolveType": "site/sections/Content/Banner.tsx",
+      "image": {
+        "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/9ca20635-e45c-4ce0-9120-36cac29a3714/a4d5a19a-cdc6-4661-9902-99b53e458bb0___14fac0e8496d4d2c0a8be5295b6c8930.webp",
+        "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/fff74617-da33-4e44-86d3-5f939e63b0a2"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Institutional/ImageCard.tsx",
+        "title": "QUALIDADE E ELEGÂNCIA",
+        "description": "<p>A qualidade dos produtos é um dos grandes destaques da marca. Estilo, qualidade e versatilidade das roupas e acessórios fazem com que a Aleatory esteja presente em mais de 800 multimarcas e com mais de 40 franquias distribuídas em todo Brasil.<br>Juntamos agora toda essa tradição e expertise para estar presente também aqui em nossa loja virtual. Atuamos com total segurança nas compras, políticas de privacidade, trocas, devoluções, nosso blog e redes sociais com diversos conteúdos sobre moda, dicas de presentes, estilo de vida e looks para você se inspirar.</p>",
+        "cta": {
+          "label": "Ver Coleção",
+          "url": "/lancamentos"
+        },
+        "image": {
+          "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/2afd66ea-b1bd-40b8-8e2e-534972bd2264/aeed0cca-698d-4399-a679-9299e213c168___7bfda300a8e6ff4f67049b335e2c2993.webp",
+          "width": 482,
+          "height": 511,
+          "alt": "Dois homens com uma camiseta."
+        },
+        "desktopCardPos": "left",
+        "mobileCardPos": "top"
+      }
     },
     {
       "__resolveType": "Footer - 02"
     }
   ],
-  "seo": {
-    "__resolveType": "website/sections/Seo/SeoV2.tsx"
-  },
-  "__resolveType": "website/pages/Page.tsx"
+  "name": "Quem Somos",
+  "path": "/institucional/quem-somos"
 }

@@ -166,14 +166,16 @@
             "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b276a2d0-ea13-4edb-af15-c6b2a0803ddc/a9969974-d923-40a6-9d26-9e5db2e25e79___bf96b3b0b4665be7823b0c46b9a0d6f0.webp",
             "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b276a2d0-ea13-4edb-af15-c6b2a0803ddc/a9969974-d923-40a6-9d26-9e5db2e25e79___bf96b3b0b4665be7823b0c46b9a0d6f0.webp",
             "alt": "Um homem branco com uma camiseta vermelha e calça bege",
-            "productUrl": "/camisa-polo-aleatory-listrada-prestige-vermelha5000-1e-2-vm/p?skuId=62836"
+            "clickUrl": "/camisa-polo-aleatory-listrada-prestige-vermelha5000-1e-2-vm/p?skuId=62836",
+            "showCart":true
           },
           {
             "label": "Camisas",
             "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/0d9102d6-ef96-49d0-8d17-5b787ad4abc0/d4f4bfeb-b1ca-4fb0-ab6f-1e8b3f7f7696___881440c7d1d45609daec5f92d1b4e7f7.webp",
             "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/0d9102d6-ef96-49d0-8d17-5b787ad4abc0/d4f4bfeb-b1ca-4fb0-ab6f-1e8b3f7f7696___881440c7d1d45609daec5f92d1b4e7f7.webp",
             "alt": "Um homem branco com uma camisa listrada e calça branca",
-            "productUrl": "https://www.aleatorystore.com.br/masculino/roupas/camisas"
+            "clickUrl": "https://www.aleatorystore.com.br/masculino/roupas/camisas",
+            "showCart":true
           }
         ],
         "cta": {
@@ -268,21 +270,24 @@
             "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/9698e15c-f805-483e-9078-09c89395a3e2/4394bcee-60ea-4ee8-8ea2-9c4b75cc97fd___b763e2bb2824eaf1df7610057f09032c.webp",
             "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/9698e15c-f805-483e-9078-09c89395a3e2/4394bcee-60ea-4ee8-8ea2-9c4b75cc97fd___b763e2bb2824eaf1df7610057f09032c.webp",
             "alt": "Uma pessoa com uma camiseta amarela e uma bermuda listrada. Texto em caixa alta:  Bermudas, Conferir ",
-            "productUrl": "/masculino/roupas/bermudas-e-shorts"
+            "clickUrl": "/masculino/roupas/bermudas-e-shorts",
+            "showCart":true
           },
           {
             "label": "Moletons",
             "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/f7c597f0-24b7-49c3-9c72-4d5e34c52ac6/d0ae916d-fbab-4c22-bcc1-8c9a790471d7___dba0250ba9145f7a3af52268f484ca12.webp",
             "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/f7c597f0-24b7-49c3-9c72-4d5e34c52ac6/d0ae916d-fbab-4c22-bcc1-8c9a790471d7___dba0250ba9145f7a3af52268f484ca12.webp",
             "alt": "Um homem branco com um moletom cor de vinho da aleatory, no meio do moletom tem em caixa alta bordado aleatory na cor azul escuro. Texto: Moletons 20%OFF, clique e aproveite",
-            "productUrl": "/363?map=productClusterIds"
+            "clickUrl": "/363?map=productClusterIds",
+            "showCart":true
           },
           {
             "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/a2e59424-cd1a-4fd4-afad-ed774544a033/a6fbf100-cd51-4504-957f-8e2d68fa9671___b339bd1c2f42faa32c4c6f6c207caadc.webp",
             "label": "Suéteres e Jaquetas",
             "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/a2e59424-cd1a-4fd4-afad-ed774544a033/a6fbf100-cd51-4504-957f-8e2d68fa9671___b339bd1c2f42faa32c4c6f6c207caadc.webp",
-            "productUrl": "/322?map=productClusterIds",
-            "alt": "Uma pessoa de "
+            "clickUrl": "/322?map=productClusterIds",
+            "alt": "Uma pessoa de ",
+            "showCart":true
           }
         ],
         "cta": {

@@ -59,7 +59,7 @@ export default function ImageSection({
           <p class="text-2xl text-center lg:text-left lg:text-[40px] leading-[110%] font-normal uppercase text-dark-blue">
             {title}
           </p>
-          <p class="text-center lg:text-left font-light text-[16px] md:text-[18px] leading-[150%] text-[#4B5565] lg:text-[18px] ">
+          <p class="text-center lg:text-left font-light text-[16px] md:text-[18px] leading-[150%] text-[#4B5565] lg:text-[18px] whitespace-pre-line ">
             {description}
           </p>
           {cta?.href && cta?.text && (

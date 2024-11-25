@@ -6,12 +6,16 @@ export interface Image {
   desktop: ImageWidget;
   mobile: ImageWidget;
   alt: string;
-  productUrl: string;
+  clickUrl?: string;
+  showCart?: boolean;
 }
 
 export interface Props {
   title: string;
-  subtitle: string;
+  subtitle?: string;
+  /**
+   * @format textarea
+   */
   description: string;
   cta: {
     href: string;

@@ -5675,6 +5675,9 @@ details.collapse summary::-webkit-details-marker {
 .max-w-\[436px\] {
   max-width: 436px;
 }
+.max-w-\[460px\] {
+  max-width: 460px;
+}
 .max-w-\[480px\] {
   max-width: 480px;
 }
@@ -6114,6 +6117,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .whitespace-pre {
   white-space: pre;
+}
+.whitespace-pre-line {
+  white-space: pre-line;
 }
 .break-words {
   overflow-wrap: break-word;

@@ -23,7 +23,9 @@ interface Props {
   cards: Card[];
 }
 
-export default function CardShowcase({ cards }: Props) {
+export default function CardShowcase({
+  cards,
+}: Props) {
   if (cards.length !== 3) return null;
   return (
     <div class="flex flex-col gap-5 lg:gap-0 lg:flex-row w-fit mx-auto mt-[60px] lg:mb-10">
