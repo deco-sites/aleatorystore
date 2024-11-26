@@ -1,4 +1,3 @@
-import { RichText } from "apps/admin/widgets.ts";
 import { clx } from "site/sdk/clx.ts";
 
 export interface MenuItem {
@@ -10,10 +9,8 @@ export interface Menu {
 }
 export interface Props {
     menu: Menu;
-    text: {
-        title: string;
-        content: RichText;
-    };
+    title: string;
+    iframeUrl: string;
 }
 
 export function loader(props: Props, req: Request) {
@@ -27,7 +24,11 @@ export function loader(props: Props, req: Request) {
                 active: item.url === path,
             })),
         },
-        text: props.text,
+        text: {
+            title: props.title,
+            content:
+                `<iframe src="${props.iframeUrl}" width="100%" height="1000px" frameborder="0"></iframe>`,
+        },
     };
 }
 
@@ -65,9 +66,6 @@ export default function InstitucionalPage(props: ReturnType<typeof loader>) {
                     </ul>
                 </nav>
                 <div class="text-center lg:text-left">
-                    <h1 class="text-2xl uppercase font-semibold mb-11">
-                        {props.text.title}
-                    </h1>
                     <div
                         class="[&>p]:mt-[14px] [&>p]:mb-[30px] [&_a]:underline"
                         dangerouslySetInnerHTML={{ __html: props.text.content }}

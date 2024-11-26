@@ -1,0 +1,29 @@
+{
+  "name": "Ajuda - Prazo e Entrega",
+  "path": "/institucional/prazo-de-entrega",
+  "sections": [
+    {
+      "__resolveType": "Header - 03"
+    },
+    {
+      "__resolveType": "site/sections/Institutional/InstitucionalPage.tsx",
+      "text": {
+        "title": "Prazo e Entrega",
+        "content": "<p>Para garantir sua satisfação, a Aleatory realiza entrega em todo o Brasil por meio de parcerias com as principais transportadoras.</p><p>O cliente pode escolher o serviço de entrega mais conveniente, exceto quando se tratar de ação promocional para Frete Grátis, neste caso a escolha do transportador fica à critério da Aleatory Store.</p><p>O prazo de entrega e preço do frete são calculados de acordo com a região de destino da mercadoria e passa a contar somente após a confirmação do pagamento.</p><p>O prazo de entrega está sujeito à alterações sem aviso prévio e vale apenas para dias úteis, ou seja, exclui-se finais de semana e feriados.</p><p><strong><span style=\"font-size: 16px\">Ressaltamos que a responsabilidade no cumprimento pelo prazo de entrega é do fornecedor logistico (Correios ou Total Express), escolhido pelo cliente no ato da compra, portanto deixamos aqui ciente que o prazo indicado em nosso site é uma previsão de entrega e pode sofrer alterações, além disso o transportador pode solicitar ao destinatário a retirada da encomenda em local a ser definido.</span></strong></p>"
+      },
+      "menu": {
+        "__resolveType": "Menu Saved"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer - 02"
+      }
+    }
+  ],
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "__resolveType": "website/pages/Page.tsx"
+}

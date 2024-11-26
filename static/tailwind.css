@@ -9774,6 +9774,10 @@ details.collapse summary::-webkit-details-marker {
   margin-top: 14px;
 }
 
+.\[\&_a\]\:underline a {
+  text-decoration-line: underline;
+}
+
 .htmx-request .\[\.htmx-request_\&\]\:inline {
   display: inline;
 }

@@ -1,0 +1,29 @@
+{
+  "__resolveType": "website/pages/Page.tsx",
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "sections": [
+    {
+      "__resolveType": "Header - 03"
+    },
+    {
+      "__resolveType": "site/sections/Institutional/InstitucionalPage.tsx",
+      "text": {
+        "title": "Dúvidas",
+        "content": "<p><strong><span style=\"font-size: 16px\">COMO POSSO RESERVAR UMA MERCADORIA?</span></strong><br>Durante a navegação pelo site, as mercadorias colocadas na sacola de compras só serão reservadas (e retiradas do estoque da ALEATORY STORE) depois da conclusão do pedido. Antes de finalizar o pedido, não podemos garantir a peça.</p><p>Após a conclusão do pedido, as peças ficam reservadas até a confirmação do pagamento.</p><p><strong><span style=\"font-size: 16px\">COMO FAÇO PARA DESCOBRIR MEU TAMANHO?</span></strong><br>Clique no produto que gostou. Você será direcionada para uma página com uma grande foto da peça escolhida (passe o mouse sobre a foto para ver com zoom). Ao lado da foto principal você encontra informações sobre caimento, composição e cor do produto. Clique na aba escrito “CONFERIR GUIA DE MEDIDAS”, abaixo dos tamanhos disponíveis para seleção, para ver as medidas da peça, em centímetros.</p><p><strong><span style=\"font-size: 16px\">COMO OBTER INFORMAÇÕES NECESSÁRIAS SOBRE PRODUTOS DO SITE?</span></strong><br>Clique no produto que gostou. Você será direcionada para uma página com uma grande foto da peça escolhida (passe o mouse sobre a foto para ver com zoom). Ao lado da foto principal você encontra informações sobre caimento, composição e cor do produto. Clique na aba escrito “CONFERIR GUIA DE MEDIDAS”, abaixo dos tamanhos disponíveis para seleção, para ver as medidas da peça, em centímetros.</p><p><strong><span style=\"font-size: 16px\">QUERO UM PRODUTO, MAS ELE ESTÁ INDISPONÍVEL. COMO SABER SE FICARÁ DISPONÍVEL NOVAMENTE?</span></strong><br>Se você gostou de um produto, mas ele está indisponível, clique sobre ele. Selecione o tamanho que deseja e digite seu e-mail dentro do box que vai aparecer. Faremos o possível para conseguir reposição. Se isso acontecer, você receberá um e-mail avisando sobre a chegada do produto.</p><p><strong><span style=\"font-size: 16px\">QUAL O PRAZO DE ENTREGA DOS PEDIDOS?</span></strong><br>O prazo de entrega varia de acordo com o CEP da cliente. Ele começa a contar a partir da aprovação do pedido pelo banco, no caso de boletos (pode levar até 3 dias úteis), ou administradora, para pedidos pagos com cartões de crédito (pode levar até 24 horas).</p><p>Compras aprovadas até a meia-noite serão despachadas no dia seguinte. Pedidos feitos aos sábados, domingos ou feriados serão despachados no primeiro dia útil após a autorização da administradora do cartão de crédito ou banco.</p>"
+      },
+      "menu": {
+        "__resolveType": "Menu Saved"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer - 02"
+      }
+    }
+  ],
+  "name": "Ajuda - Dúvidas",
+  "path": "/institucional/duvidas"
+}

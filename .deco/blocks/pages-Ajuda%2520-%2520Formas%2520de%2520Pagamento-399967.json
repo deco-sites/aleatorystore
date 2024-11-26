@@ -1,0 +1,29 @@
+{
+  "__resolveType": "website/pages/Page.tsx",
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "sections": [
+    {
+      "__resolveType": "Header - 03"
+    },
+    {
+      "__resolveType": "site/sections/Institutional/InstitucionalPage.tsx",
+      "text": {
+        "title": "Formas de Pagamento",
+        "content": "<p>É possível pagar suas compras na <strong><span style=\"font-size: 16px\">Aleatory Store</span></strong> através das seguintes opções American Express, Diners,Hipercard, Elo, Mastercard, Visa, Boleto bancário, PayPal, Débito Banco do Brasil, Débito Itau, Débito Bradesco, Débito Banrisul</p><p><strong><span style=\"font-size: 16px\">CARTÕES DE CRÉDITO</span></strong><br>O pagamento via cartão de crédito é rápido e prático basta escolher os seus produtos inserir o número de seu cartão e pronto, agora é só esperar a sua administradora aprovar e aguardar o recebimento. Lembrando que se a aprovação for após as 17:00 horas, a confirmação será processada no próximo. A proteção de seus dados e o sigilo da sua compra é nossa prioridade. Por essa razão utilizamos o sistema de criptografia que codifica os dados fornecidos ao nosso sistema. O número do seu cartão de crédito será descartado imediatamente após a conclusão da venda. Atenção: Seu cartão de crédito possui um limite de compras estabelecido pela administradora. Para que o pedido seja aprovado, é necessário que o limite disponível no cartão seja igual ou superior ao valor total da compra e não de cada parcela.</p><p><strong><span style=\"font-size: 16px\">IMPORTANTE:</span></strong><br>Esta forma de pagamento estará sujeita à confirmação de dados por telefone ou e-mail para a efetiva liberação do crédito - caso a administradora assim entenda necessário. Esta medida é adotada para garantir a total segurança do portador do cartão.</p><p><strong><span style=\"font-size: 16px\">BOLETO BANCÁRIO</span></strong><br>Se preferir é possível pagar sua compra através de boleto, para isso ao finalizar a compra escolha a opção boleto bancário e logo será exibido na tela o boleto* com suas informações e o valor total da compra. Imprima esse boleto e pague em qualquer agência bancário ou pela internet através de seu bankline. A Aleatory será notificada em 24h e após essa confirmação o pedido será liberado.</p><p>*Verifique suas configurações de pop-up.</p>"
+      },
+      "menu": {
+        "__resolveType": "Menu Saved"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer - 02"
+      }
+    }
+  ],
+  "name": "Ajuda - Formas de Pagamento",
+  "path": "/institucional/formas-de-pagamento"
+}
