@@ -6121,6 +6121,9 @@ details.collapse summary::-webkit-details-marker {
 .whitespace-pre-line {
   white-space: pre-line;
 }
+.whitespace-break-spaces {
+  white-space: break-spaces;
+}
 .break-words {
   overflow-wrap: break-word;
 }
@@ -9028,6 +9031,10 @@ details.collapse summary::-webkit-details-marker {
 
   .lg\:max-w-\[570px\] {
     max-width: 570px;
+  }
+
+  .lg\:max-w-\[80rem\] {
+    max-width: 80rem;
   }
 
   .lg\:max-w-fit {

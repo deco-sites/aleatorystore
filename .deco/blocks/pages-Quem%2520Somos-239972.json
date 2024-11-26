@@ -19,7 +19,7 @@
       "section": {
         "__resolveType": "site/sections/Institutional/ImageCard.tsx",
         "title": "SOBRE NÓS",
-        "description": "<p>A Aleatory nasceu em 1988, em São Paulo, com objetivo de trazer moda casual esportiva em um conceito mais dinâmico.</p><p>A marca foi ganhando mercado e adeptos ao estilo que a Aleatory traz com ela. As grandes referências da marca são as camisas polo masculinas e femininas, em diversos modelos e cores. Além das polos, acessórios, calças, bermudas e calçados são outros produtos com forte demanda e acompanham o estilo casual e esportivo que atendem diversas ocasiões.</p>",
+        "description": "A Aleatory nasceu em 1988, em São Paulo, com objetivo de trazer moda casual esportiva em um conceito mais dinâmico\n\nA marca foi ganhando mercado e adeptos ao estilo que a Aleatory traz com ela. As grandes referências da marca são as camisas polo masculinas e femininas, em diversos modelos e cores. Além das polos, acessórios, calças, bermudas e calçados são outros produtos com forte demanda e acompanham o estilo casual e esportivo que atendem diversas ocasiões.",
         "cta": {},
         "image": {
           "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/6dcb2163-c1b3-4982-9894-13545abedc36/0f3375c2-ea67-44b7-9c2f-7700321b08e5___151dfbd9deec586d5ef790b01e2a1c27.webp",
@@ -43,7 +43,7 @@
       "section": {
         "__resolveType": "site/sections/Institutional/ImageCard.tsx",
         "title": "QUALIDADE E ELEGÂNCIA",
-        "description": "<p>A qualidade dos produtos é um dos grandes destaques da marca. Estilo, qualidade e versatilidade das roupas e acessórios fazem com que a Aleatory esteja presente em mais de 800 multimarcas e com mais de 40 franquias distribuídas em todo Brasil.<br>Juntamos agora toda essa tradição e expertise para estar presente também aqui em nossa loja virtual. Atuamos com total segurança nas compras, políticas de privacidade, trocas, devoluções, nosso blog e redes sociais com diversos conteúdos sobre moda, dicas de presentes, estilo de vida e looks para você se inspirar.</p>",
+        "description": "A qualidade dos produtos é um dos grandes destaques da marca. Estilo, qualidade e versatilidade das roupas e acessórios fazem com que a Aleatory esteja presente em mais de 800 multimarcas e com mais de 40 franquias distribuídas em todo Brasil.\n\nJuntamos agora toda essa tradição e expertise para estar presente também aqui em nossa loja virtual. Atuamos com total segurança nas compras, políticas de privacidade, trocas, devoluções, nosso blog e redes sociais com diversos conteúdos sobre moda, dicas de presentes, estilo de vida e looks para você se inspirar.",
         "cta": {
           "label": "Ver Coleção",
           "url": "/lancamentos"

@@ -1,11 +1,14 @@
-import { ImageWidget, RichText } from "apps/admin/widgets.ts";
+import { ImageWidget } from "apps/admin/widgets.ts";
 import Image from "apps/website/components/Image.tsx";
-import { clx } from "../../sdk/clx.ts";
-import ButtonBanner from "../ui/ButtonBanner.tsx";
+import ButtonBanner from "site/components/ui/ButtonBanner.tsx";
+import { clx } from "site/sdk/clx.ts";
 
 interface Props {
   title: string;
-  description: RichText;
+  /**
+   * @format textarea
+   */
+  description: string;
   desktopCardPos: "left" | "right";
   mobileCardPos: "top" | "bottom";
   cta?: {
@@ -38,11 +41,16 @@ export default function InstitucionalCard(props: Props) {
       )}
     >
       <div class="flex flex-col gap-5 max-w-[460px]">
-        <h2 class="text-[32px] uppercase tracking-[1px]">
-          {props.title}
-        </h2>
+        {props.title
+          ? (
+            <h2 class="text-[32px] uppercase tracking-[1px]">
+              {props.title}
+            </h2>
+          )
+          : null}
+
         <p
-          class="text-sm font-light tracking-[1px] leading-[25px] text-black mx-0 my-2.5"
+          class="text-sm font-light tracking-[1px] leading-[25px] text-black mx-0 my-2.5 whitespace-break-spaces"
           dangerouslySetInnerHTML={{ __html: props.description }}
         />
         {props.cta && props.cta.url && props.cta.label && (

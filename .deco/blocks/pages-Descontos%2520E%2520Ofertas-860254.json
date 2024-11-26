@@ -1,0 +1,70 @@
+{
+  "__resolveType": "website/pages/Page.tsx",
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "sections": [
+    {
+      "__resolveType": "Header - 03"
+    },
+    {
+      "__resolveType": "site/sections/Institutional/InstitucionalIndiqueForm.tsx"
+    },
+    {
+      "__resolveType": "site/sections/Institutional/InstitucionalThereeImages.tsx",
+      "images": [
+        "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/03c66eb9-4b9d-4538-9ada-9eb8cdae5ee8/amigo1.webp",
+        "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/6da39c31-04a0-464f-bc6b-0456af463e82/amigo2.webp",
+        "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/caa11a3f-d671-4024-845a-63ab956a42c2/amigo3.webp"
+      ]
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Institutional/ImageCard.tsx",
+        "description": "Camisas polo com desconto\n\nTemos uma variedade grande de Camisas Polo, nessa variedade você pode conferir nossas Polos Listradas, Lisas ou Básicas a partir de R$89, Mini Print, Polos com Bolso e Polo Patch, todas em até 10X s/ juros em nossa Loja Virtual.\n\nSão Diversas Ofertas de Polos para você escolher, com muitas opções de modelos e cores, tais como: Preta, Branca, Amarela, Azul, Vermelha e Verde. Você pode escolher sua Polo de acordo com sua cor favorita ou até escolher de acordo com o de tecido, entre as opções que nossa marca oferece, temos tecidos confeccionados com toque Piquet ou Malha.\n\nNossas opções de Polos variam não só na quantidade, modelos e cores, mas também nos tamanhos. Nossa Loja disponibiliza os tamanhos P, M, G, GG, XGG e XGGG, sendo o XGG e XGGG tamanhos específicos para pessoas Plus Size, gordas. Nossas Polos Plus Size oferecem o mesmo padrão e qualidade de materiais utilizados nas Polos de tamanhos menores, no entanto as listras podem sofrer alternância de posição em tamanhos maiores. Essa peculiaridade se dá pelo fato das Polos serem confeccionadas em fio tinto, ou seja, o tecido é tingido antes da confecção da peça e dependendo do tamanho da Polo essa listra sofre uma mudança na posição das listras em comparação às polos de tamanhos menores, para que assim a produção e costura se adeque ao tamanho da peça.\n\nVocê pode comprar sua Polo Listrada, Polo Básica ou qualquer outro produto e modelo com um desconto que só amigo compartilha através da nossa indicação de amigos. Esse Desconto de 10% pode ser utilizado em nossa loja online, no entanto não é cumulativo, ou seja, não pode ser adicionado a itens que já possuam preço promocional.\n\nPor falar em preço promocional, temos uma seleção de Camisas Polos com Desconto que vão te deixar de boca aberta, mas lembre-se que esse cupom de indique amigos não se aplica a itens que já possuem desconto ou preço promocional.",
+        "cta": {},
+        "image": {
+          "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b44d18cc-ccfb-45fe-9ae6-8aaf2cd03036/camisas-polo.webp",
+          "width": 500,
+          "height": 367,
+          "alt": "Dois homens com uma camiseta."
+        },
+        "desktopCardPos": "left",
+        "mobileCardPos": "top"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Institutional/ImageCard.tsx",
+        "description": "Nossa variedade de Camisetas tem diversas opções de cores, listras e modelos. Você pode escolher sua Camisetas entre nossas Novidades e Lançamentos ou escolher nosso estoque de camisetas em desconto que fazem parte de coleções passadas. Nosso catálogo de camisetas oferece modelos de camisetas regata, Listradas, Básicas ou Lisas, Gola V e Estampadas. A escolha da sua camiseta Aleatory deve ser pensada antes de você fechar sua compra, para evitar transtornos com trocas de modelos, cores e tamanhos e pensando na sua comidade, nossa loja também disponibiliza tamanhos Plus Size para camisetas. Temos opções de tamanhos XGG e XGGG para sua camisetas Aleatory.\n\nCompre sua Camiseta Aleatory a partir de R$69 e parcele em até 10X sem juros através de nossa loja online. São inúmeras opções de modelos para você conferir e escolher a que mais te agrade e te ofereça ainda mais elegãncia e estilo sem deixar o conforto e a leveza de lado.\n\nPara você que gosta de Descontos, temos uma coleção de camisetas em nosso Outlet, com descontos surpreendentes que vão te deixar de look novo. Clique aqui e confira as opções de camisetas em promoção, mas lembre-se que esse desconto de indique amigos não se aplica a itens que já tenham descontos ou preços promocionais.\n\nPara combinar com sua camiseta Aleatory, recomendamos que você conheça nossa linha de Shorts e Bermudas que vão deixar seu verão e suas férias ainda mais relaxante. Uma boa dica para combinar Bermudas e Camisetas é usar apenas um das duas peças com estampa, ou seja, se sua camiseta é estampada o ideal é usar uma bermuda lisa e vice-versa. No entanto se você quiser usar uma camiseta Básica com uma bermuda lisa, a combinação funciona super bem.\n\nAgora que você já conhece nossas opções de Polos, Camisetas e Descontos, você pode indicar 3 amigos e ganhar 10% off em sua primeira compra na nossa loja virtual. O que Acha? Aproveite e compartilhe no facebook, basta clicar no link do lado direiro da página.",
+        "cta": {},
+        "image": {
+          "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/fc795b74-a9f7-4780-a55d-3fd29a9c94cb/camisetas-img.webp",
+          "width": 500,
+          "height": 367,
+          "alt": "Dois homens com uma camiseta."
+        },
+        "desktopCardPos": "right",
+        "mobileCardPos": "bottom"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Institutional/InstitucionalThereeImages.tsx",
+        "images": [
+          "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/c545dbdc-3693-4934-bb8a-4b26b0e547fc/produto-sugerido1.webp",
+          "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/dadb8d72-0c30-491a-9fe0-3c03c42d75c1/produto-sugerido2.webp",
+          "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b9757129-4273-4e14-8862-4c9826230392/produto-sugerido3.webp"
+        ]
+      }
+    },
+    {
+      "__resolveType": "Footer - 02"
+    }
+  ],
+  "name": "Descontos E Ofertas",
+  "path": "/descontos-ofertas-aleatory"
+}
