@@ -4981,6 +4981,10 @@ details.collapse summary::-webkit-details-marker {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -5689,6 +5693,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-w-\[640px\] {
   max-width: 640px;
+}
+.max-w-\[75rem\] {
+  max-width: 75rem;
 }
 .max-w-\[795px\] {
   max-width: 795px;
@@ -8823,9 +8830,34 @@ details.collapse summary::-webkit-details-marker {
     margin-right: 0px;
   }
 
+  .lg\:mx-20 {
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+
   .lg\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .lg\:my-0 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .lg\:my-2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .lg\:my-2\.5 {
+    margin-top: 0.625rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .lg\:my-20 {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
   }
 
   .lg\:mb-0 {
@@ -9266,6 +9298,10 @@ details.collapse summary::-webkit-details-marker {
     gap: 2rem;
   }
 
+  .lg\:gap-\[unset\] {
+    gap: unset;
+  }
+
   .lg\:space-y-4 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-y-reverse: 0;
     margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
@@ -9371,6 +9407,11 @@ details.collapse summary::-webkit-details-marker {
   .lg\:px-\[5rem\] {
     padding-left: 5rem;
     padding-right: 5rem;
+  }
+
+  .lg\:px-\[unset\] {
+    padding-left: unset;
+    padding-right: unset;
   }
 
   .lg\:py-10 {

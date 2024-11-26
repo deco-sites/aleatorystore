@@ -1,1 +1,1 @@
-export { default } from "site/components/institucional/InstitucionalIndiqueForm.tsx";
+export { default } from "../../components/institucional/InstitucionalIndiqueForm/index.tsx";

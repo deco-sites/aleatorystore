@@ -4,7 +4,7 @@ import ButtonBanner from "site/components/ui/ButtonBanner.tsx";
 import { clx } from "site/sdk/clx.ts";
 
 interface Props {
-  title: string;
+  title?: string;
   /**
    * @format textarea
    */
@@ -35,12 +35,12 @@ export default function InstitucionalCard(props: Props) {
   return (
     <article
       class={clx(
-        "flex gap-10 mx-auto w-fit my-20",
+        "flex gap-10 mx-auto w-fit mt-16 mb-20 lg:my-20",
         cardPosDesktop,
         cardPosMobile,
       )}
     >
-      <div class="flex flex-col gap-5 max-w-[460px]">
+      <div class="flex flex-col gap-5 max-w-[460px] px-6 lg:px-[unset]">
         {props.title
           ? (
             <h2 class="text-[32px] uppercase tracking-[1px]">
@@ -50,7 +50,7 @@ export default function InstitucionalCard(props: Props) {
           : null}
 
         <p
-          class="text-sm font-light tracking-[1px] leading-[25px] text-black mx-0 my-2.5 whitespace-break-spaces"
+          class="text-sm font-light tracking-[1px] leading-[25px] text-black mx-0 lg:my-2.5 whitespace-break-spaces"
           dangerouslySetInnerHTML={{ __html: props.description }}
         />
         {props.cta && props.cta.url && props.cta.label && (

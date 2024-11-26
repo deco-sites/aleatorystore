@@ -8,7 +8,13 @@
       "__resolveType": "Header - 03"
     },
     {
-      "__resolveType": "site/sections/Institutional/InstitucionalIndiqueForm.tsx"
+      "__resolveType": "site/sections/Institutional/InstitucionalIndiqueForm.tsx",
+      "image": {
+        "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/547c94d3-f594-4f2e-ac44-10dfd147dd7e/indique-3-amigos-img.webp",
+        "width": 640,
+        "height": 470,
+        "alt": "Uma pessoal usando uma jaqueta vermelha"
+      }
     },
     {
       "__resolveType": "site/sections/Institutional/InstitucionalThereeImages.tsx",
@@ -60,6 +66,11 @@
           "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b9757129-4273-4e14-8862-4c9826230392/produto-sugerido3.webp"
         ]
       }
+    },
+    {
+      "__resolveType": "site/sections/Institutional/InstitucionalIndiqueForm.tsx",
+      "image": {},
+      "text": "Não perca seus\n10% de desconto\ne convide seus amigos!"
     },
     {
       "__resolveType": "Footer - 02"
