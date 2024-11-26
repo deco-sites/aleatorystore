@@ -1,0 +1,29 @@
+{
+  "name": "Ajuda - Como Comprar",
+  "path": "/ajuda/como-comprar",
+  "sections": [
+    {
+      "__resolveType": "Header - 03"
+    },
+    {
+      "__resolveType": "site/sections/Institutional/InstitucionalPage.tsx",
+      "text": {
+        "title": "Como Comprar",
+        "content": "<p><strong><span style=\"font-size: 16px\">FORMAS DE PAGAMENTO</span></strong></p><p>Faça compras 100% online em nossa loja, escolha seu produto, faça o cadastro, escolha a forma de pagamento e pronto! Seu pedido está concretizado. Não se preocupe se você comprou errado, nós fazemos a troca sem custo algum para você.</p><p><strong><span style=\"font-size: 16px\">BOLETO BANCÁRIO</span></strong></p><p>Após a confirmação do pedido, será exibida uma ficha de compensação bancária com seus dados e valor total do pedido. Efetue o pagamento em qualquer agência bancária do país ou via home-banking. Seremos notificados em até 24 horas, liberando, então, seu pedido.</p><p><strong><span style=\"font-size: 16px\">CARTÃO DE CRÉDITO</span></strong></p><p>Após a confirmação do pedido, será exibida uma ficha de compensação bancária com seus dados e valor total do pedido. Efetue o pagamento em qualquer agência bancária do país ou via home-banking. Seremos notificados em até 24 horas, liberando, então, seu pedido. Você poderá fazer o pagamento de seu pedido das seguintes maneiras:<br>• Pagamento parcelado: Cartões: Visa, Mastercard, Diners.<br>• Para sua segurança, após compra na Aleatory Store as informações de seu cadastro estão sujeitas à confirmação. Caso haja qualquer divergência nos dados que possa acarretar atraso na entrega do pedido, você será informado por meio do e-mail cadastrado;<br>• A cobrança é efetuada em valor integral independente da disponibilidade dos itens.</p><p><strong><span style=\"font-size: 16px\">PAGAMENTO À VISTA</span></strong></p><p>Boleto bancário;</p><p><strong><span style=\"font-size: 16px\">DESCONTOS E CUPOM DE 10% PARA NOVOS CADASTROS</span></strong></p><p>*Nenhum desconto disponibilizado na loja é cumulativo, ou seja, não pode ser aplicado a itens que já possuam preço promocional.</p><p>CUPOM DESCONTO NOVOS CADASTROS:</p><p>Todos os Clientes que se cadastram em nossa Newsletter ganham 10% off para utilizar em sua primeira compra, o cupom é válido apenas para compras acima de R$150 e não pode ser aplicado a itens que já tenham desconto de outlet, poderá ser utilizado uma única vez e não é cumulativo, ou seja, não poderá ser utilizado com outros cupons ou promoções que acrescentem descontos ao carrinho de compras.</p><p>Os clientes que já possuem compras realizadas na loja virtual e ainda não utilizaram o cupom desconto de cadastro, poderão utilizar o cupom em sua próxima compra.</p>"
+      },
+      "menu": {
+        "__resolveType": "Menu Saved"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer - 02"
+      }
+    }
+  ],
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "__resolveType": "website/pages/Page.tsx"
+}

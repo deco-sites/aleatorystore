@@ -1,0 +1,35 @@
+{
+  "__resolveType": "site/loaders/MenuInstitucionalLoader.tsx",
+  "items": [{
+    "label": "Como Comprar",
+    "url": "/ajuda/como-comprar"
+  },
+  {
+    "label": "Prazo de Entrega",
+    "url": "/institucional/prazo-de-entrega"
+  },
+  {
+    "label": "Formas de Pagamento",
+    "url": "/institucional/formas-de-pagamento"
+  },
+  {
+    "url": "/institucional/politica-de-privacidade",
+    "label": "Política de Privacidade"
+  },
+  {
+    "label": "Trocas e Devoluções",
+    "url": "/institucional/trocas-e-devolucoes"
+  },
+  {
+    "label": "Fale Conosco",
+    "url": "/suporte/fale-conosco"
+  },
+  {
+    "label": "Dúvidas",
+    "url": "/institucional/duvidas"
+  },
+  {
+    "label": "Cashback",
+    "url": "/programa-de-fidelidade"
+  }]
+}
