@@ -5144,6 +5144,9 @@ details.collapse summary::-webkit-details-marker {
 .mt-\[41px\] {
   margin-top: 41px;
 }
+.mt-\[45px\] {
+  margin-top: 45px;
+}
 .mt-\[55px\] {
   margin-top: 55px;
 }
@@ -5625,6 +5628,9 @@ details.collapse summary::-webkit-details-marker {
 .max-w-\[1280px\] {
   max-width: 1280px;
 }
+.max-w-\[128px\] {
+  max-width: 128px;
+}
 .max-w-\[1360px\] {
   max-width: 1360px;
 }
@@ -5642,6 +5648,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-w-\[190px\] {
   max-width: 190px;
+}
+.max-w-\[270px\] {
+  max-width: 270px;
 }
 .max-w-\[2px\] {
   max-width: 2px;
@@ -6061,6 +6070,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .gap-\[2px\] {
   gap: 2px;
+}
+.gap-\[30px\] {
+  gap: 30px;
 }
 .gap-\[3px\] {
   gap: 3px;
@@ -6601,6 +6613,10 @@ details.collapse summary::-webkit-details-marker {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity)));
 }
+.bg-primary-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 237 237 / var(--tw-bg-opacity));
+}
 .bg-primary-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(83 83 83 / var(--tw-bg-opacity));
@@ -6716,6 +6732,9 @@ details.collapse summary::-webkit-details-marker {
 .p-4 {
   padding: 1rem;
 }
+.p-5 {
+  padding: 1.25rem;
+}
 .p-6 {
   padding: 1.5rem;
 }
@@ -6788,6 +6807,10 @@ details.collapse summary::-webkit-details-marker {
   padding-left: 1rem;
   padding-right: 1rem;
 }
+.px-\[30px\] {
+  padding-left: 30px;
+  padding-right: 30px;
+}
 .py-0 {
   padding-top: 0px;
   padding-bottom: 0px;
@@ -6847,6 +6870,10 @@ details.collapse summary::-webkit-details-marker {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+.py-\[50px\] {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .pb-12 {
   padding-bottom: 3rem;

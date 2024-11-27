@@ -10,8 +10,17 @@
     {
       "__resolveType": "site/sections/Content/Banner.tsx",
       "image": {
-        "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/06b01175-8e47-48ee-8916-3aa9939e5a6a/download.webp",
-        "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/fff74617-da33-4e44-86d3-5f939e63b0a2"
+        "mobile": {
+          "src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/fff74617-da33-4e44-86d3-5f939e63b0a2",
+          "width": 420,
+          "height": 420
+        },
+        "desktop":{
+          "src":"https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/06b01175-8e47-48ee-8916-3aa9939e5a6a/download.webp",
+          "width": 1280,
+          "height": 375
+        },
+        "alt" : ""
       }
     },
     {
@@ -34,8 +43,16 @@
     {
       "__resolveType": "site/sections/Content/Banner.tsx",
       "image": {
-        "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/9ca20635-e45c-4ce0-9120-36cac29a3714/a4d5a19a-cdc6-4661-9902-99b53e458bb0___14fac0e8496d4d2c0a8be5295b6c8930.webp",
-        "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/fff74617-da33-4e44-86d3-5f939e63b0a2"
+        "desktop": {
+          "src":"https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/9ca20635-e45c-4ce0-9120-36cac29a3714/a4d5a19a-cdc6-4661-9902-99b53e458bb0___14fac0e8496d4d2c0a8be5295b6c8930.webp",
+          "width": 1280,
+          "height":410
+        },
+        "mobile": {
+          "src":"https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/9166/fff74617-da33-4e44-86d3-5f939e63b0a2",
+          "width": 420,
+          "height": 420
+        }
       }
     },
     {

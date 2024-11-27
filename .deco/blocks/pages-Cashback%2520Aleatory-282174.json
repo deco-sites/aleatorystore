@@ -1,0 +1,84 @@
+{
+  "name": "Cashback Aleatory",
+  "path": "/programa-de-fidelidade",
+  "sections": [
+    {
+      "__resolveType": "Header - 03"
+    },
+    {
+      "__resolveType": "site/sections/Content/Banner.tsx",
+      "image": {
+        "desktop": {
+          "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b0d0a8f3-f0b7-406e-94f7-6cc363cae71e/6f5571c1-2ee4-4c84-8d66-3f18b99291bb___1c309819e566f5f7df1d9f95b93a60de.webp",
+          "width": 1361,
+          "height": 477
+        },
+        "mobile": {
+          "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/fd9093df-d150-46da-834c-8eb3752531a6/d5778dfb-5fe3-4d6a-baa6-1847fa01ae0b___312673e90612a8b943267b4b0dcb9c43.webp",
+          "width": 375,
+          "height": 616
+        },
+        "alt": "Cashback Quanto mais compras, mais dinheiro na conta"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Institutional/CashbackCards.tsx",
+      "cards": [
+        {
+          "title": "Cashback",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/f8f9cda1-ba4b-413f-9b66-8e2f7cc70a44/6e81d24f-d28a-4266-8d22-424f75d62024___1bdb1f5bbc5380a5a394b389dc437e58.webp",
+          "description": "Acumule 2.5% do valor de cada compra faturada na loja"
+        },
+        {
+          "title": "Saldo em até 7 dias",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/bcee41b0-a440-4073-afe8-5663614a45a9/6c170a54-d222-4a2e-b046-a61bf8e54474___e4af9a41030dc1576d2ed668ba6c2d64.webp",
+          "description": "Em até 7 dias você tem seu saldo atualizado com os créditos de sua última compra"
+        },
+        {
+          "title": "Compre com seu saldo",
+          "description": "Aproveite seu saldo acumulado para realizar novas compras",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b4a3aa1c-20b8-4d6c-9d65-6caa641faae5/81b541cd-6d33-42bc-9131-55ac72508ac9___29c173f7bd48b1e13a78b8d5e33741bb.webp"
+        }
+      ]
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Institutional/CashbackSteps.tsx",
+        "title": "Como consultar e usar seu cashback",
+        "steps": [
+          {
+            "title": "Primeiro Passo:",
+            "description": "Clique no ícone de perfil ao lado do botão da sacola. No canto superior direito da tela.",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/717be27f-2180-4b21-afbe-5a6eb538d199/94be0c37-a0c3-4d49-8a1c-1ac26cc2d836___d2ea43037b4be1db2d3461a0f44088d2.webp"
+          },
+          {
+            "title": "Segundo Passo:",
+            "description": "Escolha uma das opções para logar em sua conta.",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/8000b222-0501-4ed6-a181-930c9cbfceb2/933654f2-fcbb-4148-9d0e-4c42886511bc___bddc12f08e6b3aac2525e3bc9d5dff5b.webp"
+          },
+          {
+            "title": "Terceiro Passo:",
+            "description": "Ao finalizar sua compra, na tela de pagamento, clique na opção: \"Você possui créditos para usar na compra.\" Neste ponto você já consegue consultar o saldo acumulado.",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/764d38b7-0c9a-425c-a74f-83383c62c497/23ec26a2-0dfc-4767-9109-6d973b923605___74f541df61ce4e8089c20c37d05a3867.webp"
+          },
+          {
+            "title": "Quarto Passo:",
+            "description": "Para utilizar seu saldo acumulado, clique no botão \"Utilizar Crédito\"",
+            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/3de787d2-2609-41fd-98d8-226476b4b17f/613eeaaa-1e23-46f0-bfbe-317f90e819d5___d4303c115b72405248b64367129328ca.webp"
+          }
+        ]
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer - 02"
+      }
+    }
+  ],
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "__resolveType": "website/pages/Page.tsx"
+}

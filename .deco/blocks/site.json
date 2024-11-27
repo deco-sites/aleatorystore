@@ -54,13 +54,22 @@
   "commerce": {
     "platform": "vtex",
     "authToken": {},
-   
     "salesChannel": "1",
     "defaultSegment": {
       "channelPrivacy": "public"
     },
     "account": "aleatory",
-    "publicUrl": "www.aleatorystore.com.br"
+    "publicUrl": "www.aleatorystore.com.br",
+    "appKey": {
+      "__resolveType": "website/loaders/secret.ts",
+      "encrypted": "22b62880a10b33669bd6820d5a885a572954cf1a1d303328a25e0820d37e57ca",
+      "name": "VTEX-APP-KEY"
+    },
+    "appToken": {
+      "__resolveType": "website/loaders/secret.ts",
+      "encrypted": "53b3d585c94f7d877db344b117e417277c01a7e3f0ac59bf79cb59b50251399308d3021142ced97a5cd9b63f9fcac1ac8368b7608c909bc30c1fafd65a0b061b034831c9a766253cd1cf8b19da4adb85880a4462e52692cb65c0a655afda65a72e57d7755f7520f65e9bca5c270437dc4d2e31d996499b22374286827681c02f52c6f2f61661409bc76568a1e15829b2",
+      "name": "VTEX-APP-TOKEN"
+    }
   },
   "platform": "vtex",
   "__resolveType": "site/apps/site.ts",
