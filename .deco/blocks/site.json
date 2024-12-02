@@ -53,22 +53,19 @@
   },
   "commerce": {
     "platform": "vtex",
-    "authToken": {},
-    "salesChannel": "1",
+    "account": "aleatory",
+    "publicUrl": "www.aleatorystore.com.br",
     "defaultSegment": {
       "channelPrivacy": "public"
     },
-    "account": "aleatory",
-    "publicUrl": "www.aleatorystore.com.br",
-    "appKey": {
-      "__resolveType": "website/loaders/secret.ts",
-      "encrypted": "22b62880a10b33669bd6820d5a885a572954cf1a1d303328a25e0820d37e57ca",
-      "name": "VTEX-APP-KEY"
-    },
+    "salesChannel": "1",
     "appToken": {
       "__resolveType": "website/loaders/secret.ts",
-      "encrypted": "53b3d585c94f7d877db344b117e417277c01a7e3f0ac59bf79cb59b50251399308d3021142ced97a5cd9b63f9fcac1ac8368b7608c909bc30c1fafd65a0b061b034831c9a766253cd1cf8b19da4adb85880a4462e52692cb65c0a655afda65a72e57d7755f7520f65e9bca5c270437dc4d2e31d996499b22374286827681c02f52c6f2f61661409bc76568a1e15829b2",
-      "name": "VTEX-APP-TOKEN"
+      "encrypted": "5654d00428bc222f8e7346ee61592c3505e2f0e18a7144b255fa3beffb1436b66724654bef2b21b8587c4b459a75b619a8120c5f1ec516b06b8316098ddc96b43e180aa3bfffc1775cc080b21055bf9e3aef9856de05671d3311d3b641cacd7f38522da89ee01f28c6cb70a020e57cd39c73d5935c4ddfeefdebac792b5e4bf7dc56da86b413ba57d6531da91b90ee7e"
+    },
+    "appKey": {
+      "__resolveType": "website/loaders/secret.ts",
+      "encrypted": "6e6ecf098d095b50986001536ff26c059f91c97e618435b9fbd1b29344de83c3"
     }
   },
   "platform": "vtex",
