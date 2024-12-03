@@ -1,5 +1,6 @@
 import { useDevice } from "@deco/deco/hooks";
 import { ImageWidget } from "apps/admin/widgets.ts";
+import Image from "apps/website/components/Image.tsx";
 
 /** @title {{title}} */
 interface Step {
@@ -12,21 +13,40 @@ interface Props {
     steps: Step[];
 }
 
+const Arrow = () => (
+    <Image
+        src="https://aleatory.vtexassets.com/assets/vtex/assets-builder/aleatory.store/0.0.947/imagens/outros/arrow-right___1ca09338147b633cd7aa812c300d9fda.png"
+        width={31}
+        height={50}
+        class="w-[31px] h-[50px] my-auto"
+    />
+);
+
 function CashbackStepsDesktop(props: Props) {
     return (
-        <div>
-            <h2 class="text-2xl font-bold text-center uppercase">
+        <div class="mb-20">
+            <h2 class="text-2xl font-bold text-center uppercase mb-10 mt-20">
                 {props.title}
             </h2>
-            <div class="flex">
+            <div class="flex gap-5 justify-center">
                 {props.steps.map((step, index) => (
-                    <div class="max-w-[270px] w-full">
-                        <img src={step.image} alt={step.title} />
-                        <div class="p-5 text-center">
-                            <h3 class="text-xl">{step.title}</h3>
-                            <p class="mt-3">{step.description}</p>
+                    <>
+                        <div class="max-w-[270px] w-full shadow-cards-cashback border-t-8 border-transparent hover:border-primary-900 transition-all ease-linear">
+                            <Image
+                                width={265}
+                                height={170}
+                                src={step.image}
+                                alt={step.title}
+                            />
+                            <div class="p-5 text-center">
+                                <h3 class="text-xl font-semibold">
+                                    {step.title}
+                                </h3>
+                                <p class="mt-3">{step.description}</p>
+                            </div>
                         </div>
-                    </div>
+                        {index < props.steps.length - 1 && <Arrow />}
+                    </>
                 ))}
             </div>
         </div>

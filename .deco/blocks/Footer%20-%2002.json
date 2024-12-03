@@ -94,33 +94,27 @@
       "items": [
         {
           "label": "COMO COMPRAR",
-          "openNewTab": true,
-          "href": "https://www.aleatorystore.com.br/ajuda/como-comprar"
+          "href": "/ajuda/como-comprar"
         },
         {
-          "href": "https://www.aleatorystore.com.br/institucional/prazo-de-entrega",
-          "label": "PRAZOS DE ENTREGA",
-          "openNewTab": true
+          "href": "/institucional/prazo-de-entrega",
+          "label": "PRAZOS DE ENTREGA"
         },
         {
           "label": "FORMAS DE PAGAMENTO",
-          "href": "https://www.aleatorystore.com.br/institucional/formas-de-pagamento",
-          "openNewTab": true
+          "href": "/institucional/formas-de-pagamento"
         },
         {
           "label": "POLÍTICA DE PRIVACIDADE",
-          "openNewTab": true,
-          "href": "https://www.aleatorystore.com.br/institucional/politica-de-privacidade"
+          "href": "/institucional/politica-de-privacidade"
         },
         {
           "label": "TROCAS E DEVOLUÇÕES",
-          "href": "https://www.aleatorystore.com.br/institucional/trocas-e-devolucoes",
-          "openNewTab": true
+          "href": "/institucional/trocas-e-devolucoes"
         },
         {
           "label": "CASHBACK",
-          "openNewTab": true,
-          "href": "https://www.aleatorystore.com.br/programa-de-fidelidade"
+          "href": "/programa-de-fidelidade"
         }
       ],
       "label": "INFORMAÇÕES ÚTEIS",
@@ -142,12 +136,11 @@
     {
       "items": [
         {
-          "href": "https://www.aleatorystore.com.br/suporte/fale-conosco",
-          "label": "FALE CONOSCO",
-          "openNewTab": true
+          "href": "/suporte/fale-conosco",
+          "label": "FALE CONOSCO"
         },
         {
-          "href": "https://www.aleatorystore.com.br/institucional/duvidas",
+          "href": "/institucional/duvidas",
           "label": "DÚVIDAS"
         },
         {

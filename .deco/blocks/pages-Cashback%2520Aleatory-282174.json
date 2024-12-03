@@ -42,8 +42,6 @@
       ]
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
         "__resolveType": "site/sections/Institutional/CashbackSteps.tsx",
         "title": "Como consultar e usar seu cashback",
         "steps": [
@@ -68,7 +66,6 @@
             "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/3de787d2-2609-41fd-98d8-226476b4b17f/613eeaaa-1e23-46f0-bfbe-317f90e819d5___d4303c115b72405248b64367129328ca.webp"
           }
         ]
-      }
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
