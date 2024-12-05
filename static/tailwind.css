@@ -9690,6 +9690,10 @@ details.collapse summary::-webkit-details-marker {
     padding-right: 1rem;
   }
 
+  .lg\:pr-5 {
+    padding-right: 1.25rem;
+  }
+
   .lg\:pr-8 {
     padding-right: 2rem;
   }

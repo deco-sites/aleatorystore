@@ -26,13 +26,13 @@ interface Props {
 
 export default function CashbackSteps(props: Props) {
     return (
-        <div class="mb-10 max-w-[1280px] mx-auto lg:px-14 flex flex-col items-center">
+        <div class="mb-10 max-w-[1280px] mx-auto lg:px-14 flex flex-col items-center px-6">
             <h2 class="text-2xl font-bold text-center uppercase mb-10 mt-20">
                 {props.title}
             </h2>
-            <div class="flex gap-5 justify-center">
+            <div class="flex flex-col lg:flex-row gap-5 justify-center">
                 <div
-                    class="w-full flex flex-col gap-5 max-h-[573px] overflow-y-scroll pr-5"
+                    class="w-full flex flex-col gap-5 max-h-[573px] overflow-y-scroll lg:pr-5"
                     style={{
                         scrollbarColor: "#3b3b3b #e0e0e0",
                         scrollbarWidth: "thin",
@@ -56,7 +56,7 @@ export default function CashbackSteps(props: Props) {
                                     class="float-right hidden group-open:block"
                                 />
                             </summary>
-                            <p class="pb-4 pl-10 pr-4 text-xs">
+                            <p class="pb-4 pl-10 pr-4 text-sm">
                                 {question.description}
                             </p>
                         </details>
