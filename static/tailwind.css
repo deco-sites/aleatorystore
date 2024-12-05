@@ -4610,6 +4610,9 @@ details.collapse summary::-webkit-details-marker {
 .bottom-14 {
   bottom: 3.5rem;
 }
+.bottom-2 {
+  bottom: 0.5rem;
+}
 .bottom-6 {
   bottom: 1.5rem;
 }
@@ -4639,6 +4642,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .left-2 {
   left: 0.5rem;
+}
+.left-2\.5 {
+  left: 0.625rem;
 }
 .left-3 {
   left: 0.75rem;
@@ -4684,6 +4690,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .right-2 {
   right: 0.5rem;
+}
+.right-2\.5 {
+  right: 0.625rem;
 }
 .right-20 {
   right: 5rem;
@@ -4952,6 +4961,10 @@ details.collapse summary::-webkit-details-marker {
 .mx-8 {
   margin-left: 2rem;
   margin-right: 2rem;
+}
+.mx-\[calc\(\(100vw_-270px\)\/2\)\] {
+  margin-left: calc((100vw - 270px) / 2);
+  margin-right: calc((100vw - 270px) / 2);
 }
 .mx-auto {
   margin-left: auto;
@@ -5286,6 +5299,9 @@ details.collapse summary::-webkit-details-marker {
 .h-\[36px\] {
   height: 36px;
 }
+.h-\[39px\] {
+  height: 39px;
+}
 .h-\[3px\] {
   height: 3px;
 }
@@ -5475,6 +5491,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-\[10px\] {
   width: 10px;
+}
+.w-\[25px\] {
+  width: 25px;
 }
 .w-\[316px\] {
   width: 316px;
@@ -6632,6 +6651,10 @@ details.collapse summary::-webkit-details-marker {
 .bg-primary-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(237 237 237 / var(--tw-bg-opacity));
+}
+.bg-primary-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(110 110 110 / var(--tw-bg-opacity));
 }
 .bg-primary-500 {
   --tw-bg-opacity: 1;
@@ -8018,6 +8041,18 @@ details.collapse summary::-webkit-details-marker {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.group:disabled .group-disabled\:mt-0 {
+  margin-top: 0px;
+}
+
+.group:disabled .group-disabled\:h-1 {
+  height: 0.25rem;
+}
+
+.group:disabled .group-disabled\:h-1\.5 {
+  height: 0.375rem;
+}
+
 .group:disabled .group-disabled\:rounded {
   border-radius: 0.25rem;
 }
@@ -8034,6 +8069,11 @@ details.collapse summary::-webkit-details-marker {
 .group:disabled .group-disabled\:bg-\[\#0D1717\] {
   --tw-bg-opacity: 1;
   background-color: rgb(13 23 23 / var(--tw-bg-opacity));
+}
+
+.group:disabled .group-disabled\:bg-\[\#bc812e\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(188 129 46 / var(--tw-bg-opacity));
 }
 
 .group:disabled .group-disabled\:bg-dark-blue {
