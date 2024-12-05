@@ -26,11 +26,11 @@ const Arrow = () => (
 
 function CashbackStepsDesktop(props: Props) {
     return (
-        <div class="mb-20">
-            <h2 class="text-2xl font-bold text-center uppercase mb-10 mt-20">
+        <div class="mb-20 ">
+            <h2 class="text-2xl font-bold text-center uppercase mb-10 mt-20 mx-auto max-w-[1280px] lg:px-14">
                 {props.title}
             </h2>
-            <div class="flex gap-5 justify-center">
+            <div class="flex gap-5 justify-center mx-auto max-w-[1280px] lg:px-14">
                 {props.steps.map((step, index) => (
                     <>
                         <div class="max-w-[270px] w-full shadow-cards-cashback border-t-8 border-transparent hover:border-primary-900 transition-all ease-linear">

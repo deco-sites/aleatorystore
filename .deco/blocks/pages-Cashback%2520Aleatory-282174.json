@@ -42,30 +42,84 @@
       ]
     },
     {
-        "__resolveType": "site/sections/Institutional/CashbackSteps.tsx",
-        "title": "Como consultar e usar seu cashback",
-        "steps": [
+      "__resolveType": "site/sections/Institutional/CashbackSteps.tsx",
+      "title": "Como consultar e usar seu cashback",
+      "steps": [
+        {
+          "title": "Primeiro Passo:",
+          "description": "Clique no ícone de perfil ao lado do botão da sacola. No canto superior direito da tela.",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/717be27f-2180-4b21-afbe-5a6eb538d199/94be0c37-a0c3-4d49-8a1c-1ac26cc2d836___d2ea43037b4be1db2d3461a0f44088d2.webp"
+        },
+        {
+          "title": "Segundo Passo:",
+          "description": "Escolha uma das opções para logar em sua conta.",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/8000b222-0501-4ed6-a181-930c9cbfceb2/933654f2-fcbb-4148-9d0e-4c42886511bc___bddc12f08e6b3aac2525e3bc9d5dff5b.webp"
+        },
+        {
+          "title": "Terceiro Passo:",
+          "description": "Ao finalizar sua compra, na tela de pagamento, clique na opção: \"Você possui créditos para usar na compra.\" Neste ponto você já consegue consultar o saldo acumulado.",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/764d38b7-0c9a-425c-a74f-83383c62c497/23ec26a2-0dfc-4767-9109-6d973b923605___74f541df61ce4e8089c20c37d05a3867.webp"
+        },
+        {
+          "title": "Quarto Passo:",
+          "description": "Para utilizar seu saldo acumulado, clique no botão \"Utilizar Crédito\"",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/3de787d2-2609-41fd-98d8-226476b4b17f/613eeaaa-1e23-46f0-bfbe-317f90e819d5___d4303c115b72405248b64367129328ca.webp"
+        }
+      ]
+    },
+    {
+
+        "__resolveType": "site/sections/Institutional/CashbackQuestions.tsx",
+        "title": "Dúvidas Sobre o Programa",
+        "questions": [
           {
-            "title": "Primeiro Passo:",
-            "description": "Clique no ícone de perfil ao lado do botão da sacola. No canto superior direito da tela.",
-            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/717be27f-2180-4b21-afbe-5a6eb538d199/94be0c37-a0c3-4d49-8a1c-1ac26cc2d836___d2ea43037b4be1db2d3461a0f44088d2.webp"
+            "title": "Como Participar?",
+            "description": "A adesão ao programa é automática, ou seja, ao realizar uma compra no nosso site você já está participando e pode consultar os seus créditos em conta. Vale lembrar que os créditos são disponibilizados apenas para pedidos FATURADOS."
           },
           {
-            "title": "Segundo Passo:",
-            "description": "Escolha uma das opções para logar em sua conta.",
-            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/8000b222-0501-4ed6-a181-930c9cbfceb2/933654f2-fcbb-4148-9d0e-4c42886511bc___bddc12f08e6b3aac2525e3bc9d5dff5b.webp"
+            "title": "Como usar meus créditos?",
+            "description": "Ao realizar o pagamento da sua compra o seu saldo Cashback Aleatory aparecerá. Você pode selecionar o valor que deseja utilizar do seu saldo, total ou parcial."
           },
           {
-            "title": "Terceiro Passo:",
-            "description": "Ao finalizar sua compra, na tela de pagamento, clique na opção: \"Você possui créditos para usar na compra.\" Neste ponto você já consegue consultar o saldo acumulado.",
-            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/764d38b7-0c9a-425c-a74f-83383c62c497/23ec26a2-0dfc-4767-9109-6d973b923605___74f541df61ce4e8089c20c37d05a3867.webp"
+            "title": "Como consulto meu saldo?",
+            "description": "Sempre que estiver logado no nosso site, feche seu pedido normalmente e aparecerá a opção utilizar crédito na tela de pagamento."
           },
           {
-            "title": "Quarto Passo:",
-            "description": "Para utilizar seu saldo acumulado, clique no botão \"Utilizar Crédito\"",
-            "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/3de787d2-2609-41fd-98d8-226476b4b17f/613eeaaa-1e23-46f0-bfbe-317f90e819d5___d4303c115b72405248b64367129328ca.webp"
+            "title": "Não consigo utilizar meus créditos. E agora?",
+            "description": "Certifique-se de que realmente você possui créditos disponíveis. Em caso de dificuldade em utilizar seus créditos, mantenha contato conosco para que possamos orientá-lo(a)."
+          },
+          {
+            "title": "Como acumular crédito?",
+            "description": "Todas as suas COMPRAS FATURADAS geram créditos que são acumulados automaticamente em sua conta e podem ser utilizados em qualquer nova compra."
+          },
+          {
+            "title": "Posso transferir meus créditos?",
+            "description": "Não, o crédito é intransferível e fica atrelado a um único CPF por cliente."
+          },
+          {
+            "title": "Qual o valor mínimo para acumular e usar créditos?",
+            "description": "Não há valor mínimo para acumular, todas as COMPRAS FATURADAS geram crédito. Não há valor mínimo para usar os créditos acumulados, você pode utilizar qualquer valor disponível em sua conta."
+          },
+          {
+            "title": "Posso usar meu cashback em lojas físicas?",
+            "description": "Não, os créditos gerados como cashback só podem ser utilizados na loja virtual Aleatory Store."
+          },
+          {
+            "title": "Posso sacar meu cashback?",
+            "description": "Não, o programa de fidelidade garante apenas o uso de créditos para novas compras em nossa loja."
           }
-        ]
+        ],
+        "imageDesktop": {
+          "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/bd084dae-befb-4754-9244-a8531c5e057a/9e2fb8af-99ac-42bc-a172-8494c0a14e7a___7f169c15bd36518abd93e651215bcf86.webp",
+          "width": 509,
+          "height": 547,
+          "alt": "A imagem apresenta uma composição com temática esportiva e minimalista. Três camisetas dobradas em tons pastel (bege, preto e azul claro) estão cuidadosamente dispostas sobre uma cadeira laranja de design moderno, destacando o contraste de cores entre o laranja vibrante e o azul do fundo. Ao lado da cadeira, uma raquete de tênis com grip branco e uma bola de tênis verde aparecem parcialmente, sugerindo um contexto relacionado ao esporte. A iluminação natural cria sombras suaves e destaca as texturas das camisetas e o brilho do material da raquete."
+        },
+        "cta": {
+          "title": "Compre e Acumule",
+          "url": "/lancamentos"
+        }
+     
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
