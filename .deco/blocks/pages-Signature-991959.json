@@ -147,6 +147,112 @@
       }
     },
     {
+      "__resolveType": "site/sections/Content/AlignedBanner.tsx",
+      "image": {
+        "desktop": {
+          "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/f6ead872-ca1e-43e3-853d-b45408c4bf74/b9dc7272-0074-49eb-b9ea-95b6055a26c5___bb0cfbe3f80e3f16e837984c01ddd9f8.webp",
+          "width": 1320,
+          "height": 293
+        },
+        "alt": "Um cinto",
+        "mobile": {
+          "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/a13f4acf-4a94-4b29-ab80-f0d2998ed3a9/0b39bf4b-ed0f-437a-be10-0bd3169042fd___b6de0f0a7296003740b175fde8ae0612.webp",
+          "width": 335,
+          "height": 271
+        }
+      }
+    },
+    {
+      "__resolveType": "site/sections/Especial/EspecialProductShelf.tsx",
+      "layout": {
+        "numberOfSliders": {
+          "mobile": 2,
+          "desktop": 3
+        },
+        "headerAlignment": "center",
+        "showArrows": true,
+        "showDots": true
+      },
+      "title": "<p>Atualize Seu Estilo com Aleatory  <strong>Signature</strong></p>",
+      "products": {
+        "__resolveType": "commerce/loaders/product/extensions/list.ts",
+        "data": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+          "props": {
+            "sort": "price:desc",
+            "collection": "383",
+            "count": 12
+          }
+        },
+        "extensions": [
+          {
+            "__resolveType": "site/loaders/extensions/ProductShelfCollectionsFlags.ts"
+          }
+        ]
+      },
+      "card": {
+        "image": {
+          "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/30d0462d-0fc6-48a7-b7ca-4bcf665bf594/download.webp",
+          "alt": "Tenis"
+        },
+        "description": "Caminhe com mais conforto e elegância",
+        "title": "Tênis Exclusivos",
+        "url": "/signature/calcados/tenis",
+        "desktopPosition": "right",
+        "mobilePosition": "bottom"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Especial/EspecialSearchTerms.tsx",
+      "title": "Termos mais buscados pra facilitar sua compra",
+      "searchTerms": [
+        {
+          "label": "Polos",
+          "href": "/signature/roupas/polos"
+        },
+        {
+          "label": "Camisetas",
+          "href": "/signature/roupas/camisetas"
+        },
+        {
+          "label": "Bermudas",
+          "href": "/signature/roupas/bermudas-e-shorts"
+        },
+        {
+          "label": "Calças",
+          "href": "/signature/roupas/calcas"
+        },
+        {
+          "label": "Suéteres",
+          "href": "/signature/roupas/sueters-e-malhas"
+        },
+        {
+          "label": "Bonés",
+          "href": "/signature/acessorios/bones"
+        },
+        {
+          "label": "Carteiras",
+          "href": "/signature/acessorios/carteiras"
+        },
+        {
+          "label": "Cintos",
+          "href": "/signature/acessorios/cintos"
+        },
+        {
+          "label": "Tênis",
+          "href": "/signature/calcados/tenis"
+        },
+        {
+          "label": "Roupas",
+          "href": "/signature/roupas"
+        },
+        {
+          "label": "Acessórios",
+          "href": "/signature/acessorios"
+        }
+      ]
+    },
+    {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "Footer - 02"

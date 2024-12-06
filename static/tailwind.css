@@ -5697,6 +5697,9 @@ details.collapse summary::-webkit-details-marker {
 .max-w-\[139px\] {
   max-width: 139px;
 }
+.max-w-\[1440px\] {
+  max-width: 1440px;
+}
 .max-w-\[156px\] {
   max-width: 156px;
 }
@@ -5774,6 +5777,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .max-w-\[795px\] {
   max-width: 795px;
+}
+.max-w-\[80\%\] {
+  max-width: 80%;
 }
 .max-w-\[80px\] {
   max-width: 80px;
@@ -6536,6 +6542,10 @@ details.collapse summary::-webkit-details-marker {
 .bg-\[\#993399\] {
   --tw-bg-opacity: 1;
   background-color: rgb(153 51 153 / var(--tw-bg-opacity));
+}
+.bg-\[\#BC812E\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(188 129 46 / var(--tw-bg-opacity));
 }
 .bg-\[\#C9CFCF\] {
   --tw-bg-opacity: 1;
@@ -8053,6 +8063,11 @@ details.collapse summary::-webkit-details-marker {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
+.hover\:text-\[\#bc812e\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(188 129 46 / var(--tw-text-opacity));
+}
+
 .hover\:text-accent-content:hover {
   --tw-text-opacity: 1;
   color: var(--fallback-ac,oklch(var(--ac)/var(--tw-text-opacity)));
@@ -8832,6 +8847,10 @@ details.collapse summary::-webkit-details-marker {
     gap: 5rem;
   }
 
+  .md\:gap-3 {
+    gap: 0.75rem;
+  }
+
   .md\:gap-4 {
     gap: 1rem;
   }
@@ -8889,6 +8908,11 @@ details.collapse summary::-webkit-details-marker {
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .md\:text-8xl {

@@ -37,7 +37,7 @@ function EspecialProductShelf({ products, title, card }: Props) {
   const cardPosMobile =
     card.mobilePosition === "top" ? "flex-col" : "flex-col-reverse";
   return (
-    <div class={clx("container w-full flex flex-col")}>
+    <div class={clx("container w-full flex flex-col mb-16")}>
       <h2
         class="font-semibold [&>p>strong]:text-[#bc812e] [&>p>strong]:font-semibold text-center text-[32px] my-16 max-lg:px-6"
         dangerouslySetInnerHTML={{
