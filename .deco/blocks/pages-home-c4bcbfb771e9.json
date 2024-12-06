@@ -16,142 +16,134 @@
       }
     },
     {
-      
-        "__resolveType": "site/sections/Images/Carousel.tsx",
-        "elements": [
-          {
-            "action": {
-              "buttonPositionDesktop": "Right",
-              "buttonPositionMobile": "Center",
-              "href": "/black-friday",
-              "buttonNegative": true
-            },
-            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/07648ea6-0fc4-47ac-8efd-50171af794d6/banner_desktop_home.webp",
-            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/87c4c00b-2510-4037-bded-32c23f180071/banner_mobile_home.webp"
-          }
-        ],
-        "arrows": false,
-        "dots": false,
-        "preload": true,
-        "images": [
-          {}
-        ]
-
+      "__resolveType": "site/sections/Images/Carousel.tsx",
+      "elements": [
+        {
+          "action": {
+            "buttonPositionDesktop": "Right",
+            "buttonPositionMobile": "Center",
+            "href": "/black-friday",
+            "buttonNegative": true
+          },
+          "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/07648ea6-0fc4-47ac-8efd-50171af794d6/banner_desktop_home.webp",
+          "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/87c4c00b-2510-4037-bded-32c23f180071/banner_mobile_home.webp"
+        }
+      ],
+      "arrows": false,
+      "dots": false,
+      "preload": true,
+      "images": [
+        {}
+      ]
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Cards/CardShowcase.tsx",
-        "cards": [
-          {
-            "cta": {
-              "text": "Confira",
-              "href": "/masculino/roupas/camisetas"
-            },
-            "image": {
-              "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/1abd2875-3f67-4446-8231-8f3c5e8ebce7/fdb4d04c-dc08-4198-8ff6-4a66e8a475a8___b1868231cf278138f7ff8fc5a4f856bb.webp",
-              "alt": "Um homem com uma camiseta verde e short bege.",
-              "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/1abd2875-3f67-4446-8231-8f3c5e8ebce7/fdb4d04c-dc08-4198-8ff6-4a66e8a475a8___b1868231cf278138f7ff8fc5a4f856bb.webp"
-            },
-            "title": "Camisas",
-            "description": "Listras, Listradas E Estampadas"
+      "__resolveType": "site/sections/Cards/CardShowcase.tsx",
+      "cards": [
+        {
+          "cta": {
+            "text": "Confira",
+            "href": "/masculino/roupas/camisetas"
           },
-          {
-            "cta": {
-              "text": "Confira",
-              "href": "/221?map=productClusterIds"
-            },
-            "image": {
-              "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/a7a69c99-88ef-4843-8b6f-69e52b8375ea/3a0daea7-1cae-42f9-a273-cc7de5acc93d___37416cc64871071317194775c255d077.webp",
-              "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/8238bff8-c47f-4055-a736-915a8ab63194/3a0daea7-1cae-42f9-a273-cc7de5acc93d___37416cc64871071317194775c255d077.webp",
-              "alt": "Texto: Duas camisetas por 158 reais, escolha já as suas! Imagem: Um homem branco dentro de uma gruta com uma camista amaerela"
-            },
-            "title": "Imperdível!",
-            "description": "Aproveite A Promoção"
+          "image": {
+            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/1abd2875-3f67-4446-8231-8f3c5e8ebce7/fdb4d04c-dc08-4198-8ff6-4a66e8a475a8___b1868231cf278138f7ff8fc5a4f856bb.webp",
+            "alt": "Um homem com uma camiseta verde e short bege.",
+            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/1abd2875-3f67-4446-8231-8f3c5e8ebce7/fdb4d04c-dc08-4198-8ff6-4a66e8a475a8___b1868231cf278138f7ff8fc5a4f856bb.webp"
           },
-          {
-            "cta": {
-              "text": "Confira",
-              "href": "/masculino/roupas/polos"
-            },
-            "image": {
-              "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b9899bfc-3a8a-438e-88a5-3d910df4fdd9/dc136d96-fa5b-48b0-aaff-5ab91f4e7221___d632697c807af933310f1581580c37bd.webp",
-              "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/e428ab27-656a-447f-91fb-e85188801d66/dc136d96-fa5b-48b0-aaff-5ab91f4e7221___d632697c807af933310f1581580c37bd.webp",
-              "alt": "Um homem branco com uma camisata vermelha com uma cachoeira no fundo embaçado"
-            },
-            "title": "Polos",
-            "description": "Em até 10X"
-          }
-        ]
-      }
+          "title": "Camisas",
+          "description": "Listras, Listradas E Estampadas"
+        },
+        {
+          "cta": {
+            "text": "Confira",
+            "href": "/221?map=productClusterIds"
+          },
+          "image": {
+            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/a7a69c99-88ef-4843-8b6f-69e52b8375ea/3a0daea7-1cae-42f9-a273-cc7de5acc93d___37416cc64871071317194775c255d077.webp",
+            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/8238bff8-c47f-4055-a736-915a8ab63194/3a0daea7-1cae-42f9-a273-cc7de5acc93d___37416cc64871071317194775c255d077.webp",
+            "alt": "Texto: Duas camisetas por 158 reais, escolha já as suas! Imagem: Um homem branco dentro de uma gruta com uma camista amaerela"
+          },
+          "title": "Imperdível!",
+          "description": "Aproveite A Promoção"
+        },
+        {
+          "cta": {
+            "text": "Confira",
+            "href": "/masculino/roupas/polos"
+          },
+          "image": {
+            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b9899bfc-3a8a-438e-88a5-3d910df4fdd9/dc136d96-fa5b-48b0-aaff-5ab91f4e7221___d632697c807af933310f1581580c37bd.webp",
+            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/e428ab27-656a-447f-91fb-e85188801d66/dc136d96-fa5b-48b0-aaff-5ab91f4e7221___d632697c807af933310f1581580c37bd.webp",
+            "alt": "Um homem branco com uma camisata vermelha com uma cachoeira no fundo embaçado"
+          },
+          "title": "Polos",
+          "description": "Em até 10X"
+        }
+      ]
     },
     {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Product/ProductShelf.tsx",
+      "__resolveType": "site/sections/Product/ProductShelf.tsx",
+      "layout": {
+        "headerAlignment": "center",
+        "showArrows": true,
+        "headerfontSize": "Small",
+        "numberOfSliders": {
+          "desktop": 3
+        },
+        "showDots": true,
+        "collectionButton": {
+          "show": false,
+          "action": {
+            "text": "Ver Nova Coleção",
+            "href": "/new-in"
+          }
+        }
+      },
+      "products": {
+        "crossSelling": "similars",
+        "__resolveType": "commerce/loaders/product/extensions/list.ts",
+        "data": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+          "props": {
+            "sort": "",
+            "count": 12,
+            "collection": "209"
+          }
+        },
+        "extensions": [
+          {
+            "__resolveType": "site/loaders/extensions/ProductShelfCollectionsFlags.ts"
+          }
+        ]
+      },
+      "cardLayout": {
         "layout": {
-          "headerAlignment": "center",
-          "showArrows": true,
-          "headerfontSize": "Small",
-          "numberOfSliders": {
-            "desktop": 3
+          "hide": {
+            "allPrices": false,
+            "favoriteIcon": true,
+            "installments": false,
+            "productDescription": true
           },
-          "showDots": true,
-          "collectionButton": {
-            "show": false,
-            "action": {
-              "text": "Ver Nova Coleção",
-              "href": "/new-in"
-            }
+          "basics": {
+            "oldPriceSize": "Normal",
+            "contentAlignment": "Left"
+          },
+          "onMouseOver": {
+            "card": "None",
+            "image": "Change image",
+            "showCta": true,
+            "showCardShadow": false,
+            "showSkuSelector": false,
+            "showFavoriteIcon": false
+          },
+          "elementsPositions": {
+            "skuSelector": "Bottom",
+            "favoriteIcon": "Top right"
           }
         },
-        "products": {
-          "crossSelling": "similars",
-          "__resolveType": "commerce/loaders/product/extensions/list.ts",
-          "data": {
-            "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
-            "props": {
-              "sort": "",
-              "count": 6,
-              "collection": "209"
-            }
-          },
-          "extensions": [
-            {
-              "__resolveType": "site/loaders/extensions/ProductShelfCollectionsFlags.ts"
-            }
-          ]
-        },
-        "cardLayout": {
-          "layout": {
-            "hide": {
-              "allPrices": false,
-              "favoriteIcon": true,
-              "installments": false,
-              "productDescription": true
-            },
-            "basics": {
-              "oldPriceSize": "Normal",
-              "contentAlignment": "Left"
-            },
-            "onMouseOver": {
-              "card": "None",
-              "image": "Change image",
-              "showCta": true,
-              "showCardShadow": false,
-              "showSkuSelector": false,
-              "showFavoriteIcon": false
-            },
-            "elementsPositions": {
-              "skuSelector": "Bottom",
-              "favoriteIcon": "Top right"
-            }
-          },
-          "__resolveType": "site/loaders/Layouts/ProductCard.tsx"
-        },
-        "title": "MAIS VENDIDOS",
-        "description": "PEÇAS INCRÍVEIS PARA APROVEITAR MOMENTOS INESQUECÍVEIS."
-      }
+        "__resolveType": "site/loaders/Layouts/ProductCard.tsx"
+      },
+      "title": "MAIS VENDIDOS",
+      "description": "PEÇAS INCRÍVEIS PARA APROVEITAR MOMENTOS INESQUECÍVEIS."
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
@@ -167,7 +159,7 @@
             "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b276a2d0-ea13-4edb-af15-c6b2a0803ddc/a9969974-d923-40a6-9d26-9e5db2e25e79___bf96b3b0b4665be7823b0c46b9a0d6f0.webp",
             "alt": "Um homem branco com uma camiseta vermelha e calça bege",
             "clickUrl": "/camisa-polo-aleatory-listrada-prestige-vermelha5000-1e-2-vm/p?skuId=62836",
-            "showCart":true
+            "showCart": true
           },
           {
             "label": "Camisas",
@@ -175,7 +167,7 @@
             "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/0d9102d6-ef96-49d0-8d17-5b787ad4abc0/d4f4bfeb-b1ca-4fb0-ab6f-1e8b3f7f7696___881440c7d1d45609daec5f92d1b4e7f7.webp",
             "alt": "Um homem branco com uma camisa listrada e calça branca",
             "clickUrl": "https://www.aleatorystore.com.br/masculino/roupas/camisas",
-            "showCart":true
+            "showCart": true
           }
         ],
         "cta": {
@@ -216,7 +208,7 @@
           {
             "products": {
               "__resolveType": "commerce/loaders/product/extensions/list.ts",
-              "data":{
+              "data": {
                 "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
                 "props": {
                   "sort": "price:desc",
@@ -235,7 +227,7 @@
           {
             "products": {
               "__resolveType": "commerce/loaders/product/extensions/list.ts",
-              "data":{
+              "data": {
                 "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
                 "props": {
                   "sort": "price:desc",
@@ -271,7 +263,7 @@
             "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/9698e15c-f805-483e-9078-09c89395a3e2/4394bcee-60ea-4ee8-8ea2-9c4b75cc97fd___b763e2bb2824eaf1df7610057f09032c.webp",
             "alt": "Uma pessoa com uma camiseta amarela e uma bermuda listrada. Texto em caixa alta:  Bermudas, Conferir ",
             "clickUrl": "/masculino/roupas/bermudas-e-shorts",
-            "showCart":true
+            "showCart": true
           },
           {
             "label": "Moletons",
@@ -279,7 +271,7 @@
             "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/f7c597f0-24b7-49c3-9c72-4d5e34c52ac6/d0ae916d-fbab-4c22-bcc1-8c9a790471d7___dba0250ba9145f7a3af52268f484ca12.webp",
             "alt": "Um homem branco com um moletom cor de vinho da aleatory, no meio do moletom tem em caixa alta bordado aleatory na cor azul escuro. Texto: Moletons 20%OFF, clique e aproveite",
             "clickUrl": "/363?map=productClusterIds",
-            "showCart":true
+            "showCart": true
           },
           {
             "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/a2e59424-cd1a-4fd4-afad-ed774544a033/a6fbf100-cd51-4504-957f-8e2d68fa9671___b339bd1c2f42faa32c4c6f6c207caadc.webp",
@@ -287,7 +279,7 @@
             "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/a2e59424-cd1a-4fd4-afad-ed774544a033/a6fbf100-cd51-4504-957f-8e2d68fa9671___b339bd1c2f42faa32c4c6f6c207caadc.webp",
             "clickUrl": "/322?map=productClusterIds",
             "alt": "Uma pessoa de ",
-            "showCart":true
+            "showCart": true
           }
         ],
         "cta": {

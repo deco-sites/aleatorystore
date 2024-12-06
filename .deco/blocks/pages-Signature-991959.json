@@ -107,6 +107,46 @@
       ]
     },
     {
+      "__resolveType": "site/sections/Especial/EspecialProductShelf.tsx",
+      "layout": {
+        "numberOfSliders": {
+          "mobile": 2,
+          "desktop": 3
+        },
+        "headerAlignment": "center",
+        "showArrows": true,
+        "showDots": true
+      },
+      "title": "<p>Descubra a Sofisticação da linha <strong>Signature</strong></p>",
+      "products": {
+        "__resolveType": "commerce/loaders/product/extensions/list.ts",
+        "data": {
+          "__resolveType": "vtex/loaders/intelligentSearch/productList.ts",
+          "props": {
+            "sort": "price:desc",
+            "collection": "383",
+            "count": 12
+          }
+        },
+        "extensions": [
+          {
+            "__resolveType": "site/loaders/extensions/ProductShelfCollectionsFlags.ts"
+          }
+        ]
+      },
+      "card": {
+        "image": {
+          "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/fed7849a-cf76-4364-abc6-1160b2b2071f/download.webp",
+          "alt": "Calças "
+        },
+        "description": "Descubra a sofisticação e o conforto da linha Signature",
+        "title": "Calças Signature",
+        "url": "/signature/roupas/calcas",
+        "desktopPosition": "left",
+        "mobilePosition": "top"
+      }
+    },
+    {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "Footer - 02"
@@ -118,4 +158,3 @@
   },
   "__resolveType": "website/pages/Page.tsx"
 }
-

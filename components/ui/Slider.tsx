@@ -1,7 +1,11 @@
 import { scriptAsDataURI } from "apps/utils/dataURI.ts";
 import type { ComponentChildren, JSX } from "preact";
 
-function Dot({ index, children, class: _class = "" }: {
+function Dot({
+  index,
+  children,
+  class: _class = "",
+}: {
   index: number;
   class?: string;
   children: ComponentChildren;
@@ -17,7 +21,11 @@ function Dot({ index, children, class: _class = "" }: {
   );
 }
 
-function DotImage({ index, children, class: _class = "" }: {
+function DotImage({
+  index,
+  children,
+  class: _class = "",
+}: {
   index: number;
   class?: string;
   children: ComponentChildren;
@@ -57,9 +65,10 @@ export interface Props {
   scroll?: "smooth" | "auto";
   interval?: number;
   infinite?: boolean;
+  especially?: boolean;
 }
 
-const setup = ({ rootId, scroll, interval, infinite }: Props) => {
+const setup = ({ rootId, scroll, interval, infinite, especially }: Props) => {
   const ATTRIBUTES = {
     "data-slider": "data-slider",
     "data-slider-item": "data-slider-item",
@@ -111,7 +120,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
   if (!root || !slider || !items || items.length === 0) {
     console.warn(
       "Missing necessary slider attributes. It will not work as intended. Necessary elements:",
-      { root, slider, items, rootId },
+      { root, slider, items, rootId }
     );
 
     return;
@@ -159,10 +168,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
       const item = items.item(index);
       const rect = item.getBoundingClientRect();
 
-      const ratio = intersectionX(
-        rect,
-        sliderRect,
-      ) / rect.width;
+      const ratio = intersectionX(rect, sliderRect) / rect.width;
 
       if (ratio > THRESHOLD) {
         indices.push(index);
@@ -172,22 +178,32 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     return indices;
   };
 
-  const goToItem = (index: number) => {
+  const goToItem = (
+    index: number,
+    useSpecial?: boolean,
+    goTo?: "left" | "right"
+  ) => {
     const item = items.item(index);
-
     if (!isHTMLElement(item)) {
       console.warn(
-        `Element at index ${index} is not an html element. Skipping carousel`,
+        `Element at index ${index} is not an html element. Skipping carousel`
       );
 
       return;
     }
-
-    slider.scrollTo({
-      top: 0,
-      behavior: scroll,
-      left: item.offsetLeft - root.offsetLeft,
-    });
+    if (useSpecial && especially && goTo) {
+      const indices = getElementsInsideContainer();
+      slider.scrollBy({
+        behavior: scroll,
+        left: item.offsetWidth * (goTo === "left" ? -1 : 1) * indices.length,
+      });
+    } else {
+      slider.scrollTo({
+        top: 0,
+        behavior: scroll,
+        left: item.offsetLeft - root.offsetLeft,
+      });
+    }
   };
 
   const onClickPrev = () => {
@@ -200,6 +216,8 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
 
     goToItem(
       isShowingFirst ? items.length - 1 : (pageIndex - 1) * itemsPerPage,
+      true,
+      isShowingFirst ? "right" : "left"
     );
   };
 
@@ -210,8 +228,13 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
 
     const isShowingLast = indices[indices.length - 1] === items.length - 1;
     const pageIndex = Math.floor(indices[0] / itemsPerPage);
+    console.log({ indices, itemsPerPage, isShowingLast, pageIndex });
 
-    goToItem(isShowingLast ? 0 : (pageIndex + 1) * itemsPerPage);
+    goToItem(
+      isShowingLast ? 0 : (pageIndex + 1) * itemsPerPage,
+      true,
+      isShowingLast ? "left" : "right"
+    );
   };
 
   const observer = new IntersectionObserver(
@@ -246,7 +269,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
           }
         }
       }),
-    { threshold: THRESHOLD, root: slider },
+    { threshold: THRESHOLD, root: slider }
   );
 
   items.forEach((item) => observer.observe(item));
@@ -297,10 +320,17 @@ function JS({
   scroll = "smooth",
   interval,
   infinite = false,
+  especially,
 }: Props) {
   return (
     <script
-      src={scriptAsDataURI(setup, { rootId, scroll, interval, infinite })}
+      src={scriptAsDataURI(setup, {
+        rootId,
+        scroll,
+        interval,
+        infinite,
+        especially,
+      })}
       defer
     />
   );

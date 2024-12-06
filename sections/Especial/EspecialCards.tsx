@@ -22,7 +22,7 @@ interface Props {
 export default function EspecialCards(props: Props) {
   return (
     <div class="max-lg:pl-6">
-      <h2 class="text-[32px] font-semibold text-center uppercase my-16 max-lg:pr-6">
+      <h2 class="text-[32px] font-semibold text-center my-16 max-lg:pr-6">
         {props.title}
       </h2>
       <div class="max-lg:carousel flex gap-4 w-fit mx-auto lg:px-14 max-lg:pr-6">
