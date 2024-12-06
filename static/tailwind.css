@@ -8230,6 +8230,11 @@ details.collapse summary::-webkit-details-marker {
     margin-bottom: 50px;
   }
 
+  .max-lg\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
   .max-lg\:pl-6 {
     padding-left: 1.5rem;
   }

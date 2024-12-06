@@ -39,7 +39,7 @@ function EspecialProductShelf({ products, title, card }: Props) {
   return (
     <div class={clx("container w-full flex flex-col")}>
       <h2
-        class="font-semibold [&>p>strong]:text-[#bc812e] [&>p>strong]:font-semibold text-center text-[32px] my-16 max-lg:pr-6"
+        class="font-semibold [&>p>strong]:text-[#bc812e] [&>p>strong]:font-semibold text-center text-[32px] my-16 max-lg:px-6"
         dangerouslySetInnerHTML={{
           __html: title,
         }}
