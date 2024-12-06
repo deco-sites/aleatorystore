@@ -1,0 +1,66 @@
+{
+  "name": "Signature",
+  "path": "/signature",
+  "sections": [
+    {
+      "__resolveType": "Header - 03"
+    },
+    {
+      "__resolveType": "site/sections/Content/Banner.tsx",
+      "image": {
+        "desktop": {
+          "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/f3fd9547-c5e6-486a-8ae5-ae4a25a16f1b/9ce3a28c-7e77-4ef6-9c81-63a749411a75___f5c9cd5a7c7914a3a119b7fda752b609.webp",
+          "width": 1341,
+          "height": 667
+        },
+        "mobile": {
+          "src": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/7b7d60b3-4159-4770-b5ab-852496a047d1/d3979cbf-bbb4-400c-bad8-8b99f7ad08bf___73ad6cf11bb970566c669ef388797d68.webp",
+          "width": 372,
+          "height": 762
+        },
+        "alt": "Dê um UP no seu estilo"
+      }
+    },
+    {
+      "__resolveType": "site/sections/Especial/EspecialContentBar.tsx",
+      "title": "<p>Seus looks ainda mais <strong>requintados</strong>.</p>",
+      "itens": [
+        {
+          "text": "<p>Acima de R$499</p><p><strong>frete grátis</strong></p>",
+          "label": "Acima de R$499  frete grátis",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/6dfaa67c-585d-4c55-957c-1c6ae5ea2eb5/acc74917-b5ba-4634-b95b-2fa5fa42e097___4240845bc86a280a6c3fb5342888001c.webp"
+        },
+        {
+          "label": "Parcelamos em até 10x sem juros",
+          "text": "<p>Parcelamos em</p><p>até <strong>10x</strong> sem juros</p>",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/e2c928ba-1973-43bd-afb3-698b8bd08f6d/f04f9c0e-921c-45f0-8de0-bafe2df058a7___24c38202b7af2efe55014568a0e5d6ef.png"
+        },
+        {
+          "label": "Atendimento por whatsapp",
+          "text": "<p>Atendimento por</p><p><strong>whatsapp</strong></p>",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/15d4a94f-42ff-45d5-9614-fffb32b3f9b7/ca0759a9-8b58-41c3-9347-ea171fb30aad___793d0971fa985dda4c77cfa935ff7640.webp"
+        },
+        {
+          "text": "<p>Descontos</p><p><strong>imperdíveis</strong></p>",
+          "label": "Descontos imperdíveis",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/76c80153-3d42-4273-96e5-6da7841e36cf/083cd15c-e771-40c8-b3b3-135d2b91dc84___70ec3d2a9befd5ff25cfb8c458e425d4.png"
+        },
+        {
+          "text": "<p>Cashback</p><p><strong>de 2,5%</strong></p>",
+          "label": "Cashback de 2,5%",
+          "image": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/75676a4d-93fe-4486-bbf0-cbef5149bfc0/15c54f88-bcc0-41d4-9869-a321e3d9f026___d17ed25f5db41f4fed3b37562361ad42.webp"
+        }
+      ]
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "Footer - 02"
+      }
+    }
+  ],
+  "seo": {
+    "__resolveType": "website/sections/Seo/SeoV2.tsx"
+  },
+  "__resolveType": "website/pages/Page.tsx"
+}
