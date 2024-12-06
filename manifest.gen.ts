@@ -19,7 +19,8 @@ import * as $$$2 from "./loaders/MenuInstitucionalLoader.tsx";
 import * as $$$10 from "./loaders/ourStores.ts";
 import * as $$$11 from "./loaders/productRecommendations.ts";
 import * as $$$12 from "./loaders/productSuggestions.ts";
-import * as $$$13 from "./loaders/sizebay.ts";
+import * as $$$13 from "./loaders/searchDocumentsOnMasterData.ts";
+import * as $$$14 from "./loaders/sizebay.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/Benefits.tsx";
 import * as $$$$$$2 from "./sections/Cards/CardShowcase.tsx";
@@ -110,7 +111,8 @@ const manifest = {
     "site/loaders/ourStores.ts": $$$10,
     "site/loaders/productRecommendations.ts": $$$11,
     "site/loaders/productSuggestions.ts": $$$12,
-    "site/loaders/sizebay.ts": $$$13,
+    "site/loaders/searchDocumentsOnMasterData.ts": $$$13,
+    "site/loaders/sizebay.ts": $$$14,
   },
   "sections": {
     "site/sections/Animation/Animation.tsx": $$$$$$0,
