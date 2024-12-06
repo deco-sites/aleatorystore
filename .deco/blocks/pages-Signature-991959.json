@@ -53,6 +53,60 @@
       ]
     },
     {
+      "__resolveType": "site/sections/Especial/EspecialCards.tsx",
+      "title": "Navegue pelas categorias",
+      "cards": [
+        {
+          "cta": {
+            "label": "Comprar",
+            "url": "/signature/roupas/polos"
+          },
+          "title": "Polos",
+          "image": {
+            "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/8ff995c3-4254-4911-913d-3188fe6cdf44/download.webp",
+            "alt": ""
+          },
+          "description": "Confira as novidades imperdíveis"
+        },
+        {
+          "cta": {
+            "label": "Comprar",
+            "url": "/signature/roupas/camisetas"
+          },
+          "title": "T-Shirts",
+          "image": {
+            "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/a61d67f0-d44d-4edb-8e71-b449fc255aa8/download.webp",
+            "alt": ""
+          },
+          "description": "Camisetas Premium, estilo único!"
+        },
+        {
+          "cta": {
+            "label": "Comprar",
+            "url": "/signature/roupas/sueters-e-malhas"
+          },
+          "title": "Suéteres",
+          "image": {
+            "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/2a2ae13d-86f6-4922-9752-743f0ede0680/download.webp",
+            "alt": ""
+          },
+          "description": "Conforto que aquece e destaca!"
+        },
+        {
+          "cta": {
+            "label": "Comprar",
+            "url": "/signature/roupas/camisas"
+          },
+          "title": "Camisas",
+          "image": {
+            "url": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/863271a7-e42f-4eff-802c-c1c2a992ae7c/download.webp",
+            "alt": ""
+          },
+          "description": "Em até 10X"
+        }
+      ]
+    },
+    {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "Footer - 02"
@@ -64,3 +118,4 @@
   },
   "__resolveType": "website/pages/Page.tsx"
 }
+
