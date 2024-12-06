@@ -43,7 +43,6 @@ export default function loader(
 				].join(","),
 				acronym: "SC",
 			})) as MasterDataSCEntity[];
-		console.log({ collections });
 		return products?.map((product) => {
 			const productCollectionsIds = product.additionalProperty?.filter((
 				property,

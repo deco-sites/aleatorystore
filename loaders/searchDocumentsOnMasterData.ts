@@ -1,5 +1,5 @@
 import { resourceRange } from "apps/vtex/utils/resourceRange.ts";
-import vtex, { AppContext } from "site/apps/deco/vtex.ts";
+import { AppContext } from "site/apps/deco/vtex.ts";
 import type { Document } from "apps/vtex/utils/types.ts";
 interface Props {
 	/**
