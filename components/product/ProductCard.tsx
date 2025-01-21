@@ -1,4 +1,3 @@
-import { useDevice } from "@deco/deco/hooks";
 import type { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import Image from "apps/website/components/Image.tsx";
@@ -38,7 +37,6 @@ function ProductCard({
   index,
 }: Props) {
   const { url, productID, image: images, isVariantOf } = product;
-  const device = useDevice();
   const randomId = useId();
   const id = `product-card-${productID}-${randomId}`;
   const [front, back] = images ?? [];
@@ -102,11 +100,11 @@ function ProductCard({
             <div class="absolute flex flex-col z-[3] right-auto left-0 top-0">
               {flags.map((flag) => (
                 <img
+                  class="w-[var(--mobile-width)] lg:w-[var(--desktop-width)]"
                   src={flag.flagImg}
                   style={{
-                    width: device === "desktop"
-                      ? flag.shelfFlagWidth
-                      : flag.mobileShelfFlagWidth,
+                    "--mobile-width": flag.mobileShelfFlagWidth,
+                    "--desktop-width": flag.shelfFlagWidth,
                     height: "auto",
                   }}
                 />
