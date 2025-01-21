@@ -9,23 +9,25 @@ const displayCart = signal(false);
 const displayMenu = signal(false);
 const displaySearchPopup = signal(false);
 const displaySearchDrawer = signal(false);
-const displayGridLayout = signal<number>(2);
+const mobileDisplayGrid = signal<2 | 1>(2);
+const desktopDisplayGrid = signal<3 | 4>(3);
 const displayProductZoomModal = signal(false);
 const productZoomIndex = signal<number>(0);
 const storeLocal = signal({
   lat: -23.597981704745184,
-  lng: -46.69755666525704
-})
+  lng: -46.69755666525704,
+});
 
 const state = {
   displayCart,
   displayMenu,
   displaySearchPopup,
   displaySearchDrawer,
-  displayGridLayout,
+  mobileDisplayGrid,
+  desktopDisplayGrid,
   displayProductZoomModal,
   productZoomIndex,
-  storeLocal
+  storeLocal,
 };
 
 // Keyboard event listeners

@@ -1,12 +1,12 @@
 import { useComputed, useSignal } from "@preact/signals";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 import { useEffect } from "preact/hooks";
-import Filters from "../../components/search/Filters.tsx";
-import Breadcrumb from "../../components/ui/Breadcrumb.tsx";
-import Button from "../../components/ui/Button.tsx";
-import Drawer from "../../components/ui/Drawer.tsx";
-import Icon from "../../components/ui/Icon.tsx";
-import { useUI } from "../../sdk/useUI.ts";
+import Filters from "site/components/search/Filters.tsx";
+import Breadcrumb from "site/components/ui/Breadcrumb.tsx";
+import Button from "site/components/ui/Button.tsx";
+import Drawer from "site/components/ui/Drawer.tsx";
+import Icon from "site/components/ui/Icon.tsx";
+import { useUI } from "site/sdk/useUI.ts";
 
 export type Props =
   & Pick<ProductListingPage, "filters" | "breadcrumb" | "sortOptions">
@@ -31,13 +31,13 @@ function SearchControls(
   }: Props,
 ) {
   const open = useSignal(false);
-  const { displayGridLayout } = useUI();
+  const { mobileDisplayGrid, desktopDisplayGrid } = useUI();
   const isSticky = useSignal(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
-      isSticky.value = offset > 200;
+      isSticky.value = offset > (forceHideBreadcrumb ? 800 : 400);
     };
 
     addEventListener("scroll", handleScroll);
@@ -49,7 +49,7 @@ function SearchControls(
 
   const stickyClass = useComputed(() =>
     isSticky.value
-      ? "sm:relative fixed top-[115px] sm:top-auto z-10 bg-[#fff] w-full shadow-md"
+      ? "sm:relative fixed top-[75px] sm:top-auto z-10 bg-[#fff] w-full shadow-md"
       : ""
   );
 
@@ -83,7 +83,7 @@ function SearchControls(
       }
     >
       <div
-        class={`flex flex-col justify-between px-4 mb-2 sm:p-0 sm:gap-4 sm:flex-row ${stickyClass.value}`}
+        class={`flex flex-col justify-between px-4 mb-2 sm:p-0 sm:gap-4 sm:flex-row ${stickyClass.value} sm:px-8 sm:max-w-[1750px] sm:mx-auto`}
       >
         <div class="flex flex-row items-center sm:p-0">
           {isSearchPage || forceHideBreadcrumb ? null : (
@@ -105,17 +105,17 @@ function SearchControls(
             <span>Ver:</span>
             <button
               onClick={() => {
-                displayGridLayout.value = 2;
+                mobileDisplayGrid.value = 2;
               }}
             >
-              <LayoutGrid2Icon active={displayGridLayout.value === 2} />
+              <LayoutGrid2Icon active={mobileDisplayGrid.value === 2} />
             </button>
             <button
               onClick={() => {
-                displayGridLayout.value = 1;
+                mobileDisplayGrid.value = 1;
               }}
             >
-              <LayoutGrid1Icon active={displayGridLayout.value === 1} />
+              <LayoutGrid1Icon active={mobileDisplayGrid.value === 1} />
             </button>
           </div>
           <Button
@@ -134,6 +134,23 @@ function SearchControls(
               stroke-width={0.01}
             />
           </Button>
+        </div>
+        <div class="hidden md:flex items-center gap-2">
+          <span>Ver:</span>
+          <button
+            onClick={() => {
+              desktopDisplayGrid.value = 3;
+            }}
+          >
+            <LayoutGrid2Icon active={desktopDisplayGrid.value === 3} />
+          </button>
+          <button
+            onClick={() => {
+              desktopDisplayGrid.value = 4;
+            }}
+          >
+            <LayoutGrid1Icon active={desktopDisplayGrid.value === 4} />
+          </button>
         </div>
       </div>
     </Drawer>

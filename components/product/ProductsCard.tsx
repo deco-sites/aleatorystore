@@ -8,17 +8,28 @@ export interface Props {
   device: Device;
 }
 
+const styles = {
+  1: "grid-cols-1",
+  2: "grid-cols-2",
+  3: "grid-cols-3",
+  4: "grid-cols-4",
+};
+
 export default function ProductsCard({ products, device }: Props) {
-  const { displayGridLayout } = useUI();
+  const { mobileDisplayGrid, desktopDisplayGrid } = useUI();
   if (!products) {
     return null;
   }
+  const displayGrid =
+    styles[
+      device === "mobile"
+        ? mobileDisplayGrid.value
+        : desktopDisplayGrid.value
+    ];
   return (
     <div
       id="result-grid"
-      class={device === "mobile"
-        ? `grid grid-cols-${displayGridLayout} gap-4`
-        : "grid grid-cols-4 gap-4"}
+      class={`grid ${displayGrid} gap-4`}
     >
       {products?.map((product, index) => (
         <ProductCard

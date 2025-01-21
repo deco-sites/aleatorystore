@@ -6,7 +6,11 @@ export interface Props {
   product: Product;
 }
 
-export default async function SizebayLoader({ product }: Props, req: Request, ctx: AppContext) {
+export default async function SizebayLoader(
+  { product }: Props,
+  req: Request,
+  ctx: AppContext,
+) {
   const cookies = getCookies(req.headers);
   let SID: string | null = cookies.SIZEBAY_SESSION_ID_V4;
   let showButtons: string | null = null;
@@ -25,7 +29,9 @@ export default async function SizebayLoader({ product }: Props, req: Request, ct
 
   try {
     if (!SID) {
-      const response = await fetch(`https://vfr-v3-production.sizebay.technology/api/me/session-id`)
+      const response = await fetch(
+        `https://vfr-v3-production.sizebay.technology/api/me/session-id`,
+      )
         .then((r) => r.json())
         .catch((e) => {
           console.error(e);
@@ -42,7 +48,8 @@ export default async function SizebayLoader({ product }: Props, req: Request, ct
       });
     }
 
-    const sizebayProductURL = `https://vfr-v3-production.sizebay.technology/plugin/my-product-id?sid=${SID}&permalink=${permaLink}`;
+    const sizebayProductURL =
+      `https://vfr-v3-production.sizebay.technology/plugin/my-product-id?sid=${SID}&permalink=${permaLink}`;
 
     const sizebayProduct: any = await fetch(sizebayProductURL)
       .then((r) => r.json())
@@ -53,7 +60,9 @@ export default async function SizebayLoader({ product }: Props, req: Request, ct
     if (sizebayProduct && typeof sizebayProduct !== "string") {
       showButtons = sizebayProduct.accessory ? "accessory" : "noAccessory";
 
-      const response: any = await fetch(`https://vfr-v3-production.sizebay.technology/api/me/analysis/${sizebayProduct.id}?sid=${SID}&tenant=664`)
+      const response: any = await fetch(
+        `https://vfr-v3-production.sizebay.technology/api/me/analysis/${sizebayProduct.id}?sid=${SID}&tenant=664`,
+      )
         .then((r) => r.json())
         .catch((e) => {
           console.error(e);
@@ -64,7 +73,8 @@ export default async function SizebayLoader({ product }: Props, req: Request, ct
       }
     }
 
-    buttonsUrl = (mode: string) => `https://vfr-v3-production.sizebay.technology/V4/?mode=${mode}&id=${sizebayProduct.id}&sid=${SID}&tenantId=664&watchOpeningEvents=true&lang=pt`;
+    buttonsUrl = (mode: string) =>
+      `https://vfr-v3-production.sizebay.technology/V4/?mode=${mode}&id=${sizebayProduct.id}&sid=${SID}&tenantId=664&watchOpeningEvents=true&lang=pt`;
   } catch (e) {
     console.error(e);
   }

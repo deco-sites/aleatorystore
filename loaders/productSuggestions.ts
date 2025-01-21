@@ -5,11 +5,16 @@ export interface Props {
   product: Product;
 }
 
-export default async function ProductSuggestions({ product }: Props, _req: Request, ctx: AppContext) {
-  const suggestions = await ctx.invoke.vtex.loaders.legacy.relatedProductsLoader({
-    id: product.productID,
-    crossSelling: "suggestions",
-  });
+export default async function ProductSuggestions(
+  { product }: Props,
+  _req: Request,
+  ctx: AppContext,
+) {
+  const suggestions = await ctx.invoke.vtex.loaders.legacy
+    .relatedProductsLoader({
+      id: product.productID,
+      crossSelling: "suggestions",
+    });
 
   return suggestions;
 }

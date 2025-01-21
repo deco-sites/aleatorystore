@@ -1,12 +1,18 @@
 import type { ProductLeaf, PropertyValue } from "apps/commerce/types.ts";
 
-export type Possibilities = Record<string, Record<string, { url?: string; image?: string }>>;
+export type Possibilities = Record<
+  string,
+  Record<string, { url?: string; image?: string }>
+>;
 
 const hash = ({ name, value }: PropertyValue) => `${name}::${value}`;
 
 const omit = new Set(["category", "cluster", "RefId", "descriptionHtml"]);
 
-export const useColorVariantPossibilities = (variants: ProductLeaf[], selected: ProductLeaf): Possibilities => {
+export const useColorVariantPossibilities = (
+  variants: ProductLeaf[],
+  selected: ProductLeaf,
+): Possibilities => {
   const possibilities: Possibilities = {};
   const selectedSpecs = new Set(selected.additionalProperty?.map(hash));
 
@@ -25,14 +31,17 @@ export const useColorVariantPossibilities = (variants: ProductLeaf[], selected: 
         possibilities[name] = {};
       }
 
-      const isSelectable = it === 0 || specs.every((s) => s.name === name || selectedSpecs.has(hash(s)));
+      const isSelectable = it === 0 ||
+        specs.every((s) => s.name === name || selectedSpecs.has(hash(s)));
       possibilities[name][value] = {
         url: isSelected || isSelectable ? url : possibilities[name][value]?.url,
         image: (image && image[0]?.url) ?? "",
       };
     }
   }
-  const colorsSimilars = selected.additionalProperty?.find((property) => property.name === "Colors from Similar Products");
+  const colorsSimilars = selected.additionalProperty?.find((property) =>
+    property.name === "Colors from Similar Products"
+  );
   if (colorsSimilars && colorsSimilars.value) {
     const colors = JSON.parse(colorsSimilars.value);
     for (const color in colors) {

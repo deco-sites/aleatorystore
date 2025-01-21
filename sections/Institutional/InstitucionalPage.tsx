@@ -1,4 +1,4 @@
 export {
-    default,
-    loader,
+  default,
+  loader,
 } from "site/components/institucional/InstitucionalPage.tsx";

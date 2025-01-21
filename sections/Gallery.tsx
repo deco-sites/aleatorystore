@@ -1,10 +1,12 @@
 import { type Section } from "@deco/deco/blocks";
 interface Props {
-    children: Section;
+  children: Section;
 }
 function Gallery({ children: { Component, props } }: Props) {
-    return (<>
-      <Component {...props}/>
-    </>);
+  return (
+    <>
+      <Component {...props} />
+    </>
+  );
 }
 export default Gallery;

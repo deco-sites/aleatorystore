@@ -4754,9 +4754,6 @@ details.collapse summary::-webkit-details-marker {
 .top-\[10px\] {
   top: 10px;
 }
-.top-\[115px\] {
-  top: 115px;
-}
 .top-\[131px\] {
   top: 131px;
 }
@@ -4771,6 +4768,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .top-\[70px\] {
   top: 70px;
+}
+.top-\[75px\] {
+  top: 75px;
 }
 .z-0 {
   z-index: 0;
@@ -8436,6 +8436,10 @@ details.collapse summary::-webkit-details-marker {
 
   .sm\:min-w-\[100px\] {
     min-width: 100px;
+  }
+
+  .sm\:max-w-\[1750px\] {
+    max-width: 1750px;
   }
 
   .sm\:max-w-\[245px\] {

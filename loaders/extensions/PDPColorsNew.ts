@@ -8,11 +8,18 @@ type ColorsResult = Record<string, { url: string; image: string }>;
  * @title VTEX Integration - Product Details Page Colors from Cross Selling Similar
  * @description Add extra data to your loader. This may harm performance
  */
-export default function loader(_props: unknown, _req: Request, ctx: AppContext): ExtensionOf<ProductDetailsPage | null> {
+export default function loader(
+  _props: unknown,
+  _req: Request,
+  ctx: AppContext,
+): ExtensionOf<ProductDetailsPage | null> {
   return async (productDetailsPage: ProductDetailsPage | null) => {
     const productId = productDetailsPage?.product.isVariantOf?.productGroupID;
     if (!productId) return productDetailsPage;
-    const results = await ctx.invoke.vtex.loaders.legacy.relatedProductsLoader({ id: productId, crossSelling: "suggestions" });
+    const results = await ctx.invoke.vtex.loaders.legacy.relatedProductsLoader({
+      id: productId,
+      crossSelling: "suggestions",
+    });
 
     if (!results?.length) return productDetailsPage;
     const colors: ColorsResult = {};
@@ -23,7 +30,9 @@ export default function loader(_props: unknown, _req: Request, ctx: AppContext):
       if (!colorUrl) return;
       const imageUrl = product.image?.[0].url;
       if (!imageUrl) return;
-      const color = product?.additionalProperty?.find((property) => property.name === "Cor");
+      const color = product?.additionalProperty?.find((property) =>
+        property.name === "Cor"
+      );
       if (!color) return;
       const colorName = color.value;
       if (!colorName) return;
@@ -42,7 +51,10 @@ export default function loader(_props: unknown, _req: Request, ctx: AppContext):
       ...productDetailsPage,
       product: {
         ...productDetailsPage?.product,
-        additionalProperty: [...(productDetailsPage?.product.additionalProperty ?? []), colorsFromSimilarsAdditionalProperty],
+        additionalProperty: [
+          ...(productDetailsPage?.product.additionalProperty ?? []),
+          colorsFromSimilarsAdditionalProperty,
+        ],
       },
     };
   };

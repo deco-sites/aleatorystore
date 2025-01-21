@@ -32,10 +32,12 @@ function EspecialProductShelf({ products, title, card }: Props) {
   if (!products || products.length === 0) {
     return null;
   }
-  const cardPosDesktop =
-    card.desktopPosition === "left" ? "lg:flex-row" : "lg:flex-row-reverse";
-  const cardPosMobile =
-    card.mobilePosition === "top" ? "flex-col" : "flex-col-reverse";
+  const cardPosDesktop = card.desktopPosition === "left"
+    ? "lg:flex-row"
+    : "lg:flex-row-reverse";
+  const cardPosMobile = card.mobilePosition === "top"
+    ? "flex-col"
+    : "flex-col-reverse";
   return (
     <div class={clx("container w-full flex flex-col mb-16")}>
       <h2
@@ -74,7 +76,7 @@ function EspecialProductShelf({ products, title, card }: Props) {
         <div
           class={clx(
             "relative grid",
-            "grid-cols-[0px_1fr_0px] lg:grid-cols-[0px_1fr_0px] ml-4 sm:ml-0 max-lg:mb-[50px]"
+            "grid-cols-[0px_1fr_0px] lg:grid-cols-[0px_1fr_0px] ml-4 sm:ml-0 max-lg:mb-[50px]",
           )}
           id={id}
         >
