@@ -4,6 +4,7 @@
  */
 
 import { effect, signal } from "@preact/signals";
+import { IS_BROWSER } from "$fresh/runtime.ts";
 import { useEffect } from "preact/compat";
 
 const displayCart = signal(false);
@@ -42,13 +43,15 @@ addEventListener("keydown", (e: KeyboardEvent) => {
 });
 
 effect(() => {
-  const mobileDisplayGridLocal = localStorage.getItem("mobileDisplayGrid");
-  const desktopDisplayGridLocal = localStorage.getItem("desktopDisplayGrid");
-  if (mobileDisplayGridLocal) {
-    mobileDisplayGrid.value = parseInt(mobileDisplayGridLocal) as 2 | 1;
-  }
-  if (desktopDisplayGridLocal) {
-    desktopDisplayGrid.value = parseInt(desktopDisplayGridLocal) as 3 | 4;
+  if (IS_BROWSER) {
+    const mobileDisplayGridLocal = localStorage.getItem("mobileDisplayGrid");
+    const desktopDisplayGridLocal = localStorage.getItem("desktopDisplayGrid");
+    if (mobileDisplayGridLocal) {
+      mobileDisplayGrid.value = parseInt(mobileDisplayGridLocal) as 2 | 1;
+    }
+    if (desktopDisplayGridLocal) {
+      desktopDisplayGrid.value = parseInt(desktopDisplayGridLocal) as 3 | 4;
+    }
   }
 });
 effect(() => {
