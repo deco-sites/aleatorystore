@@ -3,7 +3,8 @@
  * like clicking on add to cart and the cart modal being displayed
  */
 
-import { signal } from "@preact/signals";
+import { effect, signal } from "@preact/signals";
+import { useEffect } from "preact/compat";
 
 const displayCart = signal(false);
 const displayMenu = signal(false);
@@ -40,4 +41,27 @@ addEventListener("keydown", (e: KeyboardEvent) => {
   }
 });
 
-export const useUI = () => state;
+effect(() => {
+  const mobileDisplayGridLocal = localStorage.getItem("mobileDisplayGrid");
+  const desktopDisplayGridLocal = localStorage.getItem("desktopDisplayGrid");
+  if (mobileDisplayGridLocal) {
+    mobileDisplayGrid.value = parseInt(mobileDisplayGridLocal) as 2 | 1;
+  }
+  if (desktopDisplayGridLocal) {
+    desktopDisplayGrid.value = parseInt(desktopDisplayGridLocal) as 3 | 4;
+  }
+});
+effect(() => {
+  localStorage.setItem(
+    "mobileDisplayGrid",
+    state.mobileDisplayGrid.value.toString(),
+  );
+  localStorage.setItem(
+    "desktopDisplayGrid",
+    state.desktopDisplayGrid.value.toString(),
+  );
+});
+
+export const useUI = () => {
+  return state;
+};
