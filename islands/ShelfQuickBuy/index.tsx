@@ -146,18 +146,18 @@ export default function Insland(props: Props) {
             </button>
           ))}
         </div>
-        <div class="flex gap-2">
+        <div class="flex gap-2 flex-wrap px-4 w-full justify-center">
           {quikBuySizes?.map((size) => (
             <button
               id="size-btn"
               class={clx(
-                "bg-base-100 rounded-md min-w-8 w-fit h-8 min-h-[unset] p-0 border-2 border-solid",
+                "bg-base-100 rounded-full min-w-8 w-fit h-8 min-h-[unset] p-0 border-2 border-solid text-xs",
                 size === selectedSize.value
                   ? "border-primary-500"
                   : "border-transparent",
                 getSizeAvaialability(size)
                   ? "cursor-pointer hover:bg-primary-100"
-                  : "cursor-not-allowed bg-opacity-50 tooltip tooltip-top",
+                  : "cursor-not-allowed tooltip tooltip-top relative",
               )}
               data-size={size}
               data-tip={!getSizeAvaialability(size)
@@ -167,6 +167,11 @@ export default function Insland(props: Props) {
               onClick={() => selectedSize.value = size}
             >
               {size}
+              {!getSizeAvaialability(size)
+                ? (
+                  <div class="w-[1px] h-full bg-[red] absolute top-0 left-1/2 transform -translate-x-1/2 block rotate-45" />
+                )
+                : null}
             </button>
           ))}
         </div>
