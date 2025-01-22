@@ -55,14 +55,16 @@ effect(() => {
   }
 });
 effect(() => {
-  localStorage.setItem(
-    "mobileDisplayGrid",
-    state.mobileDisplayGrid.value.toString(),
-  );
-  localStorage.setItem(
-    "desktopDisplayGrid",
-    state.desktopDisplayGrid.value.toString(),
-  );
+  if (IS_BROWSER) {
+    localStorage.setItem(
+      "mobileDisplayGrid",
+      state.mobileDisplayGrid.value.toString(),
+    );
+    localStorage.setItem(
+      "desktopDisplayGrid",
+      state.desktopDisplayGrid.value.toString(),
+    );
+  }
 });
 
 export const useUI = () => {
