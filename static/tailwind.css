@@ -5318,6 +5318,9 @@ details.collapse summary::-webkit-details-marker {
 .h-\[3px\] {
   height: 3px;
 }
+.h-\[40px\] {
+  height: 40px;
+}
 .h-\[42px\] {
   height: 42px;
 }
@@ -5540,6 +5543,9 @@ details.collapse summary::-webkit-details-marker {
 }
 .w-\[400px\] {
   width: 400px;
+}
+.w-\[40px\] {
+  width: 40px;
 }
 .w-\[42px\] {
   width: 42px;
@@ -5863,6 +5869,10 @@ details.collapse summary::-webkit-details-marker {
 }
 .rotate-45 {
   --tw-rotate: 45deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.rotate-90 {
+  --tw-rotate: 90deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .transform {

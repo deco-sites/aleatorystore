@@ -25,6 +25,9 @@
     },
     {
       "__resolveType": "htmx/sections/htmx.tsx"
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/GoToTop.tsx"
     }
   ],
   "routes": [
