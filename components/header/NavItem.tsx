@@ -1,5 +1,4 @@
 import type { SiteNavigationElement } from "apps/commerce/types.ts";
-import Image from "apps/website/components/Image.tsx";
 import Icon from "../ui/Icon.tsx";
 import { headerHeight } from "./constants.ts";
 
@@ -13,7 +12,7 @@ function NavItem({ item }: { item: SiteNavigationElement }) {
         {name?.includes("NEW IN")
           ? (
             <span
-              className={"font-redhatdisplay bg-primary-900 text-secondary-neutral-100 group-hover:underline whitespace-nowrap text-sm flex items-center gap-2 p-3 font-medium"}
+              className={"font-lato bg-primary-900 text-secondary-neutral-100 group-hover:underline whitespace-nowrap text-sm flex items-center gap-2 p-3 font-medium"}
             >
               {name}
             </span>
@@ -31,7 +30,7 @@ function NavItem({ item }: { item: SiteNavigationElement }) {
           )
           : (
             <span
-              className={"font-redhatdisplay group-hover:underline whitespace-nowrap text-sm lg:text-xs xl:text-sm font-thin flex items-center gap-2 text-paragraph-color"}
+              className={"font-lato group-hover:underline whitespace-nowrap text-sm lg:text-xs xl:text-sm font-semibold flex items-center gap-2 text-paragraph-color"}
             >
               {name}
               {children && children.length > 0 && (

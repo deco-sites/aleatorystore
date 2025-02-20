@@ -29,7 +29,7 @@ export default {
     },
     fontFamily: {
       northwell: ["Northwell", "Montserrat"],
-      redhatdisplay: ["Red Hat Display", "Montserrat"],
+      lato: ["Lato", "Montserrat"],
     },
     colors: {
       "primary-100": "#EDEDED",

@@ -7076,11 +7076,11 @@ details.collapse summary::-webkit-details-marker {
 .align-middle {
   vertical-align: middle;
 }
+.font-lato {
+  font-family: Lato, Montserrat;
+}
 .font-northwell {
   font-family: Northwell, Montserrat;
-}
-.font-redhatdisplay {
-  font-family: Red Hat Display, Montserrat;
 }
 .text-2xl {
   font-size: 1.5rem;
