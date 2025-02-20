@@ -145,7 +145,7 @@ function Result({
         >
           {layout?.variant === "aside" && filters.length > 0 &&
             (isFirstPage || !isPartial) && (
-            <aside class="hidden sm:block w-min min-w-[250px] pr-5 sticky top-[20%] h-fit mb-[15%]">
+            <aside class="hidden sm:block w-min min-w-[250px] pr-5 sticky top-[100px] h-fit mb-[15%]">
               <Filters
                 filters={filters}
                 sortOptions={sortOptions}

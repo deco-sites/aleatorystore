@@ -4751,14 +4751,14 @@ details.collapse summary::-webkit-details-marker {
 .top-6 {
   top: 1.5rem;
 }
+.top-\[100px\] {
+  top: 100px;
+}
 .top-\[10px\] {
   top: 10px;
 }
 .top-\[131px\] {
   top: 131px;
-}
-.top-\[20\%\] {
-  top: 20%;
 }
 .top-\[31px\] {
   top: 31px;

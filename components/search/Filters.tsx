@@ -91,7 +91,12 @@ function FilterValues(
   if (key === "tamanho") return null;
 
   return (
-    <ul class={`flex flex-wrap gap-8 flex-col my-4`}>
+    <ul
+      class={clx(
+        `flex gap-8 flex-col my-4`,
+        key !== "tamanho" ? "max-h-[300px] overflow-y-auto" : "flex-wrap",
+      )}
+    >
       {values.map((item) => {
         if (key === "cor") {
           return <CategoryColorFilter {...item} />;
@@ -165,7 +170,7 @@ function FilterItem(item: FilterToggle) {
         <div class={`${!isOpen.value ? "hidden" : ""}`}>
           {item.key === "tamanho"
             ? (
-              <div class="grid grid-cols-2 gap-4">
+              <div class="grid grid-cols-2 gap-4 max-h-[300px] overflow-y-auto overflow-x-hidden">
                 <div class="flex flex-col gap-4 my-4">
                   {!!filterNumberSizes &&
                     filterNumberSizes.map((sizeItem, index) => (
