@@ -193,7 +193,7 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
                         step={step}
                     />
                 </div>
-                <div class="flex justify-between text-accent text-xs leading-[18px] my-4">
+                <div class="flex justify-between text-xs leading-[18px] my-4">
                     <span>{formatBRL(parseFloat(min))}</span>
                     <span>{formatBRL(parseFloat(max))}</span>
                 </div>
@@ -201,7 +201,7 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
                     <div class="flex flex-col">
                         <label
                             for="min"
-                            class="text-accent text-xs leading-[18px] font-bold mb-0.5"
+                            class=" text-xs leading-[18px] font-bold mb-0.5"
                         >
                             Mínimo
                         </label>

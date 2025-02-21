@@ -7634,7 +7634,7 @@ details.collapse summary::-webkit-details-marker {
   right: 30%;
   position: absolute;
   border-radius: 5px;
-  background-color: black;
+  background-color: var(--fallback-bc, oklch(var(--bc) / 1));
 }
 
 .double-range .range-input {
@@ -7656,8 +7656,8 @@ details.collapse summary::-webkit-details-marker {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background-color: black;
-  border: 5px solid black;
+  background-color: var(--fallback-bc, oklch(var(--bc) / 1));
+  border: 5px solid var(--fallback-bc, oklch(var(--bc) / 1));
   pointer-events: auto;
   -webkit-appearance: none;
   cursor: pointer;
@@ -7667,8 +7667,8 @@ details.collapse summary::-webkit-details-marker {
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background-color: black;
-  border: 5px solid black;
+  background-color: var(--fallback-bc, oklch(var(--bc) / 1));
+  border: 5px solid var(--fallback-bc, oklch(var(--bc) / 1));
   pointer-events: auto;
   -moz-appearance: none;
   cursor: pointer;
