@@ -1,7 +1,7 @@
 {
   "imports": {
-    "deco/": "https://cdn.jsdelivr.net/gh/deco-cx/deco@1.107.1/",
-    "apps/": "https://cdn.jsdelivr.net/gh/deco-cx/apps@0.64.2/",
+    "deco/": "https://cdn.jsdelivr.net/gh/deco-cx/deco@1.110.0/",
+    "apps/": "https://cdn.jsdelivr.net/gh/deco-cx/apps@0.64.35/",
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
     "preact": "npm:preact@10.23.1",
     "preact-render-to-string": "npm:preact-render-to-string@6.4.2",
@@ -37,8 +37,8 @@
     "partytown/": "https://deno.land/x/partytown@0.4.8/",
     "simple-git": "npm:simple-git@^3.25.0",
     "https://esm.sh/*preact-render-to-string@6.3.1": "npm:preact-render-to-string@6.4.2",
-    "@deco/deco": "jsr:@deco/deco@1.107.0",
-    "@deco/dev": "jsr:@deco/dev@1.107.0",
+    "@deco/deco": "jsr:@deco/deco@1.110.0",
+    "@deco/dev": "jsr:@deco/dev@1.110.0",
     "site/": "./"
   },
   "tasks": {

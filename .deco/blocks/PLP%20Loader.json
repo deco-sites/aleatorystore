@@ -5,7 +5,8 @@
     "fuzzy": "automatic",
     "pageOffset": 1,
     "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
-    "selectedFacets": []
+    "selectedFacets": [],
+    "priceFacets": true
   },
   "extensions": [
     {
