@@ -58,7 +58,6 @@ function handleShowMore() {
 export default function ShowMore(
   { pageInfo, url }: Props,
 ) {
-  console.log(pageInfo, url);
   if (pageInfo.nextPage === undefined) {
     return (
       <div class="flex justify-center col-span-full mt-16 mb-28 relative">

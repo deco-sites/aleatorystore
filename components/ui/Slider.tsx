@@ -228,7 +228,6 @@ const setup = ({ rootId, scroll, interval, infinite, especially }: Props) => {
 
     const isShowingLast = indices[indices.length - 1] === items.length - 1;
     const pageIndex = Math.floor(indices[0] / itemsPerPage);
-    console.log({ indices, itemsPerPage, isShowingLast, pageIndex });
 
     goToItem(
       isShowingLast ? 0 : (pageIndex + 1) * itemsPerPage,

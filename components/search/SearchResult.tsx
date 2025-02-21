@@ -86,7 +86,12 @@ function Result({
     seoContent.bullets.bullets.length > 0;
   const showSeoText = seoContent.bottomSEO !== undefined &&
     seoContent.bottomSEO.contents.length > 0;
-
+  console.log({
+    isFirstPage,
+    isPartial,
+    variant: layout?.variant,
+    filtersQtd: filters.length,
+  });
   return (
     <>
       <div

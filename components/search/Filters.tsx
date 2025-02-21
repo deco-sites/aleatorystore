@@ -8,6 +8,7 @@ import type {
 } from "apps/commerce/types.ts";
 import type { JSX } from "preact";
 import { useMemo } from "preact/hooks";
+import ShowPriceItem from "site/components/search/PriceFilter.tsx";
 import { clx } from "../../sdk/clx.ts";
 import CategoryColorFilter from "../category/CategoryColorFilter.tsx/CategoryColorFilter.tsx";
 import Icon from "../ui/Icon.tsx";
@@ -151,8 +152,28 @@ function FilterItem(item: FilterToggle) {
     item.values.filter(({ value }) => isNaN(Number(value)))) ?? [];
 
   const handleClick = () => isOpen.value = !isOpen.value;
-
-  if (item.key === "price") return null;
+  console.log(item.key);
+  if (item.key === "price") {
+    return (
+      <li>
+        <div class="flex flex-col gap-4">
+          <button
+            onClick={handleClick}
+            class="flex"
+            aria-label="toggle filter item"
+          >
+            <span class="flex items-center uppercase text-dark-blue text-base font-light w-full justify-between mr-[2px]">
+              {labelRename(item.label)}{" "}
+              {!isOpen.value ? <Icon id="Plus" size={18} /> : <MinusIcon />}
+            </span>
+          </button>
+          <div class={`${!isOpen.value ? "hidden" : ""}`}>
+            <ShowPriceItem {...item} />
+          </div>
+        </div>
+      </li>
+    );
+  }
 
   if (item.key === "tamanho") {
     return (
@@ -211,6 +232,8 @@ function FilterItem(item: FilterToggle) {
 }
 
 function Filters({ filters, sortOptions, disablePadding }: Props) {
+  console.log("Loading Filters");
+  console.log({ filters, sortOptions, disablePadding });
   const isOpenOrderBy = useSignal<boolean>(false);
   const handleClick = () => isOpenOrderBy.value = !isOpenOrderBy.value;
   const sort = useSort();

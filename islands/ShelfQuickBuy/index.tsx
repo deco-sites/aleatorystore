@@ -36,7 +36,7 @@ export default function Insland(props: Props) {
       const isAvailable = variant.offers?.offers.some(
         (offer) => offer.availability.includes("InStock"),
       );
-      //console.log("variant", isAvailable);
+
       return {
         image: variant.image?.[0].url,
         size: size?.value,
