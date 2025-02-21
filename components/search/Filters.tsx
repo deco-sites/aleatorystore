@@ -152,7 +152,6 @@ function FilterItem(item: FilterToggle) {
     item.values.filter(({ value }) => isNaN(Number(value)))) ?? [];
 
   const handleClick = () => isOpen.value = !isOpen.value;
-  console.log(item.key);
   if (item.key === "price") {
     return (
       <li>
@@ -232,8 +231,6 @@ function FilterItem(item: FilterToggle) {
 }
 
 function Filters({ filters, sortOptions, disablePadding }: Props) {
-  console.log("Loading Filters");
-  console.log({ filters, sortOptions, disablePadding });
   const isOpenOrderBy = useSignal<boolean>(false);
   const handleClick = () => isOpenOrderBy.value = !isOpenOrderBy.value;
   const sort = useSort();

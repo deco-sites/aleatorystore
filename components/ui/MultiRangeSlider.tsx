@@ -207,7 +207,7 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
                         </label>
                         <input
                             id="min"
-                            class="bg-primary-content rounded w-full outline-none text-accent text-xs leading-[18px] h-9 flex items-center pl-3 before:content-['R$']"
+                            class="bg-primary-content rounded w-full outline-none text-xs leading-[18px] h-9 flex items-center pl-3 before:content-['R$']"
                             name="min"
                             value={formatBRL(parseFloat(minVal))}
                         />
@@ -215,13 +215,13 @@ export default function MultiRangeSlider(props: MultiRangeSliderProps) {
                     <div class="flex flex-col items-end">
                         <label
                             for="max"
-                            class="text-accent text-xs leading-[18px] font-bold mb-0.5"
+                            class="text-xs leading-[18px] font-bold mb-0.5"
                         >
                             Máximo
                         </label>
                         <input
                             id="max"
-                            class="bg-primary-contentontentontent rounded outline-none w-full text-accent text-xs leading-[18px] h-9 flex items-center pl-3 before:content-['R$']"
+                            class="bg-primary-content rounded outline-none w-full text-xs leading-[18px] h-9 flex items-center pl-3 before:content-['R$']"
                             name="max"
                             value={formatBRL(parseFloat(maxVal))}
                         />

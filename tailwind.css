@@ -133,7 +133,7 @@
   right: 30%;
   position: absolute;
   border-radius: 5px;
-  background-color: #d6de23;
+  background-color: black;
 }
 
 .double-range .range-input {
@@ -155,8 +155,8 @@
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background-color: #ff8300;
-  border: 5px solid #d6de23;
+  background-color: black;
+  border: 5px solid black;
   pointer-events: auto;
   -webkit-appearance: none;
   cursor: pointer;
@@ -166,8 +166,8 @@
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background-color: #ff8300;
-  border: 5px solid #d6de23;
+  background-color: black;
+  border: 5px solid black;
   pointer-events: auto;
   -moz-appearance: none;
   cursor: pointer;
