@@ -15,7 +15,7 @@
     "items": [
       {
         "url": "/lancamentos",
-        "name": "NEW IN",
+        "name": "TESTE",
         "@type": "SiteNavigationElement",
         "image": [
           {
