@@ -1,4 +1,7 @@
-export { default } from "../../components/product/ProductShelfTabbed.tsx";
+export {
+  default,
+  loader,
+} from "../../components/product/ProductShelfTabbed.tsx";
 
 export function LoadingFallback() {
   return (
