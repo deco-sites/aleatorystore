@@ -45,12 +45,12 @@
             "href": "/masculino/roupas/camisetas"
           },
           "image": {
-            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/1abd2875-3f67-4446-8231-8f3c5e8ebce7/fdb4d04c-dc08-4198-8ff6-4a66e8a475a8___b1868231cf278138f7ff8fc5a4f856bb.webp",
+            "desktop": "https://data.decoassets.com/aleatorystore/25f44d12-d9af-4aba-ba59-d089d510a2d6/2.jpg",
             "alt": "Um homem com uma camiseta verde e short bege.",
-            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/1abd2875-3f67-4446-8231-8f3c5e8ebce7/fdb4d04c-dc08-4198-8ff6-4a66e8a475a8___b1868231cf278138f7ff8fc5a4f856bb.webp"
+            "mobile": "https://data.decoassets.com/aleatorystore/25f44d12-d9af-4aba-ba59-d089d510a2d6/2.jpg"
           },
           "title": "Camisas",
-          "description": "Listras, Listradas E Estampadas"
+          "description": "Manga longa ou curta"
         },
         {
           "cta": {
@@ -58,12 +58,12 @@
             "href": "/221?map=productClusterIds"
           },
           "image": {
-            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/a7a69c99-88ef-4843-8b6f-69e52b8375ea/3a0daea7-1cae-42f9-a273-cc7de5acc93d___37416cc64871071317194775c255d077.webp",
-            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/8238bff8-c47f-4055-a736-915a8ab63194/3a0daea7-1cae-42f9-a273-cc7de5acc93d___37416cc64871071317194775c255d077.webp",
+            "desktop": "https://data.decoassets.com/aleatorystore/88c649ef-272d-4d1e-b428-3093b08650a5/3.jpg",
+            "mobile": "https://data.decoassets.com/aleatorystore/88c649ef-272d-4d1e-b428-3093b08650a5/3.jpg",
             "alt": "Texto: Duas camisetas por 158 reais, escolha já as suas! Imagem: Um homem branco dentro de uma gruta com uma camista amaerela"
           },
           "title": "Imperdível!",
-          "description": "Aproveite A Promoção"
+          "description": "NOVOS MODELOS ADICIONADOS"
         },
         {
           "cta": {
@@ -71,12 +71,12 @@
             "href": "/masculino/roupas/polos"
           },
           "image": {
-            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b9899bfc-3a8a-438e-88a5-3d910df4fdd9/dc136d96-fa5b-48b0-aaff-5ab91f4e7221___d632697c807af933310f1581580c37bd.webp",
-            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/e428ab27-656a-447f-91fb-e85188801d66/dc136d96-fa5b-48b0-aaff-5ab91f4e7221___d632697c807af933310f1581580c37bd.webp",
+            "desktop": "https://data.decoassets.com/aleatorystore/af6e128e-10c2-4f18-9a05-dccba58c16a2/4.jpg",
+            "mobile": "https://data.decoassets.com/aleatorystore/af6e128e-10c2-4f18-9a05-dccba58c16a2/4.jpg",
             "alt": "Um homem branco com uma camisata vermelha com uma cachoeira no fundo embaçado"
           },
           "title": "Polos",
-          "description": "Em até 10X"
+          "description": "lisas, listradas e estampadas"
         }
       ]
     },
@@ -155,16 +155,16 @@
         "images": [
           {
             "label": "Camisa Polo Aleatory Listrada",
-            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b276a2d0-ea13-4edb-af15-c6b2a0803ddc/a9969974-d923-40a6-9d26-9e5db2e25e79___bf96b3b0b4665be7823b0c46b9a0d6f0.webp",
-            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/b276a2d0-ea13-4edb-af15-c6b2a0803ddc/a9969974-d923-40a6-9d26-9e5db2e25e79___bf96b3b0b4665be7823b0c46b9a0d6f0.webp",
+            "desktop": "https://data.decoassets.com/aleatorystore/b2642622-233b-441a-93c0-889efbf5f1a6/5.jpg",
+            "mobile": "https://data.decoassets.com/aleatorystore/b2642622-233b-441a-93c0-889efbf5f1a6/5.jpg",
             "alt": "Um homem branco com uma camiseta vermelha e calça bege",
             "clickUrl": "/camisa-polo-aleatory-listrada-prestige-vermelha5000-1e-2-vm/p?skuId=62836",
             "showCart": true
           },
           {
             "label": "Camisas",
-            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/0d9102d6-ef96-49d0-8d17-5b787ad4abc0/d4f4bfeb-b1ca-4fb0-ab6f-1e8b3f7f7696___881440c7d1d45609daec5f92d1b4e7f7.webp",
-            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/0d9102d6-ef96-49d0-8d17-5b787ad4abc0/d4f4bfeb-b1ca-4fb0-ab6f-1e8b3f7f7696___881440c7d1d45609daec5f92d1b4e7f7.webp",
+            "desktop": "https://data.decoassets.com/aleatorystore/465b21af-ba61-471c-baf6-9144a3f48f1a/6.jpg",
+            "mobile": "https://data.decoassets.com/aleatorystore/465b21af-ba61-471c-baf6-9144a3f48f1a/6.jpg",
             "alt": "Um homem branco com uma camisa listrada e calça branca",
             "clickUrl": "https://www.aleatorystore.com.br/masculino/roupas/camisas",
             "showCart": true
@@ -198,6 +198,8 @@
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "site/sections/Product/ProductShelfTabbed.tsx",
+        "title": "Lançamentos",
+        "description": "CONFIRA AS NOVIDADES QUE CHEGARAM",
         "layout": {
           "headerAlignment": "center",
           "headerfontSize": "Small",
@@ -244,8 +246,6 @@
             "title": "Feminino"
           }
         ],
-        "title": "Lançamentos",
-        "description": "CONFIRA AS NOVIDADES QUE CHEGARAM",
         "tabIndex": 0
       }
     },
@@ -253,39 +253,39 @@
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "site/sections/Cards/ProductShowcase.tsx",
-        "title": "SE AQUECENDO",
-        "description": "As Jaquetas e Suéteres Aleatory são a melhor pedida para as noites, sendo um complemento para seu visual, além de serem quentes e confortáveis. Garanta o visual com 15% Off!",
+        "title": "AS MELHORES LISTRAS",
+        "description": "A Aleatory tem as melhores camisetas listradas, para quem busca uma forma elegante, versátil e ideal para o verão. Garanta já este modelo para seu estilo e renove seu guarda-roupa!",
         "subtitle": "com estilo",
+        "cta": {
+          "label": "Confira",
+          "href": "/322?map=productClusterIds"
+        },
         "images": [
           {
             "label": "Bermudas",
-            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/9698e15c-f805-483e-9078-09c89395a3e2/4394bcee-60ea-4ee8-8ea2-9c4b75cc97fd___b763e2bb2824eaf1df7610057f09032c.webp",
-            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/9698e15c-f805-483e-9078-09c89395a3e2/4394bcee-60ea-4ee8-8ea2-9c4b75cc97fd___b763e2bb2824eaf1df7610057f09032c.webp",
+            "desktop": "https://data.decoassets.com/aleatorystore/8d4b3c14-d483-4adc-8ec6-c5058c6c142f/7.jpg",
+            "mobile": "https://data.decoassets.com/aleatorystore/8d4b3c14-d483-4adc-8ec6-c5058c6c142f/7.jpg",
             "alt": "Uma pessoa com uma camiseta amarela e uma bermuda listrada. Texto em caixa alta:  Bermudas, Conferir ",
             "clickUrl": "/masculino/roupas/bermudas-e-shorts",
             "showCart": true
           },
           {
             "label": "Moletons",
-            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/f7c597f0-24b7-49c3-9c72-4d5e34c52ac6/d0ae916d-fbab-4c22-bcc1-8c9a790471d7___dba0250ba9145f7a3af52268f484ca12.webp",
-            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/f7c597f0-24b7-49c3-9c72-4d5e34c52ac6/d0ae916d-fbab-4c22-bcc1-8c9a790471d7___dba0250ba9145f7a3af52268f484ca12.webp",
+            "desktop": "https://data.decoassets.com/aleatorystore/8ae78f40-f9c7-44bd-8985-9389539bd8a4/9.jpg",
+            "mobile": "https://data.decoassets.com/aleatorystore/8ae78f40-f9c7-44bd-8985-9389539bd8a4/9.jpg",
             "alt": "Um homem branco com um moletom cor de vinho da aleatory, no meio do moletom tem em caixa alta bordado aleatory na cor azul escuro. Texto: Moletons 20%OFF, clique e aproveite",
             "clickUrl": "/363?map=productClusterIds",
             "showCart": true
           },
           {
-            "desktop": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/a2e59424-cd1a-4fd4-afad-ed774544a033/a6fbf100-cd51-4504-957f-8e2d68fa9671___b339bd1c2f42faa32c4c6f6c207caadc.webp",
+            "desktop": "https://data.decoassets.com/aleatorystore/758b7472-b89c-492f-bd8a-8bb81d13f3fb/8.jpg",
             "label": "Suéteres e Jaquetas",
-            "mobile": "https://deco-sites-assets.s3.sa-east-1.amazonaws.com/aleatorystore/a2e59424-cd1a-4fd4-afad-ed774544a033/a6fbf100-cd51-4504-957f-8e2d68fa9671___b339bd1c2f42faa32c4c6f6c207caadc.webp",
+            "mobile": "https://data.decoassets.com/aleatorystore/758b7472-b89c-492f-bd8a-8bb81d13f3fb/8.jpg",
             "clickUrl": "/322?map=productClusterIds",
             "alt": "Uma pessoa de ",
             "showCart": true
           }
-        ],
-        "cta": {
-          "href": "/322?map=productClusterIds",
-          "label": "Confira"
-        }
+        ]
       }
     },
     {
@@ -294,17 +294,23 @@
         "__resolveType": "site/sections/Institutional/AboutUs.tsx",
         "title": "Sobre Nós",
         "subtitle": "Aleatory Store",
-        "content": "A marca Aleatory nasceu em 1988, em São Paulo. Nossa linha de produtos é irresistível! São roupas, acessórios e calçados num estilo casual, esportivo, dinâmico e jovem. É a moda perfeita para quem quer estar impecável em qualquer ocasião. A qualidade de nossos produtos e o bom atendimento aos clientes vem em primeiro lugar sempre e por esse motivo ganhamos espaço em todo o Brasil. Nos tornamos uma marca sólida sem perder a identidade. A Aleatory está presente em mais de 800 multimarcas e temos 40 franquias espalhadas por todo o país. Juntamos agora toda essa tradição e expertise para estar presente também aqui na internet. Veja mais sobre a aleatory.",
         "cta": {
           "label": "Ver Mais +",
           "url": "/institucional/quem-somos"
-        }
+        },
+        "content": "A marca Aleatory nasceu em 1988, em São Paulo. Nossa linha de produtos é irresistível! São roupas, acessórios e calçados num estilo casual, esportivo, dinâmico e jovem. É a moda perfeita para quem quer estar impecável em qualquer ocasião. A qualidade de nossos produtos e o bom atendimento aos clientes vem em primeiro lugar sempre e por esse motivo ganhamos espaço em todo o Brasil. Nos tornamos uma marca sólida sem perder a identidade. A Aleatory está presente em mais de 800 multimarcas e temos 40 franquias espalhadas por todo o país. Juntamos agora toda essa tradição e expertise para estar presente também aqui na internet. Veja mais sobre a aleatory."
       }
     },
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "Footer - 02"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
+        "__resolveType": "site/sections/Product/ProductShelfTabbed.tsx"
       }
     }
   ],
