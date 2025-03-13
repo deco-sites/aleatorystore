@@ -15,7 +15,7 @@
     "items": [
       {
         "url": "/lancamentos",
-        "name": "TESTE",
+        "name": "NEW IN",
         "@type": "SiteNavigationElement",
         "image": [
           {
@@ -377,18 +377,6 @@
                 "children": [],
                 "name": "Tênis",
                 "url": "/masculino/calcados/sapatenis"
-              },
-              {
-                "image": [],
-                "children": [],
-                "name": "CINTOS",
-                "url": "/masculino/acessorios/cintos"
-              },
-              {
-                "image": [],
-                "children": [],
-                "name": "CARTEIRAS",
-                "url": "/masculino/acessorios/carteiras"
               }
             ],
             "name": "CALÇADOS",
