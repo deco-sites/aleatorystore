@@ -26,7 +26,8 @@
             "buttonNegative": true
           },
           "mobile": "https://assets.decocache.com/aleatorystore/612c958d-aec9-4187-8433-c154b4859099/1A_Mobile.jpg",
-          "desktop": "https://assets.decocache.com/aleatorystore/c15a9c49-1491-47a6-913f-6f61b7dfc76e/1A.jpg"
+          "desktop": "https://assets.decocache.com/aleatorystore/c15a9c49-1491-47a6-913f-6f61b7dfc76e/1A.jpg",
+          "video": "https://storage.googleapis.com/vitrine_viva/Out_Inv25_BannerVid.mp4"
         }
       ],
       "arrows": false,
