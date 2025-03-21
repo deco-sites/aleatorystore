@@ -46,37 +46,37 @@
             "href": "/masculino/roupas/camisetas"
           },
           "image": {
-            "desktop": "https://data.decoassets.com/aleatorystore/25f44d12-d9af-4aba-ba59-d089d510a2d6/2.jpg",
+            "desktop": "https://assets.decocache.com/aleatorystore/7f49edd2-0534-48b9-bc16-da1aeede8208/Home_OutonoInverno_2.jpg",
             "alt": "Um homem com uma camiseta verde e short bege.",
-            "mobile": "https://data.decoassets.com/aleatorystore/25f44d12-d9af-4aba-ba59-d089d510a2d6/2.jpg"
+            "mobile": "https://assets.decocache.com/aleatorystore/7f49edd2-0534-48b9-bc16-da1aeede8208/Home_OutonoInverno_2.jpg"
           },
           "title": "Camisas",
-          "description": "Manga longa ou curta"
+          "description": "Modelos únicos para seu outono"
         },
         {
           "cta": {
             "text": "Confira",
-            "href": "/221?map=productClusterIds"
+            "href": "/360?map=productClusterIds"
           },
           "image": {
-            "desktop": "https://data.decoassets.com/aleatorystore/88c649ef-272d-4d1e-b428-3093b08650a5/3.jpg",
-            "mobile": "https://data.decoassets.com/aleatorystore/88c649ef-272d-4d1e-b428-3093b08650a5/3.jpg",
-            "alt": "Texto: Duas camisetas por 158 reais, escolha já as suas! Imagem: Um homem branco dentro de uma gruta com uma camista amaerela"
+            "desktop": "https://assets.decocache.com/aleatorystore/b7d1c250-becf-4900-a3a9-8aa95913c5d2/Home_OutonoInverno_3.jpg",
+            "mobile": "https://assets.decocache.com/aleatorystore/b7d1c250-becf-4900-a3a9-8aa95913c5d2/Home_OutonoInverno_3.jpg",
+            "alt": "Imagem aproximada de uma camisa polo marrom e gola preta."
           },
-          "title": "Imperdível!",
-          "description": "NOVOS MODELOS ADICIONADOS"
+          "title": "Polos por R$129",
+          "description": "Seu estilo garantido"
         },
         {
           "cta": {
             "text": "Confira",
-            "href": "/masculino/roupas/polos"
+            "href": "/masculino/roupas/camisetas"
           },
           "image": {
-            "desktop": "https://data.decoassets.com/aleatorystore/af6e128e-10c2-4f18-9a05-dccba58c16a2/4.jpg",
-            "mobile": "https://data.decoassets.com/aleatorystore/af6e128e-10c2-4f18-9a05-dccba58c16a2/4.jpg",
-            "alt": "Um homem branco com uma camisata vermelha com uma cachoeira no fundo embaçado"
+            "desktop": "https://assets.decocache.com/aleatorystore/195aaa38-1de4-4820-a6a5-1a456a209510/Home_OutonoInverno_4.jpg",
+            "mobile": "https://assets.decocache.com/aleatorystore/195aaa38-1de4-4820-a6a5-1a456a209510/Home_OutonoInverno_4.jpg",
+            "alt": "Estampa de uma camiseta Aleatory, aproximada. "
           },
-          "title": "Polos",
+          "title": "Camisetas",
           "description": "lisas, listradas e estampadas"
         }
       ]
