@@ -38,6 +38,21 @@
       ]
     },
     {
+      "__resolveType": "site/sections/Benefits.tsx",
+      "items": [
+        {
+          "title": "ATÉ 10X SEM JUROS"
+        },
+        {
+          "title": "FRETE GRÁTIS ACIMA DE R$ 499"
+        },
+        {
+          "title": "2.5% de CashBack ",
+          "description": "em todas as compras faturadas"
+        }
+      ]
+    },
+    {
       "__resolveType": "site/sections/Cards/CardShowcase.tsx",
       "cards": [
         {
@@ -306,12 +321,6 @@
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "Footer - 02"
-      }
-    },
-    {
-      "__resolveType": "website/sections/Rendering/Lazy.tsx",
-      "section": {
-        "__resolveType": "site/sections/Product/ProductShelfTabbed.tsx"
       }
     }
   ],

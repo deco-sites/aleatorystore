@@ -5157,9 +5157,6 @@ details.collapse summary::-webkit-details-marker {
 .mt-20 {
   margin-top: 5rem;
 }
-.mt-28 {
-  margin-top: 7rem;
-}
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -5207,9 +5204,6 @@ details.collapse summary::-webkit-details-marker {
 }
 .mt-\[45px\] {
   margin-top: 45px;
-}
-.mt-\[55px\] {
-  margin-top: 55px;
 }
 .mt-\[5px\] {
   margin-top: 5px;
@@ -6533,6 +6527,10 @@ details.collapse summary::-webkit-details-marker {
   border-right-color: rgb(135 135 135 / var(--tw-border-opacity));
 }
 .bg-\[\#000000\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+.bg-\[\#000\] {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
