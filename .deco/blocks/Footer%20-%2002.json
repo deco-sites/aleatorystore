@@ -145,7 +145,7 @@
         },
         {
           "label": "MINHA CONTA",
-          "href": "/user-myaccount"
+          "href": "/login"
         },
         {
           "label": "E-MAIL US ON atendimento@aleatorystore.com.br",

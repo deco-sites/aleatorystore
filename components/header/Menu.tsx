@@ -88,7 +88,7 @@ function Menu({ items }: Props) {
         <li class="w-full">
           <a
             class="flex flex-col items-center px-4 py-4 m-3 border-2 border-dotted border-secondary-neutral-600"
-            href="/user-myaccount"
+            href="/login"
           >
             <UserIcon />
             <span class="text-sm">Minha conta</span>

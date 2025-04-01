@@ -16,15 +16,17 @@
   },
   "global": [
     {
+      "__resolveType": "htmx/sections/htmx.tsx"
+    },
+    {
       "__resolveType": "website/sections/Analytics/Analytics.tsx",
       "dangerouslyRunOnMainThread": true,
-      "trackingIds": []
+      "trackingIds": [
+        "GTM-KZQ4X2"
+      ]
     },
     {
       "__resolveType": "analytics/sections/Analytics/DecoAnalytics.tsx"
-    },
-    {
-      "__resolveType": "htmx/sections/htmx.tsx"
     },
     {
       "__resolveType": "site/sections/Miscellaneous/GoToTop.tsx"
@@ -37,6 +39,9 @@
       "extraPathsToProxy": [],
       "includeScriptsToHead": {
         "includes": [
+          {
+            "__resolveType": "site/loaders/clientNavigation.ts"
+          },
           {
             "__resolveType": "analytics/loaders/DecoAnalyticsScript.ts"
           }
@@ -67,7 +72,8 @@
     },
     "includeScriptsToBody": {
       "includes": []
-    }
+    },
+    "urlToRunAgainst": "secure.aleatorystore.com.br"
   },
   "flavor": {
     "framework": "fresh"

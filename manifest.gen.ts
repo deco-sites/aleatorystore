@@ -7,20 +7,21 @@ import * as $$$$$$$$$$$1 from "./apps/deco/htmx.ts";
 import * as $$$$$$$$$$$2 from "./apps/deco/vtex.ts";
 import * as $$$$$$$$$$$3 from "./apps/site.ts";
 import * as $$$3 from "./loaders/availableIcons.ts";
-import * as $$$4 from "./loaders/extensions/PDPCollectionFlags.ts";
-import * as $$$5 from "./loaders/extensions/PDPColorsNew.ts";
-import * as $$$6 from "./loaders/extensions/PLPCollectionFlags.ts";
-import * as $$$7 from "./loaders/extensions/ProductColorSimilars.ts";
-import * as $$$8 from "./loaders/extensions/ProductShelfCollectionsFlags.ts";
-import * as $$$9 from "./loaders/icons.ts";
+import * as $$$4 from "./loaders/clientNavigation.ts";
+import * as $$$5 from "./loaders/extensions/PDPCollectionFlags.ts";
+import * as $$$6 from "./loaders/extensions/PDPColorsNew.ts";
+import * as $$$7 from "./loaders/extensions/PLPCollectionFlags.ts";
+import * as $$$8 from "./loaders/extensions/ProductColorSimilars.ts";
+import * as $$$9 from "./loaders/extensions/ProductShelfCollectionsFlags.ts";
+import * as $$$10 from "./loaders/icons.ts";
 import * as $$$0 from "./loaders/Layouts/ProductCard.tsx";
 import * as $$$1 from "./loaders/List/Sections.tsx";
 import * as $$$2 from "./loaders/MenuInstitucionalLoader.tsx";
-import * as $$$10 from "./loaders/ourStores.ts";
-import * as $$$11 from "./loaders/productRecommendations.ts";
-import * as $$$12 from "./loaders/productSuggestions.ts";
-import * as $$$13 from "./loaders/searchDocumentsOnMasterData.ts";
-import * as $$$14 from "./loaders/sizebay.ts";
+import * as $$$11 from "./loaders/ourStores.ts";
+import * as $$$12 from "./loaders/productRecommendations.ts";
+import * as $$$13 from "./loaders/productSuggestions.ts";
+import * as $$$14 from "./loaders/searchDocumentsOnMasterData.ts";
+import * as $$$15 from "./loaders/sizebay.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/Benefits.tsx";
 import * as $$$$$$2 from "./sections/Cards/CardShowcase.tsx";
@@ -100,20 +101,21 @@ import * as $$$$$$74 from "./sections/Theme/Theme.tsx";
 const manifest = {
   "loaders": {
     "site/loaders/availableIcons.ts": $$$3,
-    "site/loaders/extensions/PDPCollectionFlags.ts": $$$4,
-    "site/loaders/extensions/PDPColorsNew.ts": $$$5,
-    "site/loaders/extensions/PLPCollectionFlags.ts": $$$6,
-    "site/loaders/extensions/ProductColorSimilars.ts": $$$7,
-    "site/loaders/extensions/ProductShelfCollectionsFlags.ts": $$$8,
-    "site/loaders/icons.ts": $$$9,
+    "site/loaders/clientNavigation.ts": $$$4,
+    "site/loaders/extensions/PDPCollectionFlags.ts": $$$5,
+    "site/loaders/extensions/PDPColorsNew.ts": $$$6,
+    "site/loaders/extensions/PLPCollectionFlags.ts": $$$7,
+    "site/loaders/extensions/ProductColorSimilars.ts": $$$8,
+    "site/loaders/extensions/ProductShelfCollectionsFlags.ts": $$$9,
+    "site/loaders/icons.ts": $$$10,
     "site/loaders/Layouts/ProductCard.tsx": $$$0,
     "site/loaders/List/Sections.tsx": $$$1,
     "site/loaders/MenuInstitucionalLoader.tsx": $$$2,
-    "site/loaders/ourStores.ts": $$$10,
-    "site/loaders/productRecommendations.ts": $$$11,
-    "site/loaders/productSuggestions.ts": $$$12,
-    "site/loaders/searchDocumentsOnMasterData.ts": $$$13,
-    "site/loaders/sizebay.ts": $$$14,
+    "site/loaders/ourStores.ts": $$$11,
+    "site/loaders/productRecommendations.ts": $$$12,
+    "site/loaders/productSuggestions.ts": $$$13,
+    "site/loaders/searchDocumentsOnMasterData.ts": $$$14,
+    "site/loaders/sizebay.ts": $$$15,
   },
   "sections": {
     "site/sections/Animation/Animation.tsx": $$$$$$0,

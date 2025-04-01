@@ -12,7 +12,7 @@ export default function WishlistMessageLogin() {
             Favoritos
           </span>
           <p>
-            <a href="/user-myaccount" class="underline">Faça seu login</a>{" "}
+            <a href="/login" class="underline">Faça seu login</a>{" "}
             <span>
               para visualização a lista de produtos de sua wishlist.
             </span>
