@@ -268,35 +268,34 @@
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
         "__resolveType": "site/sections/Cards/ProductShowcase.tsx",
-        "title": "AS MELHORES LISTRAS",
-        "description": "A Aleatory tem as melhores camisetas listradas, para quem busca uma forma elegante, versátil e ideal para o verão. Garanta já este modelo para seu estilo e renove seu guarda-roupa!",
-        "subtitle": "com estilo",
+        "title": "ESTILO AUTOGRAFADO.",
+        "description": "A Camiseta Aleatory Manga Curta Signed Preta é elegante, com sua simplicidade. Em tons da tendência da moda do Outono, a camiseta é ideal para visuais casuais e descontraídos, usando a Aleatory como a chave do estilo.",
         "cta": {
           "label": "Confira",
           "href": "/322?map=productClusterIds"
         },
         "images": [
           {
-            "label": "Bermudas",
-            "desktop": "https://data.decoassets.com/aleatorystore/8d4b3c14-d483-4adc-8ec6-c5058c6c142f/7.jpg",
-            "mobile": "https://data.decoassets.com/aleatorystore/8d4b3c14-d483-4adc-8ec6-c5058c6c142f/7.jpg",
-            "alt": "Uma pessoa com uma camiseta amarela e uma bermuda listrada. Texto em caixa alta:  Bermudas, Conferir ",
-            "clickUrl": "/masculino/roupas/bermudas-e-shorts",
+            "label": "Suéters",
+            "desktop": "https://assets.decocache.com/aleatorystore/d2d6d6a7-c5f8-4a51-8aa4-c62aca446234/BannerSite_7.jpg",
+            "mobile": "https://assets.decocache.com/aleatorystore/d2d6d6a7-c5f8-4a51-8aa4-c62aca446234/BannerSite_7.jpg",
+            "alt": "O modelo posa vestindo um suéter Aleatory de cor azul marinho e listras bege. O cenário é de Capadócia, na Turquia, contando com os clássicos balões do lugar.",
+            "clickUrl": "/masculino/roupas/sueters-e-malhas",
             "showCart": true
           },
           {
-            "label": "Moletons",
+            "label": "Camisa",
             "desktop": "https://data.decoassets.com/aleatorystore/8ae78f40-f9c7-44bd-8985-9389539bd8a4/9.jpg",
             "mobile": "https://data.decoassets.com/aleatorystore/8ae78f40-f9c7-44bd-8985-9389539bd8a4/9.jpg",
-            "alt": "Um homem branco com um moletom cor de vinho da aleatory, no meio do moletom tem em caixa alta bordado aleatory na cor azul escuro. Texto: Moletons 20%OFF, clique e aproveite",
-            "clickUrl": "/363?map=productClusterIds",
+            "alt": "Um homem branco com uma camisa azul marinho da Aleatory. O modelo posa, segurando o primeiro botão e sorrido para a câmera.",
+            "clickUrl": "/camisa-linho-aleatory-ml-marinho7064-5-1668/p?skuId=72609",
             "showCart": true
           },
           {
-            "desktop": "https://data.decoassets.com/aleatorystore/758b7472-b89c-492f-bd8a-8bb81d13f3fb/8.jpg",
-            "label": "Suéteres e Jaquetas",
-            "mobile": "https://data.decoassets.com/aleatorystore/758b7472-b89c-492f-bd8a-8bb81d13f3fb/8.jpg",
-            "clickUrl": "/322?map=productClusterIds",
+            "desktop": "https://assets.decocache.com/aleatorystore/17eff1e7-fed1-4d3e-8e68-6bcdabc3808b/BannerSite_8.jpg",
+            "label": "Camiseta Aleatory Manga Curta Signed Preta",
+            "mobile": "https://assets.decocache.com/aleatorystore/17eff1e7-fed1-4d3e-8e68-6bcdabc3808b/BannerSite_8.jpg",
+            "clickUrl": "/camiseta-aleatory-manga-curta-signed-preta6404-28-pt/p?skuId=84465",
             "alt": "Uma pessoa de ",
             "showCart": true
           }
