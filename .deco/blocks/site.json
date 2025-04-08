@@ -73,7 +73,13 @@
     "includeScriptsToBody": {
       "includes": []
     },
-    "urlToRunAgainst": "secure.aleatorystore.com.br"
+    "urlToRunAgainst": "secure.aleatorystore.com.br",
+    "matcher": {
+      "__resolveType": "website/matchers/random.ts",
+      "traffic": 0.5
+    },
+    "name": "Teste AB",
+    "enabled": true
   },
   "flavor": {
     "framework": "fresh"

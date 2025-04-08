@@ -25,9 +25,8 @@
             "href": "/black-friday",
             "buttonNegative": true
           },
-          "mobile": "https://assets.decocache.com/aleatorystore/612c958d-aec9-4187-8433-c154b4859099/1A_Mobile.jpg",
-          "desktop": "https://assets.decocache.com/aleatorystore/c15a9c49-1491-47a6-913f-6f61b7dfc76e/1A.jpg",
-          "video": "https://storage.googleapis.com/vitrine_viva/Out_Inv25_BannerVid.mp4"
+          "mobile": "https://assets.decocache.com/aleatorystore/8d21fe36-91f0-4cbb-993f-1bf56b9483db/OutInv25_BannerApp.jpg",
+          "desktop": "https://assets.decocache.com/aleatorystore/ea110c41-0392-41fb-9f48-4942e9277d09/OutInv25_BannerSite.jpg"
         }
       ],
       "arrows": false,
