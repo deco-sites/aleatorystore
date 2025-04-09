@@ -165,23 +165,23 @@
       "section": {
         "__resolveType": "site/sections/Cards/ProductShowcase.tsx",
         "title": "Lançamentos",
-        "description": "Diversos looks e peças para compor um visual dentro das últimas tendências para o Outono e Inverno. Nossa coleção conta com tecidos quentes, estampas casuais e muito conforto para que seu estilo combine com a sua satisfação.",
-        "subtitle": "Preview Outono / Inverno 2025",
+        "description": "Diversos looks e peças para compor um visual dentro das últimas tendências para o Outono. Nossa coleção conta com tecidos quentes, estampas casuais e muito conforto para que seu estilo combine com a sua satisfação.",
+        "subtitle": "Coleção Outono 2025",
         "images": [
           {
-            "label": "Camisa Polo Aleatory Listrada",
-            "desktop": "https://data.decoassets.com/aleatorystore/b2642622-233b-441a-93c0-889efbf5f1a6/5.jpg",
-            "mobile": "https://data.decoassets.com/aleatorystore/b2642622-233b-441a-93c0-889efbf5f1a6/5.jpg",
-            "alt": "Um homem branco com uma camiseta vermelha e calça bege",
-            "clickUrl": "/camisa-polo-aleatory-listrada-prestige-vermelha5000-1e-2-vm/p?skuId=62836",
+            "label": "Calçados | Aleatory Store",
+            "desktop": "https://assets.decocache.com/aleatorystore/86e84e07-b432-448f-9247-983285ef4eb1/Home_Calcados.jpg",
+            "mobile": "https://assets.decocache.com/aleatorystore/86e84e07-b432-448f-9247-983285ef4eb1/Home_Calcados.jpg",
+            "alt": "Uma pilha com calçados Aleatory, dispostos de forma moderna e despojada.",
+            "clickUrl": "/masculino/calcados",
             "showCart": true
           },
           {
-            "label": "Camisas",
-            "desktop": "https://data.decoassets.com/aleatorystore/465b21af-ba61-471c-baf6-9144a3f48f1a/6.jpg",
-            "mobile": "https://data.decoassets.com/aleatorystore/465b21af-ba61-471c-baf6-9144a3f48f1a/6.jpg",
-            "alt": "Um homem branco com uma camisa listrada e calça branca",
-            "clickUrl": "https://www.aleatorystore.com.br/masculino/roupas/camisas",
+            "label": "Bonés Aleatory: estilo casual!",
+            "desktop": "https://assets.decocache.com/aleatorystore/2cd8a4d4-726a-4f54-a740-2ab8c052827e/Home_Bones.jpg",
+            "mobile": "https://assets.decocache.com/aleatorystore/2cd8a4d4-726a-4f54-a740-2ab8c052827e/Home_Bones.jpg",
+            "alt": "Quatro bonés, dispostos de forma despojada em um fundo branco. É possível ver um dos logotipos Aleatory bordado no boné.",
+            "clickUrl": "/masculino/acessorios/bones",
             "showCart": true
           }
         ],
