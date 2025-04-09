@@ -73,7 +73,7 @@
     "includeScriptsToBody": {
       "includes": []
     },
-    "urlToRunAgainst": "secure.aleatorystore.com.br",
+    "urlToRunAgainst": "https://secure.aleatorystore.com.br",
     "matcher": {
       "__resolveType": "website/matchers/random.ts",
       "traffic": 0.5
