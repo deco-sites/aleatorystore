@@ -26,8 +26,8 @@
           "pageOffset": 1,
           "__resolveType": "vtex/loaders/intelligentSearch/productListingPage.ts",
           "selectedFacets": [],
-          "count": 28,
-          "priceFacets": true
+          "priceFacets": true,
+          "count": 36
         },
         "extensions": [
           {
@@ -43,7 +43,8 @@
           "mobile": 2,
           "desktop": 4
         },
-        "variant": "aside"
+        "variant": "aside",
+        "format": "Pagination"
       },
       "startingPage": 1,
       "seoContent": {
