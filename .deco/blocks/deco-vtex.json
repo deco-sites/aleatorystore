@@ -2,7 +2,7 @@
   "__resolveType": "site/apps/deco/vtex.ts",
   "account": "aleatory",
   "platform": "vtex",
-  "publicUrl": "https://secure.aleatorystore.com.br/",
+  "publicUrl": "https://secure.aleatorystore.com.br",
   "salesChannel": "1",
   "defaultSegment": {
     "channelPrivacy": "public"
