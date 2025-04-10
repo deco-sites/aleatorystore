@@ -1,8 +1,8 @@
 import type { ProductListingPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import Pagination from "site/components/search/Pagination.tsx";
 import { AppContext } from "../../apps/site.ts";
 import { SendEventOnView } from "../../components/Analytics.tsx";
-import Icon from "../../components/ui/Icon.tsx";
 import Filters from "../../islands/FIlters.tsx";
 import SearchControls from "../../islands/SearchControls.tsx";
 import { clx } from "../../sdk/clx.ts";
@@ -86,6 +86,8 @@ function Result({
     seoContent.bullets.bullets.length > 0;
   const showSeoText = seoContent.bottomSEO !== undefined &&
     seoContent.bottomSEO.contents.length > 0;
+
+  console.log(pageInfo);
 
   return (
     <>
@@ -171,27 +173,7 @@ function Result({
 
         {format == "Pagination" && (
           <div class="flex justify-center my-4">
-            <div class="join">
-              <a
-                aria-label="previous page link"
-                rel="prev"
-                href={pageInfo.previousPage ?? "#"}
-                class="btn btn-ghost join-item"
-              >
-                <Icon id="ChevronLeft" size={24} strokeWidth={2} />
-              </a>
-              <span class="btn btn-ghost join-item">
-                Page {zeroIndexedOffsetPage + 1}
-              </span>
-              <a
-                aria-label="next page link"
-                rel="next"
-                href={pageInfo.nextPage ?? "#"}
-                class="btn btn-ghost join-item"
-              >
-                <Icon id="ChevronRight" size={24} strokeWidth={2} />
-              </a>
-            </div>
+            <Pagination {...pageInfo} />
           </div>
         )}
         {showSeoText && (
