@@ -30,6 +30,9 @@
     },
     {
       "__resolveType": "site/sections/Miscellaneous/GoToTop.tsx"
+    },
+    {
+      "__resolveType": "site/sections/Miscellaneous/GlobalNeoAsssistant.tsx"
     }
   ],
   "routes": [
