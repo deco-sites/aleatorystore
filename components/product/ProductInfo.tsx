@@ -1,6 +1,7 @@
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { Device } from "apps/website/matchers/device.ts";
+import SmartBanner from "site/components/product/SmartBanner.tsx";
 import { SendEventOnView } from "../../components/Analytics.tsx";
 import ProductAccordionInfo from "../../islands/ProductAccordionInfo.tsx";
 import ProductGiftLink from "../../islands/ProductGiftLink.tsx";
@@ -159,6 +160,9 @@ function ProductInfo(
       {/* Product Gift */}
       <div class="mt-4 sm:mt-6">
         <ProductGiftLink />
+      </div>
+      <div>
+        <SmartBanner />
       </div>
       {/* Description card */}
       <div class="mt-4 sm:mt-6 max-w-[373px]">
