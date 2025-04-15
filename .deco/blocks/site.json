@@ -79,7 +79,7 @@
     "urlToRunAgainst": "https://secure.aleatorystore.com.br",
     "matcher": {
       "__resolveType": "website/matchers/random.ts",
-      "traffic": 0.5
+      "traffic": 0.9
     },
     "name": "Teste AB",
     "enabled": true
