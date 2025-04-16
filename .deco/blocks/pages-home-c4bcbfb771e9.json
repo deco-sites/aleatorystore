@@ -11,6 +11,12 @@
     {
       "__resolveType": "website/sections/Rendering/Lazy.tsx",
       "section": {
+        "__resolveType": "Header - 03"
+      }
+    },
+    {
+      "__resolveType": "website/sections/Rendering/Lazy.tsx",
+      "section": {
         "__resolveType": "site/sections/PopupNewsletter.tsx",
         "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/693b829e-e682-48b4-9e93-acffd8490172"
       }
@@ -269,11 +275,11 @@
       "section": {
         "__resolveType": "site/sections/Cards/ProductShowcase.tsx",
         "title": "ESTILO AUTOGRAFADO.",
-        "description": "A Camiseta Aleatory Manga Curta Signed Preta é elegante, com sua simplicidade. Em tons da tendência da moda do Outono, a camiseta é ideal para visuais casuais e descontraídos, usando a Aleatory como a chave do estilo.",
         "cta": {
           "label": "Confira",
           "href": "/322?map=productClusterIds"
         },
+        "description": "A Camiseta Aleatory Manga Curta Signed Preta é elegante, com sua simplicidade. Em tons da tendência da moda do Outono, a camiseta é ideal para visuais casuais e descontraídos, usando a Aleatory como a chave do estilo.",
         "images": [
           {
             "label": "Suéters",

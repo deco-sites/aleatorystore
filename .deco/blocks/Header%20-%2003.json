@@ -19,7 +19,7 @@
         "@type": "SiteNavigationElement",
         "image": [
           {
-            "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/b99dfb62-2d03-4151-8320-a3e1d79e889b",
+            "url": "https://assets.decocache.com/aleatorystore/ff02b7dd-31cf-4ff8-966f-551d11259f82/Categorias_Menu2.jpg",
             "embedUrl": "/lancamentos",
             "contentUrl": "Polos",
             "thumbnailUrl": "/lancamentos"
@@ -253,8 +253,10 @@
           {
             "contentUrl": "AQUI VOCÊ ENCONTRA O SEU LOOK DO DIA A DIA.",
             "thumbnailUrl": "/masculino/roupas/polos",
-            "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/39487eff-3518-40b8-ac5f-851bfcf3c7b6",
-            "embedUrl": "/masculino/roupas/polos"
+            "url": "https://assets.decocache.com/aleatorystore/b453b033-5207-4b81-b4e8-ce203da1f836/Categorias_Menu1.jpg",
+            "embedUrl": "/masculino/roupas/polos",
+            "video": null,
+            "image": null
           }
         ],
         "children": [
@@ -613,7 +615,7 @@
           {
             "contentUrl": "POLOS",
             "thumbnailUrl": "/masculino/roupas/polos",
-            "url": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/11384/18f7f55f-75f0-4623-b725-e24c2c15b3f0",
+            "url": "https://assets.decocache.com/aleatorystore/4688956c-89b9-46ad-ba64-6d5a99f0c8ee/Categorias_Menu3.jpg",
             "embedUrl": "/masculino/roupas/polos"
           }
         ],
@@ -689,7 +691,11 @@
                 "url": "/masculino/roupas/plus-size/polos"
               }
             ],
-            "image": []
+            "image": [
+              {
+                "url": "https://assets.decocache.com/aleatorystore/4688956c-89b9-46ad-ba64-6d5a99f0c8ee/Categorias_Menu3.jpg"
+              }
+            ]
           }
         ]
       },
